@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-P8G6WGL4');</script>
+    <!-- End Google Tag Manager -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تمارين الوحدة الخامسة | رياضيات 121</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- MathJax -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+        /* Quiz Specific Customizations */
+        .slide {
+            display: none;
+        }
+
+        .slide.active {
+            display: block;
+        }
+
+        .exercise {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px dashed var(--border);
+        }
+
+        .exercise:last-child {
+            border-bottom: none;
+        }
+
+        .question {
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .options {
+            list-style: none;
+            padding: 0;
+            display: grid;
+            gap: 1rem;
+        }
+
+        .options label {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            padding: 1rem;
+            background: var(--bg-body);
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            transition: all 0.2s;
+        }
+
+        .options label:hover {
+            background: white;
+            border-color: var(--accent);
+            transform: translateX(-5px);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .options input[type="radio"] {
+            margin-left: 1rem;
+            width: 1.2rem;
+            height: 1.2rem;
+            accent-color: var(--primary);
+        }
+
+        .feedback {
+            margin-top: 1rem;
+            font-weight: bold;
+            padding: 1rem;
+            border-radius: 8px;
+            display: none;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .feedback.correct {
+            background-color: var(--color-success-bg);
+            color: #166534;
+            border: 1px solid var(--color-success-border);
+        }
+
+        .feedback.incorrect {
+            background-color: #FEF2F2;
+            color: #991B1B;
+            border: 1px solid #FCA5A5;
+        }
+
+        .nav-buttons {
+            margin-top: 2rem;
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+            border-top: 2px solid var(--border);
+            padding-top: 1.5rem;
+        }
+
+        .nav-buttons button {
+            padding: 0.75rem 2rem;
+            font-family: inherit;
+            font-weight: bold;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 1rem;
+        }
+
+        .nav-buttons button:not(:disabled) {
+            background: var(--primary);
+            color: white;
+        }
+
+        .nav-buttons button:not(:disabled):hover {
+            background: var(--primary-light);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(15, 23, 42, 0.15);
+        }
+
+        .nav-buttons button:disabled {
+            background: #CBD5E1;
+            color: #94A3B8;
+            cursor: not-allowed;
+        }
+
+        .reveal-btn {
+            background-color: var(--text-muted) !important;
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border: none;
+            border-radius: 6px;
+            margin-top: 0.5rem;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P8G6WGL4" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-content">
+            <a href="index.html" class="nav-logo">
+                <img src="white__logo.svg" alt="Math 121 Logo">
+            </a>
+            <button class="hamburger" aria-label="Toggle navigation">☰</button>
+            <ul class="nav-links">
+                <li><a href="index.html">الرئيسية</a></li>
+                <li><a href="index.html#units">الوحدات</a></li>
+                <li><a href="index.html#exercises">التمارين</a></li>
+                <li><a href="index.html#book-section">الكتاب</a></li>
+                <li><a href="index.html#presentations-section">عروض تقديمية</a></li>
+                <li><a href="index.html#worksheets-section">أوراق عمل</a></li>
+                <li><a href="index.html#qbanks-section">بنوك الأسئلة</a></li>
+                <li><a href="ex+.html">تمارين إثرائية</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="hero" style="padding: 3rem 0; margin-bottom: 0;">
+        <div class="container">
+            <h1>تمارين الوحدة الخامسة</h1>
+            <p>قواعد الاشتقاق وتطبيقاته</p>
+        </div>
+    </header>
+
+    <div class="container" style="padding: 4rem 0;">
+
+        <!-- Slide 1 -->
+        <div class="slide active" id="slide1">
+            <div class="exercise">
+                <div class="question">1. مشتقة الدالة الثابتة \(f(x) = 7\) هي:</div>
+                <ul class="options">
+                    <li><label><input type="radio" name="q1" onchange="checkAnswer(this, false)"> \(x\)</label></li>
+                    <li><label><input type="radio" name="q1" onchange="checkAnswer(this, false)"> \(7\)</label></li>
+                    <li><label><input type="radio" name="q1" onchange="checkAnswer(this, true)"> \(0\)</label></li>
+                    <li><label><input type="radio" name="q1" onchange="checkAnswer(this, false)"> \(1\)</label></li>
+                </ul>
+                <div class="feedback"></div>
+            </div>
+            <div class="exercise">
+                <div class="question">2. مشتقة الدالة \(f(x) = x^5\) هي:</div>
+                <ul class="options">
+                    <li><label><input type="radio" name="q2" onchange="checkAnswer(this, false)"> \(x^4\)</label></li>
+                    <li><label><input type="radio" name="q2" onchange="checkAnswer(this, true)"> \(5x^4\)</label></li>
+                    <li><label><input type="radio" name="q2" onchange="checkAnswer(this, false)"> \(5x^5\)</label></li>
+                    <li><label><input type="radio" name="q2" onchange="checkAnswer(this, false)">
+                            \(\frac{x^6}{6}\)</label></li>
+                </ul>
+                <div class="feedback"></div>
+            </div>
+            <div class="nav-buttons">
+                <button disabled>السابق</button>
+                <button onclick="showSlide(2)">التالي</button>
+            </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="slide" id="slide2">
+            <div class="exercise">
+                <div class="question">3. مشتقة الدالة \(f(x) = 3x + 9\) هي:</div>
+                <ul class="options">
+                    <li><label><input type="radio" name="q3" onchange="checkAnswer(this, false)"> \(3x\)</label></li>
+                    <li><label><input type="radio" name="q3" onchange="checkAnswer(this, false)"> \(9\)</label></li>
+                    <li><label><input type="radio" name="q3" onchange="checkAnswer(this, true)"> \(3\)</label></li>
+                    <li><label><input type="radio" name="q3" onchange="checkAnswer(this, false)"> \(0\)</label></li>
+                </ul>
+                <div class="feedback"></div>
+            </div>
+            <div class="exercise">
+                <div class="question">4. إذا كانت \(y = \sin(x)\)، فإن المشتقة \(y'\) هي:</div>
+                <ul class="options">
+                    <li><label><input type="radio" name="q4" onchange="checkAnswer(this, false)"> \(-\cos(x)\)</label>
+                    </li>
+                    <li><label><input type="radio" name="q4" onchange="checkAnswer(this, true)"> \(\cos(x)\)</label>
+                    </li>
+                    <li><label><input type="radio" name="q4" onchange="checkAnswer(this, false)"> \(\tan(x)\)</label>
+                    </li>
+                    <li><label><input type="radio" name="q4" onchange="checkAnswer(this, false)"> \(\sin(x)\)</label>
+                    </li>
+                </ul>
+                <div class="feedback"></div>
+            </div>
+            <div class="nav-buttons">
+                <button onclick="showSlide(1)">السابق</button>
+                <button onclick="showSlide(3)">التالي</button>
+            </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="slide" id="slide3">
+            <div class="exercise">
+                <div class="question">5. مشتقة الدالة الأسية \(f(x) = e^{2x}\) هي:</div>
+                <ul class="options">
+                    <li><label><input type="radio" name="q5" onchange="checkAnswer(this, false)"> \(e^{2x}\)</label>
+                    </li>
+                    <li><label><input type="radio" name="q5" onchange="checkAnswer(this, true)"> \(2e^{2x}\)</label>
+                    </li>
+                    <li><label><input type="radio" name="q5" onchange="checkAnswer(this, false)"> \(2x e^{2x}\)</label>
+                    </li>
+                    <li><label><input type="radio" name="q5" onchange="checkAnswer(this, false)">
+                            \(\frac{1}{2}e^{2x}\)</label></li>
+                </ul>
+                <div class="feedback"></div>
+            </div>
+            <div class="exercise">
+                <div class="question">6. مشتقة الدالة اللوغاريتمية \(y = \ln(x)\) هي:</div>
+                <ul class="options">
+                    <li><label><input type="radio" name="q6" onchange="checkAnswer(this, false)"> \(x\)</label></li>
+                    <li><label><input type="radio" name="q6" onchange="checkAnswer(this, false)"> \(e^x\)</label></li>
+                    <li><label><input type="radio" name="q6" onchange="checkAnswer(this, true)"> \(\frac{1}{x}\)</label>
+                    </li>
+                    <li><label><input type="radio" name="q6" onchange="checkAnswer(this, false)"> \(\ln(x)\)</label>
+                    </li>
+                </ul>
+                <div class="feedback"></div>
+            </div>
+            <div class="nav-buttons">
+                <button onclick="showSlide(2)">السابق</button>
+                <button onclick="showSlide(4)">التالي</button>
+            </div>
+        </div>
+
+        <!-- Slide 4 -->
+        <div class="slide" id="slide4">
+            <div class="exercise">
+                <div class="question">7. بتطبيق قاعدة السلسلة، مشتقة \(y = (2x+1)^3\) هي:</div>
+                <ul class="options">
+                    <li><label><input type="radio" name="q7" onchange="checkAnswer(this, false)"> \(3(2x+1)^2\)</label>
+                    </li>
+                    <li><label><input type="radio" name="q7" onchange="checkAnswer(this, true)"> \(6(2x+1)^2\)</label>
+                    </li>
+                    <li><label><input type="radio" name="q7" onchange="checkAnswer(this, false)"> \((2x+1)^2\)</label>
+                    </li>
+                    <li><label><input type="radio" name="q7" onchange="checkAnswer(this, false)"> \(2(2x+1)^2\)</label>
+                    </li>
+                </ul>
+                <div class="feedback"></div>
+            </div>
+            <div class="exercise">
+                <div class="question">8. مشتقة حاصل الضرب \(y = x \sin(x)\) هي:</div>
+                <ul class="options">
+                    <li><label><input type="radio" name="q8" onchange="checkAnswer(this, false)"> \(\cos(x)\)</label>
+                    </li>
+                    <li><label><input type="radio" name="q8" onchange="checkAnswer(this, true)"> \(\sin(x) +
+                            x\cos(x)\)</label></li>
+                    <li><label><input type="radio" name="q8" onchange="checkAnswer(this, false)"> \(x\cos(x) -
+                            \sin(x)\)</label></li>
+                    <li><label><input type="radio" name="q8" onchange="checkAnswer(this, false)"> \(x\cos(x)\)</label>
+                    </li>
+                </ul>
+                <div class="feedback"></div>
+            </div>
+            <div class="nav-buttons">
+                <button onclick="showSlide(3)">السابق</button>
+                <button onclick="showSlide(5)">التالي</button>
+            </div>
+        </div>
+
+        <!-- Slide 5 -->
+        <div class="slide" id="slide5">
+            <div class="exercise">
+                <div class="question">9. مشتقة دالة المقلوب \(f(x) = \frac{1}{x}\) هي:</div>
+                <ul class="options">
+                    <li><label><input type="radio" name="q9" onchange="checkAnswer(this, true)">
+                            \(-\frac{1}{x^2}\)</label></li>
+                    <li><label><input type="radio" name="q9" onchange="checkAnswer(this, false)"> \(\ln(x)\)</label>
+                    </li>
+                    <li><label><input type="radio" name="q9" onchange="checkAnswer(this, false)">
+                            \(\frac{1}{x^2}\)</label></li>
+                    <li><label><input type="radio" name="q9" onchange="checkAnswer(this, false)"> \(-x^{-1}\)</label>
+                    </li>
+                </ul>
+                <div class="feedback"></div>
+            </div>
+            <div class="exercise">
+                <div class="question">10. ميل المماس للمنحنى \(y = x^2\) عند النقطة \(x=3\) هو:</div>
+                <ul class="options">
+                    <li><label><input type="radio" name="q10" onchange="checkAnswer(this, true)"> \(6\)</label></li>
+                    <li><label><input type="radio" name="q10" onchange="checkAnswer(this, false)"> \(9\)</label></li>
+                    <li><label><input type="radio" name="q10" onchange="checkAnswer(this, false)"> \(3\)</label></li>
+                    <li><label><input type="radio" name="q10" onchange="checkAnswer(this, false)"> \(2\)</label></li>
+                </ul>
+                <div class="feedback"></div>
+            </div>
+            <div class="nav-buttons">
+                <button onclick="showSlide(4)">السابق</button>
+                <button onclick="showSlide(6)">التالي</button>
+            </div>
+        </div>
+
+        <!-- Slide 6 -->
+        <div class="slide" id="slide6">
+            <div class="exercise">
+                <div class="question">11. مشتقة الدالة \(y = \tan(x)\) هي:</div>
+                <ul class="options">
+                    <li><label><input type="radio" name="q11" onchange="checkAnswer(this, false)"> \(\cot(x)\)</label>
+                    </li>
+                    <li><label><input type="radio" name="q11" onchange="checkAnswer(this, true)"> \(\sec^2(x)\)</label>
+                    </li>
+                    <li><label><input type="radio" name="q11" onchange="checkAnswer(this, false)"> \(\csc^2(x)\)</label>
+                    </li>
+                    <li><label><input type="radio" name="q11" onchange="checkAnswer(this, false)">
+                            \(\sec(x)\tan(x)\)</label></li>
+                </ul>
+                <div class="feedback"></div>
+            </div>
+            <div class="exercise">
+                <div class="question">12. إذا كانت \(y = \sqrt{x}\)، فإن \(y'\) تساوي:</div>
+                <ul class="options">
+                    <li><label><input type="radio" name="q12" onchange="checkAnswer(this, false)">
+                            \(\frac{1}{\sqrt{x}}\)</label></li>
+                    <li><label><input type="radio" name="q12" onchange="checkAnswer(this, true)">
+                            \(\frac{1}{2\sqrt{x}}\)</label></li>
+                    <li><label><input type="radio" name="q12" onchange="checkAnswer(this, false)"> \(2\sqrt{x}\)</label>
+                    </li>
+                    <li><label><input type="radio" name="q12" onchange="checkAnswer(this, false)">
+                            \(\frac{1}{2}x\)</label></li>
+                </ul>
+                <div class="feedback"></div>
+            </div>
+            <div class="nav-buttons">
+                <button onclick="showSlide(5)">السابق</button>
+                <button onclick="showSlide(7)">التالي</button>
+            </div>
+        </div>
+
+        <!-- Slide 7 -->
+        <div class="slide" id="slide7">
+            <div class="exercise">
+                <div class="question">13. المشتقة الثانية للدالة \(f(x) = x^3\) هي:</div>
+                <ul class="options">
+                    <li><label><input type="radio" name="q13" onchange="checkAnswer(this, false)"> \(3x^2\)</label></li>
+                    <li><label><input type="radio" name="q13" onchange="checkAnswer(this, true)"> \(6x\)</label></li>
+                    <li><label><input type="radio" name="q13" onchange="checkAnswer(this, false)"> \(x\)</label></li>
+                    <li><label><input type="radio" name="q13" onchange="checkAnswer(this, false)"> \(6\)</label></li>
+                </ul>
+                <div class="feedback"></div>
+            </div>
+            <div class="exercise">
+                <div class="question">14. في الاشتقاق الضمني للمعادلة \(x^2 + y^2 = 1\)، فإن \(y'\) تساوي:</div>
+                <ul class="options">
+                    <li><label><input type="radio" name="q14" onchange="checkAnswer(this, true)">
+                            \(-\frac{x}{y}\)</label></li>
+                    <li><label><input type="radio" name="q14" onchange="checkAnswer(this, false)">
+                            \(\frac{x}{y}\)</label></li>
+                    <li><label><input type="radio" name="q14" onchange="checkAnswer(this, false)"> \(2x\)</label></li>
+                    <li><label><input type="radio" name="q14" onchange="checkAnswer(this, false)">
+                            \(\frac{y}{x}\)</label></li>
+                </ul>
+                <div class="feedback"></div>
+            </div>
+            <div class="nav-buttons">
+                <button onclick="showSlide(6)">السابق</button>
+                <button onclick="showSlide(8)">التالي</button>
+            </div>
+        </div>
+
+        <!-- Slide 8 -->
+        <div class="slide" id="slide8">
+            <div class="exercise">
+                <div class="question">15. النقاط الحرجة هي قيم \(x\) التي تكون عندها المشتقة الأولى:</div>
+                <ul class="options">
+                    <li><label><input type="radio" name="q15" onchange="checkAnswer(this, false)"> موجبة دائماً</label>
+                    </li>
+                    <li><label><input type="radio" name="q15" onchange="checkAnswer(this, true)"> تساوي صفراً أو غير
+                            معرفة</label></li>
+                    <li><label><input type="radio" name="q15" onchange="checkAnswer(this, false)"> سالبة دائماً</label>
+                    </li>
+                    <li><label><input type="radio" name="q15" onchange="checkAnswer(this, false)"> تساوي صفراً
+                            فقط</label></li>
+                </ul>
+                <div class="feedback"></div>
+            </div>
+            <div class="exercise">
+                <div class="question">16. إذا كانت \(f'(x) > 0\) في فترة ما، فإن الدالة \(f\) تكون:</div>
+                <ul class="options">
+                    <li><label><input type="radio" name="q16" onchange="checkAnswer(this, true)"> متزايدة</label></li>
+                    <li><label><input type="radio" name="q16" onchange="checkAnswer(this, false)"> متناقصة</label></li>
+                    <li><label><input type="radio" name="q16" onchange="checkAnswer(this, false)"> ثابتة</label></li>
+                    <li><label><input type="radio" name="q16" onchange="checkAnswer(this, false)"> مقعرة</label></li>
+                </ul>
+                <div class="feedback"></div>
+            </div>
+            <div class="nav-buttons">
+                <button onclick="showSlide(7)">السابق</button>
+                <button onclick="showSlide(9)">التالي</button>
+            </div>
+        </div>
+
+        <!-- Slide 9 -->
+        <div class="slide" id="slide9">
+            <div class="exercise">
+                <div class="question">17. إذا كانت \(f''(c) < 0\) (سالبة) عند نقطة حرجة، فإن النقطة:</div>
+                        <ul class="options">
+                            <li><label><input type="radio" name="q17" onchange="checkAnswer(this, false)"> صغرى
+                                    محلية</label></li>
+                            <li><label><input type="radio" name="q17" onchange="checkAnswer(this, true)"> عظمى
+                                    محلية</label></li>
+                            <li><label><input type="radio" name="q17" onchange="checkAnswer(this, false)"> نقطة
+                                    انعطاف</label></li>
+                            <li><label><input type="radio" name="q17" onchange="checkAnswer(this, false)"> نقطة عدم
+                                    اتصال</label></li>
+                        </ul>
+                        <div class="feedback"></div>
+                </div>
+                <div class="exercise">
+                    <div class="question">18. يكون المنحنى مقعراً للأعلى (\(\cup\)) عندما تكون المشتقة الثانية:</div>
+                    <ul class="options">
+                        <li><label><input type="radio" name="q18" onchange="checkAnswer(this, true)"> موجبة
+                                (\(>0\))</label></li>
+                        <li><label><input type="radio" name="q18" onchange="checkAnswer(this, false)"> سالبة (\(<0\))
+                                    <li><label><input type="radio" name="q18" onchange="checkAnswer(this, false)">
+                                        صفراً</label>
+                        </li>
+                        <li><label><input type="radio" name="q18" onchange="checkAnswer(this, false)"> غير
+                                موجودة</label></li>
+                    </ul>
+                    <div class="feedback"></div>
+                </div>
+                <div class="nav-buttons">
+                    <button onclick="showSlide(8)">السابق</button>
+                    <button onclick="showSlide(10)">التالي</button>
+                </div>
+            </div>
+
+            <!-- Slide 10 -->
+            <div class="slide" id="slide10">
+                <div class="exercise">
+                    <div class="question">19. مشتقة الدالة الأسية العامة \(y = 2^x\) هي:</div>
+                    <ul class="options">
+                        <li><label><input type="radio" name="q19" onchange="checkAnswer(this, false)"> \(x
+                                2^{x-1}\)</label></li>
+                        <li><label><input type="radio" name="q19" onchange="checkAnswer(this, true)"> \(2^x
+                                \ln(2)\)</label></li>
+                        <li><label><input type="radio" name="q19" onchange="checkAnswer(this, false)"> \(2^x\)</label>
+                        </li>
+                        <li><label><input type="radio" name="q19" onchange="checkAnswer(this, false)"> \(\frac{2^x}{\ln
+                                2}\)</label></li>
+                    </ul>
+                    <div class="feedback"></div>
+                </div>
+                <div class="exercise">
+                    <div class="question">20. نقطة الانعطاف هي النقطة التي:</div>
+                    <ul class="options">
+                        <li><label><input type="radio" name="q20" onchange="checkAnswer(this, false)"> تكون مشتقتها
+                                الأولى صفراً</label></li>
+                        <li><label><input type="radio" name="q20" onchange="checkAnswer(this, false)"> تكون الدالة غير
+                                متصلة عندها</label></li>
+                        <li><label><input type="radio" name="q20" onchange="checkAnswer(this, true)"> يغير المنحنى تقعره
+                                عندها</label></li>
+                        <li><label><input type="radio" name="q20" onchange="checkAnswer(this, false)"> تكون مشتقتها
+                                الثانية موجبة</label></li>
+                    </ul>
+                    <div class="feedback"></div>
+                </div>
+                <div class="nav-buttons">
+                    <button onclick="showSlide(9)">السابق</button>
+                    <button disabled>التالي</button>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <p>&copy; 2025 الصفحة الالكترونية لمقرر الرياضيات (رياض 121) - تطوير بواسطة نواف العنزي </p>
+                <p style="font-size: 0.8rem; margin-top: 0.5rem; opacity: 0.7;">آخر تحديث: <span
+                        id="last-updated-date"></span></p>
+                <div
+                    style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.8; display: flex; justify-content: center; align-items: center; gap: 5px;">
+                    <span>👁️ عدد الزيارات: </span>
+                    <span id="visits-count" style="font-weight: bold; color: var(--accent);">جاري الحساب...</span>
+                </div>
+            </div>
+        </footer>
+
+        <script>
+            function showSlide(n) {
+                document.querySelectorAll('.slide').forEach(s => s.classList.remove('active'));
+                document.getElementById('slide' + n).classList.add('active');
+                window.scrollTo(0, 0);
+            }
+
+            function checkAnswer(radio, isCorrect) {
+                const feedback = radio.closest('.exercise').querySelector('.feedback');
+                if (isCorrect) {
+                    feedback.textContent = "إجابة صحيحة! أحسنت.";
+                    feedback.className = "feedback correct";
+                } else {
+                    feedback.textContent = "إجابة خاطئة، حاول مرة أخرى.";
+                    feedback.className = "feedback incorrect";
+                }
+                feedback.style.display = 'block';
+
+                if (window.MathJax && MathJax.typesetPromise) {
+                    MathJax.typesetPromise();
+                }
+            }
+        </script>
+        <script src="main.js"></script>
+</body>
+
+</html>

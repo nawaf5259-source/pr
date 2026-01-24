@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-P8G6WGL4');</script>
+    <!-- End Google Tag Manager -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تمارين الوحدة الثالثة | رياضيات 121</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- MathJax -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+        /* Quiz Specific Customizations */
+        .slide {
+            display: none;
+        }
+
+        .slide.active {
+            display: block;
+        }
+
+        .exercise {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px dashed var(--border);
+        }
+
+        .exercise:last-child {
+            border-bottom: none;
+        }
+
+        .question {
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .options {
+            list-style: none;
+            padding: 0;
+            display: grid;
+            gap: 1rem;
+        }
+
+        .options label {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            padding: 1rem;
+            background: var(--bg-body);
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            transition: all 0.2s;
+        }
+
+        .options label:hover {
+            background: white;
+            border-color: var(--accent);
+            transform: translateX(-5px);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .options input[type="radio"] {
+            margin-left: 1rem;
+            width: 1.2rem;
+            height: 1.2rem;
+            accent-color: var(--primary);
+        }
+
+        .feedback {
+            margin-top: 1rem;
+            font-weight: bold;
+            padding: 1rem;
+            border-radius: 8px;
+            display: none;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .feedback.correct {
+            background-color: var(--color-success-bg);
+            color: #166534;
+            border: 1px solid var(--color-success-border);
+        }
+
+        .feedback.incorrect {
+            background-color: #FEF2F2;
+            color: #991B1B;
+            border: 1px solid #FCA5A5;
+        }
+
+        .nav-buttons {
+            margin-top: 2rem;
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+            border-top: 2px solid var(--border);
+            padding-top: 1.5rem;
+        }
+
+        .nav-buttons button {
+            padding: 0.75rem 2rem;
+            font-family: inherit;
+            font-weight: bold;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 1rem;
+        }
+
+        .nav-buttons button:not(:disabled) {
+            background: var(--primary);
+            color: white;
+        }
+
+        .nav-buttons button:not(:disabled):hover {
+            background: var(--primary-light);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(15, 23, 42, 0.15);
+        }
+
+        .nav-buttons button:disabled {
+            background: #CBD5E1;
+            color: #94A3B8;
+            cursor: not-allowed;
+        }
+
+        .reveal-btn {
+            background-color: var(--text-muted) !important;
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border: none;
+            border-radius: 6px;
+            margin-top: 0.5rem;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P8G6WGL4" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-content">
+            <a href="index.html" class="nav-logo">
+                <img src="white__logo.svg" alt="Math 121 Logo">
+            </a>
+            <button class="hamburger" aria-label="Toggle navigation">☰</button>
+            <ul class="nav-links">
+                <li><a href="index.html">الرئيسية</a></li>
+                <li><a href="index.html#units">الوحدات</a></li>
+                <li><a href="index.html#exercises">التمارين</a></li>
+                <li><a href="index.html#book-section">الكتاب</a></li>
+                <li><a href="index.html#presentations-section">عروض تقديمية</a></li>
+                <li><a href="index.html#worksheets-section">أوراق عمل</a></li>
+                <li><a href="index.html#qbanks-section">بنوك الأسئلة</a></li>
+                <li><a href="ex+.html">تمارين إثرائية</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="hero" style="padding: 3rem 0; margin-bottom: 0;">
+        <div class="container">
+            <h1>تمارين الوحدة الثالثة</h1>
+            <p>المعادلات والأنظمة الخطية</p>
+        </div>
+    </header>
+
+    <div class="container" style="padding: 4rem 0;">
+
+        <!-- Slide 1 -->
+        <div class="slide active" id="slide1">
+            <div class="exercise">
+                <div class="question">1. حل المعادلة التالية \(2x - 10 = 0\):</div>
+                <ul class="options">
+                    <li><label><input type="radio" name="q1" onchange="checkAnswer(this, false)"> \(x=2\)</label></li>
+                    <li><label><input type="radio" name="q1" onchange="checkAnswer(this, true)"> \(x=5\)</label></li>
+                    <li><label><input type="radio" name="q1" onchange="checkAnswer(this, false)"> \(x=6\)</label></li>
+                    <li><label><input type="radio" name="q1" onchange="checkAnswer(this, false)"> \(x=4\)</label></li>
+                </ul>
+                <div class="feedback"></div>
+            </div>
+            <div class="exercise">
+                <div class="question">2. حل المعادلة التالية \(3x = x + 2\):</div>
+                <ul class="options">
+                    <li><label><input type="radio" name="q2" onchange="checkAnswer(this, true)"> \(x=1\)</label></li>
+                    <li><label><input type="radio" name="q2" onchange="checkAnswer(this, false)"> \(x=2\)</label></li>
+                    <li><label><input type="radio" name="q2" onchange="checkAnswer(this, false)"> \(x=3\)</label></li>
+                    <li><label><input type="radio" name="q2" onchange="checkAnswer(this, false)"> \(x=4\)</label></li>
+                </ul>
+                <div class="feedback"></div>
+            </div>
+            <div class="nav-buttons">
+                <button disabled>السابق</button>
+                <button onclick="showSlide(2)">التالي</button>
+            </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="slide" id="slide2">
+            <div class="exercise">
+                <div class="question">3. حل المعادلة التالية \(x - 4 = 9\):</div>
+                <ul class="options">
+                    <li><label><input type="radio" name="q3" onchange="checkAnswer(this, true)"> \(x=13\)</label></li>
+                    <li><label><input type="radio" name="q3" onchange="checkAnswer(this, false)"> \(x=9\)</label></li>
+                    <li><label><input type="radio" name="q3" onchange="checkAnswer(this, false)"> \(x=4\)</label></li>
+                    <li><label><input type="radio" name="q3" onchange="checkAnswer(this, false)"> \(x=5\)</label></li>
+                </ul>
+                <div class="feedback"></div>
+            </div>
+            <div class="exercise">
+                <div class="question">4. حل المعادلة التالية \(x^2 + 8x + 15 = 0\):</div>
+                <ul class="options">
+                    <li><label><input type="radio" name="q4" onchange="checkAnswer(this, true)"> \(x=-3, x=-5\)</label>
+                    </li>
+                    <li><label><input type="radio" name="q4" onchange="checkAnswer(this, false)"> \(x=3, x=5\)</label>
+                    </li>
+                    <li><label><input type="radio" name="q4" onchange="checkAnswer(this, false)"> \(x=-3, x=5\)</label>
+                    </li>
+                    <li><label><input type="radio" name="q4" onchange="checkAnswer(this, false)"> \(x=3, x=-5\)</label>
+                    </li>
+                </ul>
+                <div class="feedback"></div>
+            </div>
+            <div class="nav-buttons">
+                <button onclick="showSlide(1)">السابق</button>
+                <button onclick="showSlide(3)">التالي</button>
+            </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="slide" id="slide3">
+            <div class="exercise">
+                <div class="question">5. حل نظام المعادلات \(\begin{cases} 3x + 2y = 8 \\ 2x + y = 5 \end{cases}\):
+                </div>
+                <ul class="options">
+                    <li><label><input type="radio" name="q5" onchange="checkAnswer(this, true)"> \(x=2, y=1\)</label>
+                    </li>
+                    <li><label><input type="radio" name="q5" onchange="checkAnswer(this, false)"> \(x=-2, y=1\)</label>
+                    </li>
+                    <li><label><input type="radio" name="q5" onchange="checkAnswer(this, false)"> \(x=2, y=-1\)</label>
+                    </li>
+                    <li><label><input type="radio" name="q5" onchange="checkAnswer(this, false)"> \(x=1, y=2\)</label>
+                    </li>
+                </ul>
+                <div class="feedback"></div>
+            </div>
+            <div class="exercise">
+                <div class="question">6. حل المعادلة التالية \(2x + 30 = 0\):</div>
+                <ul class="options">
+                    <li><label><input type="radio" name="q6" onchange="checkAnswer(this, true)"> \(x=-15\)</label></li>
+                    <li><label><input type="radio" name="q6" onchange="checkAnswer(this, false)"> \(x=15\)</label></li>
+                    <li><label><input type="radio" name="q6" onchange="checkAnswer(this, false)"> \(x=30\)</label></li>
+                    <li><label><input type="radio" name="q6" onchange="checkAnswer(this, false)"> \(x=2\)</label></li>
+                </ul>
+                <div class="feedback"></div>
+            </div>
+            <div class="nav-buttons">
+                <button onclick="showSlide(2)">السابق</button>
+                <button onclick="showSlide(4)">التالي</button>
+            </div>
+        </div>
+
+        <!-- Slide 4 -->
+        <div class="slide" id="slide4">
+            <div class="exercise">
+                <div class="question">7. حل المعادلة التالية \(4x = 2x + 2\):</div>
+                <ul class="options">
+                    <li><label><input type="radio" name="q7" onchange="checkAnswer(this, true)"> \(x=1\)</label></li>
+                    <li><label><input type="radio" name="q7" onchange="checkAnswer(this, false)"> \(x=2\)</label></li>
+                    <li><label><input type="radio" name="q7" onchange="checkAnswer(this, false)"> \(x=-2\)</label></li>
+                    <li><label><input type="radio" name="q7" onchange="checkAnswer(this, false)"> \(x=-1\)</label></li>
+                </ul>
+                <div class="feedback"></div>
+            </div>
+            <div class="exercise">
+                <div class="question">8. حل المعادلة التالية \(x^2 + 13x + 36 = 0\):</div>
+                <ul class="options">
+                    <li><label><input type="radio" name="q8" onchange="checkAnswer(this, true)"> \(x=-9, x=-4\)</label>
+                    </li>
+                    <li><label><input type="radio" name="q8" onchange="checkAnswer(this, false)"> \(x=9, x=4\)</label>
+                    </li>
+                    <li><label><input type="radio" name="q8" onchange="checkAnswer(this, false)"> \(x=5, x=4\)</label>
+                    </li>
+                    <li><label><input type="radio" name="q8" onchange="checkAnswer(this, false)"> \(x=-5, x=-4\)</label>
+                    </li>
+                </ul>
+                <div class="feedback"></div>
+            </div>
+            <div class="nav-buttons">
+                <button onclick="showSlide(3)">السابق</button>
+                <button onclick="showSlide(5)">التالي</button>
+            </div>
+        </div>
+
+        <!-- Slide 5 -->
+        <div class="slide" id="slide5">
+            <div class="exercise">
+                <div class="question">9. حل المعادلة التالية \(x^2 + 5x - 14 = 0\):</div>
+                <ul class="options">
+                    <li><label><input type="radio" name="q9" onchange="checkAnswer(this, true)"> \(x=-7, x=2\)</label>
+                    </li>
+                    <li><label><input type="radio" name="q9" onchange="checkAnswer(this, false)"> \(x=7, x=-2\)</label>
+                    </li>
+                    <li><label><input type="radio" name="q9" onchange="checkAnswer(this, false)"> \(x=2, x=7\)</label>
+                    </li>
+                    <li><label><input type="radio" name="q9" onchange="checkAnswer(this, false)"> \(x=5, x=2\)</label>
+                    </li>
+                </ul>
+                <div class="feedback"></div>
+            </div>
+            <div class="exercise">
+                <div class="question">10. حل المعادلة التالية \(x^2 - 5x - 14 = 0\):</div>
+                <ul class="options">
+                    <li><label><input type="radio" name="q10" onchange="checkAnswer(this, false)"> \(x=-7, x=2\)</label>
+                    </li>
+                    <li><label><input type="radio" name="q10" onchange="checkAnswer(this, false)"> \(x=-7,
+                            x=-2\)</label></li>
+                    <li><label><input type="radio" name="q10" onchange="checkAnswer(this, false)"> \(x=7, x=2\)</label>
+                    </li>
+                    <li><label><input type="radio" name="q10" onchange="checkAnswer(this, true)"> \(x=7, x=-2\)</label>
+                    </li>
+                </ul>
+                <div class="feedback"></div>
+            </div>
+            <div class="nav-buttons">
+                <button onclick="showSlide(4)">السابق</button>
+                <button onclick="showSlide(6)">التالي</button>
+            </div>
+        </div>
+
+        <!-- Slide 6 -->
+        <div class="slide" id="slide6">
+            <div class="exercise">
+                <div class="question">11. حل المعادلة التالية \(5x - 10 = 5\):</div>
+                <ul class="options">
+                    <li><label><input type="radio" name="q11" onchange="checkAnswer(this, false)"> \(x=2\)</label></li>
+                    <li><label><input type="radio" name="q11" onchange="checkAnswer(this, true)"> \(x=3\)</label></li>
+                    <li><label><input type="radio" name="q11" onchange="checkAnswer(this, false)"> \(x=4\)</label></li>
+                    <li><label><input type="radio" name="q11" onchange="checkAnswer(this, false)"> \(x=5\)</label></li>
+                </ul>
+                <div class="feedback"></div>
+            </div>
+            <div class="exercise">
+                <div class="question">12. حل المعادلة التالية \(4x = x + 12\):</div>
+                <ul class="options">
+                    <li><label><input type="radio" name="q12" onchange="checkAnswer(this, false)"> \(x=1\)</label></li>
+                    <li><label><input type="radio" name="q12" onchange="checkAnswer(this, false)"> \(x=2\)</label></li>
+                    <li><label><input type="radio" name="q12" onchange="checkAnswer(this, false)"> \(x=3\)</label></li>
+                    <li><label><input type="radio" name="q12" onchange="checkAnswer(this, true)"> \(x=4\)</label></li>
+                </ul>
+                <div class="feedback"></div>
+            </div>
+            <div class="nav-buttons">
+                <button onclick="showSlide(5)">السابق</button>
+                <button onclick="showSlide(7)">التالي</button>
+            </div>
+        </div>
+
+        <!-- Slide 7 -->
+        <div class="slide" id="slide7">
+            <div class="exercise">
+                <div class="question">13. حل المعادلة التالية \(x^2 - 4 = 0\):</div>
+                <ul class="options">
+                    <li><label><input type="radio" name="q13" onchange="checkAnswer(this, false)"> \(x=\pm 1\)</label>
+                    </li>
+                    <li><label><input type="radio" name="q13" onchange="checkAnswer(this, true)"> \(x=\pm 2\)</label>
+                    </li>
+                    <li><label><input type="radio" name="q13" onchange="checkAnswer(this, false)"> \(x=\pm 3\)</label>
+                    </li>
+                    <li><label><input type="radio" name="q13" onchange="checkAnswer(this, false)"> \(x=\pm 4\)</label>
+                    </li>
+                </ul>
+                <div class="feedback"></div>
+            </div>
+            <div class="exercise">
+                <div class="question">14. حل نظام المعادلات \(\begin{cases} 2x - y = -9 \\ x + 2y = 8 \end{cases}\):
+                </div>
+                <ul class="options">
+                    <li><label><input type="radio" name="q14" onchange="checkAnswer(this, true)"> \(x=-2, y=5\)</label>
+                    </li>
+                    <li><label><input type="radio" name="q14" onchange="checkAnswer(this, false)"> \(x=2, y=5\)</label>
+                    </li>
+                    <li><label><input type="radio" name="q14" onchange="checkAnswer(this, false)"> \(x=2, y=-5\)</label>
+                    </li>
+                    <li><label><input type="radio" name="q14" onchange="checkAnswer(this, false)"> \(x=-2,
+                            y=-5\)</label></li>
+                </ul>
+                <div class="feedback"></div>
+            </div>
+            <div class="nav-buttons">
+                <button onclick="showSlide(6)">السابق</button>
+                <button onclick="showSlide(8)">التالي</button>
+            </div>
+        </div>
+
+        <!-- Slide 8 -->
+        <div class="slide" id="slide8">
+            <div class="exercise">
+                <div class="question">15. حل نظام المعادلات \(\begin{cases} 6x + 2y + 4z = 14 \\ 3x + 2y - 8z = -1 \\
+                    -3x - 6y + 5z = -10 \end{cases}\):</div>
+                <ul class="options">
+                    <li><label><input type="radio" name="q15" onchange="checkAnswer(this, true)"> \(x=1, y=2,
+                            z=1\)</label></li>
+                    <li><label><input type="radio" name="q15" onchange="checkAnswer(this, false)"> \(x=1, y=1,
+                            z=1\)</label></li>
+                    <li><label><input type="radio" name="q15" onchange="checkAnswer(this, false)"> \(x=0, y=2,
+                            z=1\)</label></li>
+                    <li><label><input type="radio" name="q15" onchange="checkAnswer(this, false)"> \(x=1, y=3,
+                            z=3\)</label></li>
+                </ul>
+                <div class="feedback"></div>
+            </div>
+            <div class="exercise">
+                <div class="question">16. إذا كان مميز المعادلة التربيعية \(\Delta = 0\) فإن للمعادلة:</div>
+                <ul class="options">
+                    <li><label><input type="radio" name="q16" onchange="checkAnswer(this, false)"> حلان حقيقيان
+                            مختلفان</label></li>
+                    <li><label><input type="radio" name="q16" onchange="checkAnswer(this, true)"> حل واحد حقيقي</label>
+                    </li>
+                    <li><label><input type="radio" name="q16" onchange="checkAnswer(this, false)"> لا توجد حلول
+                            حقيقية</label></li>
+                    <li><label><input type="radio" name="q16" onchange="checkAnswer(this, false)"> عدد لا نهائي من
+                            الحلول</label></li>
+                </ul>
+                <div class="feedback"></div>
+            </div>
+            <div class="nav-buttons">
+                <button onclick="showSlide(7)">السابق</button>
+                <button onclick="showSlide(9)">التالي</button>
+            </div>
+        </div>
+
+        <!-- Slide 9 -->
+        <div class="slide" id="slide9">
+            <div class="exercise">
+                <div class="question">17. حل المعادلة التالية \(x^2 - 25 = 0\):</div>
+                <ul class="options">
+                    <li><label><input type="radio" name="q17" onchange="checkAnswer(this, true)"> \(x=\pm 5\)</label>
+                    </li>
+                    <li><label><input type="radio" name="q17" onchange="checkAnswer(this, false)"> \(x=5\)</label></li>
+                    <li><label><input type="radio" name="q17" onchange="checkAnswer(this, false)"> \(x=25\)</label></li>
+                    <li><label><input type="radio" name="q17" onchange="checkAnswer(this, false)"> \(x=\pm 25\)</label>
+                    </li>
+                </ul>
+                <div class="feedback"></div>
+            </div>
+            <div class="exercise">
+                <div class="question">18. قيمة \(x\) في النظام \(\begin{cases} x + y = 3 \\ x - y = 1 \end{cases}\)
+                    تساوي:</div>
+                <ul class="options">
+                    <li><label><input type="radio" name="q18" onchange="checkAnswer(this, false)"> \(1\)</label></li>
+                    <li><label><input type="radio" name="q18" onchange="checkAnswer(this, true)"> \(2\)</label></li>
+                    <li><label><input type="radio" name="q18" onchange="checkAnswer(this, false)"> \(3\)</label></li>
+                    <li><label><input type="radio" name="q18" onchange="checkAnswer(this, false)"> \(4\)</label></li>
+                </ul>
+                <div class="feedback"></div>
+            </div>
+            <div class="nav-buttons">
+                <button onclick="showSlide(8)">السابق</button>
+                <button onclick="showSlide(10)">التالي</button>
+            </div>
+        </div>
+
+        <!-- Slide 10 -->
+        <div class="slide" id="slide10">
+            <div class="exercise">
+                <div class="question">19. حل المعادلة الخطية \(-3x = 12\):</div>
+                <ul class="options">
+                    <li><label><input type="radio" name="q19" onchange="checkAnswer(this, false)"> \(x=4\)</label></li>
+                    <li><label><input type="radio" name="q19" onchange="checkAnswer(this, true)"> \(x=-4\)</label></li>
+                    <li><label><input type="radio" name="q19" onchange="checkAnswer(this, false)"> \(x=3\)</label></li>
+                    <li><label><input type="radio" name="q19" onchange="checkAnswer(this, false)"> \(x=-3\)</label></li>
+                </ul>
+                <div class="feedback"></div>
+            </div>
+            <div class="exercise">
+                <div class="question">20. إذا كانت \(\begin{vmatrix} 2 & 1 \\ 3 & x \end{vmatrix} = 7\) فإن قيمة \(x\)
+                    تساوي:</div>
+                <ul class="options">
+                    <li><label><input type="radio" name="q20" onchange="checkAnswer(this, false)"> \(2\)</label></li>
+                    <li><label><input type="radio" name="q20" onchange="checkAnswer(this, false)"> \(3\)</label></li>
+                    <li><label><input type="radio" name="q20" onchange="checkAnswer(this, true)"> \(5\)</label></li>
+                    <li><label><input type="radio" name="q20" onchange="checkAnswer(this, false)"> \(7\)</label></li>
+                </ul>
+                <div class="feedback"></div>
+            </div>
+            <div class="nav-buttons">
+                <button onclick="showSlide(9)">السابق</button>
+                <button disabled>التالي</button>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 الصفحة الالكترونية لمقرر الرياضيات (رياض 121) - تطوير بواسطة نواف العنزي </p>
+            <p style="font-size: 0.8rem; margin-top: 0.5rem; opacity: 0.7;">آخر تحديث: <span
+                    id="last-updated-date"></span></p>
+            <div
+                style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.8; display: flex; justify-content: center; align-items: center; gap: 5px;">
+                <span>👁️ عدد الزيارات: </span>
+                <span id="visits-count" style="font-weight: bold; color: var(--accent);">جاري الحساب...</span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function showSlide(n) {
+            document.querySelectorAll('.slide').forEach(s => s.classList.remove('active'));
+            document.getElementById('slide' + n).classList.add('active');
+            window.scrollTo(0, 0);
+        }
+
+        function checkAnswer(radio, isCorrect) {
+            const feedback = radio.closest('.exercise').querySelector('.feedback');
+            if (isCorrect) {
+                feedback.textContent = "إجابة صحيحة! أحسنت.";
+                feedback.className = "feedback correct";
+            } else {
+                feedback.textContent = "إجابة خاطئة، حاول مرة أخرى.";
+                feedback.className = "feedback incorrect";
+            }
+            feedback.style.display = 'block';
+
+            if (window.MathJax && MathJax.typesetPromise) {
+                MathJax.typesetPromise();
+            }
+        }
+    </script>
+    <script src="main.js"></script>
+</body>
+
+</html>

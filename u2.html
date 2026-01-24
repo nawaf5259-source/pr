@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+
+<head>
+  <!-- Google Tag Manager -->
+  <script>(function (w, d, s, l, i) {
+      w[l] = w[l] || []; w[l].push({
+        'gtm.start':
+          new Date().getTime(), event: 'gtm.js'
+      }); var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-P8G6WGL4');</script>
+  <!-- End Google Tag Manager -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>المصفوفات والمحددات</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- MathJax -->
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P8G6WGL4" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container nav-content">
+      <a href="index.html" class="nav-logo">
+        <img src="white__logo.svg" alt="Math 121 Logo">
+      </a>
+      <button class="hamburger" aria-label="Toggle navigation">☰</button>
+      <ul class="nav-links">
+        <li><a href="index.html">الرئيسية</a></li>
+        <li><a href="index.html#units">الوحدات</a></li>
+        <li><a href="index.html#exercises">التمارين</a></li>
+        <li><a href="index.html#book-section">الكتاب</a></li>
+        <li><a href="index.html#presentations-section">عروض تقديمية</a></li>
+        <li><a href="index.html#worksheets-section">أوراق عمل</a></li>
+        <li><a href="index.html#qbanks-section">بنوك الأسئلة</a></li>
+        <li><a href="ex+.html">تمارين إثرائية</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="container" style="padding-top: 40px;">
+
+    <!-- Slide 1 -->
+    <section class="slide">
+      <h1 id="المصفوفات-والمحددات">المصفوفات والمحددات</h1>
+      <p>تتمحور أهداف هذه الوحدة حول تمكين المتدرب من التعامل مع المصفوفات والمحددات وفهم خصائصها والعمليات عليها.</p>
+      <div class="objectives">
+        <p><strong>الهدف العام للوحدة:</strong> تهدف هذه الوحدة إلى معرفة المصفوفات والمحددات والقدرة على أداء العمليات
+          على المصفوفات وحساب المحددات.</p>
+        <p><strong>الأهداف التفصيلية:</strong> من المتوقع في نهاية هذه الوحدة التدريبية أن يكون المتدرب قادراً وبكفاءة
+          على أن:</p>
+        <ol>
+          <li>يُعرف المصفوفات.</li>
+          <li>يميز رتبة المصفوفات.</li>
+          <li>يميز أنواع المصفوفات.</li>
+          <li>يحسب العمليات الحسابية على المصفوفات.</li>
+          <li>يحسب المحددات.</li>
+          <li>يحسب مقلوب المصفوفة.</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Slide 2 -->
+    <section class="slide">
+      <h2 class="unnumbered" id="أهمية-المصفوفات-والمحددات">أهمية المصفوفات والمحددات</h2>
+      <p>تبرز أهمية المصفوفات والمحددات كونها الأداة الأساسية لحل الأنظمة الخطية المعقدة التي تظهر في العديد من
+        التطبيقات الهندسية والفيزيائية. كما تلعب دوراً محورياً في تنظيم البيانات ومعالجتها في علوم الحاسب، وتعتبر ركيزة
+        لفهم التحويلات الهندسية والاقتصادية.</p>
+      <p><strong>الوقت المتوقع للتدريب على هذه الوحدة: 8 ساعة تدريبية.</strong></p>
+    </section>
+
+    <!-- Slide 3 -->
+    <section class="slide">
+      <h2 id="مفهوم-المصفوفة-وأنواعها">مفهوم المصفوفة وأنواعها</h2>
+      <div class="definition">
+        <p>هي عبارة عن مجموعة من الأعداد أو الرموز مرتبة على شكل صفوف وأعمدة مكتوبة بين قوسين \([ \ ]\)، ويرمز لاسم
+          المصفوفة بأحد الأحرف الإنجليزية الكبيرة \(A, B, C, D \dots\) كما في الشكل التالي:
+          \[A = \begin{bmatrix}
+          a_{\textcolor{red}{1}\textcolor{blue}{1}} & a_{\textcolor{red}{1}\textcolor{blue}{2}} & \dots &
+          a_{\textcolor{red}{1}\textcolor{blue}{n}} \\
+          a_{\textcolor{red}{2}\textcolor{blue}{1}} & a_{\textcolor{red}{2}\textcolor{blue}{2}} & \dots &
+          a_{\textcolor{red}{2}\textcolor{blue}{n}} \\
+          \vdots & \vdots & \ddots & \vdots \\
+          a_{\textcolor{red}{m}\textcolor{blue}{1}} & a_{\textcolor{red}{m}\textcolor{blue}{2}} & \dots &
+          a_{\textcolor{red}{m}\textcolor{blue}{n}}
+          \end{bmatrix}\]</p>
+        <p>حيث أن عدد الصفوف يرمز له بالرمز \(\textcolor{red}{m}\) وعدد الأعمدة يرمز له بالرمز \(\textcolor{blue}{n}\).
+        </p>
+      </div>
+    </section>
+
+    <!-- Slide 4 -->
+    <section class="slide">
+      <div class="myrule">
+        <p>رتبة المصفوفة هي حاصل ضرب عدد الصفوف في عدد الأعمدة: \[\text{رتبة المصفوفة } A = \textcolor{red}{m} \times
+          \textcolor{blue}{n}\]</p>
+      </div>
+      <div class="note">
+        <p>لتكن لدينا المصفوفة \(A\) التالية:</p>
+        <p>بما أن عدد الصفوف هو \(\textcolor{red}{3}\) وعدد الأعمدة هو \(\textcolor{blue}{2}\)، فإن رتبة المصفوفة هي:
+          \[A = \textcolor{red}{3} \times \textcolor{blue}{2}\] <strong>ملاحظة:</strong> قيمة العنصر \(a_{31}\) يساوي
+          \(5\).</p>
+      </div>
+    </section>
+
+    <!-- Slide 5 -->
+    <section class="slide">
+      <div class="example">
+        <div class="center">
+          <p>\(A = \begin{bmatrix} 3 & 1 & 0 \\ -1 & -1 & 2 \end{bmatrix} \quad , \quad B = \begin{bmatrix} 2 & 8 \\ 1 &
+            3 \end{bmatrix}\)</p>
+          <p>\(C = \begin{bmatrix} 2 & 3 \\ -1 & 5 \\ 8 & -5 \end{bmatrix} \quad , \quad D = \begin{bmatrix} 2 & 5 & -3
+            \end{bmatrix}\)</p>
+        </div>
+        <p><strong>الحل:</strong> نقوم بحساب عدد الصفوف (بالأحمر) وعدد الأعمدة (بالأزرق) لكل مصفوفة:</p>
+        <ul>
+          <li>رتبة المصفوفة \(A = \textcolor{red}{2} \times \textcolor{blue}{3}\)</li>
+          <li>رتبة المصفوفة \(B = \textcolor{red}{2} \times \textcolor{blue}{2}\)</li>
+          <li>رتبة المصفوفة \(C = \textcolor{red}{3} \times \textcolor{blue}{2}\)</li>
+          <li>رتبة المصفوفة \(D = \textcolor{red}{1} \times \textcolor{blue}{3}\)</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Slide 6 -->
+    <section class="slide">
+      <h3 id="أنواع-المصفوفات"> أنواع المصفوفات</h3>
+      <div class="definition">
+        <p>هي المصفوفة التي تتكون من صف واحد فقط.</p>
+        <p>\[\quad \begin{bmatrix} 1 & 0 & -6 \end{bmatrix}_{1 \times 3}\]</p>
+      </div>
+      <div class="definition">
+        <p>هي المصفوفة التي تتكون من عمود واحد فقط.</p>
+        <p>\[\quad \begin{bmatrix} 2 \\ 9 \end{bmatrix}_{2 \times 1}\]</p>
+      </div>
+      <div class="definition">
+        <p>هي مصفوفة عدد صفوفها يساوي عدد أعمدتها.</p>
+        <p>\[\quad \begin{bmatrix} 1 & -3 \\ 0 & 2 \end{bmatrix}_{2 \times 2} \quad ، \quad \begin{bmatrix} 7 & 5 & 1 \\
+          5 & -3 & 2 \\ 6 & 4 & 3 \end{bmatrix}_{3 \times 3}\]</p>
+      </div>
+    </section>
+
+    <!-- Slide 7 -->
+    <section class="slide">
+      <div class="definition">
+        <p>هي المصفوفة التي جميع عناصرها أصفار.</p>
+        <p>\[\quad \begin{bmatrix} 0 & 0 \\ 0 & 0 \end{bmatrix}_{2 \times 2} \quad ، \quad \begin{bmatrix} 0 & 0 & 0 \\
+          0 & 0 & 0 \\ 0 & 0 & 0 \end{bmatrix}_{3 \times 3}\]</p>
+      </div>
+      <div class="definition">
+        <p>هي مصفوفة مربعة جميع عناصرها تساوي صفر ما عدا القطر الرئيسي. \[\begin{bmatrix} 2 & 0 & 0 \\ 0 & 5 & 0 \\ 0 &
+          0 & 4 \end{bmatrix}_{3 \times 3}\]</p>
+      </div>
+      <div class="definition">
+        <p>هي مصفوفة مربعة جميع عناصرها تساوي صفر ما عدا القطر الرئيسي يساوي واحد. ويرمز لها بالرمز \(I_n = I_{n \times
+          n}\).</p>
+        <p>\[\quad I_2 = \begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix}_{2 \times 2} \quad ، \quad I_3 = \begin{bmatrix} 1
+          & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \end{bmatrix}_{3 \times 3}\]</p>
+      </div>
+    </section>
+
+    <!-- Slide 8 -->
+    <section class="slide">
+      <div class="example">
+        <p>\[A = \begin{bmatrix} 2 \\ 7 \\ 1 \end{bmatrix} , \qquad B = \begin{bmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0
+          & 1 \end{bmatrix} , \qquad C = \begin{bmatrix} 3 & 0 \\ 0 & 4 \end{bmatrix}\]</p>
+        <p><strong>الحل:</strong></p>
+        <ul>
+          <li>نوع المصفوفة \(A\): مصفوفة عمودية.</li>
+          <li>نوع المصفوفة \(B\): مصفوفة الوحدة \(I_3\).</li>
+          <li>نوع المصفوفة \(C\): مصفوفة قطرية.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Slide 9 -->
+    <section class="slide">
+      <h3 id="تساوي-مصفوفتين"> تساوي مصفوفتين:</h3>
+      <div class="myrule">
+        <p>نقول عن المصفوفة \(A\) تساوي المصفوفة \(B\) إذا تحقق الشرطان:</p>
+        <ol>
+          <li>إذا كانتا من نفس الرتبة.</li>
+          <li>عناصرهما المتناظرة متساوية.</li>
+        </ol>
+        <p>مثلاً: \[\begin{bmatrix} a & b \\ c & d \end{bmatrix} = \begin{bmatrix} a & b \\ c & d \end{bmatrix}\]</p>
+      </div>
+    </section>
+
+    <!-- Slide 10 -->
+    <section class="slide">
+      <div class="example">
+        <p>\[A = \begin{bmatrix} 3 & 9 \\ 1 & 5 \end{bmatrix} , \qquad B = \begin{bmatrix} 3 & 9 \\ 1 & 5
+          \end{bmatrix}\]</p>
+        <p><strong>الحل:</strong> نعم، المصفوفة \(A\) تساوي المصفوفة \(B\) لأن لهما نفس الرتبة \(2 \times 2\) وعناصرهما
+          المتناظرة متساوية.</p>
+      </div>
+      <div class="example">
+        <p>\[A = \begin{bmatrix} 3 & 9 \\ 0 & 5 \end{bmatrix} , \qquad B = \begin{bmatrix} 3 & 9 \\ 1 & 5
+          \end{bmatrix}\]</p>
+        <p><strong>الحل:</strong> لا، لأن المصفوفتان \(A\) و \(B\) غير متساويين لأن أحد عناصرها المتناظرة غير متساوية
+          (\(1 \neq 0\))، مع العلم أن لهما نفس الرتبة.</p>
+      </div>
+      <div class="example">
+        <p>\[A = \begin{bmatrix} 1 & 2 & 5 \\ 3 & 4 & 7 \end{bmatrix} , \qquad B = \begin{bmatrix} x & 2 & 5 \\ 3 & 4 &
+          7 \end{bmatrix}\]</p>
+        <p><strong>الحل:</strong> نلاحظ أن المصفوفتين \(A\) و \(B\) لهما نفس الرتبة \(2 \times 3\) وأن جميع عناصرهما
+          المتناظرة متساوية، وبالتالي فإن قيمة \(x = 1\).</p>
+      </div>
+    </section>
+
+    <!-- Slide 11 -->
+    <section class="slide">
+      <h2 id="العمليات-الحسابية-على-المصفوفات">العمليات الحسابية على المصفوفات</h2>
+      <h3 id="جمع-وطرح-المصفوفات">جمع وطرح المصفوفات</h3>
+      <div class="myrule">
+        <p>لجمع أو طرح مصفوفتين لهما الرتبة نفسها فإننا نجمع أو نطرح العناصر المتناظرة للمصفوفتين.
+          \[\begin{bmatrix} a & b \\ c & d \end{bmatrix} \;\pm\; \begin{bmatrix} \textcolor{blue}{e} &
+          \textcolor{blue}{f} \\ \textcolor{blue}{g} & \textcolor{blue}{h} \end{bmatrix} = \begin{bmatrix} a \pm
+          \textcolor{blue}{e} & b \pm \textcolor{blue}{f} \\ c \pm \textcolor{blue}{g} & d \pm \textcolor{blue}{h}
+          \end{bmatrix}\]</p>
+      </div>
+    </section>
+
+    <!-- Slide 12 -->
+    <section class="slide">
+      <div class="example">
+        <p>إذا كانت: \[A = \begin{bmatrix} \textcolor{blue}{7} & \textcolor{blue}{5} \\ \textcolor{blue}{-2} &
+          \textcolor{blue}{1} \end{bmatrix}, \quad B = \begin{bmatrix} \textcolor{red}{0} & \textcolor{red}{-2} \\
+          \textcolor{red}{5} & \textcolor{red}{4} \end{bmatrix}, \quad C = \begin{bmatrix} \textcolor{green}{8} \\
+          \textcolor{green}{6} \end{bmatrix}\]</p>
+        <p>أوجد كلاً مما يأتي إذا أمكن: \[\text{a)}\ A + B \qquad \text{b)}\ A - B \qquad \text{c)}\ B + C\]</p>
+        <p><strong>الحل:</strong></p>
+        <p><strong>a)</strong> \(A + B\): \[= \begin{bmatrix} \textcolor{blue}{7} & \textcolor{blue}{5} \\
+          \textcolor{blue}{-2} & \textcolor{blue}{1} \end{bmatrix} + \begin{bmatrix} \textcolor{red}{0} &
+          \textcolor{red}{-2} \\ \textcolor{red}{5} & \textcolor{red}{4} \end{bmatrix} = \begin{bmatrix}
+          \textcolor{blue}{7}+\textcolor{red}{0} & \textcolor{blue}{5}+(\textcolor{red}{-2}) \\
+          \textcolor{blue}{-2}+\textcolor{red}{5} & \textcolor{blue}{1}+\textcolor{red}{4} \end{bmatrix} =
+          \begin{bmatrix} 7 & 3 \\ 3 & 5 \end{bmatrix}\]</p>
+        <p><strong>b)</strong> \(A - B\): \[= \begin{bmatrix} \textcolor{blue}{7} & \textcolor{blue}{5} \\
+          \textcolor{blue}{-2} & \textcolor{blue}{1} \end{bmatrix} - \begin{bmatrix} \textcolor{red}{0} &
+          \textcolor{red}{-2} \\ \textcolor{red}{5} & \textcolor{red}{4} \end{bmatrix} = \begin{bmatrix}
+          \textcolor{blue}{7}-\textcolor{red}{0} & \textcolor{blue}{5}-(\textcolor{red}{-2}) \\
+          \textcolor{blue}{-2}-\textcolor{red}{5} & \textcolor{blue}{1}-\textcolor{red}{4} \end{bmatrix} =
+          \begin{bmatrix} 7 & 7 \\ -7 & -3 \end{bmatrix}\]</p>
+        <p><strong>c)</strong> \(B + C\):</p>
+        <p><strong>لا يمكن إجراء عملية الجمع لأن المصفوفتين ليس لهما نفس الرتبة.</strong></p>
+      </div>
+    </section>
+
+    <!-- Slide 13 -->
+    <section class="slide">
+      <h3 id="ضرب-المصفوفة-في-عدد-حقيقي-أو-القسمة-عليه">ضرب المصفوفة في عدد حقيقي أو القسمة عليه</h3>
+      <div class="myrule">
+        <p>عند ضرب مصفوفة في عدد حقيقي أو القسمة عليه فإننا نضرب العدد في جميع عناصر المصفوفة أو نقسم جميع عناصر
+          المصفوفة على العدد.
+        <p><strong>مثلاً:</strong></p>
+        \[A = \begin{bmatrix} a & b \\ c & d \end{bmatrix} \Rightarrow kA = \begin{bmatrix} \textcolor{cyan}{k}a &
+        \textcolor{cyan}{k}b \\ \textcolor{cyan}{k}c & \textcolor{cyan}{k}d \end{bmatrix}\]
+        \[A = \begin{bmatrix} a & b \\ c & d \end{bmatrix} \Rightarrow \frac{A}{\textcolor{cyan}{k}} = \begin{bmatrix}
+        \frac{a}{\textcolor{cyan}{k}} & \frac{b}{\textcolor{cyan}{k}} \\ \frac{c}{\textcolor{cyan}{k}} &
+        \frac{d}{\textcolor{cyan}{k}} \end{bmatrix}\]</p>
+      </div>
+    </section>
+
+    <!-- Slide 14 -->
+    <section class="slide">
+      <div class="example">
+        <p>إذا كانت: \[A = \begin{bmatrix} 2 & 8 \\ 1 & 3 \end{bmatrix}, \quad B = \begin{bmatrix} 6 & -4 \\ 2 & 8
+          \end{bmatrix}\]</p>
+        <p>أوجد كلاً مما يأتي: \[a) \ 2A \qquad b) \ 2A + B \qquad c) \ \frac{B}{2}\]</p>
+        <p><strong>الحل:</strong></p>
+        <p>\[\begin{aligned}
+          a) \ 2A &= \textcolor{red}{2} \begin{bmatrix} 2 & 8 \\ 1 & 3 \end{bmatrix} = \begin{bmatrix}
+          \textcolor{red}{2} \times 2 & \textcolor{red}{2} \times 8 \\ \textcolor{red}{2} \times 1 & \textcolor{red}{2}
+          \times 3 \end{bmatrix} = \begin{bmatrix} 4 & 16 \\ 2 & 6 \end{bmatrix} \\[1em]
+          b) \ 2A + B &= 2 \begin{bmatrix} 2 & 8 \\ 1 & 3 \end{bmatrix} + \begin{bmatrix} 6 & -4 \\ 2 & 8 \end{bmatrix}
+          = \begin{bmatrix} 4 & 16 \\ 2 & 6 \end{bmatrix} + \begin{bmatrix} 6 & -4 \\ 2 & 8 \end{bmatrix} =
+          \begin{bmatrix} 10 & 12 \\ 4 & 14 \end{bmatrix} \\[1em]
+          c) \ \frac{B}{2} &= \frac{\begin{bmatrix} 6 & -4 \\ 2 & 8 \end{bmatrix}}{2} = \begin{bmatrix} 6/2 & {-4}/{2}
+          \\{2}/{2} & {8}/{2} \end{bmatrix} = \begin{bmatrix} 3 & -2 \\ 1 & 4 \end{bmatrix}
+          \end{aligned}\]</p>
+      </div>
+    </section>
+
+    <!-- Slide 15 -->
+    <section class="slide">
+      <h3 id="ضرب-المصفوفات">ضرب المصفوفات</h3>
+      <h3 class="unnumbered" id="أولا-ضرب-صف-في-عمود">أولاً: ضرب صف في عمود</h3>
+      <div class="myrule">
+        <p>حاصل ضرب صف في عمود له عدد العناصر نفسه هو مجموع حاصل ضرب كل عنصر من الصف في العنصر الموافق له من العمود،
+          وهذا الضرب ليس تبديليًا.</p>
+        <p>مثلا: \[\begin{bmatrix} \textcolor{red}{a} & \textcolor{blue}{b} \end{bmatrix} \begin{bmatrix}
+          \textcolor{red}{c}\\ \textcolor{blue}{d} \end{bmatrix} = \begin{bmatrix}
+          \textcolor{red}{a}\times\textcolor{red}{c} + \textcolor{blue}{b}\times\textcolor{blue}{d} \end{bmatrix}\]</p>
+      </div>
+      <div class="example">
+        <p>\[\begin{bmatrix} \textcolor{red}{2} & \textcolor{blue}{4} \end{bmatrix} \begin{bmatrix} \textcolor{red}{1}\\
+          \textcolor{blue}{3} \end{bmatrix} = \begin{bmatrix} \textcolor{red}{2}\times\textcolor{red}{1} +
+          \textcolor{blue}{4}\times\textcolor{blue}{3} \end{bmatrix} = \begin{bmatrix} \textcolor{red}{2} +
+          \textcolor{blue}{12} \end{bmatrix} = \begin{bmatrix} 14 \end{bmatrix}\]</p>
+        <div class="note">
+          <p>\[\begin{bmatrix} 1 & {4} & 6 \end{bmatrix} \begin{bmatrix} 5\\ 3 \end{bmatrix}\] لا يمكن حساب هذا الضرب
+            لأن عدد عناصر الصف لا يساوي عدد عناصر العمود.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 16 -->
+    <section class="slide">
+      <h3 class="unnumbered" id="ثانيا-ضرب-مصفوفتين">ثانياً: ضرب مصفوفتين</h3>
+      <div class="myrule">
+        <p>لضرب مصفوفة \(A\) ذات رتبة \(m \times n\) في مصفوفة \(B\) ذات رتبة \(n \times p\)، يجب أن يتساوى عدد أعمدة
+          \(A\) مع عدد صفوف \(B\).
+          الناتج هو مصفوفة \(C\) ذات رتبة \(m \times p\).</p>
+        <p>حيث يتم حساب العنصر العام \(\textcolor{blue}{c_{ij}}\) بضرب الصف \(i\) من \(A\) في العمود \(j\) من \(B\).</p>
+        <p>مثلا: \[\begin{bmatrix} \textcolor{red}{a} & \textcolor{blue}{b}\\ \textcolor{blue}{c} & \textcolor{red}{d}
+          \end{bmatrix} \cdot \begin{bmatrix} \textcolor{ForestGreen}{e} & \textcolor{ForestGreen}{f}\\
+          \textcolor{ForestGreen}{g} & \textcolor{ForestGreen}{h} \end{bmatrix} = \begin{bmatrix}
+          \textcolor{red}{a}\textcolor{ForestGreen}{e} + \textcolor{blue}{b}\textcolor{ForestGreen}{g} &
+          \textcolor{red}{a}\textcolor{ForestGreen}{f} + \textcolor{blue}{b}\textcolor{ForestGreen}{h} \\[6pt]
+          \textcolor{blue}{c}\textcolor{ForestGreen}{e} + \textcolor{red}{d}\textcolor{ForestGreen}{g} &
+          \textcolor{blue}{c}\textcolor{ForestGreen}{f} + \textcolor{red}{d}\textcolor{ForestGreen}{h} \end{bmatrix}\]
+        </p>
+      </div>
+    </section>
+
+    <!-- Slide 17 -->
+    <section class="slide">
+      <div class="example">
+        <p>\[\text{(a)}\quad A_{3\times4}\cdot B_{4\times2} \qquad\qquad \text{(b)}\quad A_{5\times3}\cdot
+          B_{3\times4}\]</p>
+        <p><strong>الحل:</strong></p>
+        <p>\[\text{(a)}\quad A_{3\times4}\cdot B_{4\times2} \;\Rightarrow\; \textcolor{red}{3\times2}\]</p>
+        <p>\[\text{(b)}\quad A_{5\times3}\cdot B_{3\times4} \;\Rightarrow\; \textcolor{red}{5\times4}\]</p>
+      </div>
+      <div class="example">
+        <p>\[\begin{bmatrix} \textcolor{red}{2} & \textcolor{red}{3}\\ \textcolor{blue}{1} & \textcolor{blue}{4}
+          \end{bmatrix} \cdot \begin{bmatrix} 5 & 6\\ 7 & 8 \end{bmatrix}\]</p>
+        <p><strong>الحل:</strong></p>
+        <p>\[\begin{aligned}
+          &= \begin{bmatrix} 2\times5 + 3\times7 & 2\times6 + 3\times8 \\ 1\times5 + 4\times7 & 1\times6 + 4\times8
+          \end{bmatrix} \\[1em]
+          &= \begin{bmatrix} 10 + 21 & 12 + 24\\ 5 + 28 & 6 + 32 \end{bmatrix} \\[1em]
+          &= \begin{bmatrix} 31 & 36\\ 33 & 38 \end{bmatrix}
+          \end{aligned}\]</p>
+      </div>
+    </section>
+
+    <!-- Slide 18 -->
+    <section class="slide">
+      <div class="example">
+        <p>\[A= \begin{bmatrix} 2 & 8\\ 1 & 3 \end{bmatrix}, \qquad B= \begin{bmatrix} 2 & 8\\ 1 & -3 \end{bmatrix},
+          \qquad C= \begin{bmatrix} 2 & 0 & 4\\ 6 & 1 & -2 \end{bmatrix}\]</p>
+        <p>أوجد ناتج كلٍّ مما يأتي: \[\text{(a)}\; A\cdot B \qquad \text{(b)}\; B\cdot A \qquad \text{(c)}\; A\cdot C
+          \qquad \text{(d)}\; C\cdot B\]</p>
+        <p><strong>الحل:</strong></p>
+        <p>\[\text{(a)}\quad A\cdot B = \begin{bmatrix} 2 & 8\\ 1 & 3 \end{bmatrix} \begin{bmatrix} 2 & 8\\ 1 & -3
+          \end{bmatrix} = \begin{bmatrix} 12 & -8\\ 5 & -1 \end{bmatrix}\]</p>
+        <p>\[\text{(b)}\quad B\cdot A = \begin{bmatrix} 2 & 8\\ 1 & -3 \end{bmatrix} \begin{bmatrix} 2 & 8\\ 1 & 3
+          \end{bmatrix} = \begin{bmatrix} 12 & 40\\ -1 & -1 \end{bmatrix}\]</p>
+        <p>\[\text{(c)}\quad A\cdot C = \begin{bmatrix} 2 & 8\\ 1 & 3 \end{bmatrix} \begin{bmatrix} 2 & 0 & 4\\ 6 & 1 &
+          -2 \end{bmatrix} = \begin{bmatrix} 52 & 8 & -8\\ 20 & 3 & -2 \end{bmatrix}\]</p>
+        <p>\[\text{(d)}\quad C\cdot B\]</p>
+        <div class="note">
+          <p>لا يمكن إيجاد \(C\cdot B\) لأن عدد أعمدة المصفوفة \(C\) لا يساوي عدد صفوف المصفوفة \(B\).</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 19 -->
+    <section class="slide">
+      <div class="myrule">
+        <p>\[A\cdot B \neq B\cdot A\] أي أن عملية ضرب المصفوفات غير تبديليّة.</p>
+      </div>
+      <div class="definition">
+        <h2 id="المحددات">المحددات</h2>
+        <p>إذا كانت \(A\) مصفوفة مربعة فإن عددًا يُعبّر عنه بعدد حقيقي ويُرمز له بمحدد المصفوفة \(A\) بالرمز \(|A|\).
+        </p>
+      </div>
+    </section>
+
+    <!-- Slide 20 -->
+    <section class="slide">
+      <h3 id="حساب-المحدد-2times-2">حساب المحدد \(2\times 2\)</h3>
+      <div class="myrule">
+        <p>إذا كانت: \[A= \begin{bmatrix} a & b\\ c & d \end{bmatrix}\] فإن: \[|A| = \begin{vmatrix} a & b\\ c & d
+          \end{vmatrix} = ad - bc\]</p>
+      </div>
+      <div class="example">
+        <p>إذا كانت: \[A= \begin{bmatrix} 4 & 5\\ 3 & 6 \end{bmatrix}\] فإن: \[|A| = \begin{vmatrix} 4 & 5\\ 3 & 6
+          \end{vmatrix} = (4\times6)-(5\times3) = 24-15 = 9\]</p>
+      </div>
+    </section>
+
+    <!-- Slide 21 -->
+    <section class="slide">
+      <div class="example">
+        <p>\[\text{(a)}\quad A= \begin{bmatrix} 2 & 1\\ -4 & 3 \end{bmatrix} \qquad\qquad \text{(b)}\quad B=
+          \begin{bmatrix} 1 & -2 & 7\\ 3 & 1 & 9 \end{bmatrix}\]</p>
+        <p><strong>الحل:</strong></p>
+        <p>\[\text{(a)}\quad |A| = \begin{vmatrix} 2 & 1\\ -4 & 3 \end{vmatrix} = (2\times3)-(1\times(-4)) = 6-(-4) =
+          10\]</p>
+        <p>\[\text{(b)}\quad B= \begin{bmatrix} 1 & -2 & 7\\ 3 & 1 & 9 \end{bmatrix}\]</p>
+        <div class="note">
+          <p>لا يمكن حساب المحدد لأن المصفوفة ليست مربعة.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 22 -->
+    <section class="slide">
+      <h3 id="حساب-المحددات-3times-3">حساب المحددات \(3\times 3\)</h3>
+      <div class="myrule">
+        <p>المحدد \(3 \times 3\) للمصفوفة المربعة \(A\): نكرر العمودين الأول والثاني، ثم نضرب عناصر الأقطار:</p>
+
+        <div style="width:100%; overflow-x:auto; text-align:center;">
+          <svg width="350" height="200" viewBox="0 0 350 200"
+            style="margin:auto; display:block; font-family:'Times New Roman', serif; font-size:18px; font-style:italic;">
+            <!-- Matrix brackets -->
+            <path d="M 20 20 L 10 20 L 10 180 L 20 180" fill="none" stroke="#000" stroke-width="2" />
+            <path d="M 170 20 L 180 20 L 180 180 L 170 180" fill="none" stroke="#000" stroke-width="2" />
+            <!-- Columns -->
+            <text x="40" y="50">a₁</text> <text x="40" y="100">a₂</text> <text x="40" y="150">a₃</text>
+            <text x="90" y="50">b₁</text> <text x="90" y="100">b₂</text> <text x="90" y="150">b₃</text>
+            <text x="140" y="50">c₁</text> <text x="140" y="100">c₂</text> <text x="140" y="150">c₃</text>
+            <!-- Repeated Columns -->
+            <line x1="195" y1="30" x2="195" y2="170" stroke="#999" stroke-dasharray="4" />
+            <text x="210" y="50" fill="#666">a₁</text> <text x="210" y="100" fill="#666">a₂</text> <text x="210" y="150"
+              fill="#666">a₃</text>
+            <text x="260" y="50" fill="#666">b₁</text> <text x="260" y="100" fill="#666">b₂</text> <text x="260" y="150"
+              fill="#666">b₃</text>
+            <!-- Arrows (Down-Right) RED -->
+            <line x1="50" y1="55" x2="150" y2="155" stroke="red" stroke-width="2" opacity="0.4"
+              marker-end="url(#arrowRed)" />
+            <line x1="100" y1="55" x2="200" y2="155" stroke="red" stroke-width="2" opacity="0.4"
+              marker-end="url(#arrowRed)" />
+            <line x1="150" y1="55" x2="250" y2="155" stroke="red" stroke-width="2" opacity="0.4"
+              marker-end="url(#arrowRed)" />
+            <!-- Arrows (Up-Right) BLUE -->
+            <line x1="60" y1="145" x2="160" y2="45" stroke="blue" stroke-width="2" opacity="0.4"
+              marker-end="url(#arrowBlue)" />
+            <line x1="110" y1="145" x2="210" y2="45" stroke="blue" stroke-width="2" opacity="0.4"
+              marker-end="url(#arrowBlue)" />
+            <line x1="160" y1="145" x2="260" y2="45" stroke="blue" stroke-width="2" opacity="0.4"
+              marker-end="url(#arrowBlue)" />
+            <defs>
+              <marker id="arrowRed" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                <path d="M0,0 L0,6 L9,3 z" fill="red" opacity="0.4" />
+              </marker>
+              <marker id="arrowBlue" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                <path d="M0,0 L0,6 L9,3 z" fill="blue" opacity="0.4" />
+              </marker>
+            </defs>
+          </svg>
+        </div>
+
+        <p style="text-align: center;">
+          <span style="color:red; font-size:1.2em;">(+) الأقطار الرئيسية</span> &nbsp;&nbsp;&nbsp;
+          <span style="color:blue; font-size:1.2em;">(-) الأقطار العكسية</span>
+        </p>
+        <p><strong>القاعدة:</strong> \[|A| = (\textcolor{red}{a_1 b_2 c_3} + \textcolor{red}{b_1 c_2 a_3} +
+          \textcolor{red}{c_1 a_2 b_3}) - (\textcolor{blue}{a_3 b_2 c_1} + \textcolor{blue}{b_3 c_2 a_1} +
+          \textcolor{blue}{c_3 a_2 b_1})\]</p>
+      </div>
+    </section>
+
+    <!-- Slide 23 -->
+    <section class="slide">
+      <div class="example">
+        <p>نطبق طريقة الأسهم (قاعدة ساروس):</p>
+        <div style="width:100%; overflow-x:auto; text-align:center;">
+          <svg width="350" height="200" viewBox="0 0 350 200"
+            style="margin:auto; display:block; font-family:'Times New Roman', serif; font-size:18px; direction: ltr;">
+            <!-- Matrix brackets -->
+            <path d="M 20 20 L 10 20 L 10 180 L 20 180" fill="none" stroke="#000" stroke-width="2" />
+            <path d="M 170 20 L 180 20 L 180 180 L 170 180" fill="none" stroke="#000" stroke-width="2" />
+            <!-- Columns -->
+            <text x="40" y="50">4</text> <text x="40" y="100">-3</text> <text x="40" y="150">-2</text>
+            <text x="90" y="50">-1</text> <text x="90" y="100">2</text> <text x="90" y="150">5</text>
+            <text x="140" y="50">3</text> <text x="140" y="100">6</text> <text x="140" y="150">1</text>
+            <!-- Repeated Columns -->
+            <line x1="195" y1="30" x2="195" y2="170" stroke="#999" stroke-dasharray="4" />
+            <text x="210" y="50" fill="#666">4</text> <text x="210" y="100" fill="#666">-3</text> <text x="210" y="150"
+              fill="#666">-2</text>
+            <text x="260" y="50" fill="#666">-1</text> <text x="260" y="100" fill="#666">2</text> <text x="260" y="150"
+              fill="#666">5</text>
+            <!-- Arrows -->
+            <line x1="50" y1="55" x2="150" y2="155" stroke="red" stroke-width="2" opacity="0.4"
+              marker-end="url(#arrowRedEx)" />
+            <line x1="100" y1="55" x2="200" y2="155" stroke="red" stroke-width="2" opacity="0.4"
+              marker-end="url(#arrowRedEx)" />
+            <line x1="150" y1="55" x2="250" y2="155" stroke="red" stroke-width="2" opacity="0.4"
+              marker-end="url(#arrowRedEx)" />
+            <line x1="60" y1="145" x2="160" y2="45" stroke="blue" stroke-width="2" opacity="0.4"
+              marker-end="url(#arrowBlueEx)" />
+            <line x1="110" y1="145" x2="210" y2="45" stroke="blue" stroke-width="2" opacity="0.4"
+              marker-end="url(#arrowBlueEx)" />
+            <line x1="160" y1="145" x2="260" y2="45" stroke="blue" stroke-width="2" opacity="0.4"
+              marker-end="url(#arrowBlueEx)" />
+            <defs>
+              <marker id="arrowRedEx" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                <path d="M0,0 L0,6 L9,3 z" fill="red" opacity="0.4" />
+              </marker>
+              <marker id="arrowBlueEx" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                <path d="M0,0 L0,6 L9,3 z" fill="blue" opacity="0.4" />
+              </marker>
+            </defs>
+          </svg>
+        </div>
+        <p><strong>الحل:</strong></p>
+        <p>\[\begin{aligned}
+          &= \textcolor{red}{((4 \times 2 \times 1) + (-1 \times 6 \times (-2)) + (3 \times (-3) \times 5))} \\
+          &\quad - \textcolor{blue}{((3 \times 2 \times (-2)) + (4 \times 6 \times 5) + (-1 \times (-3) \times 1))} \\
+          &= \textcolor{red}{(8 + 12 + (-45))} - \textcolor{blue}{((-12) + 120 + 3)} \\
+          &= \textcolor{red}{-25} - \textcolor{blue}{111} \\
+          &= -136
+          \end{aligned}\]</p>
+      </div>
+    </section>
+
+    <!-- Slide 24 -->
+    <section class="slide">
+      <h2 id="مقلوب-معكوس-مصفوفة">مقلوب (معكوس) مصفوفة</h2>
+      <div class="definition">
+        <p>إذا كانت \(A\) مصفوفة مربعة وكانت محددتها لا تساوي الصفر وبالتالي يوجد مقلوب للمصفوفة \(A\) ويرمز لها بالرمز
+          \(A^{-1}\) أي أن: \[AA^{-1} = A^{-1}A = I\]</p>
+      </div>
+      <div class="myrule">
+        <p>إذا كانت \(A = \begin{bmatrix} a & b \\ c & d \end{bmatrix}\) أعداد حقيقية بحيث أن: \[|A| = \begin{vmatrix} a
+          & b \\ c & d \end{vmatrix} = ad - bc \neq 0\] فإن:
+          \[A^{-1} = \frac{1}{|A|} \begin{bmatrix} d & -b \\ -c & a \end{bmatrix}\]</p>
+      </div>
+    </section>
+
+    <!-- Slide 25 -->
+    <section class="slide">
+      <div class="example">
+        <p>\[a) \ A = \begin{bmatrix} 2 & 1 \\ 6 & 3 \end{bmatrix} \qquad b) \ B = \begin{bmatrix} 2 & 2 \\ 3 & 4
+          \end{bmatrix}\]</p>
+        <p><strong>الحل:</strong></p>
+        <p>\[a) \qquad |A| = \begin{vmatrix} 2 & 1 \\ 6 & 3 \end{vmatrix} = (2 \times 3) - (1 \times 6) = 0\] <strong>لا
+            يمكن إيجاد \(A^{-1}\).</strong></p>
+        <p>\[b)\qquad |B| = \begin{vmatrix} 2 & 2 \\ 3 & 4 \end{vmatrix} = (2 \times 4) - (2 \times 3) = 2\]</p>
+        <p>\[ B^{-1} = \frac{1}{2} \begin{bmatrix} 4 & -2 \\ -3 & 2 \end{bmatrix} = \begin{bmatrix} 2 & -1 \\ -1.5 & 1
+          \end{bmatrix} \]</p>
+      </div>
+    </section>
+
+    <!-- Slide 26 -->
+    <section class="slide">
+      <h2 id="الاستخدام-في-التخصص">الاستخدام في التخصص</h2>
+      <div class="axiombox">
+        <p><strong>"المصفوفات هي جداول البيانات للهندسة؛ الأداة الوحيدة للتعامل مع أنظمة متعددة المدخلات والمخرجات
+            (MIMO) في آن واحد."</strong></p>
+      </div>
+      <dl>
+        <dt style="font-weight: bold; margin-top: 15px; color: #d35400;">التقنية الميكانيكية:</dt>
+        <dd>
+          <p>تُستخدم مصفوفات التحويل في كينماتيكا الروبوت لوصف حركة الأذرع والمفاصل في الفراغ ثلاثي الأبعاد.</p>
+        </dd>
+        <dt style="font-weight: bold; margin-top: 15px; color: #27ae60;">التقنية الكهربائية:</dt>
+        <dd>
+          <p>تُستخدم المصفوفات لحل أنظمة المعادلات الناتجة عن قوانين كيرشوف في الشبكات الكهربائية المعقدة.</p>
+        </dd>
+        <dt style="font-weight: bold; margin-top: 15px; color: #2980b9;">التقنية الإلكترونية:</dt>
+        <dd>
+          <p>تُوظف المصفوفات في معالجة الصور الرقمية، حيث تُعتبر الصورة مصفوفة من القيم الضوئية.</p>
+        </dd>
+        <dt style="font-weight: bold; margin-top: 15px; color: #8e44ad;">تقنية الاتصالات:</dt>
+        <dd>
+          <p>تستخدم المصفوفات في عمليات التشفير وفك التشفير، وفي تقنيات الهوائيات المتعددة (MIMO).</p>
+        </dd>
+      </dl>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 الصفحة الالكترونية لمقرر الرياضيات (رياض 121) - تطوير بواسطة نواف العنزي </p>
+      <p style="font-size: 0.8rem; margin-top: 0.5rem; opacity: 0.7;">آخر تحديث: <span id="last-updated-date"></span>
+      </p>
+      <div
+        style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.8; display: flex; justify-content: center; align-items: center; gap: 5px;">
+        <span>👁️ عدد الزيارات: </span>
+        <span id="visits-count" style="font-weight: bold; color: var(--accent);">جاري الحساب...</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+
+</html>

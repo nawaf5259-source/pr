@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>جمع وطرح المصفوفات - تمارين إثرائية</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../styles.css">
+
+    <!-- MathJax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-body);
+            line-height: 1.6;
+        }
+
+        .example-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            margin-top: 2rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .example-card {
+            background: #fff;
+            border-right: 4px solid var(--accent);
+            border-left: none;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s ease;
+            position: relative;
+        }
+
+        body.dark-mode .example-card {
+            background: var(--bg-card);
+        }
+
+        .example-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .ex-badge {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+
+        .ex-problem {
+            font-weight: 700;
+            color: var(--text-heading);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.75rem;
+        }
+
+        .ex-answer {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #1565c0;
+            margin-bottom: 0.5rem;
+            text-align: center;
+        }
+
+        .ex-explanation {
+            font-size: 1rem;
+            color: var(--text-muted);
+            background: rgba(33, 150, 243, 0.1);
+            padding: 1rem;
+            border-radius: 6px;
+            margin-top: 0.5rem;
+        }
+
+        body.dark-mode .ex-explanation {
+            color: #ddd;
+            background: rgba(33, 150, 243, 0.2);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Aurora Background Blobs -->
+    <div class="aurora-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-content">
+            <a href="../index.html" class="nav-logo">
+                <img src="../logo.svg" alt="Math 101 Logo">
+            </a>
+            <ul class="nav-links">
+                <li><a href="../index.html">الرئيسية</a></li>
+                <li><a href="../qbanks.html">بنوك الأسئلة</a></li>
+                <li><a href="../ex+.html" class="active">تمارين إثرائية</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container" style="padding-top: 60px; padding-bottom: 60px;">
+
+        <header style="text-align: center; margin-bottom: 3rem;">
+            <h1 style="font-size: 2.5rem; margin-bottom: 1rem; color: var(--text-heading);">جمع وطرح المصفوفات</h1>
+            <p style="font-size: 1.2rem; color: var(--text-muted); max-width: 600px; margin: 0 auto;">
+                يشترط لجمع أو طرح مصفوفتين أن تكونا من نفس الرتبة.
+            </p>
+        </header>
+
+        <div class="example-grid">
+
+            <!-- Example 1 -->
+            <div class="example-card">
+                <div class="ex-badge">المثال الأول</div>
+                <div class="ex-problem">
+                    أوجد ناتج: \[ \begin{bmatrix} 2 & 5 \\ 3 & -1 \end{bmatrix} + \begin{bmatrix} 1 & 0 \\ 4 & 2
+                    \end{bmatrix} \]
+                </div>
+                <div class="ex-answer">
+                    \( \begin{bmatrix} 3 & 5 \\ 7 & 1 \end{bmatrix} \)
+                </div>
+                <div class="ex-explanation">
+                    <strong>الشرح:</strong> نجمع العناصر المتناظرة:
+                    \[ 2+1=3, \quad 5+0=5, \quad 3+4=7, \quad -1+2=1 \]
+                </div>
+            </div>
+
+            <!-- Example 2 -->
+            <div class="example-card">
+                <div class="ex-badge">المثال الثاني</div>
+                <div class="ex-problem">
+                    أوجد ناتج: \[ \begin{bmatrix} 5 & 8 \\ 1 & 4 \end{bmatrix} - \begin{bmatrix} 2 & 3 \\ 1 & 6
+                    \end{bmatrix} \]
+                </div>
+                <div class="ex-answer">
+                    \( \begin{bmatrix} 3 & 5 \\ 0 & -2 \end{bmatrix} \)
+                </div>
+                <div class="ex-explanation">
+                    <strong>الشرح:</strong> نطرح العناصر المتناظرة:
+                    \[ 5-2=3, \quad 8-3=5, \quad 1-1=0, \quad 4-6=-2 \]
+                </div>
+            </div>
+
+            <!-- Example 3 -->
+            <div class="example-card">
+                <div class="ex-badge">المثال الثالث</div>
+                <div class="ex-problem">
+                    هل يمكن جمع \( \begin{bmatrix} 1 & 2 \end{bmatrix} \) مع \( \begin{bmatrix} 1 \\ 2 \end{bmatrix} \)؟
+                </div>
+                <div class="ex-answer">
+                    لا يمكن
+                </div>
+                <div class="ex-explanation">
+                    <strong>الشرح:</strong> المصفوفة الأولى رتبتها \(1 \times 2\) والمصفوفة الثانية \(2 \times 1\). لكي
+                    نجمع يجب أن تتساوي الرتب تماماً.
+                </div>
+            </div>
+
+            <!-- Example 4 -->
+            <div class="example-card">
+                <div class="ex-badge">المثال الرابع</div>
+                <div class="ex-problem">
+                    أوجد ناتج جمع المصفوفتين \( 3 \times 3 \): <br>
+                    \[ \begin{bmatrix} 1 & 2 & 3 \\ 4 & 5 & 6 \\ 7 & 8 & 9 \end{bmatrix} + \begin{bmatrix} 9 & 8 & 7 \\
+                    6 & 5 & 4 \\ 3 & 2 & 1 \end{bmatrix} \]
+                </div>
+                <div class="ex-answer">
+                    \( \begin{bmatrix} 10 & 10 & 10 \\ 10 & 10 & 10 \\ 10 & 10 & 10 \end{bmatrix} \)
+                </div>
+                <div class="ex-explanation">
+                    <strong>الشرح:</strong> نجمع كل عنصر مع نظيره في المصفوفة الأخرى:
+                    \[ 1+9=10, \ 2+8=10, \dots \text{وهكذا لجميع العناصر.} \]
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 الصفحة الالكترونية لمقرر الرياضيات (رياض 101)</p>
+        </div>
+    </footer>
+
+    <script src="../main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حل نظام خطي (كرايمر) - تمارين إثرائية</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../styles.css">
+
+    <!-- MathJax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-body);
+            line-height: 1.6;
+        }
+
+        .example-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            margin-top: 2rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .example-card {
+            background: #fff;
+            border-right: 4px solid var(--accent);
+            border-left: none;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s ease;
+            position: relative;
+        }
+
+        body.dark-mode .example-card {
+            background: var(--bg-card);
+        }
+
+        .example-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .ex-badge {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+
+        .ex-problem {
+            font-weight: 700;
+            color: var(--text-heading);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.75rem;
+        }
+
+        .ex-answer {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #1565c0;
+            margin-bottom: 0.5rem;
+            text-align: center;
+        }
+
+        .ex-explanation {
+            font-size: 1rem;
+            color: var(--text-muted);
+            background: rgba(33, 150, 243, 0.1);
+            padding: 1rem;
+            border-radius: 6px;
+            margin-top: 0.5rem;
+        }
+
+        body.dark-mode .ex-explanation {
+            color: #ddd;
+            background: rgba(33, 150, 243, 0.2);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Aurora Background Blobs -->
+    <div class="aurora-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-content">
+            <a href="../index.html" class="nav-logo">
+                <img src="../logo.svg" alt="Math 101 Logo">
+            </a>
+            <ul class="nav-links">
+                <li><a href="../index.html">الرئيسية</a></li>
+                <li><a href="../qbanks.html">بنوك الأسئلة</a></li>
+                <li><a href="../ex+.html" class="active">تمارين إثرائية</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container" style="padding-top: 60px; padding-bottom: 60px;">
+
+        <header style="text-align: center; margin-bottom: 3rem;">
+            <h1 style="font-size: 2.5rem; margin-bottom: 1rem; color: var(--text-heading);">حل نظام خطي (كرايمر)</h1>
+            <p style="font-size: 1.2rem; color: var(--text-muted); max-width: 600px; margin: 0 auto;">
+                استخدام قاعدة كرايمر وحساب المحددات لحل أنظمة المعادلات الخطية.
+            </p>
+        </header>
+
+        <div class="example-grid">
+
+            <!-- Example 1 -->
+            <div class="example-card">
+                <div class="ex-badge">المثال الأول</div>
+                <div class="ex-problem">
+                    حل النظام: <br>
+                    \( 2x + 3y = 7 \) <br>
+                    \( x - y = 1 \)
+                </div>
+                <div class="ex-answer">
+                    \( (2, 1) \)
+                </div>
+                <div class="ex-explanation">
+                    <strong>الشرح:</strong>
+                    \( D = \begin{vmatrix} 2 & 3 \\ 1 & -1 \end{vmatrix} = -5 \). <br>
+                    \( D_x = \begin{vmatrix} 7 & 3 \\ 1 & -1 \end{vmatrix} = -10 \). <br>
+                    \( x = \frac{-10}{-5} = 2 \), \( y = 1 \).
+                </div>
+            </div>
+
+            <!-- Example 2 -->
+            <div class="example-card">
+                <div class="ex-badge">المثال الثاني</div>
+                <div class="ex-problem">
+                    حل النظام باستخدام كرايمر: <br>
+                    \( 5x + 2y = 12 \) <br>
+                    \( 2x + y = 5 \)
+                </div>
+                <div class="ex-answer">
+                    \( x = 2, \quad y = 1 \)
+                </div>
+                <div class="ex-explanation">
+                    <strong>الشرح:</strong>
+                    \( D = 5(1)-2(2) = 1 \). <br>
+                    \( D_x = 12(1)-2(5) = 2 \). <br>
+                    \( x = 2/1 = 2 \).
+                </div>
+            </div>
+
+            <!-- Example 3 -->
+            <div class="example-card">
+                <div class="ex-badge">المثال الثالث</div>
+                <div class="ex-problem">
+                    ما قيمة محدد النظام \( D \) للنظام: <br>
+                    \( 3x + y = 5 \) <br>
+                    \( 6x + 2y = 10 \)
+                </div>
+                <div class="ex-answer">
+                    \( D = 0 \) (لا نهائي من الحلول)
+                </div>
+                <div class="ex-explanation">
+                    <strong>الشرح:</strong>
+                    \( D = (3)(2) - (1)(6) = 6 - 6 = 0 \).
+                    بما أن \( D_x \) و \( D_y \) أيضاً أصفار، فالنظام له عدد لا نهائي من الحلول.
+                </div>
+            </div>
+
+            <!-- Example 4 -->
+            <div class="example-card">
+                <div class="ex-badge">المثال الرابع</div>
+                <div class="ex-problem">
+                    حل النظام: <br>
+                    \( x + 2y = 4 \) <br>
+                    \( 3x - y = 5 \)
+                </div>
+                <div class="ex-answer">
+                    \( x = 2, \quad y = 1 \)
+                </div>
+                <div class="ex-explanation">
+                    <strong>الشرح:</strong>
+                    \( D = -1 - 6 = -7 \). <br>
+                    \( D_x = -4 - 10 = -14 \). <br>
+                    \( x = -14/-7 = 2 \).
+                </div>
+            </div>
+
+            <!-- Example 5 -->
+            <div class="example-card">
+                <div class="ex-badge">المثال الخامس</div>
+                <div class="ex-problem">
+                    في نظام 3 معادلات، إذا كان \( D = 2 \) و \( D_z = 6 \). فما قيمة \( z \)؟
+                </div>
+                <div class="ex-answer">
+                    \( z = 3 \)
+                </div>
+                <div class="ex-explanation">
+                    <strong>الشرح:</strong>
+                    وفقاً لقاعدة كرايمر: \( z = \frac{D_z}{D} = \frac{6}{2} = 3 \).
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 الصفحة الالكترونية لمقرر الرياضيات (رياض 101)</p>
+        </div>
+    </footer>
+
+    <script src="../main.js"></script>
+</body>
+
+</html>

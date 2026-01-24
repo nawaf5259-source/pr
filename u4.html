@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+
+<head>
+  <!-- Google Tag Manager -->
+  <script>(function (w, d, s, l, i) {
+      w[l] = w[l] || []; w[l].push({
+        'gtm.start':
+          new Date().getTime(), event: 'gtm.js'
+      }); var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-P8G6WGL4');</script>
+  <!-- End Google Tag Manager -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>النهايات والاتصال</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- MathJax -->
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P8G6WGL4" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container nav-content">
+      <a href="index.html" class="nav-logo">
+        <img src="white__logo.svg" alt="Math 121 Logo">
+      </a>
+      <button class="hamburger" aria-label="Toggle navigation">☰</button>
+      <ul class="nav-links">
+        <li><a href="index.html">الرئيسية</a></li>
+        <li><a href="index.html#units">الوحدات</a></li>
+        <li><a href="index.html#exercises">التمارين</a></li>
+        <li><a href="index.html#book-section">الكتاب</a></li>
+        <li><a href="index.html#presentations-section">عروض تقديمية</a></li>
+        <li><a href="index.html#worksheets-section">أوراق عمل</a></li>
+        <li><a href="index.html#qbanks-section">بنوك الأسئلة</a></li>
+        <li><a href="ex+.html">تمارين إثرائية</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="container" style="padding-top: 40px;">
+
+    <!-- Slide 1 -->
+    <section class="slide">
+      <h1 id="النهايات-والاتصال">النهايات والاتصال</h1>
+      <p>تتمحور أهداف دراسة <strong>النهايات والاتصال</strong> حول تمكين المتدرب من فهم سلوك الدوال الرياضية وتحليلها
+        عند الاقتراب من قيم معينة، واكتساب المهارات الأساسية اللازمة لدراسة التفاضل والتكامل.</p>
+      <div class="objectives">
+        <p><strong>الهدف العام</strong><br />
+          يهدف هذا القسم إلى إكساب المتدرب المعرفة التامة بمفهوم النهايات والاتصال، وفهم سلوك الدوال عند نقطة أو على
+          فترة، والقدرة على التمييز بين الدوال المتصلة وغير المتصلة.</p>
+        <p><strong>الأهداف التفصيلية</strong><br />
+          يتوقع من المتدرب بعد دراسة هذه الوحدة أن يكون قادراً وبكفاءة على تحقيق الآتي:</p>
+        <ol>
+          <li>تعريف مفهوم النهاية وحساب نهاية الدالة باستخدام طرق مختلفة.</li>
+          <li>التمييز بين النهايات اليمنى واليسرى وتحديد وجود النهاية.</li>
+          <li>التعرف على حالات عدم التعيين ومعالجتها بطرق جبرية مناسبة.</li>
+          <li>فهم مفهوم الاتصال عند نقطة وعلى فترة.</li>
+          <li>التعرف على خواص الدوال المتصلة.</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Slide 2 -->
+    <section class="slide">
+      <h2 class="unnumbered" id="أهمية-النهايات-والاتصال">أهمية النهايات والاتصال</h2>
+      <p>تُعد دراسة النهايات والاتصال من الركائز الأساسية في الرياضيات التطبيقية، حيث تمثل الأساس النظري لدراسة التفاضل
+        والتكامل، وتسهم في تطوير قدرة المتدرب على تحليل الدوال وفهم سلوكها، كما تُستخدم هذه المفاهيم في العديد من
+        التطبيقات الهندسية والعلمية.</p>
+      <p><strong>الوقت المتوقع للتدريب على هذه الوحدة: 10 ساعات تدريبية.</strong></p>
+    </section>
+
+    <!-- Slide 3 -->
+    <section class="slide">
+      <h2 id="الفصل-الأول-النهايات">الفصل الأول: النهايات</h2>
+      <h3 class="unnumbered" id="مدخل-لتعريف-النهايات">مدخل لتعريف النهايات</h3>
+      <p>قبل تقديم التعريف الدقيق للنهاية، من المهم أن نفهم معناها بطريقة حدسية وبسيطة.</p>
+      <div class="example">
+        <p>لتكن الدالة: \[f(x) = 2x + 1\]</p>
+        <p>لدراسة سلوك الدالة حول العدد \(2\)، نختار قيماً لـ \(x\) قريبة من \(2\) من اليسار ثم من اليمين، ونحسب قيم
+          الدالة المقابلة.</p>
+      </div>
+    </section>
+
+    <!-- Slide 4 -->
+    <section class="slide">
+      <h3>جدول القيم (النهايات)</h3>
+      <div class="example">
+        <div class="tabular" style="overflow-x: auto;">
+          <table class="premium-table">
+            <thead>
+              <tr>
+                <th></th>
+                <th>\(x < 2\)</th>
+                <th></th>
+                <th></th>
+                <th>\(x=2\)</th>
+                <th>\(x > 2\)</th>
+                <th></th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>\(x\)</td>
+                <td>\(1.9\)</td>
+                <td>\(1.99\)</td>
+                <td>\(1.999\)</td>
+                <td></td>
+                <td>\(2.001\)</td>
+                <td>\(2.01\)</td>
+                <td>\(2.1\)</td>
+              </tr>
+              <tr>
+                <td>\(f(x)=2x+1\)</td>
+                <td>\(4.8\)</td>
+                <td>\(4.98\)</td>
+                <td>\(4.998\)</td>
+                <td></td>
+                <td>\(5.002\)</td>
+                <td>\(5.02\)</td>
+                <td>\(5.2\)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p>يمثل العمود الأوسط الفراغ الذي تقع فيه القيمة \(x=2\)، ونلاحظ أن قيم الدالة \(f(x)\) تقترب من العدد \(5\) من
+          الجهتين.</p>
+        <p>وعليه فإن: \[\lim_{x \to 2} (2x+1) = 5\]</p>
+      </div>
+    </section>
+
+    <!-- Slide 5 -->
+    <section class="slide">
+      <h3 id="تعريف-النهاية">تعريف النهاية</h3>
+      <div class="definition">
+        <p>نقول إن للدالة \(f(x)\) نهاية تساوي العدد \(b\) عندما يقترب المتغير \(x\) من العدد \(a\)، إذا كانت قيم الدالة
+          \(f(x)\) تقترب من العدد \(b\) كلما اقتربت قيم \(x\) من \(a\)، سواء من الجهة اليمنى أو من الجهة اليسرى.</p>
+      </div>
+      <h3 id="حساب-نهاية-الدالة">حساب نهاية الدالة</h3>
+      <p>لحساب نهاية الدالة \(f(x)\) عندما \(x \to a\)، نبدأ بمحاولة التعويض المباشر عن \(x\) بالقيمة \(a\). إذا كانت
+        الدالة معرفة عند \(a\) ولم ينتج عن التعويض أي إشكال، فإن قيمة النهاية تساوي قيمة الدالة عند تلك النقطة.</p>
+    </section>
+
+    <!-- Slide 6 -->
+    <section class="slide">
+      <h3>أمثلة على حساب النهاية (1)</h3>
+      <div class="example">
+        <p>لتكن \(f(x) = x^3\). احسب النهاية عندما يؤول \(x\) إلى \(2\).</p>
+        <p><strong>الحل:</strong> \[\lim_{x \to 2} f(x) = \lim_{x \to 2} x^3 = 2^3 = 8\]</p>
+      </div>
+      <div class="example">
+        <p>إذا كانت: \[f(x) = \begin{cases} x^2 & , x \neq 2 \\ 0 & , x = 2 \end{cases}\] أوجد \(\lim_{x \to 2} f(x)\).
+        </p>
+        <p><strong>الحل:</strong> بما أن النهاية تدرس سلوك الدالة <strong>حول</strong> النقطة وليس عندها، فإننا نستخدم
+          القاعدة الأولى:
+          \[\lim_{x \to 2} f(x) = \lim_{x \to 2} x^2 = 4\]</p>
+      </div>
+    </section>
+
+    <!-- Slide 7 -->
+    <section class="slide">
+      <h3>أمثلة على حساب النهاية (2)</h3>
+      <div class="example">
+        <p>أوجد \(\lim_{x \to 3} (2x - 1)\).</p>
+        <p><strong>الحل:</strong> \[\lim_{x \to 3} (2x - 1) = 2(3) - 1 = 5\]</p>
+      </div>
+      <div class="example">
+        <p>أوجد \(\lim_{x \to -1} (x^2 + 3x + 2)\).</p>
+        <p><strong>الحل:</strong> \[(-1)^2 + 3(-1) + 2 = 1 - 3 + 2 = 0\] إذن: \[\lim_{x \to -1} (x^2 + 3x + 2) = 0\]</p>
+      </div>
+    </section>
+
+    <!-- Slide 8 -->
+    <section class="slide">
+      <h3>أمثلة على حساب النهاية (3)</h3>
+      <div class="example">
+        <p>أوجد \(\lim_{x \to 1} \frac{2x+1}{x+2}\).</p>
+        <p><strong>الحل:</strong> \[\frac{2(1)+1}{1+2} = \frac{3}{3} = 1\]</p>
+      </div>
+      <div class="example">
+        <p>أوجد \(\lim_{x \to 4} \sqrt{x}\).</p>
+        <p><strong>الحل:</strong> \[\sqrt{4} = 2\] إذن: \[\lim_{x \to 4} \sqrt{x} = 2\]</p>
+      </div>
+      <div class="example">
+        <p>أوجد \(\lim_{x \to 0} (3^x)\).</p>
+        <p><strong>الحل:</strong> \[3^0 = 1\] إذن: \[\lim_{x \to 0} 3^x = 1\]</p>
+      </div>
+    </section>
+
+    <!-- Slide 9 -->
+    <section class="slide">
+      <h3 id="النهايتان-اليمنى-واليسرى">النهايتان اليمنى واليسرى</h3>
+      <div class="definition">
+        <ul>
+          <li>
+            <p><strong>النهاية من اليسار (\(\lim_{x \to a^-} f(x)\)):</strong> عندما تقترب \(x\) من \(a\) بقيم أصغر.</p>
+          </li>
+          <li>
+            <p><strong>النهاية من اليمين (\(\lim_{x \to a^+} f(x)\)):</strong> عندما تقترب \(x\) من \(a\) بقيم أكبر.</p>
+          </li>
+        </ul>
+        <p><strong>شرط الوجود:</strong> تكون النهاية الكلية \(\lim_{x \to a} f(x)\) موجودة إذا وفقط إذا تساوت النهاية من
+          اليمين مع النهاية من اليسار.</p>
+      </div>
+    </section>
+
+    <!-- Slide 10 -->
+    <section class="slide">
+      <h3>مثال توضيحي للنهايتين اليمنى واليسرى</h3>
+      <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+        <div class="example" style="flex: 1; min-width: 300px;">
+          <p>لتكن الدالة: \[f(x)= \begin{cases} 1 & , x < 2 \\ 3 & , x \ge 2 \end{cases}\]</p>
+              <p>أوجد \(\lim_{x \to 2} f(x)\).</p>
+              <p><strong>الحل:</strong></p>
+              <ul>
+                <li>من اليسار (الخط الأحمر): قيم \(f(x)\) تساوي 1. \[\lim_{x \to 2^-} f(x) = 1\]</li>
+                <li>من اليمين (الخط الأزرق): قيم \(f(x)\) تساوي 3. \[\lim_{x \to 2^+} f(x) = 3\]</li>
+                <li>بما أن \(1 \neq 3\)، فإن النهاية <strong>غير موجودة</strong>.</li>
+              </ul>
+        </div>
+
+        <div
+          style="flex: 1; min-width: 300px; display: flex; justify-content: center; align-items: center; border: 1px solid #ddd; border-radius: 5px; padding: 10px;">
+          <!-- SVG Graph of the Piecewise Function -->
+          <svg width="300" height="200" viewBox="0 0 300 200">
+            <!-- Grid lines -->
+            <line x1="20" y1="180" x2="280" y2="180" stroke="#888" stroke-width="2" /> <!-- X-axis -->
+            <line x1="150" y1="10" x2="150" y2="190" stroke="#888" stroke-width="2" /> <!-- Y-axis -->
+            <!-- Ticks -->
+            <line x1="150" y1="180" x2="150" y2="185" stroke="#000" />
+            <text x="145" y="195" font-family="Arial" font-size="12">0</text>
+            <line x1="210" y1="180" x2="210" y2="185" stroke="#000" />
+            <text x="205" y="195" font-family="Arial" font-size="12">2</text>
+            <!-- Functions -->
+            <!-- f(x) = 1 for x < 2 -->
+            <line x1="30" y1="140" x2="210" y2="140" stroke="#E91E63" stroke-width="3" />
+            <text x="40" y="130" font-family="Arial" font-size="12" fill="#E91E63">y=1</text>
+            <text x="70" y="130" font-family="Segoe UI, Arial" font-size="12" fill="#E91E63">(يسار)</text>
+            <circle cx="210" cy="140" r="4" fill="#fff" stroke="#E91E63" stroke-width="2" />
+            <!-- Open circle at (2,1) -->
+            <!-- f(x) = 3 for x >= 2 -->
+            <line x1="210" y1="60" x2="280" y2="60" stroke="#2196F3" stroke-width="3" />
+            <text x="220" y="50" font-family="Arial" font-size="12" fill="#2196F3">y=3</text>
+            <text x="250" y="50" font-family="Segoe UI, Arial" font-size="12" fill="#2196F3">(يمين)</text>
+            <circle cx="210" cy="60" r="4" fill="#2196F3" /> <!-- Closed circle at (2,3) -->
+            <!-- Dashed Line at x=2 -->
+            <line x1="210" y1="10" x2="210" y2="180" stroke="#aaa" stroke-width="1" stroke-dasharray="4" />
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 11 -->
+    <section class="slide">
+      <h3 class="unnumbered" id="نظريات-في-النهايات">نظريات في النهايات</h3>
+      <p>لتكن \(f(x)\) و \(g(x)\) دالتين، فإن:</p>
+      <div class="myrule">
+        <ol>
+          <li>
+            <p><strong>الجمع:</strong> \(\lim_{x \to a} (f(x) + g(x)) = \lim f(x) + \lim g(x)\).</p>
+          </li>
+          <li>
+            <p><strong>الطرح:</strong> \(\lim_{x \to a} (f(x) - g(x)) = \lim f(x) - \lim g(x)\).</p>
+          </li>
+          <li>
+            <p><strong>الضرب:</strong> \(\lim_{x \to a} (f(x) \cdot g(x)) = \lim f(x) \cdot \lim g(x)\).</p>
+          </li>
+          <li>
+            <p><strong>القسمة:</strong> \(\lim_{x \to a} \frac{f(x)}{g(x)} = \frac{\lim f(x)}{\lim g(x)}\) بشرط \(\lim
+              g(x) \neq 0\).</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Slide 12 -->
+    <section class="slide">
+      <h3>تطبيق النظريات (1)</h3>
+      <div class="example">
+        <p>لتكن: \[f(x) = x^2 \qquad \text{و} \qquad g(x) = 3x\]</p>
+        <p>أوجد: \[\lim_{x \to 2} (f(x) + g(x)) \quad \text{و} \quad \lim_{x \to 2} (f(x) - g(x)).\]</p>
+        <p><strong>الحل:</strong></p>
+        <p>أولًا نحسب نهايتي الدالتين: \[\lim_{x \to 2} f(x) = \lim_{x \to 2} x^2 = 4\] \[\lim_{x \to 2} g(x) = \lim_{x
+          \to 2} 3x = 6\]</p>
+        <p>وبتطبيق النظريات: \[\lim_{x \to 2} (f(x) + g(x)) = 4 + 6 = 10\] \[\lim_{x \to 2} (f(x) - g(x)) = 4 - 6 = -2\]
+        </p>
+      </div>
+    </section>
+
+    <!-- Slide 13 -->
+    <section class="slide">
+      <h3>تطبيق النظريات (2)</h3>
+      <div class="example">
+        <p>لتكن: \[f(x) = x + 1 \qquad \text{و} \qquad g(x) = x - 1\]</p>
+        <p>أوجد: \[\lim_{x \to 3} (f(x)\cdot g(x)) \quad \text{و} \quad \lim_{x \to 3} \frac{f(x)}{g(x)}.\]</p>
+        <p><strong>الحل:</strong></p>
+        <p>نحسب نهايتي الدالتين: \[\lim_{x \to 3} f(x) = 3 + 1 = 4\] \[\lim_{x \to 3} g(x) = 3 - 1 = 2 \neq 0\]</p>
+        <p>وبتطبيق النظريات: \[\lim_{x \to 3} (f(x)\cdot g(x)) = 4 \times 2 = 8\] \[\lim_{x \to 3} \frac{f(x)}{g(x)} =
+          \frac{4}{2} = 2\]</p>
+      </div>
+    </section>
+
+    <!-- Slide 14 -->
+    <section class="slide">
+      <h3>حالات خاصة في القسمة</h3>
+      <div class="example">
+        <p>لتكن: \[f(x) = x^2 - 1 \qquad \text{و} \qquad g(x) = x - 1\]</p>
+        <p>أوجد: \[\lim_{x \to 1} \frac{f(x)}{g(x)}.\]</p>
+        <p><strong>الحل:</strong></p>
+        <p>نحسب نهايتي الدالتين كلٌّ على حدة: \[\lim_{x \to 1} f(x) = 1^2 - 1 = 0\] \[\lim_{x \to 1} g(x) = 1 - 1 = 0\]
+        </p>
+        <p>وباستخدام نظرية القسمة نحصل على: \[\lim_{x \to 1} \frac{f(x)}{g(x)} = \frac{0}{0}\]</p>
+        <p>وهذه حالة <strong>عدم تعيين</strong>، ولذلك لا يمكن تطبيق نظرية القسمة مباشرة، ويجب اللجوء إلى طرق أخرى لحساب
+          النهاية، مثل التحليل الجبري.</p>
+      </div>
+    </section>
+
+    <!-- Slide 15 -->
+    <section class="slide">
+      <h3 id="حالات-عدم-التعيين">حالات عدم التعيين</h3>
+      <p>تشير حالات عدم التعيين إلى أن التعويض المباشر لا يعطي قيمة للنهاية. وهذه الحالات لا تعني أن النهاية غير موجودة،
+        بل تعني أننا بحاجة لتبسيط الدالة لمعرفة قيمتها.</p>
+      <div class="note">
+        <p><strong>أهم حالات عدم التعيين السبعة هي:</strong></p>
+        <ul style="list-style-type: none; padding: 0;">
+          <li style="margin-bottom: 10px;"><strong>1. الصفر على صفر:</strong> \[\frac{0}{0}\]</li>
+          <li style="margin-bottom: 10px;"><strong>2. المالانهاية على مالانهاية:</strong> \[\frac{\infty}{\infty}\]</li>
+          <li style="margin-bottom: 10px;"><strong>3. الصفر في المالانهاية:</strong> \[0 \times \infty\]</li>
+          <li style="margin-bottom: 10px;"><strong>4. المالانهاية ناقص مالانهاية:</strong> \[\infty - \infty\]</li>
+          <li><strong>حالات أسية أخرى:</strong> \(0^0\)، \(1^\infty\)، \(\infty^0\)</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Slide 16 -->
+    <section class="slide">
+      <h3>إزالة عدم التعيين (حالة 0/0)</h3>
+      <div class="myrule">
+        <p>إذا كانت النهاية من الشكل \(\frac{0}{0}\)، نستخدم إحدى الطرق الآتية:</p>
+        <ol>
+          <li><strong>التحليل:</strong> (فرق بين مربعين، فرق مكعبين، ثلاثي الحدود...).</li>
+          <li><strong>إخراج عامل مشترك.</strong></li>
+          <li><strong>الضرب في المرافق:</strong> (إذا احتوت الدالة على جذور).</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Slide 17 -->
+    <section class="slide">
+      <h3>مثال على التحليل (حالة 0/0)</h3>
+      <div class="example">
+        <p>أوجد \(\lim_{x \to 2} \frac{x^2-4}{x-2}\).</p>
+        <p><strong>الحل:</strong> بالتعويض المباشر \(\frac{2^2-4}{2-2} = \frac{0}{0}\) (عدم تعيين).</p>
+        <p>نحلل البسط (فرق بين مربعين): \[\frac{(x-2)(x+2)}{x-2}\]</p>
+        <p>نختصر \((x-2)\) من البسط والمقام: \[= \lim_{x \to 2} (x+2) = 2 + 2 = 4\]</p>
+      </div>
+    </section>
+
+    <!-- Slide 18 -->
+    <section class="slide">
+      <h3>مثال على العامل المشترك (حالة 0/0)</h3>
+      <div class="example">
+        <p>أوجد \(\lim_{x \to 0} \frac{3x^2}{x}\).</p>
+        <p><strong>الحل:</strong> بالتعويض نحصل على \(\frac{0}{0}\).</p>
+        <p>نخرج \(x\) عاملاً مشتركاً ونختصره: \[\lim_{x \to 0} \frac{x(3x)}{x} = \lim_{x \to 0} 3x = 3(0) = 0\]</p>
+      </div>
+    </section>
+
+    <!-- Slide 19 -->
+    <section class="slide">
+      <h3>مثال على الضرب في المرافق (حالة 0/0)</h3>
+      <div class="example">
+        <p>أوجد \(\lim_{x \to 1} \frac{\sqrt{x}-1}{x-1}\).</p>
+        <p><strong>الحل:</strong> \(\frac{0}{0}\). نضرب في المرافق \(\frac{\sqrt{x}+1}{\sqrt{x}+1}\):</p>
+        <p>\[\lim_{x \to 1} \left( \frac{\sqrt{x}-1}{x-1} \cdot \frac{\sqrt{x}+1}{\sqrt{x}+1} \right) = \lim_{x \to 1}
+          \frac{x-1}{(x-1)(\sqrt{x}+1)}\]</p>
+        <p>\[= \lim_{x \to 1} \frac{1}{\sqrt{x}+1} = \frac{1}{1+1} = \frac{1}{2}\]</p>
+      </div>
+    </section>
+
+    <!-- Slide 20 -->
+    <section class="slide">
+      <h3>النهايات عند اللانهاية (حالة \(\infty/\infty\))</h3>
+      <div class="myrule">
+        <p>لحساب \(\lim_{x \to \infty} \frac{f(x)}{g(x)}\) (دالة كسرية):</p>
+        <p>نقسم كل حد في البسط والمقام على المتغير صاحب <strong>أكبر أس في المقام</strong>.</p>
+      </div>
+      <div class="note">
+        <p><strong>قاعدة سريعة (درجات البسط والمقام):</strong></p>
+        <ul>
+          <li>درجة البسط < درجة المقام \(\Rightarrow\) النهاية=0</li>
+          <li>درجة البسط = درجة المقام \(\Rightarrow\) النهاية = المعامل/المعامل</li>
+          <li>درجة البسط > درجة المقام \(\Rightarrow\) النهاية = \(\infty\)</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Slide 21 -->
+    <section class="slide">
+      <h3>أمثلة على النهاية عند اللانهاية (1)</h3>
+      <div class="example">
+        <p>أوجد \(\lim_{x \to \infty} \frac{x^2}{x^2+1}\).</p>
+        <p><strong>الحل:</strong> التعويض يعطي \(\frac{\infty}{\infty}\).</p>
+        <p>أكبر أس في المقام هو \(x^2\). نقسم الكسر عليه: \[= \lim_{x \to \infty} \frac{1}{1 + \frac{1}{x^2}} =
+          \frac{1}{1+0} = 1\]</p>
+      </div>
+    </section>
+
+    <!-- Slide 22 -->
+    <section class="slide">
+      <h3>أمثلة على النهاية عند اللانهاية (2)</h3>
+      <div class="example">
+        <p>أوجد \(\lim_{x \to \infty} \frac{3x}{x^2}\).</p>
+        <p><strong>الحل:</strong> درجة البسط (1) أصغر من درجة المقام (2).</p>
+        <p>أو بالقسمة على \(x^2\): \[= \lim_{x \to \infty} \frac{\frac{3}{x}}{1} = \frac{0}{1} = 0\]</p>
+      </div>
+    </section>
+
+    <!-- Slide 23 -->
+    <section class="slide">
+      <h3>أمثلة على النهاية عند اللانهاية (3)</h3>
+      <div class="example">
+        <p>أوجد \(\lim_{x \to \infty} \frac{2x^2+1}{x^2}\).</p>
+        <p><strong>الحل:</strong> درجة البسط تساوي درجة المقام.</p>
+        <p>النهاية = معامل أكبر أس في البسط / معامل أكبر أس في المقام = \(2/1 = 2\).</p>
+      </div>
+    </section>
+
+    <!-- Slide 24 -->
+    <section class="slide">
+      <h3>حالات خاصة (\(0 \times \infty\))</h3>
+      <div class="myrule">
+        <p>تُزال هذه الحالة بتحويل الضرب إلى قسمة أو بتوحيد المقامات.</p>
+      </div>
+      <div class="example">
+        <p>أوجد \(\lim_{x \to 0} x \cdot \frac{1}{x}\).</p>
+        <p><strong>الحل:</strong> نبسط التعبير (لـ \(x\neq 0\)): \[x\cdot \frac{1}{x}=1\] إذن: \[\lim_{x \to 0} 1 = 1\]
+        </p>
+      </div>
+      <div class="example">
+        <p>أوجد \(\lim_{x \to 0} x \left(\frac{2}{x}\right)\).</p>
+        <p><strong>الحل:</strong> نبسط (لـ \(x\neq 0\)): \[x\left(\frac{2}{x}\right)=2\] إذن: \[\lim_{x \to 0} 2 = 2\]
+        </p>
+      </div>
+    </section>
+
+    <!-- Slide 25 -->
+    <section class="slide">
+      <h3>تابع الحالات الخاصة (\(0 \times \infty\))</h3>
+      <div class="example">
+        <p>أوجد \(\lim_{x \to 0} x \cdot \frac{3}{x+1}\).</p>
+        <p><strong>الحل:</strong> نكتبها ككسر: \[x \cdot \frac{3}{x+1}=\frac{3x}{x+1}\]</p>
+        <p>بالتعويض المباشر: \[\frac{3(0)}{0+1}=0\] إذن النهاية تساوي صفر.</p>
+      </div>
+    </section>
+
+    <!-- Slide 26 -->
+    <section class="slide">
+      <h3>حالات خاصة (\(\infty - \infty\))</h3>
+      <div class="myrule">
+        <p>تُزال هذه الحالة بتوحيد المقامات أو باستخدام المرافق.</p>
+      </div>
+      <div class="example">
+        <p>أوجد \(\lim_{x \to \infty} (\sqrt{x^2+1}-x)\).</p>
+        <p><strong>الحل:</strong> نضرب في المرافق: \[(\sqrt{x^2+1}-x)\frac{\sqrt{x^2+1}+x}{\sqrt{x^2+1}+x} =
+          \frac{(x^2+1)-x^2}{\sqrt{x^2+1}+x} = \frac{1}{\sqrt{x^2+1}+x}\]</p>
+        <p>عندما \(x \to \infty\)، المقام يؤول إلى \(\infty\). إذن النهاية تساوي \(\frac{1}{\infty} = 0\).</p>
+      </div>
+    </section>
+
+    <!-- Slide 27 -->
+    <section class="slide">
+      <h3>تابع الحالات الخاصة (\(\infty - \infty\)) (2)</h3>
+      <div class="example">
+        <p>أوجد \(\lim_{x \to \infty} \left(\frac{2x+1}{x} - 2\right)\).</p>
+        <p><strong>الحل:</strong> نوحد المقام: \[\frac{2x+1}{x}-2=\frac{2x+1-2x}{x}=\frac{1}{x}\]</p>
+        <p>وعند \(x\to\infty\) يكون \(\frac{1}{x}\to 0\)، إذن النهاية تساوي 0.</p>
+      </div>
+    </section>
+
+    <!-- Slide 28 -->
+    <section class="slide">
+      <h3>تابع الحالات الخاصة (\(\infty - \infty\)) (3)</h3>
+      <div class="example">
+        <p>أوجد \(\lim_{x \to \infty} (\sqrt{x^2+4x}-x)\).</p>
+        <p><strong>الحل:</strong> نضرب في المرافق: \[(\sqrt{x^2+4x}-x)\frac{\sqrt{x^2+4x}+x}{\sqrt{x^2+4x}+x} =
+          \frac{(x^2+4x)-x^2}{\sqrt{x^2+4x}+x} = \frac{4x}{\sqrt{x^2+4x}+x}\]</p>
+        <p>نقسم البسط والمقام على \(x\) (وداخل الجذر على \(x^2\)): \[= \frac{4}{\sqrt{1+\frac{4}{x}}+1}\]</p>
+        <p>وعند \(x\to\infty\) يكون \(\frac{4}{x}\to 0\)، إذن: \[= \frac{4}{\sqrt{1+0}+1} = \frac{4}{2} = 2\]</p>
+      </div>
+    </section>
+
+    <!-- Slide 29 -->
+    <section class="slide">
+      <h3 class="unnumbered" id="قاعدة-لوبيتال">قاعدة لوبيتال</h3>
+      <div class="myrule">
+        <p>إذا كان ناتج التعويض المباشر في النهاية من الشكل \(\frac{0}{0} \quad \text{أو} \quad \frac{\infty}{\infty},\)
+          وكانت الدالتان \(f\) و\(g\) قابلتين للاشتقاق في جوار النقطة \(a\)، فإن: \[\lim_{x \to a} \frac{f(x)}{g(x)} =
+          \lim_{x \to a} \frac{f'(x)}{g'(x)}\]</p>
+      </div>
+      <div class="note">
+        <p>بعض النهايات المشهورة:</p>
+        <ul>
+          <li>\(\displaystyle \lim_{x \to 0} \frac{e^x - 1}{x} = 1\)</li>
+          <li>\(\displaystyle \lim_{x \to \infty} \left(1 + \frac{1}{x}\right)^x = e\)</li>
+          <li>\(\displaystyle \lim_{x \to 0} \frac{\sin x}{x} = 1\)</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Slide 30 -->
+    <section class="slide">
+      <h2 id="الفصل-الثاني-الاتصال">الفصل الثاني: الاتصال</h2>
+      <p>يُعد مفهوم الاتصال من المفاهيم الأساسية في دراسة الدوال، وهو يعبّر عن سلوك منحنى الدالة دون انقطاع أو قفز عند
+        نقطة أو على فترة.</p>
+      <div class="definition">
+        <p>عندما نقول ان الدالة متصلة فنحن نعني ان منحنى الدالة مستمر دون انقطاع خلال الفترة المعطاة . أو بصيغة أخرى
+          الدالة معرفة لجميع القيم في الفترة المعطاة .</p>
+      </div>
+    </section>
+
+    <!-- Slide 31 -->
+    <section class="slide">
+      <h3>أشكال الاتصال وعدم الاتصال (توضيح بياني)</h3>
+      <div class="graph-grid" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;">
+        <!-- 1. Continuous -->
+        <div class="graph-item" style="text-align: center;">
+          <svg width="240" height="180" viewBox="0 0 240 180"
+            style="border:1px solid #ccc; background: linear-gradient(to bottom, #fff, #f9f9f9);">
+            <line x1="20" y1="160" x2="220" y2="160" stroke="#888" stroke-width="2" /> <!-- x-axis -->
+            <line x1="120" y1="10" x2="120" y2="170" stroke="#888" stroke-width="2" /> <!-- y-axis -->
+            <!-- Simple Parabola -->
+            <path d="M 40 10 Q 120 180 200 10" stroke="#2196F3" stroke-width="3" fill="none" />
+            <circle cx="120" cy="95" r="4" fill="#2196F3" />
+            <text x="130" y="30" font-family="Arial" font-size="12" fill="#333">y=f(x)</text>
+          </svg>
+          <div class="graph-caption" style="margin-top: 5px;">دالة متصلة</div>
+        </div>
+
+        <!-- 2. Removable (Hole) -->
+        <div class="graph-item" style="text-align: center;">
+          <svg width="240" height="180" viewBox="0 0 240 180"
+            style="border:1px solid #ccc; background: linear-gradient(to bottom, #fff, #f9f9f9);">
+            <line x1="20" y1="160" x2="220" y2="160" stroke="#888" stroke-width="2" />
+            <line x1="20" y1="10" x2="20" y2="170" stroke="#888" stroke-width="2" />
+            <!-- Line with a hole -->
+            <line x1="20" y1="140" x2="200" y2="20" stroke="#E91E63" stroke-width="3" />
+            <!-- Hole at center -->
+            <circle cx="110" cy="80" r="5" fill="#fff" stroke="#E91E63" stroke-width="2" />
+          </svg>
+          <div class="graph-caption" style="margin-top: 5px;">عدم اتصال نقطي (ثقب)</div>
+        </div>
+
+        <!-- 3. Jump -->
+        <div class="graph-item" style="text-align: center;">
+          <svg width="240" height="180" viewBox="0 0 240 180"
+            style="border:1px solid #ccc; background: linear-gradient(to bottom, #fff, #f9f9f9);">
+            <line x1="20" y1="160" x2="220" y2="160" stroke="#888" stroke-width="2" />
+            <line x1="120" y1="10" x2="120" y2="170" stroke="#888" stroke-width="2" />
+            <!-- Left part -->
+            <line x1="20" y1="120" x2="120" y2="120" stroke="#4CAF50" stroke-width="3" />
+            <circle cx="120" cy="120" r="4" fill="#4CAF50" />
+            <!-- Right part (jump up) -->
+            <line x1="120" y1="60" x2="220" y2="40" stroke="#4CAF50" stroke-width="3" />
+            <circle cx="120" cy="60" r="4" fill="#fff" stroke="#4CAF50" stroke-width="2" />
+            <!-- Dashed connector implies jump -->
+            <line x1="120" y1="120" x2="120" y2="60" stroke="#ccc" stroke-width="1" stroke-dasharray="4" />
+          </svg>
+          <div class="graph-caption" style="margin-top: 5px;">عدم اتصال قفزي</div>
+        </div>
+
+        <!-- 4. Infinite -->
+        <div class="graph-item" style="text-align: center;">
+          <svg width="240" height="180" viewBox="0 0 240 180"
+            style="border:1px solid #ccc; background: linear-gradient(to bottom, #fff, #f9f9f9);">
+            <line x1="20" y1="160" x2="220" y2="160" stroke="#888" stroke-width="2" />
+            <line x1="120" y1="10" x2="120" y2="170" stroke="#888" stroke-width="2" />
+            <!-- Asymptote -->
+            <line x1="140" y1="10" x2="140" y2="160" stroke="#FF5722" stroke-width="1" stroke-dasharray="5" />
+            <!-- Left curve going up -->
+            <path d="M 60 140 Q 130 140 135 20" stroke="#FF5722" stroke-width="3" fill="none" />
+            <!-- Right curve coming from up -->
+            <path d="M 145 20 Q 150 140 220 140" stroke="#FF5722" stroke-width="3" fill="none" />
+          </svg>
+          <div class="graph-caption" style="margin-top: 5px;">عدم اتصال لا نهائي</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 32 -->
+    <section class="slide">
+      <h3 id="الاتصال-عند-نقطة">الاتصال عند نقطة</h3>
+      <div class="definition">
+        <p>تكون الدالة \(f(x)\) متصلة عند النقطة \(x=c\) إذا تحققت الشروط الثلاثة الآتية:</p>
+        <ol>
+          <li>الدالة \(f(c)\) معرفة.</li>
+          <li>النهاية \(\displaystyle \lim_{x \to c} f(x)\) موجودة.</li>
+          <li>النهاية تساوي قيمة الدالة: \(\displaystyle \lim_{x \to c} f(x) = f(c)\).</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Slide 33 -->
+    <section class="slide">
+      <h3>أمثلة الكشف عن الاتصال (1)</h3>
+      <div class="example">
+        <p>هل الدالة \(f(x)=x^2\) متصلة عند \(x=1\)؟</p>
+        <p><strong>التحقق من الشروط:</strong></p>
+        <ol>
+          <li>\(f(1) = 1^2 = 1\) (معرفة).</li>
+          <li>\(\lim_{x \to 1} x^2 = 1\) (النهاية موجودة).</li>
+          <li>\(1 = 1\).</li>
+        </ol>
+        <p>إذن الدالة <strong>متصلة</strong>.</p>
+      </div>
+    </section>
+
+    <!-- Slide 34 -->
+    <section class="slide">
+      <h3>أمثلة الكشف عن الاتصال (2)</h3>
+      <div class="example">
+        <p>ادرس اتصال \(f(x)=\frac{x^2-1}{x-1}\) عند \(x=1\).</p>
+        <p><strong>الحل:</strong></p>
+        <p>\(f(1)\) تعطي \(\frac{0}{0}\) (كمية غير معرفة).</p>
+        <p>اختل الشرط الأول.</p>
+        <p>إذن الدالة <strong>غير متصلة</strong> عند \(x=1\).</p>
+      </div>
+    </section>
+
+    <!-- Slide 35 -->
+    <section class="slide">
+      <h3>أمثلة الكشف عن الاتصال (3)</h3>
+      <div class="example">
+        <p>ادرس اتصال \(f(x)= \begin{cases} 1 & x<0 \\ 3 & x\ge 0 \end{cases}\) عند \(x=0\).</p>
+            <p><strong>الحل:</strong></p>
+            <p>النهاية من اليمين = 3.</p>
+            <p>النهاية من اليسار = 1.</p>
+            <p>النهاية غير موجودة (اختل الشرط الثاني).</p>
+            <p>إذن <strong>غير متصلة</strong>.</p>
+      </div>
+    </section>
+
+    <!-- Slide 36 -->
+    <section class="slide">
+      <h3 id="الاتصال-على-فترة">الاتصال على فترة</h3>
+      <div class="definition">
+        <p>نقول إن الدالة \(f(x)\) متصلة على الفترة \([a,b]\) إذا:</p>
+        <ul>
+          <li>كانت متصلة عند كل نقطة \(c \in (a,b)\).</li>
+          <li>كانت \(\displaystyle \lim_{x \to a^+} f(x)=f(a)\).</li>
+          <li>كانت \(\displaystyle \lim_{x \to b^-} f(x)=f(b)\).</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Slide 37 -->
+    <section class="slide">
+      <h3>أمثلة على الاتصال في فترة (1)</h3>
+      <div class="example">
+        <p>ادرس اتصال الدالة \(f(x)=x^2\) على الفترة \([0,2]\).</p>
+        <p><strong>الحل:</strong> الدالة كثيرة حدود، فهي متصلة لكل \(x \in \mathbb{R}\).</p>
+        <p>كما أن: \[\lim_{x \to 0^+} f(x)=0=f(0), \qquad \lim_{x \to 2^-} f(x)=4=f(2)\]</p>
+        <p>إذن الدالة <strong>متصلة على الفترة \([0,2]\)</strong>.</p>
+      </div>
+    </section>
+
+    <!-- Slide 38 -->
+    <section class="slide">
+      <h3>أمثلة على الاتصال في فترة (2)</h3>
+      <div class="example">
+        <p>ادرس اتصال الدالة \(f(x)=\frac{1}{x}\) على الفترة \((0,3)\).</p>
+        <p><strong>الحل:</strong> الدالة معرفة ومتصلة لكل \(x>0\)، وبالتالي فهي متصلة عند كل نقطة من الفترة \((0,3)\).
+        </p>
+        <p>إذن الدالة <strong>متصلة على الفترة \((0,3)\)</strong>.</p>
+      </div>
+      <div class="example">
+        <p>ادرس اتصال الدالة \(f(x)=\sqrt{x}\) على الفترة \([-1,2]\).</p>
+        <p><strong>الحل:</strong> الدالة غير معرفة عندما \(x<0\)، وبالتالي فهي غير متصلة عند الطرف \(x=-1\).</p>
+            <p>إذن الدالة <strong>غير متصلة على الفترة \([-1,2]\)</strong>.</p>
+      </div>
+    </section>
+
+    <!-- Slide 39 -->
+    <section class="slide">
+      <h3>أمثلة على الاتصال في فترة (3)</h3>
+      <div class="example">
+        <p>ادرس اتصال الدالة: \[f(x)=\frac{1}{x-1}\] على الفترة \([0,2]\).</p>
+        <p><strong>الحل:</strong> الدالة غير معرفة عند \(x=1\)، و\(1 \in (0,2)\)، أي داخل الفترة.</p>
+        <p>إذن الدالة <strong>غير متصلة على الفترة \([0,2]\)</strong>.</p>
+      </div>
+    </section>
+
+    <!-- Slide 40 -->
+    <section class="slide">
+      <h3 id="خواص-الدوال-المتصلة">خواص الدوال المتصلة</h3>
+      <div class="myrule">
+        <ul>
+          <li>كل دالة كثيرة حدود متصلة لكل \(x \in \mathbb{R}\).</li>
+          <li>الدوال الكسرية متصلة حيثما كانت معرفة.</li>
+          <li>إذا كانت \(f\) و\(g\) متصلتين عند \(c\)، فإن: \[f+g,\; f-g,\; fg,\; \frac{f}{g}\;(g(c)\neq 0)\] كلها دوال
+            متصلة عند \(c\).</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Slide 41 -->
+    <section class="slide">
+      <h3>أمثلة على خواص الدوال المتصلة (1)</h3>
+      <div class="example">
+        <p>ادرس اتصال الدالة: \[f(x)=2x^3-5x+1\]</p>
+        <p><strong>الحل:</strong> الدالة كثيرة حدود، وكل دالة كثيرة حدود متصلة لكل \(x \in \mathbb{R}\).</p>
+        <p>إذن الدالة <strong>متصلة لكل عدد حقيقي</strong>.</p>
+      </div>
+      <div class="example">
+        <p>ادرس اتصال الدالة: \[f(x)=\frac{x+1}{x-2}\] </p>
+        <p><strong>الحل:</strong> الدالة كسرية، وهي متصلة حيثما كانت معرفة.</p>
+        <p>وبما أنها غير معرفة عند \(x=2\)، فإنها <strong>متصلة لكل \(x \neq 2\)</strong>.</p>
+      </div>
+    </section>
+
+    <!-- Slide 42 -->
+    <section class="slide">
+      <h3>أمثلة على خواص الدوال المتصلة (2)</h3>
+      <div class="example">
+        <p>لتكن: \[f(x)=x^2 \qquad \text{و} \qquad g(x)=3x\]</p>
+        <p>ادرس اتصال الدالة \(h(x)=f(x)+g(x)\) عند \(x=1\).</p>
+        <p><strong>الحل:</strong> الدالتان \(f\) و\(g\) كثيرتا حدود، إذن هما متصلتان عند \(x=1\).</p>
+        <p>وبحسب خواص الاتصال فإن: \[h(x)=x^2+3x\] دالة متصلة عند \(x=1\).</p>
+      </div>
+    </section>
+
+    <!-- Slide 43 -->
+    <section class="slide">
+      <h3 id="خواص-الدوال-المتصلة-على-فترة-مغلقة">خواص الدوال المتصلة على فترة مغلقة</h3>
+      <div class="myrule">
+        <p>إذا كانت الدالة \(f(x)\) متصلة على الفترة المغلقة \([a,b]\)، فإنها تتمتع بالخواص الآتية:</p>
+        <ul>
+          <li>للدالة قيمة عظمى وقيمة صغرى على الفترة \([a,b]\).</li>
+          <li>تأخذ الدالة كل القيم الواقعة بين \(f(a)\) و\(f(b)\) (نظرية القيم المتوسطة).</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Slide 44 -->
+    <section class="slide">
+      <h3>أمثلة على الخواص في فترة مغلقة (1)</h3>
+      <div class="example">
+        <p>لتكن الدالة \(f(x)=x^2\) على الفترة \([-2,1]\).</p>
+        <p><strong>الحل:</strong> الدالة كثيرة حدود، فهي متصلة على \([-2,1]\).</p>
+        <p>نحسب قيمتها عند طرفي الفترة: \[f(-2)=4, \qquad f(1)=1\]</p>
+        <p>نلاحظ أن:</p>
+        <p>القيمة الصغرى \(= 0\) عند \(x = 0\)</p>
+        <p>القيمة العظمى \(= 4\) عند \(x = -2\)</p>
+      </div>
+    </section>
+
+    <!-- Slide 45 -->
+    <section class="slide">
+      <h3>أمثلة على الخواص في فترة مغلقة (2)</h3>
+      <div class="example">
+        <p>لتكن الدالة: \[f(x)=x^2-3\] على الفترة \([1,2]\).</p>
+        <p><strong>الحل:</strong> الدالة متصلة على \([1,2]\).</p>
+        <p>نحسب: \[f(1)=-2, \qquad f(2)=1\]</p>
+        <p>وبما أن \(0\) يقع بين \(-2\) و\(1\)، فيوجد عدد \(c \in (1,2)\) بحيث: \[f(c)=0\] أي أن للمعادلة \(x^2-3=0\)
+          حلًا في الفترة \((1,2)\).</p>
+      </div>
+    </section>
+
+    <!-- Slide 46 -->
+    <section class="slide">
+      <h2 id="الاستخدام-في-التخصص">الاستخدام في التخصص</h2>
+      <div class="axiombox">
+        <p><strong>"النهايات تدرس سلوك النظام عند الحافة أو اللحظات الانتقالية. الاتصال هو الضمان بأن النظام لن يتصرف
+            بشكل مفاجئ (بدون قفزات)."</strong></p>
+      </div>
+      <dl>
+        <dt style="font-weight: bold; margin-top: 15px; color: #d35400;">التقنية الميكانيكية:</dt>
+        <dd>
+          <p>يُشترط في تصميم أسطح التروس والكامات أن تتبع دوالاً متصلة رياضياً، لأن أي انقطاع في الدالة يعني وجود حافة
+            حادة قد تسبب كسراً أو تآكلاً سريعاً للأجزاء الميكانيكية.</p>
+        </dd>
+        <dt style="font-weight: bold; margin-top: 15px; color: #27ae60;">التقنية الكهربائية:</dt>
+        <dd>
+          <p>تُستخدم النهايات لدراسة سلوك الدوائر الكهربائية عند الزمن اللانهائي (الحالة المستقرة)، لمعرفة القيمة التي
+            سيستقر عليها الجهد أو التيار بعد زوال الاضطرابات الأولية.</p>
+        </dd>
+        <dt style="font-weight: bold; margin-top: 15px; color: #2980b9;">التقنية الإلكترونية:</dt>
+        <dd>
+          <p>تُستخدم مفاهيم الاتصال والنهايات في محولات الإشارة التناظرية إلى رقمية (ADC)، لتحديد معدل أخذ العينات
+            اللازم لتمثيل الإشارة المتصلة (مثل الصوت) بدقة رقمية.</p>
+        </dd>
+        <dt style="font-weight: bold; margin-top: 15px; color: #8e44ad;">تقنية الاتصالات:</dt>
+        <dd>
+          <p>تُستخدم النهايات لتحديد حدود نطاق التردد (Bandwidth) وسعة القناة، ودراسة سلوك المرشحات عند الترددات العالية
+            جداً أو المنخفضة جداً.</p>
+        </dd>
+      </dl>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 الصفحة الالكترونية لمقرر الرياضيات (رياض 121) - تطوير بواسطة نواف العنزي </p>
+      <p style="font-size: 0.8rem; margin-top: 0.5rem; opacity: 0.7;">آخر تحديث: <span id="last-updated-date"></span>
+      </p>
+      <div
+        style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.8; display: flex; justify-content: center; align-items: center; gap: 5px;">
+        <span>👁️ عدد الزيارات: </span>
+        <span id="visits-count" style="font-weight: bold; color: var(--accent);">جاري الحساب...</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+
+</html>

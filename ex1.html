@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <!-- Google Tag Manager -->
+  <script>(function (w, d, s, l, i) {
+      w[l] = w[l] || []; w[l].push({
+        'gtm.start':
+          new Date().getTime(), event: 'gtm.js'
+      }); var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-P8G6WGL4');</script>
+  <!-- End Google Tag Manager -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>تمارين الوحدة الأولى | رياضيات 121</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- MathJax -->
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <style>
+    /* Quiz Specific Customizations */
+    .slide {
+      display: none;
+      /* Logic control */
+    }
+
+    .slide.active {
+      display: block;
+    }
+
+    .exercise {
+      margin-bottom: 30px;
+      padding-bottom: 20px;
+      border-bottom: 1px dashed var(--border);
+    }
+
+    .exercise:last-child {
+      border-bottom: none;
+    }
+
+    .question {
+      font-size: 1.25rem;
+      margin-bottom: 1.5rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .options {
+      list-style: none;
+      padding: 0;
+      display: grid;
+      gap: 1rem;
+    }
+
+    .options label {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      padding: 1rem;
+      background: var(--bg-body);
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      transition: all 0.2s;
+    }
+
+    .options label:hover {
+      background: white;
+      border-color: var(--accent);
+      transform: translateX(-5px);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .options input[type="radio"] {
+      margin-left: 1rem;
+      width: 1.2rem;
+      height: 1.2rem;
+      accent-color: var(--primary);
+    }
+
+    .feedback {
+      margin-top: 1rem;
+      font-weight: bold;
+      padding: 1rem;
+      border-radius: 8px;
+      display: none;
+      animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .feedback.correct {
+      background-color: var(--color-success-bg);
+      color: #166534;
+      /* Dark green */
+      border: 1px solid var(--color-success-border);
+    }
+
+    .feedback.incorrect {
+      background-color: #FEF2F2;
+      color: #991B1B;
+      /* Dark red */
+      border: 1px solid #FCA5A5;
+    }
+
+    .nav-buttons {
+      margin-top: 2rem;
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      border-top: 2px solid var(--border);
+      padding-top: 1.5rem;
+    }
+
+    .nav-buttons button {
+      padding: 0.75rem 2rem;
+      font-family: inherit;
+      font-weight: bold;
+      border-radius: 50px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-size: 1rem;
+    }
+
+    .nav-buttons button:not(:disabled) {
+      background: var(--primary);
+      color: white;
+    }
+
+    .nav-buttons button:not(:disabled):hover {
+      background: var(--primary-light);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.15);
+    }
+
+    .nav-buttons button:disabled {
+      background: #CBD5E1;
+      color: #94A3B8;
+      cursor: not-allowed;
+    }
+
+    .reveal-btn {
+      background-color: var(--text-muted) !important;
+      color: white;
+      padding: 0.5rem 1.5rem;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 0.5rem;
+      font-family: inherit;
+      font-size: 0.9rem;
+      transition: opacity 0.2s;
+    }
+
+    .reveal-btn:hover {
+      opacity: 0.9;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P8G6WGL4" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container nav-content">
+      <a href="index.html" class="nav-logo">
+        <img src="white__logo.svg" alt="Math 121 Logo">
+      </a>
+      <button class="hamburger" aria-label="Toggle navigation">☰</button>
+      <ul class="nav-links">
+        <li><a href="index.html">الرئيسية</a></li>
+        <li><a href="index.html#units">الوحدات</a></li>
+        <li><a href="index.html#exercises">التمارين</a></li>
+        <li><a href="index.html#book-section">الكتاب</a></li>
+        <li><a href="index.html#presentations-section">عروض تقديمية</a></li>
+        <li><a href="index.html#worksheets-section">أوراق عمل</a></li>
+        <li><a href="index.html#qbanks-section">بنوك الأسئلة</a></li>
+        <li><a href="ex+.html">تمارين إثرائية</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Header -->
+  <header class="hero" style="padding: 3rem 0; margin-bottom: 0;">
+    <div class="container">
+      <h1>تمارين الوحدة الأولى</h1>
+      <p>كثيرات الحدود والعمليات عليها</p>
+    </div>
+  </header>
+
+  <div class="container" style="padding: 4rem 0;">
+
+    <!-- Slide 1: Questions 1 & 2 -->
+    <div class="slide active" id="slide1">
+      <div class="exercise">
+        <div class="question">1. درجة كثيرة الحدود \(3 + 4x^2 - 5x\) هي:</div>
+        <button class="reveal-btn" onclick="showAnswer(this, 'الدرجة هي 2 (لأن أكبر أس هو 2).')">إظهار الإجابة</button>
+        <div class="feedback"></div>
+      </div>
+      <div class="exercise">
+        <div class="question">2. المعامل الرئيسي لكثيرة الحدود \(3 + 4x^2 - 5x\) هو:</div>
+        <button class="reveal-btn" onclick="showAnswer(this, 'المعامل الرئيسي هو 4 (معامل أكبر أس).')">إظهار
+          الإجابة</button>
+        <div class="feedback"></div>
+      </div>
+      <div class="nav-buttons">
+        <button disabled>السابق</button>
+        <button onclick="showSlide(2)">التالي</button>
+      </div>
+    </div>
+
+    <!-- Slide 2: Questions 3 & 4 -->
+    <div class="slide" id="slide2">
+      <div class="exercise">
+        <div class="question">3. الحد الثابت لكثيرة الحدود \(3 + 4x^2 - 5x\) هو:</div>
+        <button class="reveal-btn" onclick="showAnswer(this, 'الحد الثابت هو 3.')">إظهار الإجابة</button>
+        <div class="feedback"></div>
+      </div>
+      <div class="exercise">
+        <div class="question">4. ناتج \((5x+3) + (2x-1)\) هو:</div>
+        <ul class="options">
+          <li><label><input type="radio" name="q4" onchange="checkAnswer(this, false)"> \(7x+3\)</label></li>
+          <li><label><input type="radio" name="q4" onchange="checkAnswer(this, false)"> \(3x-1\)</label></li>
+          <li><label><input type="radio" name="q4" onchange="checkAnswer(this, true)"> \(7x+2\)</label></li>
+          <li><label><input type="radio" name="q4" onchange="checkAnswer(this, false)"> \(3x+2\)</label></li>
+        </ul>
+        <div class="feedback"></div>
+      </div>
+      <div class="nav-buttons">
+        <button onclick="showSlide(1)">السابق</button>
+        <button onclick="showSlide(3)">التالي</button>
+      </div>
+    </div>
+
+    <!-- Slide 3: Questions 5 & 6 -->
+    <div class="slide" id="slide3">
+      <div class="exercise">
+        <div class="question">5. ناتج \((5x+3) - (2x-1)\) هو:</div>
+        <ul class="options">
+          <li><label><input type="radio" name="q5" onchange="checkAnswer(this, false)"> \(3x-4\)</label></li>
+          <li><label><input type="radio" name="q5" onchange="checkAnswer(this, false)"> \(3x-2\)</label></li>
+          <li><label><input type="radio" name="q5" onchange="checkAnswer(this, true)"> \(3x+4\)</label></li>
+          <li><label><input type="radio" name="q5" onchange="checkAnswer(this, false)"> \(3x+2\)</label></li>
+        </ul>
+        <div class="feedback"></div>
+      </div>
+      <div class="exercise">
+        <div class="question">6. ناتج \(3(5x-2)\) هو:</div>
+        <ul class="options">
+          <li><label><input type="radio" name="q6" onchange="checkAnswer(this, false)"> \(15x-2\)</label></li>
+          <li><label><input type="radio" name="q6" onchange="checkAnswer(this, true)"> \(15x-6\)</label></li>
+          <li><label><input type="radio" name="q6" onchange="checkAnswer(this, false)"> \(15x+6\)</label></li>
+          <li><label><input type="radio" name="q6" onchange="checkAnswer(this, false)"> \(15x-3\)</label></li>
+        </ul>
+        <div class="feedback"></div>
+      </div>
+      <div class="nav-buttons">
+        <button onclick="showSlide(2)">السابق</button>
+        <button onclick="showSlide(4)">التالي</button>
+      </div>
+    </div>
+
+    <!-- Slide 4: Questions 7 & 8 -->
+    <div class="slide" id="slide4">
+      <div class="exercise">
+        <div class="question">7. ناتج \((3x^2+2)(2x+1)\) هو:</div>
+        <ul class="options">
+          <li><label><input type="radio" name="q7" onchange="checkAnswer(this, true)"> \(6x^3+3x^2+4x+2\)</label></li>
+          <li><label><input type="radio" name="q7" onchange="checkAnswer(this, false)"> \(6x^3+3x^2+2\)</label></li>
+          <li><label><input type="radio" name="q7" onchange="checkAnswer(this, false)"> \(3x^2+4x+2\)</label></li>
+          <li><label><input type="radio" name="q7" onchange="checkAnswer(this, false)"> \(6x^3+2\)</label></li>
+        </ul>
+        <div class="feedback"></div>
+      </div>
+      <div class="exercise">
+        <div class="question">8. قيمة كثيرة الحدود \(2x+1\) عند القيمة \(x=2\) هي:</div>
+        <button class="reveal-btn" onclick="showAnswer(this, '\(2(2)+1 = 5\)')">إظهار الإجابة</button>
+        <div class="feedback"></div>
+      </div>
+      <div class="nav-buttons">
+        <button onclick="showSlide(3)">السابق</button>
+        <button onclick="showSlide(5)">التالي</button>
+      </div>
+    </div>
+
+    <!-- Slide 5: Questions 9 & 10 -->
+    <div class="slide" id="slide5">
+      <div class="exercise">
+        <div class="question">9. قيمة كثيرة الحدود \(3x-2\) عند القيمة \(x=-2\) هي:</div>
+        <button class="reveal-btn" onclick="showAnswer(this, '\(3(-2)-2 = -6-2 = -8\)')">إظهار الإجابة</button>
+        <div class="feedback"></div>
+      </div>
+      <div class="exercise">
+        <div class="question">10. ناتج \((x-3)(x+2)\) هو:</div>
+        <ul class="options">
+          <li><label><input type="radio" name="q10" onchange="checkAnswer(this, true)"> \(x^2-x-6\)</label></li>
+          <li><label><input type="radio" name="q10" onchange="checkAnswer(this, false)"> \(x^2-5x-6\)</label></li>
+          <li><label><input type="radio" name="q10" onchange="checkAnswer(this, false)"> \(x^2-x-2\)</label></li>
+          <li><label><input type="radio" name="q10" onchange="checkAnswer(this, false)"> \(2x^2-2x-2\)</label></li>
+        </ul>
+        <div class="feedback"></div>
+      </div>
+      <div class="nav-buttons">
+        <button onclick="showSlide(4)">السابق</button>
+        <button onclick="showSlide(6)">التالي</button>
+      </div>
+    </div>
+
+    <!-- Slide 6: Questions 11 & 12 -->
+    <div class="slide" id="slide6">
+      <div class="exercise">
+        <div class="question">11. حاصل قسمة \(6x^2+8x+2\) على \(2x+2\) يساوي:</div>
+        <ul class="options">
+          <li><label><input type="radio" name="q11" onchange="checkAnswer(this, false)"> \(2x+2\)</label></li>
+          <li><label><input type="radio" name="q11" onchange="checkAnswer(this, false)"> \(x+1\)</label></li>
+          <li><label><input type="radio" name="q11" onchange="checkAnswer(this, false)"> \(x+3\)</label></li>
+          <li><label><input type="radio" name="q11" onchange="checkAnswer(this, true)"> \(3x+1\)</label></li>
+        </ul>
+        <div class="feedback"></div>
+      </div>
+      <div class="exercise">
+        <div class="question">12. حاصل قسمة \(4x^2+11x+6\) على \(x+2\) يساوي:</div>
+        <ul class="options">
+          <li><label><input type="radio" name="q12" onchange="checkAnswer(this, true)"> \(4x+3\)</label></li>
+          <li><label><input type="radio" name="q12" onchange="checkAnswer(this, false)"> \(x+4\)</label></li>
+          <li><label><input type="radio" name="q12" onchange="checkAnswer(this, false)"> \(x+2\)</label></li>
+          <li><label><input type="radio" name="q12" onchange="checkAnswer(this, false)"> \(4x+2\)</label></li>
+        </ul>
+        <div class="feedback"></div>
+      </div>
+      <div class="nav-buttons">
+        <button onclick="showSlide(5)">السابق</button>
+        <button onclick="showSlide(7)">التالي</button>
+      </div>
+    </div>
+
+    <!-- Slide 7: Questions 13 & 14 -->
+    <div class="slide" id="slide7">
+      <div class="exercise">
+        <div class="question">13. تحليل كثيرة الحدود \(3x^5+6x^2\) هو:</div>
+        <ul class="options">
+          <li><label><input type="radio" name="q13" onchange="checkAnswer(this, true)"> \(3x^2(x^3+2)\)</label></li>
+          <li><label><input type="radio" name="q13" onchange="checkAnswer(this, false)"> \(x^2(x^3+3)\)</label></li>
+          <li><label><input type="radio" name="q13" onchange="checkAnswer(this, false)"> \(3x(x+2)\)</label></li>
+          <li><label><input type="radio" name="q13" onchange="checkAnswer(this, false)"> \(3(x^3+2)\)</label></li>
+        </ul>
+        <div class="feedback"></div>
+      </div>
+      <div class="exercise">
+        <div class="question">14. تحليل كثيرة الحدود \(x^2-9\) هو:</div>
+        <ul class="options">
+          <li><label><input type="radio" name="q14" onchange="checkAnswer(this, false)"> \((x+3)(x+3)\)</label></li>
+          <li><label><input type="radio" name="q14" onchange="checkAnswer(this, false)"> \((x-3)(x-3)\)</label></li>
+          <li><label><input type="radio" name="q14" onchange="checkAnswer(this, true)"> \((x+3)(x-3)\)</label></li>
+          <li><label><input type="radio" name="q14" onchange="checkAnswer(this, false)"> \((x+9)(x+1)\)</label></li>
+        </ul>
+        <div class="feedback"></div>
+      </div>
+      <div class="nav-buttons">
+        <button onclick="showSlide(6)">السابق</button>
+        <button onclick="showSlide(8)">التالي</button>
+      </div>
+    </div>
+
+    <!-- Slide 8: Questions 15 & 16 -->
+    <div class="slide" id="slide8">
+      <div class="exercise">
+        <div class="question">15. تحليل كثيرة الحدود \(x^2+6x+8\) هو:</div>
+        <ul class="options">
+          <li><label><input type="radio" name="q15" onchange="checkAnswer(this, true)"> \((x+2)(x+4)\)</label></li>
+          <li><label><input type="radio" name="q15" onchange="checkAnswer(this, false)"> \((x-2)(x-4)\)</label></li>
+          <li><label><input type="radio" name="q15" onchange="checkAnswer(this, false)"> \((x-2)(x+4)\)</label></li>
+          <li><label><input type="radio" name="q15" onchange="checkAnswer(this, false)"> \((x+2)(x-4)\)</label></li>
+        </ul>
+        <div class="feedback"></div>
+      </div>
+      <div class="exercise">
+        <div class="question">16. تحليل كثيرة الحدود \(x^2-7x+10\) هو:</div>
+        <ul class="options">
+          <li><label><input type="radio" name="q16" onchange="checkAnswer(this, true)"> \((x-2)(x-5)\)</label></li>
+          <li><label><input type="radio" name="q16" onchange="checkAnswer(this, false)"> \((x-2)(x+5)\)</label></li>
+          <li><label><input type="radio" name="q16" onchange="checkAnswer(this, false)"> \((x+2)(x+5)\)</label></li>
+          <li><label><input type="radio" name="q16" onchange="checkAnswer(this, false)"> \((x+2)(x-5)\)</label></li>
+        </ul>
+        <div class="feedback"></div>
+      </div>
+      <div class="nav-buttons">
+        <button onclick="showSlide(7)">السابق</button>
+        <button onclick="showSlide(9)">التالي</button>
+      </div>
+    </div>
+
+    <!-- Slide 9: Questions 17 & 18 -->
+    <div class="slide" id="slide9">
+      <div class="exercise">
+        <div class="question">17. تحليل كثيرة الحدود \(x^2+x-6\) هو:</div>
+        <ul class="options">
+          <li><label><input type="radio" name="q17" onchange="checkAnswer(this, false)"> \((x-2)(x-3)\)</label></li>
+          <li><label><input type="radio" name="q17" onchange="checkAnswer(this, false)"> \((x+2)(x-3)\)</label></li>
+          <li><label><input type="radio" name="q17" onchange="checkAnswer(this, false)"> \((x+2)(x+3)\)</label></li>
+          <li><label><input type="radio" name="q17" onchange="checkAnswer(this, true)"> \((x-2)(x+3)\)</label></li>
+        </ul>
+        <div class="feedback"></div>
+      </div>
+      <div class="exercise">
+        <div class="question">18. تحليل كثيرة الحدود \(x^2-3x-10\) هو:</div>
+        <ul class="options">
+          <li><label><input type="radio" name="q18" onchange="checkAnswer(this, true)"> \((x-5)(x+2)\)</label></li>
+          <li><label><input type="radio" name="q18" onchange="checkAnswer(this, false)"> \((x+5)(x+2)\)</label></li>
+          <li><label><input type="radio" name="q18" onchange="checkAnswer(this, false)"> \((x+5)(x-2)\)</label></li>
+          <li><label><input type="radio" name="q18" onchange="checkAnswer(this, false)"> \((x-5)(x-2)\)</label></li>
+        </ul>
+        <div class="feedback"></div>
+      </div>
+      <div class="nav-buttons">
+        <button onclick="showSlide(8)">السابق</button>
+        <button onclick="showSlide(10)">التالي</button>
+      </div>
+    </div>
+
+    <!-- Slide 10: Questions 19 & 20 -->
+    <div class="slide" id="slide10">
+      <div class="exercise">
+        <div class="question">19. تحليل كثيرة الحدود \(6x^2+17x+12\) هو:</div>
+        <ul class="options">
+          <li><label><input type="radio" name="q19" onchange="checkAnswer(this, false)"> \((2x+2)(x+4)\)</label></li>
+          <li><label><input type="radio" name="q19" onchange="checkAnswer(this, true)"> \((2x+3)(3x+4)\)</label></li>
+          <li><label><input type="radio" name="q19" onchange="checkAnswer(this, false)"> \((x+3)(x+4)\)</label></li>
+          <li><label><input type="radio" name="q19" onchange="checkAnswer(this, false)"> \((x+2)(x+3)\)</label></li>
+        </ul>
+        <div class="feedback"></div>
+      </div>
+      <div class="exercise">
+        <div class="question">20. اختصار \(\frac{x^2-x-6}{x^2-3x-10}\) يساوي:</div>
+        <ul class="options">
+          <li><label><input type="radio" name="q20" onchange="checkAnswer(this, false)"> \(\frac{x+3}{x+5}\)</label>
+          </li>
+          <li><label><input type="radio" name="q20" onchange="checkAnswer(this, true)"> \(\frac{x-3}{x-5}\)</label></li>
+          <li><label><input type="radio" name="q20" onchange="checkAnswer(this, false)"> \(\frac{x-5}{x-3}\)</label>
+          </li>
+          <li><label><input type="radio" name="q20" onchange="checkAnswer(this, false)"> \(\frac{x+5}{x+3}\)</label>
+          </li>
+        </ul>
+        <div class="feedback"></div>
+      </div>
+      <div class="nav-buttons">
+        <button onclick="showSlide(9)">السابق</button>
+        <button disabled>نهاية التمارين</button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 الصفحة الالكترونية لمقرر الرياضيات (رياض 121) - تطوير بواسطة نواف العنزي </p>
+      <p style="font-size: 0.8rem; margin-top: 0.5rem; opacity: 0.7;">آخر تحديث: <span id="last-updated-date"></span>
+      </p>
+      <div
+        style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.8; display: flex; justify-content: center; align-items: center; gap: 5px;">
+        <span>👁️ عدد الزيارات: </span>
+        <span id="visits-count" style="font-weight: bold; color: var(--accent);">جاري الحساب...</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function showSlide(n) {
+      // Hide all slides
+      const slides = document.querySelectorAll('.slide');
+      slides.forEach(slide => {
+        slide.classList.remove('active');
+        slide.style.display = 'none';
+      });
+
+      // Show requested slide
+      const activeSlide = document.getElementById('slide' + n);
+      if (activeSlide) {
+        activeSlide.classList.add('active');
+        activeSlide.style.display = 'block';
+        window.scrollTo(0, 0); // Scroll to top
+      }
+    }
+
+    function checkAnswer(radioInfo, isCorrect) {
+      // radioInfo is the input element
+      const container = radioInfo.closest('.exercise').querySelector('.feedback');
+      if (isCorrect) {
+        container.textContent = "إجابة صحيحة! أحسنت.";
+        container.className = "feedback correct";
+      } else {
+        container.textContent = "إجابة خاطئة، حاول مرة أخرى.";
+        container.className = "feedback incorrect";
+      }
+      container.style.display = 'block';
+
+      if (window.MathJax && MathJax.typesetPromise) {
+        MathJax.typesetPromise();
+      }
+    }
+
+    function showAnswer(btn, answerText) {
+      const container = btn.parentElement.querySelector('.feedback');
+      container.textContent = "الإجابة الصحيحة: " + answerText;
+      container.className = "feedback correct";
+      container.style.display = 'block';
+      btn.style.display = 'none'; // Hide button after showing
+
+      if (window.MathJax && MathJax.typesetPromise) {
+        MathJax.typesetPromise();
+      }
+    }
+  </script>
+
+  <script src="main.js"></script>
+</body>
+
+</html>

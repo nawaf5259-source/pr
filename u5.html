@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+
+<head>
+  <!-- Google Tag Manager -->
+  <script>(function (w, d, s, l, i) {
+      w[l] = w[l] || []; w[l].push({
+        'gtm.start':
+          new Date().getTime(), event: 'gtm.js'
+      }); var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-P8G6WGL4');</script>
+  <!-- End Google Tag Manager -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>التفاضل وتطبيقاته</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- MathJax -->
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P8G6WGL4" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container nav-content">
+      <a href="index.html" class="nav-logo">
+        <img src="white__logo.svg" alt="Math 121 Logo">
+      </a>
+      <button class="hamburger" aria-label="Toggle navigation">☰</button>
+      <ul class="nav-links">
+        <li><a href="index.html">الرئيسية</a></li>
+        <li><a href="index.html#units">الوحدات</a></li>
+        <li><a href="index.html#exercises">التمارين</a></li>
+        <li><a href="index.html#book-section">الكتاب</a></li>
+        <li><a href="index.html#presentations-section">عروض تقديمية</a></li>
+        <li><a href="index.html#worksheets-section">أوراق عمل</a></li>
+        <li><a href="index.html#qbanks-section">بنوك الأسئلة</a></li>
+        <li><a href="ex+.html">تمارين إثرائية</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="container" style="padding-top: 40px;">
+
+    <!-- Slide 1: Objectives -->
+    <section class="slide">
+      <h1 id="التفاضل-وتطبيقاته">التفاضل وتطبيقاته</h1>
+      <p>تتمحور أهداف هذه الوحدة حول تمكين المتدرب من فهم مفهوم التفاضل (الاشتقاق) واكتساب المهارات اللازمة لحساب مشتقات
+        الدوال.</p>
+      <div class="objectives">
+        <p><strong>الهدف العام للوحدة:</strong><br />
+          تهدف هذه الوحدة إلى إتقان حساب المشتقات باستخدام القواعد الأساسية وتوظيفها في التطبيقات العملية والهندسية.</p>
+        <p><strong>الأهداف التفصيلية:</strong><br />
+          من المتوقع في نهاية هذه الوحدة التدريبية أن يكون المتدرب قادراً وبكفاءة على أن:</p>
+        <ol>
+          <li>يُعرف المشتقة الأولى وتفسيرها الهندسي (ميل المماس).</li>
+          <li>يطبق قواعد الاشتقاق الأساسية (القوة، الضرب، القسمة).</li>
+          <li>يوجد مشتقات الدوال المثلثية والأسية واللوغاريتمية.</li>
+          <li>يحسب المشتقات من الرتب العليا والاشتقاق الضمني.</li>
+          <li>يوظف التفاضل في تطبيقات القيم القصوى ورسم المنحنيات.</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Slide 2: Importance & Definition -->
+    <section class="slide">
+      <h2 class="unnumbered" id="أهمية-التفاضل">أهمية التفاضل</h2>
+      <p>يُعد التفاضل ركيزة أساسية في علم الرياضيات وتطبيقاته، حيث يُستخدم لقياس معدلات التغير اللحظية وتحديد سلوك
+        الدوال. تكمن أهميته في قدرته على حل مشكلات معقدة في الفيزياء، والهندسة، والاقتصاد.</p>
+      <p><strong>الوقت المتوقع للتدريب على هذه الوحدة: 14 ساعة تدريبية.</strong></p>
+
+      <h2 id="الفصل-الأول-الاشتقاق">الفصل الأول: الاشتقاق</h2>
+      <h3 id="تعريف-المشتقة">تعريف المشتقة</h3>
+      <div class="definition">
+        <p>لتكن \(y = f(x)\) دالة معرفة على مجال \(I\). تُعرف المشتقة الأولى للدالة عند النقطة \(x\) بالنهاية التالية
+          (إذا وُجدت):
+          \[f'(x) = \lim_{\Delta x \to 0} \frac{f(x + \Delta x) - f(x)}{\Delta x}\]</p>
+        <p><strong>رموز المشتقة:</strong> \[f'(x), \quad y', \quad \frac{dy}{dx}, \quad \frac{df}{dx}\]</p>
+      </div>
+      <div class="note">
+        <p>هندسياً، تمثل المشتقة \(f'(x_0)\) <strong>ميل المماس</strong> لمنحنى الدالة \(y=f(x)\) عند النقطة \((x_0,
+          f(x_0))\).</p>
+        <div style="text-align: center; margin-top: 15px;">
+          <img src="u5-1.png" alt="Concept: Derivative Geometric Interpretation" style="max-width: 100%; height: auto;">
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 3: Definition Examples (Linear) -->
+    <section class="slide">
+      <h3>أمثلة على التعريف (1)</h3>
+      <div class="example">
+        <p>أوجد مشتقة الدالة \(f(x) = 3x - 5\) باستخدام التعريف.</p>
+        <p><strong>الحل بالتفصيل:</strong></p>
+        <p><strong>1. نكتب قانون التعريف:</strong> \[f'(x) = \lim_{\Delta x \to 0} \frac{f(x + \Delta x) - f(x)}{\Delta
+          x}\]</p>
+        <p><strong>2. نوجد قيمة \(f(x + \Delta x)\):</strong> نعوض عن كل \(x\) في الدالة بـ \((x + \Delta x)\):
+          \[f(x + \Delta x) = 3(x + \Delta x) - 5 = 3x + 3\Delta x - 5\]</p>
+        <p><strong>3. نعوض في القانون:</strong>
+          \[\begin{aligned}
+          f'(x) &= \lim_{\Delta x \to 0} \frac{(3x + 3\Delta x - 5) - (3x - 5)}{\Delta x} \\
+          &= \lim_{\Delta x \to 0} \frac{3x + 3\Delta x - 5 - 3x + 5}{\Delta x}
+          \end{aligned}\]</p>
+        <p><strong>4. نختصر الحدود المتشابهة في البسط:</strong> (نحذف \(3x\) مع \(-3x\)، ونحذف \(-5\) مع \(+5\))
+          \[f'(x) = \lim_{\Delta x \to 0} \frac{3\Delta x}{\Delta x}\]</p>
+        <p><strong>5. نختصر \(\Delta x\) من البسط والمقام ثم نوجد النهاية:</strong> \[f'(x) = \lim_{\Delta x \to 0} (3)
+          = 3\]</p>
+      </div>
+    </section>
+
+    <!-- Slide 4: Definition Examples (Quadratic) -->
+    <section class="slide">
+      <h3>أمثلة على التعريف (2)</h3>
+      <div class="example">
+        <p>أوجد مشتقة الدالة \(f(x) = x^2 + 4\) باستخدام التعريف.</p>
+        <p><strong>الحل بالتفصيل:</strong></p>
+        <p><strong>1. نوجد \(f(x + \Delta x)\):</strong> \[f(x + \Delta x) = (x + \Delta x)^2 + 4\] نفك القوس التربيعي:
+          \((x^2 + 2x\Delta x + (\Delta x)^2) + 4\)</p>
+        <p><strong>2. نعوض في القانون:</strong> \[f'(x) = \lim_{\Delta x \to 0} \frac{[x^2 + 2x\Delta x + (\Delta x)^2 +
+          4] - [x^2 + 4]}{\Delta x}\]</p>
+        <p><strong>3. نختصر الحدود (\(x^2\) مع \(-x^2\) و \(4\) مع \(-4\)):</strong> \[f'(x) = \lim_{\Delta x \to 0}
+          \frac{2x\Delta x + (\Delta x)^2}{\Delta x}\]</p>
+        <p><strong>4. نأخذ \(\Delta x\) عامل مشترك من البسط:</strong> \[f'(x) = \lim_{\Delta x \to 0} \frac{\Delta x(2x
+          + \Delta x)}{\Delta x}\]</p>
+        <p><strong>5. نختصر \(\Delta x\) ونعوض عن الباقي بصفر:</strong> \[f'(x) = \lim_{\Delta x \to 0} (2x + \Delta x)
+          = 2x + 0 = 2x\]</p>
+      </div>
+    </section>
+
+    <!-- Slide 5: Definition Examples (Mixed) -->
+    <section class="slide">
+      <h3>أمثلة على التعريف (3)</h3>
+      <div class="example">
+        <p>أوجد مشتقة الدالة \(f(x) = x^2 - 3x\) باستخدام التعريف.</p>
+        <p><strong>الحل بالتفصيل:</strong></p>
+        <p><strong>1. نوجد \(f(x + \Delta x)\):</strong> \[f(x + \Delta x) = (x + \Delta x)^2 - 3(x + \Delta x)\] \[=
+          (x^2 + 2x\Delta x + (\Delta x)^2) - 3x - 3\Delta x\]</p>
+        <p><strong>2. نعوض في القانون ونطرح \(f(x)\):</strong> \[f'(x) = \lim_{\Delta x \to 0} \frac{(x^2 + 2x\Delta x +
+          (\Delta x)^2 - 3x - 3\Delta x) - (x^2 - 3x)}{\Delta x}\]</p>
+        <p><strong>3. نختصر الحدود المتشابهة (\(x^2\) مع \(-x^2\) و \(-3x\) مع \(+3x\)):</strong> \[f'(x) = \lim_{\Delta
+          x \to 0} \frac{2x\Delta x + (\Delta x)^2 - 3\Delta x}{\Delta x}\]</p>
+        <p><strong>4. نأخذ \(\Delta x\) عامل مشترك:</strong> \[f'(x) = \lim_{\Delta x \to 0} \frac{\Delta x(2x + \Delta
+          x - 3)}{\Delta x}\]</p>
+        <p><strong>5. نختصر ونحسب النهاية:</strong> \[f'(x) = \lim_{\Delta x \to 0} (2x + \Delta x - 3) = 2x + 0 - 3 =
+          2x - 3\]</p>
+      </div>
+    </section>
+
+    <!-- Slide 6: Basic Rules 1 -->
+    <section class="slide">
+      <h3 id="قواعد-الاشتقاق-الأساسية">قواعد الاشتقاق الأساسية</h3>
+
+      <div class="myrule">
+        <p>مشتقة العدد الثابت تساوي دائماً صفراً. \[\frac{d}{dx}(c) = 0\]</p>
+      </div>
+      <div class="example">
+        <p>أوجد مشتقة الدوال التالية:</p>
+        <ol>
+          <li>\(f(x) = 5 \quad \Longrightarrow \quad f'(x) = 0\)</li>
+          <li>\(g(x) = -3 \quad \Longrightarrow \quad g'(x) = 0\)</li>
+          <li>\(y = \pi \quad \Longrightarrow \quad y' = 0\)</li>
+        </ol>
+      </div>
+
+      <div class="myrule">
+        <p>لأي عدد حقيقي \(n\)، مشتقة \(x^n\) هي: \[\frac{d}{dx}(x^n) = n x^{n-1}\]</p>
+      </div>
+      <div class="example">
+        <p>أوجد مشتقة الدوال التالية:</p>
+        <ol>
+          <li>\(f(x) = x^4 \quad \Longrightarrow \quad f'(x) = 4x^{4-1} = 4x^3\)</li>
+          <li>\(g(x) = x^{-2} \quad \Longrightarrow \quad g'(x) = -2x^{-3} = \frac{-2}{x^3}\)</li>
+          <li>\(y = x \quad \Longrightarrow \quad y' = 1x^{0} = 1\)</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Slide 7: Basic Rules 2 -->
+    <section class="slide">
+      <h3>قواعد الاشتقاق (تابع)</h3>
+      <div class="myrule">
+        <p>مشتقة عدد ثابت مضروب في دالة تساوي الثابت مضروباً في مشتقة الدالة. \[\frac{d}{dx}[c \cdot f(x)] = c \cdot
+          f'(x)\]</p>
+      </div>
+      <div class="example">
+        <ol>
+          <li>\(y = 3x^5 \quad \Longrightarrow \quad y' = 3(5x^4) = 15x^4\)</li>
+          <li>\(y = \frac{1}{2}x^4 \quad \Longrightarrow \quad y' = \frac{1}{2}(4x^3) = 2x^3\)</li>
+          <li>\(y = -2x^{-3} \quad \Longrightarrow \quad y' = -2(-3x^{-4}) = 6x^{-4}\)</li>
+        </ol>
+      </div>
+
+      <div class="myrule">
+        <p>مشتقة مجموع (أو فرق) دالتين تساوي مجموع (أو فرق) مشتقتيهما. \[\frac{d}{dx}[f(x) \pm g(x)] = f'(x) \pm g'(x)\]
+        </p>
+      </div>
+      <div class="example">
+        <ol>
+          <li>\(y = x^2 + 3x \quad \Longrightarrow \quad y' = 2x + 3\)</li>
+          <li>\(y = x^5 - 2x^2 + 1 \quad \Longrightarrow \quad y' = 5x^4 - 4x\)</li>
+          <li>\(y = 4x^3 - 5x + 7 \quad \Longrightarrow \quad y' = 12x^2 - 5\)</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Slide 8: Product & Quotient Rules -->
+    <section class="slide">
+      <h3>قاعدتا الضرب والقسمة</h3>
+      <div class="myrule">
+        <p>مشتقة حاصل ضرب دالتين = (الأولى \(\times\) مشتقة الثانية) + (الثانية \(\times\) مشتقة الأولى).
+          \[\frac{d}{dx}[f(x)g(x)] = f(x)g'(x) + g(x)f'(x)\]</p>
+      </div>
+      <div class="example">
+        <ol>
+          <li>\(y = x^2(2x+1)\) \[y' = (x^2)(2) + (2x+1)(2x) = 2x^2 + 4x^2 + 2x = 6x^2 + 2x\]</li>
+          <li>\(y = (x+3)(x-2)\) \[y' = (x+3)(1) + (x-2)(1) = x + 3 + x - 2 = 2x + 1\]</li>
+          <li>\(y = (3x)(x^4)\) \[y' = (3x)(4x^3) + (x^4)(3) = 12x^4 + 3x^4 = 15x^4\]</li>
+        </ol>
+      </div>
+
+      <div class="myrule">
+        <p>\[\frac{d}{dx}\left[\frac{f(x)}{g(x)}\right] = \frac{g(x)f'(x) - f(x)g'(x)}{[g(x)]^2}\] (المقام \(\times\)
+          مشتقة البسط) - (البسط \(\times\) مشتقة المقام) على مربع المقام.</p>
+      </div>
+      <div class="example">
+        <ol>
+          <li>\(y = \frac{x}{x+1}\) \[y' = \frac{(x+1)(1) - (x)(1)}{(x+1)^2} = \frac{x+1-x}{(x+1)^2} =
+            \frac{1}{(x+1)^2}\]</li>
+          <li>\(y = \frac{1}{x^2}\) \[y' = \frac{(x^2)(0) - (1)(2x)}{(x^2)^2} = \frac{-2x}{x^4} = \frac{-2}{x^3}\]</li>
+          <li>\(y = \frac{3x+1}{x-2}\) \[y' = \frac{(x-2)(3) - (3x+1)(1)}{(x-2)^2} = \frac{3x-6-3x-1}{(x-2)^2} =
+            \frac{-7}{(x-2)^2}\]</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Slide 9: Chain Rule (Power) -->
+    <section class="slide">
+      <h3>قاعدة السلسلة (القوى)</h3>
+      <div class="myrule">
+        <p>مشتقة دالة مرفوعة لقوة \(n\): \[\frac{d}{dx}[ (g(x))^n ] = n(g(x))^{n-1} \cdot g'(x)\]</p>
+      </div>
+      <div class="example">
+        <ol>
+          <li>\(y = (2x+1)^5\) \[y' = 5(2x+1)^4 \cdot (2) = 10(2x+1)^4\]</li>
+          <li>\(y = (x^2+3)^4\) \[y' = 4(x^2+3)^3 \cdot (2x) = 8x(x^2+3)^3\]</li>
+          <li>\(y = \sqrt{3x-1} = (3x-1)^{0.5}\) \[y' = 0.5(3x-1)^{-0.5} \cdot (3) = \frac{1.5}{\sqrt{3x-1}}\]</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Slide 10: Trig Derivatives 1 -->
+    <section class="slide">
+      <h3 id="مشتقات-الدوال-المثلثية">مشتقات الدوال المثلثية</h3>
+
+      <div class="myrule">
+        <p>مشتقة دالة الجيب تساوي جيب التمام مضروباً في مشتقة الزاوية. \[\frac{d}{dx}[\sin u] = \cos u \cdot u'\]</p>
+      </div>
+      <div class="example">
+        <p>أوجد المشتقة الأولى للدوال التالية:</p>
+        <ol>
+          <li>\(y = \sin(x) \quad \Longrightarrow \quad y' = \cos(x)\)</li>
+          <li>\(y = \sin(5x) \quad \Longrightarrow \quad y' = \cos(5x) \cdot 5 = 5\cos(5x)\)</li>
+          <li>\(y = \sin(x^2) \quad \Longrightarrow \quad y' = \cos(x^2) \cdot 2x = 2x\cos(x^2)\)</li>
+        </ol>
+      </div>
+
+      <div class="myrule">
+        <p>مشتقة جيب التمام تساوي سالب الجيب مضروباً في مشتقة الزاوية. \[\frac{d}{dx}[\cos u] = -\sin u \cdot u'\]</p>
+      </div>
+      <div class="example">
+        <ol>
+          <li>\(y = \cos(3x) \quad \Longrightarrow \quad y' = -\sin(3x) \cdot 3 = -3\sin(3x)\)</li>
+          <li>\(y = \cos(x^4) \quad \Longrightarrow \quad y' = -\sin(x^4) \cdot 4x^3 = -4x^3\sin(x^4)\)</li>
+          <li>\(y = \cos(\sqrt{x}) \quad \Longrightarrow \quad y' = -\sin(\sqrt{x}) \cdot \frac{1}{2\sqrt{x}} =
+            \frac{-\sin(\sqrt{x})}{2\sqrt{x}}\)</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Slide 11: Trig Derivatives 2 -->
+    <section class="slide">
+      <h3>تابع الدوال المثلثية</h3>
+
+      <div class="myrule">
+        <p>مشتقة الظل تساوي مربع القاطع مضروباً في مشتقة الزاوية. \[\frac{d}{dx}[\tan u] = \sec^2 u \cdot u'\]</p>
+      </div>
+      <div class="example">
+        <ol>
+          <li>\(y = \tan(2x) \quad \Longrightarrow \quad y' = \sec^2(2x) \cdot 2 = 2\sec^2(2x)\)</li>
+          <li>\(y = \tan(x^3) \quad \Longrightarrow \quad y' = \sec^2(x^3) \cdot 3x^2 = 3x^2\sec^2(x^3)\)</li>
+          <li>\(y = \tan(\frac{1}{x}) \quad \Longrightarrow \quad y' = \sec^2(\frac{1}{x}) \cdot (\frac{-1}{x^2}) =
+            \frac{-\sec^2(1/x)}{x^2}\)</li>
+        </ol>
+      </div>
+
+      <div class="myrule">
+        <p>مشتقة ظل التمام تساوي سالب مربع قاطع التمام مضروباً في مشتقة الزاوية. \[\frac{d}{dx}[\cot u] = -\csc^2 u
+          \cdot u'\]</p>
+      </div>
+      <div class="example">
+        <ol>
+          <li>\(y = \cot(x) \quad \Longrightarrow \quad y' = -\csc^2(x)\)</li>
+          <li>\(y = \cot(4x) \quad \Longrightarrow \quad y' = -\csc^2(4x) \cdot 4 = -4\csc^2(4x)\)</li>
+          <li>\(y = \cot(1-x) \quad \Longrightarrow \quad y' = -\csc^2(1-x) \cdot (-1) = \csc^2(1-x)\)</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Slide 12: Trig Derivatives 3 -->
+    <section class="slide">
+      <h3>تابع الدوال المثلثية (Sec, Csc)</h3>
+      <div class="myrule">
+        <p>مشتقة القاطع تساوي القاطع مضروباً في الظل ومضروباً في مشتقة الزاوية. \[\frac{d}{dx}[\sec u] = \sec u \tan u
+          \cdot u'\]</p>
+      </div>
+      <div class="example">
+        <ol>
+          <li>\(y = \sec(3x) \quad \Longrightarrow \quad y' = \sec(3x)\tan(3x) \cdot 3 = 3\sec(3x)\tan(3x)\)</li>
+          <li>\(y = \sec(x^2) \quad \Longrightarrow \quad y' = \sec(x^2)\tan(x^2) \cdot 2x = 2x\sec(x^2)\tan(x^2)\)</li>
+          <li>\(y = \sec(5x+1) \quad \Longrightarrow \quad y' = 5\sec(5x+1)\tan(5x+1)\)</li>
+        </ol>
+      </div>
+
+      <div class="myrule">
+        <p>مشتقة قاطع التمام تساوي سالب قاطع التمام مضروباً في ظل التمام ومضروباً في مشتقة الزاوية. \[\frac{d}{dx}[\csc
+          u] = -\csc u \cot u \cdot u'\]</p>
+      </div>
+      <div class="example">
+        <ol>
+          <li>\(y = \csc(2x) \quad \Longrightarrow \quad y' = -2\csc(2x)\cot(2x)\)</li>
+          <li>\(y = \csc(x^3) \quad \Longrightarrow \quad y' = -\csc(x^3)\cot(x^3) \cdot 3x^2 =
+            -3x^2\csc(x^3)\cot(x^3)\)</li>
+          <li>\(y = \csc(\frac{x}{2}) \quad \Longrightarrow \quad y' = -\frac{1}{2}\csc(\frac{x}{2})\cot(\frac{x}{2})\)
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Slide 13: Exp Derivatives -->
+    <section class="slide">
+      <h3 id="مشتقات-الدوال-الأسية-واللوغارتمية">مشتقات الدوال الأسية واللوغارتمية</h3>
+
+      <div class="myrule">
+        <p>مشتقة الدالة الأسية الطبيعية تساوي الدالة نفسها مضروبة في مشتقة الأس. \[\frac{d}{dx}[e^u] = e^u \cdot u'\]
+        </p>
+      </div>
+      <div class="example">
+        <p>أوجد المشتقة الأولى للدوال التالية:</p>
+        <ol>
+          <li>\(y = e^{3x} \quad \Longrightarrow \quad y' = e^{3x} \cdot 3 = 3e^{3x}\)</li>
+          <li>\(y = e^{x^2+1} \quad \Longrightarrow \quad y' = e^{x^2+1} \cdot 2x = 2x e^{x^2+1}\)</li>
+          <li>\(y = 5e^x \quad \Longrightarrow \quad y' = 5e^x\)</li>
+        </ol>
+      </div>
+
+      <div class="myrule">
+        <p>مشتقة الدالة الأسية (لأساس \(a\)) تساوي الدالة نفسها \(\times\) مشتقة الأس \(\times\) اللوغاريتم الطبيعي
+          للأساس. \[\frac{d}{dx}[a^u] = a^u \cdot \ln(a) \cdot u'\]</p>
+      </div>
+      <div class="example">
+        <ol>
+          <li>\(y = 2^x \quad \Longrightarrow \quad y' = 2^x \ln(2)\)</li>
+          <li>\(y = 3^{2x} \quad \Longrightarrow \quad y' = 3^{2x} \ln(3) \cdot 2 = 2 \cdot 3^{2x} \ln(3)\)</li>
+          <li>\(y = 10^{x^2} \quad \Longrightarrow \quad y' = 10^{x^2} \ln(10) \cdot 2x\)</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Slide 14: Log Derivatives -->
+    <section class="slide">
+      <h3>مشتقات اللوغاريتمات</h3>
+      <div class="myrule">
+        <p>مشتقة اللوغاريتم الطبيعي تساوي مشتقة ما داخل اللوغاريتم على ما داخل اللوغاريتم نفسه. \[\frac{d}{dx}[\ln u] =
+          \frac{u'}{u}\]</p>
+      </div>
+      <div class="example">
+        <ol>
+          <li>\(y = \ln(x) \quad \Longrightarrow \quad y' = \frac{1}{x}\)</li>
+          <li>\(y = \ln(5x) \quad \Longrightarrow \quad y' = \frac{5}{5x} = \frac{1}{x}\)</li>
+          <li>\(y = \ln(x^2 + 3) \quad \Longrightarrow \quad y' = \frac{2x}{x^2 + 3}\)</li>
+        </ol>
+      </div>
+
+      <div class="myrule">
+        <p>مشتقة اللوغاريتم العام تساوي مشتقة ما داخل اللوغاريتم مقسوماً على (ما داخله \(\times\) اللوغاريتم الطبيعي
+          للأساس). \[\frac{d}{dx}[\log_a u] = \frac{u'}{u \ln a}\]</p>
+      </div>
+      <div class="example">
+        <ol>
+          <li>\(y = \log_3(x) \quad \Longrightarrow \quad y' = \frac{1}{x \ln 3}\)</li>
+          <li>\(y = \log(x) \quad \text{(base 10)} \quad \Longrightarrow \quad y' = \frac{1}{x \ln 10}\)</li>
+          <li>\(y = \log_2(x^3) \quad \Longrightarrow \quad y' = \frac{3x^2}{x^3 \ln 2} = \frac{3}{x \ln 2}\)</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Slide 15: Tangent and Normal -->
+    <section class="slide">
+      <h3 id="معادلة-المماس-والناظم">معادلة المماس والناظم</h3>
+      <div class="myrule">
+        <p>معادلة المستقيم المار بالنقطة \((x_0, y_0)\) وميله \(m\) هي: \[y - y_0 = m(x - x_0)\]</p>
+        <ul>
+          <li>للمماس: الميل \(m = f'(x_0)\)</li>
+          <li>للناظم (العمودي): الميل \(m_1 = \frac{-1}{m}\)</li>
+        </ul>
+      </div>
+      <div class="example">
+        <p><strong><span style="color: teal">أولاً: أمثلة على معادلة المماس</span></strong></p>
+        <ol>
+          <li>
+            <p><strong>كثيرات الحدود:</strong> أوجد معادلة المماس للمنحنى \(y = x^2 - 3x\) عند \(x=1\).</p>
+            <ul>
+              <li>نوجد النقطة: \(y(1) = (1)^2 - 3(1) = -2 \quad \Longrightarrow \quad (1, -2)\)</li>
+              <li>نوجد الميل: \(y' = 2x - 3 \quad \Longrightarrow \quad m = 2(1) - 3 = -1\)</li>
+              <li>المعادلة: \(y - (-2) = -1(x - 1) \Longrightarrow y + 2 = -x + 1 \Longrightarrow \mathbf{y = -x - 1}\)
+              </li>
+            </ul>
+          </li>
+          <li>
+            <p><strong>دالة جذرية:</strong> أوجد معادلة المماس للمنحنى \(y = \sqrt{x}\) عند النقطة \((4, 2)\).</p>
+            <ul>
+              <li>نوجد الميل: \(y' = \frac{1}{2\sqrt{x}} \quad \Longrightarrow \quad m = \frac{1}{2\sqrt{4}} =
+                \frac{1}{4}\)</li>
+              <li>المعادلة: \(y - 2 = \frac{1}{4}(x - 4) \Longrightarrow y = \frac{1}{4}x - 1 + 2 \Longrightarrow
+                \mathbf{y = \frac{1}{4}x + 1}\)</li>
+            </ul>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Slide 16: Normal Equation Examples -->
+    <section class="slide">
+      <h3>معادلة الناظم (تابع)</h3>
+      <div class="example">
+        <p><strong><span style="color: red">ثانياً: أمثلة على معادلة العمودي (الناظم)</span></strong></p>
+        <ol start="3">
+          <li>
+            <p><strong>دالة تربيعية:</strong> أوجد معادلة العمودي على المنحنى \(y = x^2\) عند النقطة \((1, 1)\).</p>
+            <ul>
+              <li>ميل المماس: \(y' = 2x \quad \Longrightarrow \quad m = 2(1) = 2\)</li>
+              <li>ميل العمودي: \(m_1 = \frac{-1}{m} = \frac{-1}{2}\)</li>
+              <li>المعادلة: \(y - 1 = -\frac{1}{2}(x - 1) \Longrightarrow y = -0.5x + 0.5 + 1 \Longrightarrow \mathbf{y
+                = -0.5x + 1.5}\)</li>
+            </ul>
+          </li>
+          <li>
+            <p><strong>دالة مقلوب:</strong> أوجد معادلة العمودي للمنحنى \(y = \frac{1}{x}\) عند \(x = 1\).</p>
+            <ul>
+              <li>نوجد النقطة: \(y(1) = 1 \quad \Longrightarrow \quad (1, 1)\)</li>
+              <li>ميل المماس: \(y' = \frac{-1}{x^2} \quad \Longrightarrow \quad m = -1\)</li>
+              <li>ميل العمودي: \(m_1 = \frac{-1}{-1} = 1\)</li>
+              <li>المعادلة: \(y - 1 = 1(x - 1) \Longrightarrow y = x - 1 + 1 \Longrightarrow \mathbf{y = x}\)</li>
+            </ul>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Slide 17: Implicit Differentiation -->
+    <section class="slide">
+      <h3 id="الاشتقاق-الضمني">الاشتقاق الضمني</h3>
+      <div class="myrule">
+        <p>يستخدم عندما تكون العلاقة بين \(x\) و \(y\) ضمنية \(f(x, y) = 0\). نشتق الطرفين بالنسبة لـ \(x\) ونضرب في
+          \(y'\) عند اشتقاق حدود \(y\).</p>
+      </div>
+      <div class="example">
+        <ol>
+          <li>
+            <p><strong>معادلة الدائرة:</strong> أوجد \(y'\) للمعادلة \(x^2 + y^2 = 25\)</p>
+            <ul>
+              <li>نشتق الطرفين: \(2x + 2yy' = 0\)</li>
+              <li>ننقل ونبسط: \(2yy' = -2x \quad \Longrightarrow \quad y' = \frac{-x}{y}\)</li>
+            </ul>
+          </li>
+          <li>
+            <p><strong>قاعدة الضرب:</strong> أوجد \(y'\) للمعادلة \(xy = 1\)</p>
+            <ul>
+              <li>نشتق (الأول \(\times\) مشتقة الثاني + الثاني \(\times\) مشتقة الأول): \[x \cdot y' + y \cdot 1 = 0\]
+              </li>
+              <li>ننقل \(y\) ونقسم: \(xy' = -y \quad \Longrightarrow \quad y' = \frac{-y}{x}\)</li>
+            </ul>
+          </li>
+          <li>
+            <p><strong>حدود مختلطة:</strong> أوجد \(y'\) للمعادلة \(xy^3 - 3x^2 = xy + 5\)</p>
+            <ul>
+              <li>نشتق الطرفين: \((y^3 + 3xy^2 y') - 6x = (y + xy')\)</li>
+              <li>نجمع حدود \(y'\) في طرف: \(3xy^2 y' - xy' = y - y^3 + 6x\)</li>
+              <li>نخرج عامل مشترك ونقسم: \(y'(3xy^2 - x) = y - y^3 + 6x \Longrightarrow y' = \frac{y - y^3 + 6x}{3xy^2 -
+                x}\)</li>
+            </ul>
+          </li>
+          <li>
+            <p><strong>دالة مثلثية ضمنية:</strong> أوجد \(y'\) للمعادلة \(\sin(y) = 2x + 3\)</p>
+            <ul>
+              <li>نشتق الطرفين: \(\cos(y) \cdot y' = 2\)</li>
+              <li>نقسم على الجتا: \(y' = \frac{2}{\cos(y)} \quad \text{أو} \quad y' = 2\sec(y)\)</li>
+            </ul>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Slide 18: Higher Order -->
+    <section class="slide">
+      <h3 id="المشتقات-من-الرتبة-العليا">المشتقات من الرتبة العليا</h3>
+      <div class="myrule">
+        <p>هي تكرار عملية الاشتقاق. المشتقة الثانية \(y''\)، الثالثة \(y'''\)، والرابعة \(y^{(4)}\).</p>
+      </div>
+      <div class="example">
+        <ol>
+          <li>
+            <p><strong>كثيرة حدود:</strong> إذا كانت \(y = x^4 - 2x^3 + 5x\) ، أوجد \(y'''\).</p>
+            <ul>
+              <li>\(y' = 4x^3 - 6x^2 + 5\)</li>
+              <li>\(y'' = 12x^2 - 12x\)</li>
+              <li>\(y''' = 24x - 12\)</li>
+            </ul>
+          </li>
+          <li>
+            <p><strong>دالة مثلثية:</strong> إذا كانت \(f(x) = \cos(3x)\) ، أوجد \(f''(x)\).</p>
+            <ul>
+              <li>\(f'(x) = -\sin(3x) \cdot 3 = -3\sin(3x)\)</li>
+              <li>\(f''(x) = -3\cos(3x) \cdot 3 = -9\cos(3x)\)</li>
+            </ul>
+          </li>
+          <li>
+            <p><strong>دالة أسية:</strong> إذا كانت \(y = e^{2x}\) ، أوجد \(y^{(4)}\).</p>
+            <ul>
+              <li>\(y' = 2e^{2x} \quad \Longrightarrow \quad y'' = 4e^{2x} \quad \Longrightarrow \quad y''' = 8e^{2x}\)
+              </li>
+              <li>\(y^{(4)} = 16e^{2x}\)</li>
+            </ul>
+          </li>
+          <li>
+            <p><strong>دالة مقلوب:</strong> إذا كانت \(y = x^{-1}\) ، أوجد المشتقة الثالثة.</p>
+            <ul>
+              <li>\(y' = -1x^{-2} = \frac{-1}{x^2}\)</li>
+              <li>\(y'' = 2x^{-3} = \frac{2}{x^3}\)</li>
+              <li>\(y''' = -6x^{-4} = \frac{-6}{x^4}\)</li>
+            </ul>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Slide 19: Applications - Local Extrema -->
+    <section class="slide">
+      <h2 id="الفصل-الثاني-تطبيقات-التفاضل">الفصل الثاني: تطبيقات التفاضل</h2>
+      <h3 id="القيم-العظمى-والصغرى-المحلية">القيم العظمى والصغرى المحلية</h3>
+      <div class="myrule">
+        <p><strong>القيمة العظمى المحلية :</strong> هي نقطة تشبه "القمة" على المنحنى، حيث تتغير الدالة عندها من التزايد
+          (الصعود) إلى التناقص (الهبوط).</p>
+        <p><strong>القيمة الصغرى المحلية :</strong> هي نقطة تشبه "القاع" على المنحنى، حيث تتغير الدالة عندها من التناقص
+          (الهبوط) إلى التزايد (الصعود).</p>
+        <p><strong>النقاط الحرجة :</strong> هي قيم \(x\) التي تكون عندها المشتقة \(f'(x) = 0\) (مماس أفقي). وهي النقاط
+          "المرشحة" لتكون قيماً قصوى.</p>
+      </div>
+      <div style="text-align: center; margin: 20px 0;">
+        <img src="u5-2.png" alt="Concept: Local Max/Min" style="max-width: 100%; height: auto;">
+      </div>
+
+      <div class="example">
+        <p><strong>مثال 1:</strong> أوجد النقاط الحرجة للدالة \(f(x) = x^3 - 3x\)</p>
+        <ul>
+          <li>الاشتقاق: \(f'(x) = 3x^2 - 3\)</li>
+          <li>مساواة المشتقة بالصفر: \(3x^2 - 3 = 0 \Longrightarrow x^2 = 1\)</li>
+          <li>إيجاد قيم \(x\): \(x = 1\) أو \(x = -1\)</li>
+          <li><strong>إذن النقاط الحرجة هي: \(-1, 1\)</strong></li>
+        </ul>
+        <p><strong>مثال 2:</strong> أوجد النقاط الحرجة للدالة \(f(x) = x^4 - 2x^2\)</p>
+        <ul>
+          <li>الاشتقاق: \(f'(x) = 4x^3 - 4x\)</li>
+          <li>مساواة المشتقة بالصفر: \(4x(x^2 - 1) = 0\)</li>
+          <li>إيجاد قيم \(x\): إما \(x = 0\) أو \(x^2 = 1 \Longrightarrow x = \pm 1\)</li>
+          <li><strong>إذن النقاط الحرجة هي: \(0, 1, -1\)</strong></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Slide 20: Increasing/Decreasing -->
+    <section class="slide">
+      <div class="myrule">
+        <p>لتكن \(f\) دالة متصلة على الفترة \([a, b]\) وقابلة للاشتقاق على \((a, b)\):</p>
+        <ol>
+          <li>إذا كانت \(f'(x) > 0\) لكل \(x \in (a, b)\) فإن \(f\) دالة <strong>متزايدة</strong> على هذه الفترة.</li>
+          <li>إذا كانت \(f'(x) < 0\) لكل \(x \in (a, b)\) فإن \(f\) دالة <strong>متناقصة</strong> على هذه الفترة.</li>
+        </ol>
+        <p><strong>النتيجة:</strong> دراسة إشارة المشتقة الأولى \(f'(x)\) تمكننا من تحديد فترات التزايد والتناقص، ومنها
+          معرفة نوع القيم القصوى (العظمى والصغرى).</p>
+      </div>
+      <div class="myrule">
+        <ol>
+          <li><strong>الاشتقاق:</strong> نوجد المشتقة الأولى \(f'(x)\).</li>
+          <li><strong>النقاط الحرجة:</strong> نساوي المشتقة بالصفر \(f'(x)=0\) ونحل المعادلة لإيجاد قيم \(x\).</li>
+          <li><strong>دراسة الإشارة:</strong> نختبر إشارة المشتقة على خط الأعداد حول النقاط الحرجة.</li>
+          <li><strong>جدول التغيرات</strong> ننظم النتائج في جدول يوضح إشارة \(f'\) وسلوك \(f\).</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Slide 21: Signal Analysis Example -->
+    <section class="slide">
+      <div class="example">
+        <p>للدالة \(f(x) = x^3 - 12x\) (النقاط الحرجة: \(-2, 2\))</p>
+        <p><strong>دراسة الإشارة حول النقاط الحرجة:</strong></p>
+        <ul>
+          <li><strong>عند \(x = -2\):</strong>
+            <ul>
+              <li>قبلها (\(x=-3\)): \(f'(-3) = 27 - 12 > 0\) (تزايد).</li>
+              <li>بعدها (\(x=0\)): \(f'(0) = 0 - 12 < 0\) (تناقص).</li>
+              <li>\(\Longleftarrow\) <strong>عظمى محلية عند \(x = -2\)</strong>.</li>
+            </ul>
+          </li>
+          <li><strong>عند \(x = 2\):</strong>
+            <ul>
+              <li>قبلها (\(x=0\)): \(f'(0) < 0\) (تناقص).</li>
+              <li>بعدها (\(x=3\)): \(f'(3) = 27 - 12 > 0\) (تزايد).</li>
+              <li>\(\Longleftarrow\) <strong>صغرى محلية عند \(x = 2\)</strong>.</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="example">
+        <p>للدالة \(f(x) = x^4 - 4x^3\) (النقاط الحرجة: \(0, 3\))</p>
+        <p><strong>دراسة الإشارة:</strong> المشتقة هي \(f'(x) = 4x^2(x - 3)\).</p>
+        <ul>
+          <li><strong>عند \(x = 0\):</strong>
+            <ul>
+              <li>قبلها (\(x=-1\)): \(f'(-1) = 4(1)(-4) < 0\) (تناقص).</li>
+              <li>بعدها (\(x=1\)): \(f'(1) = 4(1)(-2) < 0\) (تناقص).</li>
+              <li>\(\Longleftarrow\) الإشارة لم تتغير \(\Longrightarrow\) <strong>ليست قيمة قصوى</strong> (مجرد نقطة
+                انعطاف).</li>
+            </ul>
+          </li>
+          <li><strong>عند \(x = 3\):</strong>
+            <ul>
+              <li>قبلها (\(x=1\)): تناقص.</li>
+              <li>بعدها (\(x=4\)): \(f'(4) = 4(16)(1) > 0\) (تزايد).</li>
+              <li>\(\Longleftarrow\) <strong>صغرى محلية عند \(x = 3\)</strong>.</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Slide 22: Second Derivative Test & Inflection -->
+    <section class="slide">
+      <h3 id="اختبار-المشتقة-الثانية">اختبار المشتقة الثانية</h3>
+      <div class="myrule">
+        <p>لتكن \(c\) نقطة حرجة حيث \(f'(c) = 0\) والمشتقة الثانية موجودة، فإن:</p>
+        <ul>
+          <li>إذا كانت \(f''(c) < 0 \Longrightarrow\) المنحنى مقعر للأسفل (\(\cap\)) \(\Longrightarrow\) توجد <strong>
+              قيمة عظمى محلية</strong> عند \(c\).</li>
+          <li>إذا كانت \(f''(c) > 0 \Longrightarrow\) المنحنى مقعر للأعلى (\(\cup\)) \(\Longrightarrow\) توجد
+            <strong>قيمة صغرى محلية</strong> عند \(c\).
+          </li>
+          <li>إذا كانت \(f''(c) = 0 \Longrightarrow\) الاختبار <strong>غير حاسم (فاشل)</strong>، ولا بد من استخدام
+            اختبار المشتقة الأولى لتحديد نوع النقطة.</li>
+        </ul>
+      </div>
+
+      <h3 id="نقطة-الانعطاف">نقطة الانعطاف</h3>
+      <div class="myrule">
+        <p><strong>التقعر:</strong></p>
+        <ul>
+          <li>يكون المنحنى <strong>مقعراً للأعلى (\(\cup\))</strong> إذا كانت \(f''(x) > 0\) (المماس يقع تحت المنحنى).
+          </li>
+          <li>يكون المنحنى <strong>مقعراً للأسفل (\(\cap\))</strong> إذا كانت \(f''(x) < 0\) (المماس يقع فوق
+              المنحنى).</li>
+        </ul>
+        <p><strong>نقطة الانعطاف:</strong> هي النقطة التي يفصل عندها المنحنى بين تقعرين مختلفين (يتغير التقعر من أعلى
+          لأسفل أو العكس). شرط وجودها أن تكون \(f''(x) = 0\) وتتغير إشارة المشتقة الثانية حولها.</p>
+      </div>
+      <div style="text-align: center; margin: 20px 0;">
+        <img src="u5-3.png" alt="Concept: Inflection Point" style="max-width: 100%; height: auto;">
+      </div>
+    </section>
+
+    <!-- Slide 23: Inflection Point Examples -->
+    <section class="slide">
+      <div class="example">
+        <p><strong>1. للدالة \(f(x) = x^3 - 3x\):</strong></p>
+        <ul>
+          <li>المشتقة الأولى: \(f'(x) = 3x^2 - 3\)</li>
+          <li>المشتقة الثانية: \(f''(x) = 6x\)</li>
+          <li>نساوي بالصفر: \(6x = 0 \iff x = 0\)</li>
+          <li><strong>دراسة الإشارة حول الصفر:</strong>
+            <ul>
+              <li>قبل الصفر (\(x=-1\)): \(f''(-1) = -6\) (سالب \(\cap\)).</li>
+              <li>بعد الصفر (\(x=1\)): \(f''(1) = 6\) (موجب \(\cup\)).</li>
+            </ul>
+          </li>
+          <li>تغيرت الإشارة \(\Longrightarrow\) توجد نقطة انعطاف عند \(x=0\).</li>
+          <li>النقطة هي \((0, f(0)) = (0, 0)\).</li>
+        </ul>
+        <p><strong>2. للدالة \(f(x) = x^4 - 2x^2\):</strong></p>
+        <ul>
+          <li>المشتقة الأولى: \(f'(x) = 4x^3 - 4x\)</li>
+          <li>المشتقة الثانية: \(f''(x) = 12x^2 - 4\)</li>
+          <li>نساوي بالصفر: \(12x^2 = 4 \Longrightarrow x^2 = \frac{1}{3} \Longrightarrow x = \pm\frac{1}{\sqrt{3}}\)
+          </li>
+          <li>دراسة الإشارة تبين تغير التقعر حول هذه النقاط.</li>
+          <li>نقاط الانعطاف عند \(x \approx \pm 0.58\).</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Slide 24: Curve Sketching -->
+    <section class="slide">
+      <h3 id="رسم-المنحنيات">رسم المنحنيات</h3>
+      <div class="myrule">
+        <p>لرسم منحنى دالة يمكن اتباع الخطوات التالية:</p>
+        <ol>
+          <li>تحديد <strong>مجموعة تعريف الدالة</strong> \(f(x)\).</li>
+          <li>حساب <strong>النهايات</strong> عند أطراف فترات مجموعة التعريف واستنتاج <strong>المستقيمات
+              المقاربة</strong> إن وجدت.</li>
+          <li>إيجاد <strong>النقاط الحرجة</strong> وحساب المشتقة الأولى \(f'(x)\) ودراسة إشارتها، ومن ثم استنتاج تزايد
+            وتناقص الدالة.</li>
+          <li>حساب <strong>المشتقة الثانية</strong> \(f''(x)\) ودراسة إشارتها (لتحديد التقعر ونقاط الانعطاف).</li>
+          <li>تلخيص كل ما سبق في <strong>جدول تغيرات الدالة</strong> ثم رسم المنحنى بدقة.</li>
+        </ol>
+      </div>
+
+      <div class="example">
+        <p><strong>مثال 1:</strong> ارسم منحنى الدالة \(f(x) = x^3 - 3x\).</p>
+        <p><strong>1) مجموعة التعريف:</strong> \(D_f=\mathbb{R}\).</p>
+        <p><strong>2) النهايات:</strong> \(\lim_{x\to\pm\infty}f(x)=\pm\infty\).</p>
+        <p><strong>3) النقاط الحرجة:</strong> \(f'(x)=3x^2-3=0 \iff x=\pm 1\). <br />
+          - عند \(x=-1\): \(f(-1)= -1 + 3 = 2\) (عظمى محلية). <br />
+          - عند \(x=1\): \(f(1)= 1 - 3 = -2\) (صغرى محلية).</p>
+        <p><strong>4) نقطة الانعطاف:</strong> \(f''(x)=6x=0 \iff x=0\). النقطة \((0,0)\).</p>
+        <p><strong>5) جدول التغيرات:</strong></p>
+        <div class="tabular" style="overflow-x: auto;">
+          <table class="premium-table">
+            <thead>
+              <tr>
+                <th>\(x\)</th>
+                <th>\(-\infty\)</th>
+                <th>\(-1\)</th>
+                <th>\(0\)</th>
+                <th>\(1\)</th>
+                <th>\(+\infty\)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>\(f'(x)\)</td>
+                <td>\(+\)</td>
+                <td>\(0\)</td>
+                <td>\(-\)</td>
+                <td>\(0\)</td>
+                <td>\(+\)</td>
+              </tr>
+              <tr>
+                <td>\(f(x)\)</td>
+                <td>\(-\infty\)</td>
+                <td>\(2\)</td>
+                <td>\(0\)</td>
+                <td>\(-2\)</td>
+                <td>\(+\infty\)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div style="text-align: center; margin-top: 20px;">
+          <img src="u5-4.png" alt="Graph: x^3 - 3x" style="max-width: 100%; height: auto;">
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 25: Curve Sketching Examples -->
+    <section class="slide">
+      <div class="example">
+        <p><strong>مثال 2:</strong> ارسم منحنى الدالة \(f(x) = x^4 - 2x^2\).</p>
+        <p><strong>1) النهايات والتناظر:</strong> \(D_f=\mathbb{R}\). الدالة زوجية (متناظرة حول \(y\)).
+          \(\lim_{x\to\pm\infty} f(x) = +\infty\).</p>
+        <p><strong>2) المشتقة الأولى والنقاط الحرجة:</strong> \(f'(x) = 4x^3 - 4x = 4x(x^2 - 1)\).
+          <br />أصفار المشتقة: \(x=0, x=1, x=-1\).
+        </p>
+        <p><strong>3) المشتقة الثانية والتقعر:</strong> \(f''(x) = 12x^2 - 4\).
+          <br />أصفار المشتقة الثانية: \(x = \pm\frac{1}{\sqrt{3}} \approx \pm 0.58\).
+        </p>
+        <p><strong>4) جدول التغيرات:</strong></p>
+        <div class="tabular" style="overflow-x: auto;">
+          <table class="premium-table">
+            <thead>
+              <tr>
+                <th>\(x\)</th>
+                <th>\(-\infty\)</th>
+                <th>\(-1\)</th>
+                <th>\(-0.58\)</th>
+                <th>\(0\)</th>
+                <th>\(0.58\)</th>
+                <th>\(1\)</th>
+                <th>\(+\infty\)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>\(f'(x)\)</td>
+                <td>\(-\)</td>
+                <td>\(0\)</td>
+                <td>\(+\)</td>
+                <td>\(0\)</td>
+                <td>\(-\)</td>
+                <td>\(0\)</td>
+                <td>\(+\)</td>
+              </tr>
+              <tr>
+                <td>\(f''(x)\)</td>
+                <td>\(+\)</td>
+                <td>\(+\)</td>
+                <td>\(0\)</td>
+                <td>\(-\)</td>
+                <td>\(0\)</td>
+                <td>\(+\)</td>
+                <td>\(+\)</td>
+              </tr>
+              <tr>
+                <td>\(f(x)\)</td>
+                <td>\(+\infty\)</td>
+                <td>\(-1\) (صغرى)</td>
+                <td>\(-0.56\)</td>
+                <td>\(0\) (عظمى)</td>
+                <td>\(-0.56\)</td>
+                <td>\(-1\) (صغرى)</td>
+                <td>\(+\infty\)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p><strong>5) الرسم:</strong></p>
+        <div style="text-align: center; margin-top: 20px;">
+          <img src="u5-5.png" alt="Graph: x^4 - 2x^2" style="max-width: 100%; height: auto;">
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 26: Rational Function Example -->
+    <section class="slide">
+      <div class="example">
+        <p><strong>مثال 3:</strong> ارسم منحنى الدالة \(f(x) = \frac{x+1}{x-1}\).</p>
+        <p><strong>1) المجال والمقاربات:</strong> \(D_f = \mathbb{R} \setminus \{1\}\).
+          <br />مقارب عمودي: \(x=1\). مقارب أفقي: \(y = 1\).
+        </p>
+        <p><strong>2) المشتقة الأولى:</strong>
+          \[f'(x) = \frac{(1)(x-1) - (x+1)(1)}{(x-1)^2} = \frac{-2}{(x-1)^2}\]
+          بما أن البسط سالب دائماً والمقام موجب، فإن \(f'(x) < 0\) (الدالة متناقصة).</p>
+            <p><strong>3) جدول التغيرات:</strong></p>
+            <div class="tabular" style="overflow-x: auto;">
+              <table class="premium-table">
+                <thead>
+                  <tr>
+                    <th>\(x\)</th>
+                    <th>\(-\infty\)</th>
+                    <th>\(1\)</th>
+                    <th>\(+\infty\)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>\(f'(x)\)</td>
+                    <td>\(-\)</td>
+                    <td>غير معرفة</td>
+                    <td>\(-\)</td>
+                  </tr>
+                  <tr>
+                    <td>\(f(x)\)</td>
+                    <td>\(1\)</td>
+                    <td>\(\parallel\)</td>
+                    <td>\(1\)</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p><strong>4) نقاط إضافية والرسم:</strong> يقطع \(y\) في \((0, -1)\) ويقطع \(x\) في \((-1, 0)\).</p>
+            <div style="text-align: center; margin-top: 20px;">
+              <img src="u5-6.png" alt="Graph: (x+1)/(x-1)" style="max-width: 100%; height: auto;">
+            </div>
+      </div>
+    </section>
+
+    <!-- Slide 27: Domain Applications -->
+    <section class="slide">
+      <h2 id="الاستخدام-في-التخصص">الاستخدام في التخصص</h2>
+      <div class="axiombox">
+        <p><strong>"التفاضل هو لغة (التغير) والسرعة. يحدد لنا مدى سرعة استجابة النظام وأين نصل لأقصى كفاءة."</strong>
+        </p>
+      </div>
+      <dl>
+        <dt style="font-weight: bold; margin-top: 15px; color: #d35400;">التقنية الميكانيكية:</dt>
+        <dd>
+          <p>يُستخدم الاشتقاق الأول لحساب السرعة اللحظية والاشتقاق الثاني لحساب التسارع للأجسام المتحركة، وهو أمر جوهري
+            في تصميم أنظمة الكبح والتحكم في المحركات.</p>
+        </dd>
+        <dt style="font-weight: bold; margin-top: 15px; color: #27ae60;">التقنية الكهربائية:</dt>
+        <dd>
+          <p>يعتمد حساب الجهد المستحث في الملفات (\(v = L \frac{di}{dt}\)) والتيار المار في المكثفات (<span
+              class="math inline">\(i = C \frac{dv}{dt}\)</span>) على التفاضل، لأنه يمثل معدل التغير الزمني.</p>
+        </dd>
+        <dt style="font-weight: bold; margin-top: 15px; color: #2980b9;">التقنية الإلكترونية:</dt>
+        <dd>
+          <p>يُستخدم التفاضل لتحديد "معدل الانحدار" <span lang="en">(Slew Rate)</span> في مكبرات العمليات، وهو مقياس
+            لسرعة استجابة المخرج للتغير المفاجئ في المدخل، مما يحدد سرعة الدائرة.</p>
+        </dd>
+        <dt style="font-weight: bold; margin-top: 15px; color: #8e44ad;">تقنية الاتصالات:</dt>
+        <dd>
+          <p>في تقنية تضمين التردد (FM)، يعتبر التردد اللحظي للإشارة هو المشتقة الأولى لزاوية الطور، مما يجعل التفاضل
+            أساسياً لفهم كيفية توليد واستقبال موجات الراديو.</p>
+        </dd>
+      </dl>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 الصفحة الالكترونية لمقرر الرياضيات (رياض 121) - تطوير بواسطة نواف العنزي </p>
+      <p style="font-size: 0.8rem; margin-top: 0.5rem; opacity: 0.7;">آخر تحديث: <span id="last-updated-date"></span>
+      </p>
+      <div
+        style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.8; display: flex; justify-content: center; align-items: center; gap: 5px;">
+        <span>👁️ عدد الزيارات: </span>
+        <span id="visits-count" style="font-weight: bold; color: var(--accent);">جاري الحساب...</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+
+</html>

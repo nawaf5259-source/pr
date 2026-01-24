@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+
+<head>
+  <!-- Google Tag Manager -->
+  <script>(function (w, d, s, l, i) {
+      w[l] = w[l] || []; w[l].push({
+        'gtm.start':
+          new Date().getTime(), event: 'gtm.js'
+      }); var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-P8G6WGL4');</script>
+  <!-- End Google Tag Manager -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>الوحدة السادسة: التكامل</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- MathJax -->
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P8G6WGL4" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container nav-content">
+      <a href="index.html" class="nav-logo">
+        <img src="white__logo.svg" alt="Math 121 Logo">
+      </a>
+      <button class="hamburger" aria-label="Toggle navigation">☰</button>
+      <ul class="nav-links">
+        <li><a href="index.html">الرئيسية</a></li>
+        <li><a href="index.html#units">الوحدات</a></li>
+        <li><a href="index.html#exercises">التمارين</a></li>
+        <li><a href="index.html#book-section">الكتاب</a></li>
+        <li><a href="index.html#presentations-section">عروض تقديمية</a></li>
+        <li><a href="index.html#worksheets-section">أوراق عمل</a></li>
+        <li><a href="index.html#qbanks-section">بنوك الأسئلة</a></li>
+        <li><a href="ex+.html">تمارين إثرائية</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="container" style="padding-top: 40px;">
+
+    <!-- Slide 1: Cover -->
+    <section class="slide">
+      <h1 id="التكامل">التكامل</h1>
+      <p>تتمحور أهداف هذه الوحدة حول تمكين المتدرب من فهم مفهوم التكامل (عكس التفاضل) واكتساب المهارات اللازمة لحساب
+        التكاملات المحدودة وغير المحدودة.</p>
+
+      <div class="objectives">
+        <p><strong>الهدف العام للوحدة:</strong><br />
+          تهدف هذه الوحدة إلى إتقان قواعد التكامل الأساسية وتطبيق النظرية الأساسية للتفاضل والتكامل في حساب المساحات
+          والتطبيقات الهندسية.</p>
+        <hr style="border-color: #ffe0b2;">
+        <p><strong>الأهداف التفصيلية:</strong><br />
+          من المتوقع في نهاية هذه الوحدة التدريبية أن يكون المتدرب قادراً وبكفاءة على أن:</p>
+        <ol>
+          <li>يفهم العلاقة العكسية بين التفاضل والتكامل ويحدد الدوال الأصلية.</li>
+          <li>يطبق قواعد التكامل غير المحدود للدوال الجبرية والمثلثية والأسية.</li>
+          <li>يطبق النظرية الأساسية للتفاضل والتكامل لحساب التكامل المحدود.</li>
+          <li>يحسب المساحة تحت المنحنى باستخدام تطبيقات التكامل المحدود.</li>
+        </ol>
+      </div>
+      <p><strong>الوقت المتوقع للتدريب على هذه الوحدة: 14 ساعة تدريبية.</strong></p>
+    </section>
+
+    <!-- Slide 2: Importance & Definitions -->
+    <section class="slide">
+      <h2 class="unnumbered" id="أهمية-التكامل">أهمية التكامل</h2>
+      <p>يُعد التكامل الركيزة الثانية في علم التفاضل والتكامل، حيث يُستخدم كأداة رياضية فعالة لحساب المساحات للأشكال غير
+        المنتظمة والحجوم المتولدة من الدوران. تكمن أهميته في تطبيقاته الواسعة في الفيزياء (مثل حساب المسافة من دالة
+        السرعة)، والهندسة، والاقتصاد، وهو الأساس لحل المعادلات التفاضلية التي تصف العديد من الظواهر الطبيعية.</p>
+      <hr>
+      <h2 id="الفصل-الأول-التكامل-غير-المحدود">الفصل الأول: التكامل غير المحدود</h2>
+      <h3>الدوال الأصلية والتكامل غير المحدود</h3>
+      <div class="definition">
+        <p>يقال إن \(F(x)\) دالة أصلية لدالة \(f(x)\) إذا كانت مشتقتها تساوي \(f(x)\)، أي:
+          \[\frac{dF(x)}{dx} = f(x)\]
+          التكامل غير المحدود للدالة \(f(x)\) هو مجموعة الدوال الأصلية لها:
+          \[\int f(x) \, dx = F(x) + C\]
+          حيث \(C\) هو ثابت التكامل.</p>
+      </div>
+    </section>
+
+    <!-- Slide 3: Antiderivative Examples -->
+    <section class="slide">
+      <div class="example">
+        <p><strong>السؤال:</strong> أوجد جميع الدوال الأصلية للدالة \(f(x) = 3x^2\).</p>
+        <p><strong>الحل:</strong> بما أن عملية التفاضل هي: \[\frac{d}{dx}(x^3) = 3x^2\] فإن \(F(x) = x^3\) هي دالة أصلية
+          للدالة \(f(x)\). إذن، التكامل غير المحدود هو: \[\int 3x^2 \, dx = x^3 + C\]</p>
+      </div>
+      <div class="example">
+        <p><strong>السؤال:</strong> أوجد جميع الدوال الأصلية للدالة \(g(x) = \cos x\).</p>
+        <p><strong>الحل:</strong> بما أن مشتقة الجيب هي جيب التمام: \[\frac{d}{dx}(\sin x) = \cos x\] فإن \(G(x) = \sin
+          x\) هي دالة أصلية للدالة \(g(x)\). إذن، التكامل غير المحدود هو: \[\int \cos x \, dx = \sin x + C\]</p>
+      </div>
+    </section>
+
+    <!-- Slide 4: Basic Algebraic Rules (Constant) -->
+    <section class="slide">
+      <h3 id="قوانين-التكامل-غير-المحدود-للدوال-الجبرية">قوانين التكامل غير المحدود للدوال الجبرية</h3>
+      <div class="myrule">
+        <p>تكامل الصفر دائماً يساوي ثابتاً: \[\int 0 \, dx = C\]</p>
+      </div>
+      <div class="example">
+        <p><strong>1. الحالة العامة:</strong> بما أن مشتقة أي ثابت تساوي صفراً، فإن: \[\int 0 \, dx = C\]</p>
+        <p><strong>2. بالنسبة لمتغير مختلف (\(t\)):</strong> \[\int 0 \, dt = C\]</p>
+      </div>
+
+      <div class="myrule">
+        <p>تكامل الثابت \(a\) بالنسبة للمتغير \(x\): \[\int a \, dx = ax + C\]</p>
+      </div>
+      <div class="example">
+        <p><strong>1. تكامل عدد صحيح موجب:</strong> \[\int 7 \, dx = 7x + C\]</p>
+        <p><strong>2. تكامل عدد كسري سالب:</strong> \[\int -\frac{1}{2} \, dx = -\frac{1}{2}x + C\]</p>
+        <p><strong>3. تكامل ثابت رمزي (\(\pi\)):</strong> \[\int \pi^2 \, dx = \pi^2 x + C\]</p>
+      </div>
+    </section>
+
+    <!-- Slide 5: Power Rule -->
+    <section class="slide">
+      <div class="myrule">
+        <p>لأي عدد حقيقي \(n \neq -1\): \[\int x^n \, dx = \frac{x^{n+1}}{n+1} + C\]</p>
+      </div>
+      <div class="example">
+        <p><strong>1. أس صحيح موجب:</strong> \[\int x^6 \, dx = \frac{x^{6+1}}{6+1} + C = \frac{x^7}{7} + C\]</p>
+        <p><strong>2. أس كسري (جذر):</strong> \[\int \sqrt[3]{x} \, dx = \int x^{1/3} \, dx = \frac{x^{4/3}}{4/3} + C =
+          \frac{3}{4}x^{4/3} + C\]</p>
+        <p><strong>3. أس مضروب في ثابت:</strong> \[\int 5x^2 \, dx = 5 \cdot \frac{x^3}{3} + C = \frac{5}{3}x^3 + C\]
+        </p>
+      </div>
+    </section>
+
+    <!-- Slide 6: Generalized Power Rule -->
+    <section class="slide">
+      <div class="myrule">
+        <p>إذا كانت \(u\) دالة في \(x\) ومشتقها \(u'\)، ولأي \(n \neq -1\): \[\int u^n u' \, dx = \frac{u^{n+1}}{n+1} +
+          C\]</p>
+      </div>
+      <div class="example">
+        <p><strong>1. دالة كثيرة حدود:</strong> حيث \(u = x^3-1\) ومشتقتها \(3x^2\): \[\int 3x^2 (x^3 - 1)^4 \, dx =
+          \frac{(x^3 - 1)^5}{5} + C\]</p>
+        <p><strong>2. دالة ذات أس سالب:</strong> حيث \(u = x^4+2\) ومشتقتها \(4x^3\): \[\int 4x^3 (x^4 + 2)^{-2} \, dx =
+          \frac{(x^4 + 2)^{-1}}{-1} + C\]</p>
+        <p><strong>3. دالة جذرية:</strong> \[\int 2x (x^2+3)^{1/2} \, dx = \frac{2}{3}(x^2+3)^{3/2} + C\]</p>
+      </div>
+    </section>
+
+    <!-- Slide 7: Logarithmic Integration -->
+    <section class="slide">
+      <div class="myrule">
+        <p>تكامل دالة المقلوب \(\frac{1}{x}\) أو عندما يكون البسط مشتقة المقام: \[\int \frac{1}{x} \, dx = \ln|x| + C\]
+          \[\int \frac{u'}{u} \, dx = \ln|u| + C\]</p>
+      </div>
+      <div class="example">
+        <p><strong>1. الحالة الأساسية:</strong> \[\int \frac{1}{x} \, dx = \ln|x| + C\]</p>
+        <p><strong>2. البسط هو مشتقة المقام:</strong> \[\int \frac{2x+3}{x^2+3x+5} \, dx = \ln|x^2+3x+5| + C\]</p>
+        <p><strong>3. دالة كسرية مع قوى:</strong> \[\int \frac{4x^3}{x^4 + 1} \, dx = \ln|x^4 + 1| + C\]</p>
+      </div>
+    </section>
+
+    <!-- Slide 8: Linearity -->
+    <section class="slide">
+      <div class="myrule">
+        <p>يتوزع التكامل على الجمع والطرح: \[\int [f(x) \pm g(x)] \, dx = \int f(x) \, dx \pm \int g(x) \, dx\]</p>
+      </div>
+      <div class="example">
+        <p><strong>1. كثيرات الحدود:</strong> \[\int (x^2 - 4x + 1) \, dx = \frac{x^3}{3} - 2x^2 + x + C\]</p>
+        <p><strong>2. فرق بين حدين:</strong> \[\int (6x^5 - 2x^3) \, dx = x^6 - \frac{1}{2}x^4 + C\]</p>
+        <p><strong>3. حدود مختلطة:</strong> \[\int (\sqrt{x} - x^{-2}) \, dx = \frac{2}{3}x^{3/2} + \frac{1}{x} + C\]
+        </p>
+      </div>
+    </section>
+
+    <!-- Slide 9: Trigonometric Integrals (Basic) -->
+    <section class="slide">
+      <h3 id="قواعد-تكامل-الدوال-المثلثية">قواعد تكامل الدوال المثلثية</h3>
+      <div class="myrule">
+        <p>\[\int \cos u \cdot u' \, dx = \sin u + C\] \[\int \sin u \cdot u' \, dx = -\cos u + C\]</p>
+      </div>
+      <div class="example">
+        <p>\(\int 3 \cos(3x) \, dx = \sin(3x) + C\)</p>
+        <p>\(\int 2x \cos(x^2) \, dx = \sin(x^2) + C\)</p>
+        <p>\(\int 4 \sin(4x) \, dx = -\cos(4x) + C\)</p>
+      </div>
+    </section>
+
+    <!-- Slide 10: Trig Integrals (Sec/Csc) -->
+    <section class="slide">
+      <div class="myrule">
+        <p>\[\int \sec^2 u \cdot u' \, dx = \tan u + C\] \[\int \csc^2 u \cdot u' \, dx = -\cot u + C\]</p>
+      </div>
+      <div class="example">
+        <p>\(\int 3 \sec^2(3x) \, dx = \tan(3x) + C\)</p>
+        <p>\(\int 7 \csc^2(7x) \, dx = -\cot(7x) + C\)</p>
+      </div>
+      <div class="myrule">
+        <p>\[\int \sec u \tan u \cdot u' \, dx = \sec u + C\] \[\int \csc u \cot u \cdot u' \, dx = -\csc u + C\]</p>
+      </div>
+    </section>
+
+    <!-- Slide 11: Exponential Integrals -->
+    <section class="slide">
+      <h3 id="قواعد-تكامل-الدوال-الأسية">قواعد تكامل الدوال الأسية</h3>
+      <div class="myrule">
+        <p>\[\int e^u \cdot u' \, dx = e^u + C\]</p>
+      </div>
+      <div class="example">
+        <p><strong>1. أس خطي:</strong> \[\int e^{9x} \, dx = \frac{1}{9} e^{9x} + C\]</p>
+        <p><strong>2. أس غير خطي:</strong> \[\int x^2 e^{x^3} \, dx = \frac{1}{3} e^{x^3} + C\]</p>
+      </div>
+      <div class="myrule">
+        <p>لأي أساس \(a > 0, a \neq 1\): \[\int a^u \cdot u' \, dx = \frac{a^u}{\ln a} + C\]</p>
+      </div>
+    </section>
+
+    <!-- Slide 12: Definite Integral Theory -->
+    <section class="slide">
+      <h2 id="الفصل-الثاني-التكامل-المحدود-والتطبيقات">الفصل الثاني: التكامل المحدود والتطبيقات</h2>
+      <h3 id="التكامل-المحدود-والنظرية-الأساسية">التكامل المحدود والنظرية الأساسية</h3>
+      <div class="myrule">
+        <p>إذا كانت \(f(x)\) متصلة على الفترة \([a, b]\) و \(F(x)\) دالة أصلية لها، فإن:
+          \[\int_a^b f(x) \, dx = F(b) - F(a)\]</p>
+        <p><strong>التفسير الهندسي:</strong> يمثل قيمة المساحة المحصورة بين المنحنى ومحور \(x\) على الفترة \([a, b]\).
+        </p>
+        <div class="center">
+          <img src="u6-1.png" alt="Geometric Interpretation" style="max-width: 100%; height: auto;">
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 13: Definite Integral Examples -->
+    <section class="slide">
+      <div class="example">
+        <p><strong>السؤال:</strong> أحسب \(I = \int_0^2 (x^2 + 1) \, dx\)</p>
+        <p><strong>الحل:</strong></p>
+        <ol>
+          <li>الدالة الأصلية: \(F(x) = \frac{x^3}{3} + x\)</li>
+          <li>التعويض: \(F(2) - F(0) = (\frac{8}{3} + 2) - 0 = \frac{14}{3} \approx 4.67\)</li>
+        </ol>
+      </div>
+      <div class="example">
+        <p><strong>السؤال:</strong> أحسب \(I = \int_1^4 \frac{1}{\sqrt{x}} \, dx\)</p>
+        <p><strong>الحل:</strong></p>
+        <ol>
+          <li>تحويل: \(x^{-1/2}\). الدالة الأصلية: \([2\sqrt{x}]_1^4\)</li>
+          <li>التعويض: \(2\sqrt{4} - 2\sqrt{1} = 4 - 2 = 2\)</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Slide 14: More Definite Integral Examples -->
+    <section class="slide">
+      <div class="example">
+        <p><strong>السؤال:</strong> أحسب \(I = \int_1^e \frac{2}{x} \, dx\)</p>
+        <p><strong>الحل:</strong> \(= 2[\ln|x|]_1^e = 2(\ln e - \ln 1) = 2(1 - 0) = 2\)</p>
+      </div>
+      <div class="example">
+        <p><strong>السؤال:</strong> أحسب \(I = \int_0^{\pi/2} \sin(x) \, dx\)</p>
+        <p><strong>الحل:</strong> \(= [-\cos x]_0^{\pi/2} = (-\cos(\pi/2)) - (-\cos 0) = 0 - (-1) = 1\)</p>
+      </div>
+    </section>
+
+    <!-- Slide 15: Area Application 1 -->
+    <section class="slide">
+      <h3 id="تطبيقات-التكامل-في-حساب-المساحات">تطبيقات التكامل في حساب المساحات</h3>
+      <div class="example">
+        <p><strong>السؤال:</strong> أوجد المساحة تحت \(f(x) = x^2 + 1\) من \(x=0\) إلى \(x=3\).</p>
+        <p><strong>الحل الجبري:</strong> بما أن \(f(x) > 0\):
+          \[A = \int_0^3 (x^2 + 1) \, dx = \left[ \frac{x^3}{3} + x \right]_0^3 = (9 + 3) - 0 = 12 \text{ وحدة مربعة}\]
+        </p>
+        <div class="center">
+          <img src="u6-2.png" alt="Area under x^2+1" style="max-width: 100%; height: auto;">
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 16: Area Application 2 (Negative) -->
+    <section class="slide">
+      <div class="example">
+        <p><strong>السؤال:</strong> أوجد المساحة المحصورة بين \(f(x) = x^2 - 4\) ومحور السينات على \([0, 2]\).</p>
+        <p><strong>الحل:</strong> الدالة سالبة في الفترة \([0, 2]\).
+          \[A = \left| \int_0^2 (x^2 - 4) \, dx \right| = \left| \left[ \frac{x^3}{3} - 4x \right]_0^2 \right| = \left|
+          \frac{8}{3} - 8 \right| = \left| \frac{-16}{3} \right| = \frac{16}{3}\]
+        </p>
+        <div class="center">
+          <img src="u6-3.png" alt="Area under x^2-4" style="max-width: 100%; height: auto;">
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 17: Area Application 3 (Split) & Conclusion -->
+    <section class="slide">
+      <div class="example">
+        <p><strong>السؤال:</strong> أوجد المساحة لـ \(f(x) = x - 1\) على \([0, 2]\).</p>
+        <p><strong>الحل:</strong> تقطع المحور عند \(x=1\). مساحة تحت المحور \([0,1]\) ومساحة فوقه \([1,2]\).
+          \[A = |A_1| + A_2 = \left| \int_0^1 (x - 1) \, dx \right| + \int_1^2 (x - 1) \, dx = |-\frac{1}{2}| +
+          \frac{1}{2} = 1\]
+        </p>
+        <div class="center">
+          <img src="u6-4.png" alt="Area for x-1" style="max-width: 100%; height: auto;">
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 18: Applications in Specialization -->
+    <section class="slide">
+      <h2 id="الاستخدام-في-التخصص">الاستخدام في التخصص</h2>
+      <div class="axiombox">
+        <p><strong>"التكامل هو عملية (التجميع). إذا كان التفاضل يجزئ الحركة، فالتكامل يجمع الأجزاء ليعطينا الصافي:
+            الطاقة
+            الكلية أو المساحة."</strong></p>
+      </div>
+
+      <dl style="margin-right: 20px;">
+        <dt style="font-weight: bold; color: #d35400; margin-top: 15px;">التقنية الميكانيكية:</dt>
+        <dd>يُستخدم التكامل لحساب الشغل الكلي المبذول بواسطة قوة متغيرة، وكذلك لتحديد مركز الثقل وعزم القصور الذاتي لقطع
+          الغيار الميكانيكية غير المنتظمة.</dd>
+
+        <dt style="font-weight: bold; color: #27ae60; margin-top: 15px;">التقنية الكهربائية:</dt>
+        <dd>تُحسب القيمة الفعالة (RMS) للتيار المتردد والجهد باستخدام التكامل لدالة الموجة، وهي القيمة الأساسية لحساب
+          استهلاك الطاقة والأحمال في الشبكات.</dd>
+
+        <dt style="font-weight: bold; color: #2980b9; margin-top: 15px;">التقنية الإلكترونية:</dt>
+        <dd>تُستخدم دوائر التكامل الإلكترونية لتحويل موجات المربع إلى موجات مثلثة، وتستخدم في تطبيقات توليد الإشارات
+          والتحكم التناسبي التكاملي (PID) في الأتمتة.</dd>
+
+        <dt style="font-weight: bold; color: #8e44ad; margin-top: 15px;">تقنية الاتصالات:</dt>
+        <dd>يُستخدم التكامل لحساب الطاقة الكلية للإشارة خلال فترة زمنية محددة، مما يساعد في حساب نسبة الإشارة إلى الضجيج
+          (SNR) وتقييم جودة قناة الاتصال.</dd>
+      </dl>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 الصفحة الالكترونية لمقرر الرياضيات (رياض 121) - تطوير بواسطة نواف العنزي </p>
+      <p style="font-size: 0.8rem; margin-top: 0.5rem; opacity: 0.7;">آخر تحديث: <span id="last-updated-date"></span>
+      </p>
+      <div
+        style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.8; display: flex; justify-content: center; align-items: center; gap: 5px;">
+        <span>👁️ عدد الزيارات: </span>
+        <span id="visits-count" style="font-weight: bold; color: var(--accent);">جاري الحساب...</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+
+</html>

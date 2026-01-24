@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>متوازي المستطيلات - تمارين إثرائية</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../styles.css">
+
+    <!-- MathJax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-body);
+            line-height: 1.6;
+        }
+
+        .example-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            margin-top: 2rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .example-card {
+            background: #fff;
+            border-right: 4px solid var(--accent);
+            border-left: none;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s ease;
+            position: relative;
+        }
+
+        body.dark-mode .example-card {
+            background: var(--bg-card);
+        }
+
+        .example-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .ex-badge {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+
+        .ex-problem {
+            font-weight: 700;
+            color: var(--text-heading);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.75rem;
+        }
+
+        .ex-answer {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #1565c0;
+            margin-bottom: 0.5rem;
+            text-align: center;
+        }
+
+        .ex-explanation {
+            font-size: 1rem;
+            color: var(--text-muted);
+            background: rgba(33, 150, 243, 0.1);
+            padding: 1rem;
+            border-radius: 6px;
+            margin-top: 0.5rem;
+        }
+
+        body.dark-mode .ex-explanation {
+            color: #ddd;
+            background: rgba(33, 150, 243, 0.2);
+        }
+
+        .formula-box {
+            background: #e3f2fd;
+            border: 1px solid #2196f3;
+            color: #0d47a1;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            text-align: center;
+            font-size: 1.1rem;
+        }
+
+        body.dark-mode .formula-box {
+            background: rgba(33, 150, 243, 0.1);
+            border-color: #2196f3;
+            color: #90caf9;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Aurora Background Blobs -->
+    <div class="aurora-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-content">
+            <a href="../index.html" class="nav-logo">
+                <img src="../logo.svg" alt="Math 101 Logo">
+            </a>
+            <ul class="nav-links">
+                <li><a href="../index.html">الرئيسية</a></li>
+                <li><a href="../qbanks.html">بنوك الأسئلة</a></li>
+                <li><a href="../ex+.html" class="active">تمارين إثرائية</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container" style="padding-top: 60px; padding-bottom: 60px;">
+
+        <header style="text-align: center; margin-bottom: 3rem;">
+            <h1 style="font-size: 2.5rem; margin-bottom: 1rem; color: var(--text-heading);">متوازي المستطيلات</h1>
+            <p style="font-size: 1.2rem; color: var(--text-muted); max-width: 600px; margin: 0 auto;">
+                أمثلة شاملة على حساب حجم ومساحة سطح متوازي المستطيلات.
+            </p>
+        </header>
+
+        <!-- Formulas -->
+        <div class="formula-box">
+            <p><strong>حجم متوازي المستطيلات:</strong> \( V = L \times W \times h \)</p>
+            <p><strong>المساحة الكلية:</strong> \( A = 2((L \times W) + (L \times h) + (W \times h)) \)</p>
+            <p style="font-size: 0.9rem; margin-top:0.5rem;">حيث \( L \) الطول، \( W \) العرض، و \( h \) الارتفاع.</p>
+        </div>
+
+        <div class="example-grid">
+
+            <!-- Example 1 -->
+            <div class="example-card">
+                <div class="ex-badge">المثال الأول</div>
+                <div class="ex-problem">
+                    متوازي مستطيلات أبعاده \( 5 \, \text{cm}, 3 \, \text{cm}, 2 \, \text{cm} \). احسب حجمه.
+                </div>
+                <div class="ex-answer">
+                    \( 30 \, \text{cm}^3 \)
+                </div>
+                <div class="ex-explanation">
+                    <strong>خطوات الحل:</strong>
+                    <ol>
+                        <li>المعطيات: \( L=5, W=3, h=2 \).</li>
+                        <li>القانون: \( V = L \times W \times h \).</li>
+                        <li>التعويض: \( V = 5 \times 3 \times 2 \).</li>
+                        <li>الناتج: \( 15 \times 2 = 30 \, \text{cm}^3 \).</li>
+                    </ol>
+                </div>
+            </div>
+
+            <!-- Example 2 -->
+            <div class="example-card">
+                <div class="ex-badge">المثال الثاني</div>
+                <div class="ex-problem">
+                    احسب المساحة الكلية لمتوازي مستطيلات أبعاده \( 4 \, \text{m}, 2 \, \text{m}, 3 \, \text{m} \).
+                </div>
+                <div class="ex-answer">
+                    \( 52 \, \text{m}^2 \)
+                </div>
+                <div class="ex-explanation">
+                    <strong>خطوات الحل:</strong>
+                    <ol>
+                        <li>مساحة الأوجه = \( 2(LW + Lh + Wh) \).</li>
+                        <li>\( LW = 4 \times 2 = 8 \).</li>
+                        <li>\( Lh = 4 \times 3 = 12 \).</li>
+                        <li>\( Wh = 2 \times 3 = 6 \).</li>
+                        <li>المجموع = \( 8 + 12 + 6 = 26 \).</li>
+                        <li>المساحة الكلية = \( 2 \times 26 = 52 \, \text{m}^2 \).</li>
+                    </ol>
+                </div>
+            </div>
+
+            <!-- Example 3 -->
+            <div class="example-card">
+                <div class="ex-badge">المثال الثالث</div>
+                <div class="ex-problem">
+                    متوازي مستطيلات حجمه \( 120 \, \text{cm}^3 \) ومساحة قاعدته \( 30 \, \text{cm}^2 \). أوجد ارتفاعه.
+                </div>
+                <div class="ex-answer">
+                    \( 4 \, \text{cm} \)
+                </div>
+                <div class="ex-explanation">
+                    <strong>خطوات الحل:</strong>
+                    <ol>
+                        <li>القانون: الحجم = مساحة القاعدة × الارتفاع.</li>
+                        <li>\( 120 = 30 \times h \).</li>
+                        <li>نقسم على 30: \( h = 120 \div 30 \).</li>
+                        <li>الناتج: \( 4 \, \text{cm} \).</li>
+                    </ol>
+                </div>
+            </div>
+
+            <!-- Example 4 -->
+            <div class="example-card">
+                <div class="ex-badge">المثال الرابع</div>
+                <div class="ex-problem">
+                    صندوق على شكل متوازي مستطيلات طوله \( 10 \, \text{cm} \) وعرضه \( 5 \, \text{cm} \). إذا كان حجمه \(
+                    200 \, \text{cm}^3 \)، فما ارتفاعه؟
+                </div>
+                <div class="ex-answer">
+                    \( 4 \, \text{cm} \)
+                </div>
+                <div class="ex-explanation">
+                    <strong>خطوات الحل:</strong>
+                    <ol>
+                        <li>نحسب مساحة القاعدة أولاً: \( A = 10 \times 5 = 50 \, \text{cm}^2 \).</li>
+                        <li>نستخدم قانون الحجم: \( 200 = 50 \times h \).</li>
+                        <li>الارتفاع \( h = 200 \div 50 = 4 \, \text{cm} \).</li>
+                    </ol>
+                </div>
+            </div>
+
+            <!-- Example 5 (Applied) -->
+            <div class="example-card">
+                <div class="ex-badge">المثال الخامس (تطبيقي)</div>
+                <div class="ex-problem">
+                    حاوية شحن على شكل متوازي مستطيلات أبعادها من الداخل \( 10 \, \text{m}, 2 \, \text{m}, 2 \, \text{m}
+                    \). كم صندوقاً مكعب الشكل طول حرفه \( 1 \, \text{m} \) يمكن أن تسع هذه الحاوية؟
+                </div>
+                <div class="ex-answer">
+                    40 صندوقاً
+                </div>
+                <div class="ex-explanation">
+                    <strong>خطوات الحل:</strong>
+                    <ol>
+                        <li>نحسب حجم الحاوية: \( V_1 = 10 \times 2 \times 2 = 40 \, \text{m}^3 \).</li>
+                        <li>نحسب حجم الصندوق الواحد: \( V_2 = 1^3 = 1 \, \text{m}^3 \).</li>
+                        <li>عدد الصناديق = حجم الحاوية ÷ حجم الصندوق.</li>
+                        <li>العدد = \( 40 \div 1 = 40 \) صندوقاً.</li>
+                    </ol>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 الصفحة الالكترونية لمقرر الرياضيات (رياض 101)</p>
+        </div>
+    </footer>
+
+    <script src="../main.js"></script>
+</body>
+
+</html>

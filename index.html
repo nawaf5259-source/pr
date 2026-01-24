@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-P8G6WGL4');</script>
+    <!-- End Google Tag Manager -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الرياضيات 121 - الصفحة الرئيسية</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- MathJax -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+            }
+        };
+
+        // Global function to trigger MathJax rendering
+        window.renderMath = function (elements) {
+            if (window.MathJax && window.MathJax.typesetPromise) {
+                window.MathJax.typesetPromise(elements).catch(err => console.log('MathJax error:', err));
+            }
+        };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // Tab Switching Logic
+            const tabs = document.querySelectorAll('.tab-btn');
+            const contents = document.querySelectorAll('.content-section');
+
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    // Remove active class from all
+                    tabs.forEach(t => t.classList.remove('active'));
+                    contents.forEach(c => c.classList.remove('active'));
+
+                    // Add active class to clicked
+                    tab.classList.add('active');
+
+                    // Show corresponding content
+                    const targetId = tab.dataset.target;
+                    const targetContent = document.getElementById(targetId);
+                    if (targetContent) {
+                        targetContent.classList.add('active');
+                    }
+                });
+            });
+
+            // Quiz Interaction (Simple Example)
+            document.querySelectorAll('.quiz-option').forEach(option => {
+                option.addEventListener('click', function () {
+                    const parent = this.closest('.quiz-question');
+                    const isCorrect = this.dataset.correct === "true";
+
+                    // Reset styles
+                    parent.querySelectorAll('.quiz-option').forEach(opt => {
+                        opt.style.background = 'white';
+                        opt.style.borderColor = '#E2E8F0';
+                    });
+
+                    // Apply feedback
+                    if (isCorrect) {
+                        this.style.background = '#F0FDF4';
+                        this.style.borderColor = '#22C55E';
+                        // Optional: Show explanation
+                    } else {
+                        this.style.background = '#FEF2F2';
+                        this.style.borderColor = '#EF4444';
+                    }
+                });
+            });
+        });
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P8G6WGL4" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-content">
+            <a href="index.html" class="nav-logo">
+                <img src="white__logo.svg" alt="Math 121 Logo">
+            </a>
+            <button class="hamburger" aria-label="Toggle navigation">☰</button>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">الرئيسية</a></li>
+                <li><a href="#units">الوحدات</a></li>
+                <li><a href="#exercises">التمارين</a></li>
+                <li><a href="#book-section">الكتاب</a></li>
+                <li><a href="#presentations-section">عروض تقديمية</a></li>
+                <li><a href="#worksheets-section">أوراق عمل</a></li>
+                <li><a href="#qbanks-section">بنوك الأسئلة</a></li>
+                <li><a href="ex+.html">تمارين إثرائية</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="container">
+            <h1>الرياضيات رياض121</h1>
+            <p>المؤسسة العامة للتدريب التقني والمهني - قسم الدراسات العامة</p>
+            <a href="#introduction" class="btn btn-primary">عن المقرر</a>
+            <a href="#plan" class="btn btn-primary" style="margin-right: 1rem;">الخطة التدريبية</a>
+        </div>
+    </header>
+    <section class="container" style="margin-top: -3rem; position: relative; z-index: 10;">
+        <div class="grid grid-3">
+            <div class="card" style="text-align: center;">
+                <div class="card-icon">📚</div>
+                <h3>رمز المقرر</h3>
+                <p>رياض 121</p>
+            </div>
+            <div class="card" style="text-align: center;">
+                <div class="card-icon">⏱️</div>
+                <h3>الساعات المعتمدة</h3>
+                <p>3 ساعات</p>
+            </div>
+            <div class="card" style="text-align: center;">
+                <div class="card-icon">🔗</div>
+                <h3>المتطلب السابق</h3>
+                <p>لا يوجد</p>
+            </div>
+        </div>
+    </section>
+    <!-- Introduction Section (New) -->
+    <section id="introduction" class="container" style="padding: 4rem 1.5rem;">
+
+
+
+        <div class="slide" style="max-width: 100%;">
+            <h1>عن المقرر</h1>
+            <p style="text-align: justify; margin-bottom: 1.5rem;">
+                <strong>بسم الله الرحمن الرحيم</strong><br>
+                الحمد لله رب العالمين، والصلاة والسلام على أشرف الأنبياء والمرسلين نبينا محمد وعلى آله وصحبه أجمعين.<br>
+                يسرنا أن نقدم لمتدربي الكليات التقنية هذه المنصة التعليمية لمقرر (رياضيات 121)، التي تمثل مرجعاً
+                تفاعلياً ومدخلاً علمياً لمتدربي دبلومات التقنية الإلكترونية، والتقنية الكهربائية، والتقنية الميكانيكية،
+                وتقنية الاتصالات.
+            </p>
+            <p style="text-align: justify; margin-bottom: 1.5rem;">
+                تأتي هذه المنصة انطلاقاً من رؤية المؤسسة العامة للتدريب التقني والمهني في تزويد المتدرب بالمهارات
+                الأساسية اللازمة لمواكبة متطلبات القرن الواحد والعشرين. حيث يهدف المقرر بشكل رئيس إلى بناء قاعدة رياضية
+                صلبة تمكن المتدرب من الفهم والاستيعاب للمقررات التخصصية اللاحقة.
+            </p>
+
+            <h2>هيكلة المقرر ومحتوياته</h2>
+            <p style="margin-bottom: 1rem;">تم إعداد محتوى هذا الموقع ليكون متدرجاً وشاملاً للمفاهيم الرياضية الأولية
+                التي يحتاجها المتدرب، موزعة على ست وحدات دراسية:</p>
+            <ul style="list-style-type: none; padding: 0;">
+                <li
+                    style="margin-bottom: 0.5rem; padding: 10px; background: var(--bg-body); border-radius: 8px; border-right: 4px solid var(--accent);">
+                    <strong>1. كثيرات الحدود:</strong> العمليات الجبرية الأساسية والتحليل.
+                </li>
+                <li
+                    style="margin-bottom: 0.5rem; padding: 10px; background: var(--bg-body); border-radius: 8px; border-right: 4px solid var(--accent);">
+                    <strong>2. المصفوفات والمحددات:</strong> مفاهيم المصفوفات والعمليات عليها، وحساب المحددات.
+                </li>
+                <li
+                    style="margin-bottom: 0.5rem; padding: 10px; background: var(--bg-body); border-radius: 8px; border-right: 4px solid var(--accent);">
+                    <strong>3. المعادلات:</strong> طرق حل المعادلات الخطية والتربيعية.
+                </li>
+                <li
+                    style="margin-bottom: 0.5rem; padding: 10px; background: var(--bg-body); border-radius: 8px; border-right: 4px solid var(--accent);">
+                    <strong>4. النهايات والاتصال:</strong> مقدمة في سلوك الدوال.
+                </li>
+                <li
+                    style="margin-bottom: 0.5rem; padding: 10px; background: var(--bg-body); border-radius: 8px; border-right: 4px solid var(--accent);">
+                    <strong>5. التفاضل:</strong> قواعد الاشتقاق الأساسية ومفاهيم الميل.
+                </li>
+                <li
+                    style="margin-bottom: 0.5rem; padding: 10px; background: var(--bg-body); border-radius: 8px; border-right: 4px solid var(--accent);">
+                    <strong>6. التكامل:</strong> مقدمة في حساب المساحات والدوال الأصلية.
+                </li>
+            </ul>
+        </div>
+    </section>
+    <!-- Course Info -->
+
+
+    <!-- Training Plan Section -->
+    <section id="plan" class="container" style="padding: 4rem 1.5rem;">
+        <div class="slide" style="max-width: 100%;">
+            <h1>الخطة التدريبية</h1>
+            <p style="text-align: center; margin-bottom: 2rem; color: var(--text-muted);">توزيع مفردات المقرر على أسابيع
+                الفصل التدريبي</p>
+
+            <div class="premium-table-container">
+                <table class="premium-table" style="font-size: 0.95rem;">
+                    <thead>
+                        <tr>
+                            <th>الوحدة</th>
+                            <th>الأهداف التفصيلية (المنهج التفصيلي)</th>
+                            <th>الأسبوع التدريبي</th>
+                            <th>ساعات التدريب</th>
+                            <th>استراتيجية التدريب</th>
+                            <th>آلية التقييم</th>
+                            <th>درجة التقييم</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <tbody>
+                        <tr>
+                            <td>1- كثيرات الحدود</td>
+                            <td>
+                                <ul style="list-style-position: inside; padding: 0; margin: 0;">
+                                    <li>العمليات على كثيرات الحدود (جمع، طرح، ضرب)</li>
+                                    <li>تحليل كثيرات الحدود</li>
+                                </ul>
+                            </td>
+                            <td>الأول</td>
+                            <td>4</td>
+                            <td>المحاضرة والحوار</td>
+                            <td>لا يوجد</td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <td>1- كثيرات الحدود</td>
+                            <td>
+                                <ul style="list-style-position: inside; padding: 0; margin: 0;">
+                                    <li>تحليل كثيرات الحدود (تابع)</li>
+                                    <li>الكسور الجبرية واختصارها</li>
+                                </ul>
+                            </td>
+                            <td>الثاني</td>
+                            <td>4</td>
+                            <td>حل المشكلات</td>
+                            <td>لا يوجد</td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <td>2- المصفوفات والمحددات</td>
+                            <td>
+                                <ul style="list-style-position: inside; padding: 0; margin: 0;">
+                                    <li>تعريف المصفوفات وأنواعها</li>
+                                    <li>العمليات عليه المصفوفات</li>
+                                </ul>
+                            </td>
+                            <td>الثالث</td>
+                            <td>4</td>
+                            <td>التدريب بالمحاكاة</td>
+                            <td>واجب</td>
+                            <td>4</td>
+                        </tr>
+                        <tr>
+                            <td>2- المصفوفات والمحددات</td>
+                            <td>
+                                <ul style="list-style-position: inside; padding: 0; margin: 0;">
+                                    <li>المحددات (2x2, 3x3)</li>
+                                    <li>مقلوب المصفوفة</li>
+                                </ul>
+                            </td>
+                            <td>الرابع</td>
+                            <td>4</td>
+                            <td>المحاضرة والشرح النظري</td>
+                            <td>لا يوجد</td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <td>3- المعادلات</td>
+                            <td>
+                                <ul style="list-style-position: inside; padding: 0; margin: 0;">
+                                    <li>معادلات الدرجة الأولى</li>
+                                    <li>معادلات الدرجة الثانية (القانون العام)</li>
+                                </ul>
+                            </td>
+                            <td>الخامس</td>
+                            <td>4</td>
+                            <td>التدريب بالمحاكاة</td>
+                            <td>واجب</td>
+                            <td>4</td>
+                        </tr>
+                        <tr>
+                            <td>3- المعادلات</td>
+                            <td>
+                                <ul style="list-style-position: inside; padding: 0; margin: 0;">
+                                    <li>حل أنظمة المعادلات الخطية (مجهولين)</li>
+                                    <li>حل أنظمة المعادلات الخطية (3 مجاهيل)</li>
+                                </ul>
+                            </td>
+                            <td>السادس</td>
+                            <td>4</td>
+                            <td>حل المشكلات</td>
+                            <td>لا يوجد</td>
+                            <td>0</td>
+                        </tr>
+                        <tr class="row-highlight-info">
+                            <td>الاختبار الفصلي الأول</td>
+                            <td>مراجعة + اختبار</td>
+                            <td>السابع</td>
+                            <td>4</td>
+                            <td>التقييم الكتابي</td>
+                            <td style="font-weight: bold; color: var(--primary); text-align: center;">الاختبار الفصلي
+                                الأول</td>
+                            <td style="font-weight: bold;">20</td>
+                        </tr>
+                        <tr>
+                            <td>4- النهايات</td>
+                            <td>
+                                <ul style="list-style-position: inside; padding: 0; margin: 0;">
+                                    <li>مقدمة في النهايات (الجدول والتعريف)</li>
+                                </ul>
+                            </td>
+                            <td>الثامن</td>
+                            <td>4</td>
+                            <td>الاكتشاف الموجه</td>
+                            <td>لا يوجد</td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <td>4- النهايات والاتصال</td>
+                            <td>
+                                <ul style="list-style-position: inside; padding: 0; margin: 0;">
+                                    <li>قوانين النهايات</li>
+                                    <li>حساب النهايات وحالات عدم التعيين</li>
+                                </ul>
+                            </td>
+                            <td>التاسع</td>
+                            <td>4</td>
+                            <td>التدريب بالمحاكاة</td>
+                            <td>واجب</td>
+                            <td>4</td>
+                        </tr>
+                        <tr>
+                            <td>4- النهايات والاتصال</td>
+                            <td>
+                                <ul style="list-style-position: inside; padding: 0; margin: 0;">
+                                    <li>النهايات عند اللانهاية</li>
+                                    <li>الاتصال (عند نقطة وعلى فترة)</li>
+                                </ul>
+                            </td>
+                            <td>العاشر</td>
+                            <td>4</td>
+                            <td>المحاضرة والحوار</td>
+                            <td>لا يوجد</td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <td>5- التفاضل وتطبيقاته</td>
+                            <td>
+                                <ul style="list-style-position: inside; padding: 0; margin: 0;">
+                                    <li>تعريف المشتقة</li>
+                                    <li>قواعد الاشتقاق الأساسية</li>
+                                </ul>
+                            </td>
+                            <td>الحادي عشر</td>
+                            <td>4</td>
+                            <td>العصف الذهني</td>
+                            <td>لا يوجد</td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <td>5- التفاضل وتطبيقاته</td>
+                            <td>
+                                <ul style="list-style-position: inside; padding: 0; margin: 0;">
+                                    <li>مشتقات الدوال المثلثية والأسية</li>
+                                    <li>قاعدة السلسلة</li>
+                                </ul>
+                            </td>
+                            <td>الثاني عشر</td>
+                            <td>4</td>
+                            <td>حل المشكلات</td>
+                            <td>واجب</td>
+                            <td>4</td>
+                        </tr>
+                        <tr class="row-highlight-info">
+                            <td>الاختبار الفصلي الثاني</td>
+                            <td>مراجعة + اختبار</td>
+                            <td>الثالث عشر</td>
+                            <td>4</td>
+                            <td>التقييم الكتابي</td>
+                            <td style="font-weight: bold; color: var(--primary); text-align: center;">الاختبار الفصلي
+                                الثاني</td>
+                            <td style="font-weight: bold;">20</td>
+                        </tr>
+                        <tr>
+                            <td>5- التفاضل وتطبيقاته</td>
+                            <td>
+                                <ul style="list-style-position: inside; padding: 0; margin: 0;">
+                                    <li>معادلة المماس والناظم</li>
+                                    <li>الاشتقاق الضمني والمراتب العليا</li>
+                                </ul>
+                            </td>
+                            <td>الرابع عشر</td>
+                            <td>4</td>
+                            <td>التدريب بالمحاكاة</td>
+                            <td>واجب</td>
+                            <td>2</td>
+                        </tr>
+                        <tr>
+                            <td>5- التفاضل / 6- التكامل</td>
+                            <td>
+                                <ul style="list-style-position: inside; padding: 0; margin: 0;">
+                                    <li>تطبيقات التفاضل (القيم القصوى)</li>
+                                    <li>الدالة الأصلية والتكامل غير المحدود</li>
+                                </ul>
+                            </td>
+                            <td>الخامس عشر</td>
+                            <td>4</td>
+                            <td>المحاضرة والشرح النظري</td>
+                            <td>لا يوجد</td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <td>6- التكامل وتطبيقاته</td>
+                            <td>
+                                <ul style="list-style-position: inside; padding: 0; margin: 0;">
+                                    <li>قواعد التكامل (الجبري، المثلثي، الأسي)</li>
+                                    <li>التكامل المحدود</li>
+                                </ul>
+                            </td>
+                            <td>السادس عشر</td>
+                            <td>4</td>
+                            <td>حل المشكلات</td>
+                            <td>واجب</td>
+                            <td>2</td>
+                        </tr>
+                        <tr>
+                            <td>6- التكامل وتطبيقاته</td>
+                            <td>
+                                <ul style="list-style-position: inside; padding: 0; margin: 0;">
+                                    <li>تطبيقات التكامل (المساحات)</li>
+                                    <li>مراجعة عامة</li>
+                                </ul>
+                            </td>
+                            <td>السابع عشر</td>
+                            <td>4</td>
+                            <td>المناقشة</td>
+                            <td>لا يوجد</td>
+                            <td>0</td>
+                        </tr>
+                        <tr class="row-highlight-warning">
+                            <td style="font-weight: bold;">18- اختبارات نهائية</td>
+                            <td>اختبارات نهائية</td>
+                            <td>الثامن عشر</td>
+                            <td>-</td>
+                            <td>التقييم النهائي</td>
+                            <td class="exam-cell">الاختبار النهائي
+                            </td>
+                            <td style="font-weight: bold;">40</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr style="background-color: var(--primary); color: white;">
+                            <td colspan="3" style="text-align: center; font-weight: bold;">المجموع</td>
+                            <td style="font-weight: bold;">64 ساعة</td>
+                            <td></td>
+                            <td></td>
+                            <td style="font-weight: bold;">100</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </section>
+    <section id="units" style="padding: 4rem 0;">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 3rem;">وحدات المقرر</h2>
+            <div class="grid grid-3">
+
+                <!-- Unit 1 -->
+                <a href="u1.html" class="card">
+                    <div class="card-icon">1</div>
+                    <h3>كثيرات الحدود</h3>
+                    <p class="text-muted">التعريف، العمليات الحسابية، التحليل، الكسور الجبرية.</p>
+                </a>
+
+                <!-- Unit 2 -->
+                <a href="u2.html" class="card">
+                    <div class="card-icon">2</div>
+                    <h3>المصفوفات والمحددات</h3>
+                    <p class="text-muted">العمليات على المصفوفات، المحددات 2x2 و 3x3، المعكوس.</p>
+                </a>
+
+                <!-- Unit 3 -->
+                <a href="u3.html" class="card">
+                    <div class="card-icon">3</div>
+                    <h3>المعادلات</h3>
+                    <p class="text-muted">معادلات الدرجة الأولى والثانية، الأنظمة الخطية.</p>
+                </a>
+
+                <!-- Unit 4 -->
+                <a href="u4.html" class="card">
+                    <div class="card-icon">4</div>
+                    <h3>النهايات والاتصال</h3>
+                    <p class="text-muted">حساب النهايات، حالات عدم التعيين، شروط الاتصال.</p>
+                </a>
+
+                <!-- Unit 5 -->
+                <a href="u5.html" class="card">
+                    <div class="card-icon">5</div>
+                    <h3>الاشتقاق</h3>
+                    <p class="text-muted">قواعد الاشتقاق، الدوال المشهورة، الاشتقاق الضمني.</p>
+                </a>
+
+                <!-- Unit 6 -->
+                <a href="u6.html" class="card">
+                    <div class="card-icon">6</div>
+                    <h3>التكامل</h3>
+                    <p class="text-muted">التكامل غير المحدود، الدوال الأصلية، التكامل المحدود.</p>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Exercises -->
+    <section id="exercises" style="padding: 4rem 0;">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 3rem;">التمارين التفاعلية</h2>
+            <div class="grid grid-3">
+
+                <!-- Ex 1 -->
+                <a href="ex1.html" class="card">
+                    <div class="card-icon" style="background: #e8f5e9; color: #2e7d32;">📝</div>
+                    <h3>تمارين الوحدة الأولى</h3>
+                    <p class="text-muted">أسئلة تفاعلية حول كثيرات الحدود والكسور الجبرية.</p>
+                </a>
+
+                <!-- Ex 2 -->
+                <a href="ex2.html" class="card">
+                    <div class="card-icon" style="background: #e8f5e9; color: #2e7d32;">📝</div>
+                    <h3>تمارين الوحدة الثانية</h3>
+                    <p class="text-muted">مسائل في المصفوفات والمحددات.</p>
+                </a>
+
+                <!-- Ex 3 -->
+                <a href="ex3.html" class="card">
+                    <div class="card-icon" style="background: #e8f5e9; color: #2e7d32;">📝</div>
+                    <h3>تمارين الوحدة الثالثة</h3>
+                    <p class="text-muted">تمارين في حل المعادلات والأنظمة الخطية.</p>
+                </a>
+
+                <!-- Ex 4 -->
+                <a href="ex4.html" class="card">
+                    <div class="card-icon" style="background: #e8f5e9; color: #2e7d32;">📝</div>
+                    <h3>تمارين الوحدة الرابعة</h3>
+                    <p class="text-muted">اختبار التفاعلي في النهايات والاتصال.</p>
+                </a>
+
+                <!-- Ex 5 -->
+                <a href="ex5.html" class="card">
+                    <div class="card-icon" style="background: #e8f5e9; color: #2e7d32;">📝</div>
+                    <h3>تمارين الوحدة الخامسة</h3>
+                    <p class="text-muted">تطبيقات ومسائل في قواعد الاشتقاق.</p>
+                </a>
+
+                <!-- Ex 6 -->
+                <a href="ex6.html" class="card">
+                    <div class="card-icon" style="background: #e8f5e9; color: #2e7d32;">📝</div>
+                    <h3>تمارين الوحدة السادسة</h3>
+                    <p class="text-muted">تمارين شاملة في التكامل وتطبيقاته.</p>
+                </a>
+
+            </div>
+        </div>
+    </section>
+    <section id="files" style="padding: 4rem 0;">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 3rem;">المصادر والملفات</h2>
+
+            <!-- Book Section -->
+            <div id="book-section" style="margin-bottom: 3rem;">
+                <h3 style="margin-bottom: 2rem; color: var(--primary); text-align: center;">📚 كتاب المقرر</h3>
+                <div class="grid grid-1" style="max-width: 400px; margin: 0 auto;">
+                    <a href="ملفات/كتاب الرياضيات رياض 121.pdf" target="_blank" class="card">
+                        <div class="card-icon" style="background: #e3f2fd; color: #1565c0;">📖</div>
+                        <h3>كتاب الرياضيات رياض 121</h3>
+                        <p class="text-muted">نسخة PDF (2.3 MB)</p>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Presentations Section -->
+            <div id="presentations-section" style="margin-bottom: 3rem;">
+                <h3 style="margin-bottom: 2rem; color: var(--primary); text-align: center;">🖥️ عروض تقديمية</h3>
+                <div class="grid grid-3">
+                    <a href="ملفات/عروض تقديمية/عرض تقديمي الوحدة الاولى.pdf" target="_blank" class="card">
+                        <div class="card-icon" style="background: #fff3e0; color: #e65100;">📊</div>
+                        <h3>الوحدة الأولى</h3>
+                        <p class="text-muted">عرض تقديمي (116 KB)</p>
+                    </a>
+                    <a href="ملفات/عروض تقديمية/عرض تقديمي الوحدة الثانية.pdf" target="_blank" class="card">
+                        <div class="card-icon" style="background: #fff3e0; color: #e65100;">📊</div>
+                        <h3>الوحدة الثانية</h3>
+                        <p class="text-muted">عرض تقديمي (106 KB)</p>
+                    </a>
+                    <a href="ملفات/عروض تقديمية/عرض تقديمي الوحدة الثالثة.pdf" target="_blank" class="card">
+                        <div class="card-icon" style="background: #fff3e0; color: #e65100;">📊</div>
+                        <h3>الوحدة الثالثة</h3>
+                        <p class="text-muted">عرض تقديمي (103 KB)</p>
+                    </a>
+                    <a href="ملفات/عروض تقديمية/عرض تقديمي الوحدة الرابعة.pdf" target="_blank" class="card">
+                        <div class="card-icon" style="background: #fff3e0; color: #e65100;">📊</div>
+                        <h3>الوحدة الرابعة</h3>
+                        <p class="text-muted">عرض تقديمي (124 KB)</p>
+                    </a>
+                    <a href="ملفات/عروض تقديمية/عرض تقديمي الوحدة الخامسة.pdf" target="_blank" class="card">
+                        <div class="card-icon" style="background: #fff3e0; color: #e65100;">📊</div>
+                        <h3>الوحدة الخامسة</h3>
+                        <p class="text-muted">عرض تقديمي (124 KB)</p>
+                    </a>
+                    <a href="ملفات/عروض تقديمية/عرض تقديمي الوحدة السادسة.pdf" target="_blank" class="card">
+                        <div class="card-icon" style="background: #fff3e0; color: #e65100;">📊</div>
+                        <h3>الوحدة السادسة</h3>
+                        <p class="text-muted">عرض تقديمي (106 KB)</p>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Worksheets Section -->
+            <div id="worksheets-section" style="margin-bottom: 3rem;">
+                <h3 style="margin-bottom: 2rem; color: var(--primary); text-align: center;">📝 أوراق عمل</h3>
+                <div class="grid grid-3">
+                    <a href="ملفات/اوراق العمل/ورقة عمل 1.pdf" target="_blank" class="card">
+                        <div class="card-icon" style="background: #e8f5e9; color: #2e7d32;">📄</div>
+                        <h3>ورقة عمل 1</h3>
+                        <p class="text-muted">ملف PDF (46 KB)</p>
+                    </a>
+                    <a href="ملفات/اوراق العمل/ورقة عمل 2.pdf" target="_blank" class="card">
+                        <div class="card-icon" style="background: #e8f5e9; color: #2e7d32;">📄</div>
+                        <h3>ورقة عمل 2</h3>
+                        <p class="text-muted">ملف PDF (41 KB)</p>
+                    </a>
+                    <a href="ملفات/اوراق العمل/ورقة عمل 3.pdf" target="_blank" class="card">
+                        <div class="card-icon" style="background: #e8f5e9; color: #2e7d32;">📄</div>
+                        <h3>ورقة عمل 3</h3>
+                        <p class="text-muted">ملف PDF (44 KB)</p>
+                    </a>
+                    <a href="ملفات/اوراق العمل/ورقة عمل 4.pdf" target="_blank" class="card">
+                        <div class="card-icon" style="background: #e8f5e9; color: #2e7d32;">📄</div>
+                        <h3>ورقة عمل 4</h3>
+                        <p class="text-muted">ملف PDF (46 KB)</p>
+                    </a>
+                    <a href="ملفات/اوراق العمل/ورقة عمل 5.pdf" target="_blank" class="card">
+                        <div class="card-icon" style="background: #e8f5e9; color: #2e7d32;">📄</div>
+                        <h3>ورقة عمل 5</h3>
+                        <p class="text-muted">ملف PDF (46 KB)</p>
+                    </a>
+                    <a href="ملفات/اوراق العمل/ورقة عمل 6.pdf" target="_blank" class="card">
+                        <div class="card-icon" style="background: #e8f5e9; color: #2e7d32;">📄</div>
+                        <h3>ورقة عمل 6</h3>
+                        <p class="text-muted">ملف PDF (43 KB)</p>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Question Banks (Kept as separate) -->
+            <div id="qbanks-section">
+                <h3 style="margin-bottom: 2rem; color: var(--primary); text-align: center;">📂 بنوك الأسئلة (بلاك بورد)
+                </h3>
+                <div class="grid grid-3">
+                    <a href="ملفات/بنوك الاسئلة بلاكبورد/Pool_ExportFile_DGCT-MATH121-1257-R-S4461_الاشتقاق.zip"
+                        download class="card protected-link">
+                        <div class="card-icon" style="background: #f3e5f5; color: #7b1fa2;">📦</div>
+                        <h3>الاشتقاق</h3>
+                        <p class="text-muted">ملف ZIP (8.7 KB)</p>
+                    </a>
+                    <a href="ملفات/بنوك الاسئلة بلاكبورد/Pool_ExportFile_DGCT-MATH121-1257-R-S4461_التكامل.zip" download
+                        class="card protected-link">
+                        <div class="card-icon" style="background: #f3e5f5; color: #7b1fa2;">📦</div>
+                        <h3>التكامل</h3>
+                        <p class="text-muted">ملف ZIP (9.4 KB)</p>
+                    </a>
+                    <a href="ملفات/بنوك الاسئلة بلاكبورد/Pool_ExportFile_DGCT-MATH121-1257-R-S4461_المصفوفات.zip"
+                        download class="card protected-link">
+                        <div class="card-icon" style="background: #f3e5f5; color: #7b1fa2;">📦</div>
+                        <h3>المصفوفات</h3>
+                        <p class="text-muted">ملف ZIP (9.2 KB)</p>
+                    </a>
+                    <a href="ملفات/بنوك الاسئلة بلاكبورد/Pool_ExportFile_DGCT-MATH121-1257-R-S4461_المعادلات.zip"
+                        download class="card protected-link">
+                        <div class="card-icon" style="background: #f3e5f5; color: #7b1fa2;">📦</div>
+                        <h3>المعادلات</h3>
+                        <p class="text-muted">ملف ZIP (8.7 KB)</p>
+                    </a>
+                    <a href="ملفات/بنوك الاسئلة بلاكبورد/Pool_ExportFile_DGCT-MATH121-1257-R-S4461_النهايات.zip"
+                        download class="card protected-link">
+                        <div class="card-icon" style="background: #f3e5f5; color: #7b1fa2;">📦</div>
+                        <h3>النهايات</h3>
+                        <p class="text-muted">ملف ZIP (9.0 KB)</p>
+                    </a>
+                    <a href="ملفات/بنوك الاسئلة بلاكبورد/Pool_ExportFile_DGCT-MATH121-1257-R-S4461_كثيرات الحدود 1.zip"
+                        download class="card protected-link">
+                        <div class="card-icon" style="background: #f3e5f5; color: #7b1fa2;">📦</div>
+                        <h3>كثيرات الحدود</h3>
+                        <p class="text-muted">ملف ZIP (10.0 KB)</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 الصفحة الالكترونية لمقرر الرياضيات (رياض 121) - تطوير بواسطة نواف العنزي </p>
+            <p style="font-size: 0.8rem; margin-top: 0.5rem; opacity: 0.7;">آخر تحديث: <span
+                    id="last-updated-date"></span></p>
+            <div
+                style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.8; display: flex; justify-content: center; align-items: center; gap: 5px;">
+                <span>👁️ عدد الزيارات: </span>
+                <span id="visits-count" style="font-weight: bold; color: var(--accent);">جاري الحساب...</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+
+</html>

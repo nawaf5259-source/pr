@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>شبه المنحرف - تمارين إثرائية</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../styles.css">
+
+    <!-- MathJax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-body);
+            line-height: 1.6;
+        }
+
+        .example-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            margin-top: 2rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .example-card {
+            background: #fff;
+            border-right: 4px solid var(--accent);
+            border-left: none;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s ease;
+            position: relative;
+        }
+
+        body.dark-mode .example-card {
+            background: var(--bg-card);
+        }
+
+        .example-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .ex-badge {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+
+        .ex-problem {
+            font-weight: 700;
+            color: var(--text-heading);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.75rem;
+        }
+
+        .ex-answer {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #1565c0;
+            margin-bottom: 0.5rem;
+            text-align: center;
+        }
+
+        .ex-explanation {
+            font-size: 1rem;
+            color: var(--text-muted);
+            background: rgba(33, 150, 243, 0.1);
+            padding: 1rem;
+            border-radius: 6px;
+            margin-top: 0.5rem;
+        }
+
+        body.dark-mode .ex-explanation {
+            color: #ddd;
+            background: rgba(33, 150, 243, 0.2);
+        }
+
+        .formula-box {
+            background: #e3f2fd;
+            border: 1px solid #2196f3;
+            color: #0d47a1;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            text-align: center;
+            font-size: 1.1rem;
+        }
+
+        body.dark-mode .formula-box {
+            background: rgba(33, 150, 243, 0.1);
+            border-color: #2196f3;
+            color: #90caf9;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Aurora Background Blobs -->
+    <div class="aurora-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-content">
+            <a href="../index.html" class="nav-logo">
+                <img src="../logo.svg" alt="Math 101 Logo">
+            </a>
+            <ul class="nav-links">
+                <li><a href="../index.html">الرئيسية</a></li>
+                <li><a href="../qbanks.html">بنوك الأسئلة</a></li>
+                <li><a href="../ex+.html" class="active">تمارين إثرائية</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container" style="padding-top: 60px; padding-bottom: 60px;">
+
+        <header style="text-align: center; margin-bottom: 3rem;">
+            <h1 style="font-size: 2.5rem; margin-bottom: 1rem; color: var(--text-heading);">شبه المنحرف</h1>
+            <p style="font-size: 1.2rem; color: var(--text-muted); max-width: 600px; margin: 0 auto;">
+                أمثلة تطبيقية وشاملة على حساب مساحة ومحيط شبه المنحرف.
+            </p>
+        </header>
+
+        <!-- Formulas -->
+        <div class="formula-box">
+            <p><strong>مساحة شبه المنحرف:</strong> \( A = \frac{1}{2} (b_1 + b_2) \times h \)</p>
+            <p><strong>محيط شبه المنحرف:</strong>مجموع أطوال أضلاعه  \( P = \)</p>
+            <p style="font-size: 0.9rem; margin-top:0.5rem;">حيث \( b_1, b_2 \) طولا القاعدتين المتوازيتين، و \( h \)
+                الارتفاع.</p>
+        </div>
+
+        <div class="example-grid">
+
+            <!-- Example 1 -->
+            <div class="example-card">
+                <div class="ex-badge">المثال الأول</div>
+                <div class="ex-problem">
+                    شبه منحرف طولا قاعدتيه \( 8 \, \text{cm} \) و \( 12 \, \text{cm} \) وارتفاعه \( 5 \, \text{cm} \).
+                    احسب مساحته.
+                </div>
+                <div class="ex-answer">
+                    \( 50 \, \text{cm}^2 \)
+                </div>
+                <div class="ex-explanation">
+                    <strong>خطوات الحل:</strong>
+                    <ol>
+                        <li>المعطيات: \( b_1 = 8, b_2 = 12, h = 5 \).</li>
+                        <li>القانون: \( A = \frac{8 + 12}{2} \times 5 \).</li>
+                        <li>\( A = \frac{20}{2} \times 5 = 10 \times 5 \).</li>
+                        <li>الناتج: \( 50 \, \text{cm}^2 \).</li>
+                    </ol>
+                </div>
+            </div>
+
+            <!-- Example 2 -->
+            <div class="example-card">
+                <div class="ex-badge">المثال الثاني</div>
+                <div class="ex-problem">
+                    شبه منحرف أطوال أضلاعه \( 5 \, \text{m}, 7 \, \text{m}, 5 \, \text{m}, 10 \, \text{m} \). احسب
+                    محيطه.
+                </div>
+                <div class="ex-answer">
+                    \( 27 \, \text{m} \)
+                </div>
+                <div class="ex-explanation">
+                    <strong>خطوات الحل:</strong>
+                    <ol>
+                        <li>المحيط هو مجموع الأضلاع الأربعة.</li>
+                        <li>\( P = 5 + 7 + 5 + 10 \).</li>
+                        <li>الناتج: \( 27 \, \text{m} \).</li>
+                    </ol>
+                </div>
+            </div>
+
+            <!-- Example 3 -->
+            <div class="example-card">
+                <div class="ex-badge">المثال الثالث</div>
+                <div class="ex-problem">
+                    شبه منحرف مساحته \( 40 \, \text{cm}^2 \) وارتفاعه \( 4 \, \text{cm} \). ما مجموع طولي قاعدتيه
+                    المتوازيتين؟
+                </div>
+                <div class="ex-answer">
+                    \( 20 \, \text{cm} \)
+                </div>
+                <div class="ex-explanation">
+                    <strong>خطوات الحل:</strong>
+                    <ol>
+                        <li>القانون: \( A = \frac{1}{2} (b_1 + b_2) h \).</li>
+                        <li>\( 40 = 0.5 \times (b_1 + b_2) \times 4 \).</li>
+                        <li>\( 40 = 2 \times (b_1 + b_2) \).</li>
+                        <li>نقسم على 2: \( b_1 + b_2 = 20 \, \text{cm} \).</li>
+                    </ol>
+                </div>
+            </div>
+
+            <!-- Example 4 -->
+            <div class="example-card">
+                <div class="ex-badge">المثال الرابع</div>
+                <div class="ex-problem">
+                    شبه منحرف مساحته \( 30 \, \text{cm}^2 \) ومجموع قاعدتيه \( 10 \, \text{cm} \). احسب ارتفاعه.
+                </div>
+                <div class="ex-answer">
+                    \( 6 \, \text{cm} \)
+                </div>
+                <div class="ex-explanation">
+                    <strong>خطوات الحل:</strong>
+                    <ol>
+                        <li>\( 30 = \frac{1}{2} \times 10 \times h \).</li>
+                        <li>\( 30 = 5 \times h \).</li>
+                        <li>نقسم على 5: \( h = 6 \, \text{cm} \).</li>
+                    </ol>
+                </div>
+            </div>
+
+            <!-- Example 5 (Applied) -->
+            <div class="example-card">
+                <div class="ex-badge">المثال الخامس (تطبيقي)</div>
+                <div class="ex-problem">
+                    قطعة أرض على شكل شبه منحرف، القاعدتان المتوازيتان بطول \( 30 \, \text{m} \) و \( 50 \, \text{m} \)،
+                    والمسافة العمودية بينهما (الارتفاع) \( 20 \, \text{m} \). احسب مساحة الأرض.
+                </div>
+                <div class="ex-answer">
+                    \( 800 \, \text{m}^2 \)
+                </div>
+                <div class="ex-explanation">
+                    <strong>خطوات الحل:</strong>
+                    <ol>
+                        <li>نحسب المتوسط الحسابي للقاعدتين: \( \frac{30+50}{2} = \frac{80}{2} = 40 \).</li>
+                        <li>نضرب في الارتفاع: \( 40 \times 20 \).</li>
+                        <li>الناتج: \( 800 \, \text{m}^2 \).</li>
+                    </ol>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 الصفحة الالكترونية لمقرر الرياضيات (رياض 101)</p>
+        </div>
+    </footer>
+
+    <script src="../main.js"></script>
+</body>
+
+</html>

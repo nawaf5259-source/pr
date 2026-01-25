@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الحد الجبري ودرجته - تمارين إثرائية</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../../styles.css">
+
+    <!-- MathJax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-body);
+            line-height: 1.6;
+        }
+
+        .example-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            margin-top: 2rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .example-card {
+            background: #fff;
+            border-right: 4px solid var(--accent-secondary);
+            border-left: none;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s ease;
+            position: relative;
+        }
+
+        body.dark-mode .example-card {
+            background: var(--bg-card);
+        }
+
+        .example-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .ex-badge {
+            display: inline-block;
+            background: var(--accent-secondary);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+
+        .ex-problem {
+            font-weight: 700;
+            color: var(--text-heading);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.75rem;
+        }
+
+        .ex-answer {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #7c3aed;
+            margin-bottom: 0.5rem;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .answer-line {
+            display: block;
+        }
+
+        .ex-explanation {
+            font-size: 1rem;
+            color: var(--text-muted);
+            background: rgba(139, 92, 246, 0.1);
+            padding: 1rem;
+            border-radius: 6px;
+            margin-top: 0.5rem;
+        }
+
+        body.dark-mode .ex-explanation {
+            color: #ddd;
+            background: rgba(139, 92, 246, 0.2);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Aurora Background Blobs -->
+    <div class="aurora-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <!-- Navigation -->
+        <!-- Navigation -->
+    <div id="navbar-container"></div>
+
+    <main class="container" style="padding-top: 60px; padding-bottom: 60px;">
+
+        <header style="text-align: center; margin-bottom: 3rem;">
+            <h1 style="font-size: 2.5rem; margin-bottom: 1rem; color: var(--text-heading);">الحد الجبري ودرجته</h1>
+            <p style="font-size: 1.2rem; color: var(--text-muted); max-width: 600px; margin: 0 auto;">
+                تعلم كيفية تحديد المعامل والدرجة لكل حد جبري. تذكر أن الدرجة هي مجموع أسس المتغيرات في الحد.
+            </p>
+        </header>
+
+        <div class="example-grid">
+
+            <!-- Example 1 -->
+            <div class="example-card">
+                <div class="ex-badge">المثال الأول</div>
+                <div class="ex-problem">
+                    ما هو معامل ودرجة الحد الجبري: \( 5x^3 \)؟
+                </div>
+                <div class="ex-answer">
+                    <div class="answer-line">المعامل: 5</div>
+                    <div class="answer-line">الدرجة: 3</div>
+                </div>
+                <div class="ex-explanation">
+                    <strong>الشرح:</strong> المعامل هو العدد المضروب في المتغير (\( 5 \)). أما الدرجة فهي أس المتغير \(
+                    x \)، وهو هنا \( 3 \).
+                </div>
+            </div>
+
+            <!-- Example 2 -->
+            <div class="example-card">
+                <div class="ex-badge">المثال الثاني</div>
+                <div class="ex-problem">
+                    ما هو معامل ودرجة الحد الجبري: \( -2a^2b^3 \)؟
+                </div>
+                <div class="ex-answer">
+                    <div class="answer-line">المعامل: \(2\)</div>
+                    <div class="answer-line">الدرجة: \(5\)</div>
+                </div>
+                <div class="ex-explanation">
+                    <strong>الشرح:</strong> المعامل هو الثابت \( -2 \). الدرجة تُحسب بجمع أسس المتغيرات: \( 2 \) (للـ \(
+                    a \)) \( + \) \( 3 \) (للـ \( b \)) \( 5= \).
+                </div>
+            </div>
+
+            <!-- Example 3 -->
+            <div class="example-card">
+                <div class="ex-badge">المثال الثالث</div>
+                <div class="ex-problem">
+                    ما هي درجة الحد الثابت: \( 7 \)؟
+                </div>
+                <div class="ex-answer">
+                    <div class="answer-line">الدرجة: \(0\)</div>
+                </div>
+                <div class="ex-explanation">
+                    <strong>الشرح:</strong> أي عدد ثابت درجته دائمًا صفر، لأننا يمكن اعتباره مضروبًا في متغير مرفوع للأس
+                    صفر (مثلاً \( 7x^0 \)).
+                </div>
+            </div>
+
+            <!-- Example 4 -->
+            <div class="example-card">
+                <div class="ex-badge">المثال الرابع</div>
+                <div class="ex-problem">
+                    ما هو معامل الحد الجبري: \( y \)؟
+                </div>
+                <div class="ex-answer">
+                    <div class="answer-line">الدرجة: \(1\)</div>
+                </div>
+                <div class="ex-explanation">
+                    <strong>الشرح:</strong> عندما يظهر المتغير وحده، يكون المعامل ضمنيًا هو \( 1 \)، والأس (الدرجة) هو
+                    أيضًا \( 1 \).
+                </div>
+            </div>
+
+            <!-- Example 5 -->
+            <div class="example-card">
+                <div class="ex-badge">المثال الخامس</div>
+                <div class="ex-problem">
+                    ما هي درجة الحد الجبري: \( -x^2yz \)؟
+                </div>
+                <div class="ex-answer">
+                    <div class="answer-line">الدرجة: \(4\)</div>
+                </div>
+                <div class="ex-explanation">
+                    <strong>الشرح:</strong> نجمع الأسس: \( 2 \) (للـ \( x \)) \( + \) \( 1 \) (للـ \( y \)) \( + \) \( 1
+                    \) (للـ \( z \)) \( = 4 \). المعامل هنا هو \( -1 \).
+                </div>
+            </div>
+
+            <!-- Example 6 -->
+            <div class="example-card">
+                <div class="ex-badge">المثال السادس</div>
+                <div class="ex-problem">
+                    أوجد المعامل الرئيس، الدرجة، والثابت للحدود في كثير الحدود: \(4x^3 - 2x + 7\).
+                </div>
+                <div class="ex-answer">
+                    <div class="answer-line">معامل الرئيس: \(4\)</div>
+                    <div class="answer-line">الدرجة: \(3\)</div>
+                    <div class="answer-line">الثابت: \(7\)</div>
+                </div>
+                <div class="ex-explanation">
+                    <strong>الشرح:</strong> أعلى درجة هي \(3\) من الحد \(4x^3\) لذا معامل الرئيس هو \(4\). الثابت هو
+                    الحد غير المتغير وهو \(7\).
+                </div>
+            </div>
+
+            <!-- Example 7 -->
+            <div class="example-card">
+                <div class="ex-badge">المثال السابع</div>
+                <div class="ex-problem">
+                    أوجد المعامل الرئيس، الدرجة، والثابت للحدود في كثير الحدود: \(-5x^4y + 3xy^2 - 2\).
+                </div>
+                <div class="ex-answer">
+                    <div class="answer-line">معامل الرئيس: \(-5\)</div>
+                    <div class="answer-line">الدرجة: \(5\)</div>
+                    <div class="answer-line">الثابت: \(-2\)</div>
+                </div>
+                <div class="ex-explanation">
+                    <strong>الشرح:</strong> الحد ذو أعلى مجموع أسس هو \(-5x^4y\) (درجة \(4+1=5\)) لذا معامل الرئيس
+                    \(-5\). الثابت هو \(-2\).
+                </div>
+            </div>
+
+            <!-- Example 8 -->
+            <div class="example-card">
+                <div class="ex-badge">المثال الثامن</div>
+                <div class="ex-problem">
+                    أوجد المعامل الرئيس، الدرجة، والثابت للحدود في كثير الحدود: \(2a^2b^3 + 6ab - 9\).
+                </div>
+                <div class="ex-answer">
+                    <div class="answer-line">معامل الرئيس: \(2\)</div>
+                    <div class="answer-line">الدرجة: \(5\)</div>
+                    <div class="answer-line">الثابت: \(-9\)</div>
+                </div>
+                <div class="ex-explanation">
+                    <strong>الشرح:</strong> أعلى درجة هي من الحد \(2a^2b^3\) (درجة \(2+3=5\)) لذا معامل الرئيس \(2\).
+                    الثابت هو \(-9\).
+                </div>
+            </div>
+
+            <!-- Example 9 -->
+            <div class="example-card">
+                <div class="ex-badge">المثال التاسع</div>
+                <div class="ex-problem">
+                    أوجد المعامل الرئيس، الدرجة، والثابت للحدود في كثير الحدود: \(x^5 - 4x^3 + x - 1\).
+                </div>
+                <div class="ex-answer">
+                    <div class="answer-line">معامل الرئيس: \(1\)</div>
+                    <div class="answer-line">الدرجة: \(5\)</div>
+                    <div class="answer-line">الثابت: \(-1\)</div>
+                </div>
+                <div class="ex-explanation">
+                    <strong>الشرح:</strong> الحد ذو أعلى درجة هو \(x^5\) لذا معامل الرئيس \(1\) والدرجة \(5\). الثابت هو
+                    \(-1\).
+                </div>
+            </div>
+
+            <!-- Example 10 -->
+            <div class="example-card">
+                <div class="ex-badge">المثال العاشر</div>
+                <div class="ex-problem">
+                    أوجد المعامل الرئيس، الدرجة، والثابت للحدود في كثير الحدود: \(-3\).
+                </div>
+                <div class="ex-answer">
+                    <div class="answer-line">معامل الرئيس: \(-3\)</div>
+                    <div class="answer-line">الدرجة: \(0\)</div>
+                    <div class="answer-line">الثابت: \(-3\)</div>
+                </div>
+                <div class="ex-explanation">
+                    <strong>الشرح:</strong> الحد الوحيد هو ثابت \(-3\) لذا الدرجة \(0\) ومعامل الرئيس هو \(-3\) وهو نفسه
+                    الثابت.
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+        <!-- Footer -->
+    <div id="footer-container"></div>
+
+    <script src="../../main.js"></script>
+</body>
+
+</html>

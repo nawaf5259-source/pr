@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أنواع عدم الاتصال | تمارين إثرائية</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <!-- MathJax -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="../../styles.css">
+    <style>
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-body);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Aurora Background */
+        .aurora-blobs {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .blob {
+            position: absolute;
+            filter: blur(80px);
+            opacity: 0.6;
+            border-radius: 50%;
+            animation: float 20s infinite alternate;
+        }
+
+        .blob-1 {
+            width: 500px;
+            height: 500px;
+            background: #4f46e5;
+            top: -100px;
+            left: -100px;
+        }
+
+        .blob-2 {
+            width: 400px;
+            height: 400px;
+            background: #db2777;
+            bottom: -50px;
+            right: -100px;
+            animation-delay: -5s;
+        }
+
+        .blob-3 {
+            width: 300px;
+            height: 300px;
+            background: #7c3aed;
+            top: 40%;
+            left: 30%;
+            animation-delay: -10s;
+        }
+
+        @keyframes float {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(30px, 50px) scale(1.1); }
+        }
+
+        .slide { display: none; }
+        .slide.active { display: block; animation: fadeInSlide 0.5s ease-out; }
+        
+        @keyframes fadeInSlide {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .exercise-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            margin-top: 2rem;
+        }
+
+        .question { font-size: 1.4rem; margin-bottom: 2rem; font-weight: 700; color: var(--primary); line-height: 1.6; }
+        
+        .options { list-style: none; padding: 0; display: grid; gap: 1rem; }
+        .options label { 
+            display: flex; align-items: center; cursor: pointer; padding: 1.25rem; 
+            background: white; border-radius: 12px; border: 2px solid transparent; 
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .options label:hover { transform: translateY(-3px); box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); border-color: var(--primary); }
+        .options input[type="radio"] { margin-left: 1rem; width: 1.25rem; height: 1.25rem; accent-color: var(--primary); }
+        
+        .feedback { margin-top: 1.5rem; font-weight: bold; padding: 1.5rem; border-radius: 12px; display: none; animation: fadeIn 0.3s ease; }
+        .feedback.correct { background-color: #d1fae5; color: #065f46; border: 1px solid #34d399; }
+        .feedback.incorrect { background-color: #fee2e2; color: #991b1b; border: 1px solid #f87171; }
+        
+        .nav-buttons { margin-top: 3rem; display: flex; justify-content: space-between; gap: 1rem; border-top: 2px solid var(--border); padding-top: 2rem; }
+        .nav-buttons button { 
+            padding: 0.875rem 2.5rem; font-family: inherit; font-weight: 800; border-radius: 50px; 
+            border: none; cursor: pointer; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); font-size: 1.1rem;
+            background: var(--primary); color: white; box-shadow: 0 4px 6px -1px rgba(79, 70, 229, 0.3);
+        }
+        .nav-buttons button:not(:disabled):hover { transform: translateY(-2px); box-shadow: 0 10px 15px -3px rgba(79, 70, 229, 0.4); }
+        .nav-buttons button:disabled { background: #cbd5e1; color: #94a3b8; cursor: not-allowed; box-shadow: none; transform: none; }
+    </style>
+</head>
+
+<body>
+    <!-- Aurora Background Blobs -->
+    <div class="aurora-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <!-- Navigation -->
+        <!-- Navigation -->
+    <div id="navbar-container"></div>
+
+    <main class="container" style="padding-top: 40px; padding-bottom: 60px;">
+        <header class="hero" style="background: transparent; padding: 3rem 0; text-align: center; margin-bottom: 0;">
+            <h1 style="font-size: 3rem; margin-bottom: 1rem; background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">أنواع عدم الاتصال</h1>
+            <p style="font-size: 1.25rem; color: var(--text-muted); max-width: 700px; margin: 0 auto;">تمارين للتمييز بين عدم الاتصال القابل للإزالة والقفزي واللانهائي</p>
+        </header>
+
+        <div class="exercise-card">
+            <h2 id="progressText" style="text-align: center; margin-bottom: 2.5rem; color: var(--text-muted); font-size: 1.1rem; font-weight: 500; letter-spacing: 1px;">السؤال 1 من 6</h2>
+
+            <!-- Question 1 -->
+            <div class="slide active">
+                <div class="exercise">
+                    <div class="question">1. إذا كانت \(\lim_{x \to c} f(x)\) موجودة ولكنها لا تساوي \(f(c)\)، فإن نوع عدم الاتصال هو:</div>
+                    <ul class="options">
+                        <li><label><input type="radio" name="q1" onchange="checkAnswer(this, false)"> قفزي.</label></li>
+                        <li><label><input type="radio" name="q1" onchange="checkAnswer(this, true)"> قابل للإزالة (نقطي).</label></li>
+                        <li><label><input type="radio" name="q1" onchange="checkAnswer(this, false)"> لا نهائي.</label></li>
+                        <li><label><input type="radio" name="q1" onchange="checkAnswer(this, false)"> متذبذب.</label></li>
+                    </ul>
+                    <div class="feedback"></div>
+                </div>
+            </div>
+
+            <!-- Question 2 -->
+            <div class="slide">
+                <div class="exercise">
+                    <div class="question">2. الدالة \(f(x) = \frac{1}{x-2}\) عند \(x=2\) لها عدم اتصال:</div>
+                    <ul class="options">
+                        <li><label><input type="radio" name="q2" onchange="checkAnswer(this, false)"> قابل للإزالة.</label></li>
+                        <li><label><input type="radio" name="q2" onchange="checkAnswer(this, true)"> لا نهائي.</label></li>
+                        <li><label><input type="radio" name="q2" onchange="checkAnswer(this, false)"> قفزي.</label></li>
+                        <li><label><input type="radio" name="q2" onchange="checkAnswer(this, false)"> الدالة متصلة.</label></li>
+                    </ul>
+                    <div class="feedback"></div>
+                </div>
+            </div>
+
+            <!-- Question 3 -->
+            <div class="slide">
+                <div class="exercise">
+                    <div class="question">3. دالة الجزء الصحيح \(f(x) = [x]\) عند نقاط الأعداد الصحيحة لها عدم اتصال:</div>
+                    <ul class="options">
+                        <li><label><input type="radio" name="q3" onchange="checkAnswer(this, true)"> قفزي.</label></li>
+                        <li><label><input type="radio" name="q3" onchange="checkAnswer(this, false)"> قابل للإزالة.</label></li>
+                        <li><label><input type="radio" name="q3" onchange="checkAnswer(this, false)"> لا نهائي.</label></li>
+                        <li><label><input type="radio" name="q3" onchange="checkAnswer(this, false)"> لا يمكن تحديده.</label></li>
+                    </ul>
+                    <div class="feedback"></div>
+                </div>
+            </div>
+
+            <!-- Question 4 -->
+            <div class="slide">
+                <div class="exercise">
+                    <div class="question">4. أي الدوال التالية يمكن إعادة تعريفها لتصبح متصلة عند \(x=2\)؟</div>
+                    <ul class="options">
+                        <li><label><input type="radio" name="q4" onchange="checkAnswer(this, false)"> \(f(x) = \frac{1}{x-2}\)</label></li>
+                        <li><label><input type="radio" name="q4" onchange="checkAnswer(this, true)"> \(f(x) = \frac{x^2-4}{x-2}\)</label></li>
+                        <li><label><input type="radio" name="q4" onchange="checkAnswer(this, false)"> \(f(x) = \lfloor x \rfloor\)</label></li>
+                        <li><label><input type="radio" name="q4" onchange="checkAnswer(this, false)"> \(f(x) = \frac{|x-2|}{x-2}\)</label></li>
+                    </ul>
+                    <div class="feedback"></div>
+                </div>
+            </div>
+
+            <!-- Question 5 -->
+            <div class="slide">
+                <div class="exercise">
+                    <div class="question">5. عدم الاتصال القابل للإزالة يحدث عادة عندما:</div>
+                    <ul class="options">
+                        <li><label><input type="radio" name="q5" onchange="checkAnswer(this, true)"> يكون هناك عامل مشترك بين البسط والمقام يمكن اختصاره.</label></li>
+                        <li><label><input type="radio" name="q5" onchange="checkAnswer(this, false)"> يكون المقام صفراً والبسط لا يساوي صفراً.</label></li>
+                        <li><label><input type="radio" name="q5" onchange="checkAnswer(this, false)"> تكون الدالة معرفة بقواعد مختلفة.</label></li>
+                        <li><label><input type="radio" name="q5" onchange="checkAnswer(this, false)"> تذهب الدالة إلى الما لا نهاية.</label></li>
+                    </ul>
+                    <div class="feedback"></div>
+                </div>
+            </div>
+
+             <!-- Question 6 -->
+             <div class="slide">
+                <div class="exercise">
+                    <div class="question">6. في التمثيل البياني، الثقب (فجوة) يمثل عدم اتصال:</div>
+                    <ul class="options">
+                        <li><label><input type="radio" name="q6" onchange="checkAnswer(this, false)"> لا نهائي.</label></li>
+                        <li><label><input type="radio" name="q6" onchange="checkAnswer(this, true)"> قابل للإزالة.</label></li>
+                        <li><label><input type="radio" name="q6" onchange="checkAnswer(this, false)"> قفزي.</label></li>
+                        <li><label><input type="radio" name="q6" onchange="checkAnswer(this, false)"> لا يمثل عدم اتصال.</label></li>
+                    </ul>
+                    <div class="feedback"></div>
+                </div>
+            </div>
+
+            <div class="nav-buttons">
+                <button id="prevBtn" onclick="moveSlide(-1)" disabled>السابق</button>
+                <div id="resultMessage" style="font-weight: bold; padding: 0.5rem; display: none;"></div>
+                <button id="nextBtn" onclick="moveSlide(1)">التالي</button>
+            </div>
+        </div>
+    </main>
+
+        <!-- Footer -->
+    <div id="footer-container"></div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const progressText = document.getElementById('progressText');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const resultMessage = document.getElementById('resultMessage');
+        const totalSlides = slides.length;
+        let score = 0;
+        let answered = new Array(totalSlides).fill(false);
+
+        function updateButtons() {
+            prevBtn.disabled = currentSlide === 0;
+            if (currentSlide === totalSlides - 1) {
+                nextBtn.textContent = 'إنهاء';
+            } else {
+                nextBtn.textContent = 'التالي';
+            }
+            progressText.textContent = `السؤال ${currentSlide + 1} من ${totalSlides}`;
+        }
+
+        function moveSlide(n) {
+            if (currentSlide === totalSlides - 1 && n === 1) {
+                showFinalScore();
+                return;
+            }
+            slides[currentSlide].classList.remove('active');
+            currentSlide += n;
+            slides[currentSlide].classList.add('active');
+            updateButtons();
+        }
+
+        function checkAnswer(input, isCorrect) {
+            const feedbackDiv = input.closest('.exercise').querySelector('.feedback');
+            const parentLabel = input.parentElement;
+            const allInputs = input.closest('.options').querySelectorAll('input');
+            allInputs.forEach(inp => inp.disabled = true);
+
+            if (isCorrect) {
+                 feedbackDiv.innerHTML = '<span style="font-size: 1.5rem; vertical-align: middle; margin-left: 10px;">🎉</span> أحسنت! إجابة صحيحة.';
+                feedbackDiv.className = 'feedback correct';
+                feedbackDiv.style.display = 'block';
+                parentLabel.style.borderColor = '#34d399';
+                parentLabel.style.backgroundColor = '#ecfdf5';
+                if (!answered[currentSlide]) score++;
+            } else {
+                 feedbackDiv.innerHTML = '<span style="font-size: 1.5rem; vertical-align: middle; margin-left: 10px;">❌</span> إجابة خاطئة. حاول مرة أخرى.';
+                feedbackDiv.className = 'feedback incorrect';
+                feedbackDiv.style.display = 'block';
+                parentLabel.style.borderColor = '#f87171';
+                parentLabel.style.backgroundColor = '#fef2f2';
+            }
+            answered[currentSlide] = true;
+        }
+
+        function showFinalScore() {
+            nextBtn.style.display = 'none';
+            prevBtn.style.display = 'none';
+            resultMessage.style.display = 'block';
+            let percentage = Math.round((score / totalSlides) * 100);
+            let msg = '';
+            let icon = '';
+            let color = '';
+
+            if (percentage >= 90) { msg = 'ممتاز! 🌟'; icon = '🏆'; color = '#10b981'; }
+            else if (percentage >= 70) { msg = 'جيد جداً! 👍'; icon = '⭐'; color = '#3b82f6'; }
+            else if (percentage >= 50) { msg = 'جيد 👏'; icon = '📈'; color = '#f59e0b'; }
+            else { msg = 'تحتاج إلى مزيد من التدريب 💪'; icon = '📚'; color = '#ef4444'; }
+            
+            progressText.textContent = 'النتيجة النهائية';
+            slides[currentSlide].innerHTML = `
+                <div style="text-align: center; padding: 4rem 2rem;">
+                    <div style="font-size: 5rem; margin-bottom: 1rem;">${icon}</div>
+                    <h2 style="font-size: 3.5rem; color: ${color}; margin-bottom: 1.5rem; font-weight: 800;">${percentage}%</h2>
+                    <p style="font-size: 1.8rem; margin-bottom: 2.5rem; font-weight: 700; color: var(--text-heading);">${msg}</p>
+                    <p style="font-size: 1.2rem; margin-bottom: 3rem; color: var(--text-muted);">أجبت بشكل صحيح على <strong style="color: var(--text-heading);">${score}</strong> من <strong style="color: var(--text-heading);">${totalSlides}</strong> أسئلة.</p>
+                    <a href="../../ex+.html" class="btn btn-primary" style="margin-top: 1rem; font-size: 1.1rem; padding: 1rem 3rem;">عودة للقائمة</a>
+                </div>
+            `;
+        }
+    </script>
+<script src="../../main.js"></script>
+</body>
+</html>

@@ -4,7 +4,8 @@
  */
 
 document.addEventListener("DOMContentLoaded", () => {
-    initNavigation();
+    loadNavbar(); // Dynamic Navbar
+    loadFooter(); // Dynamic Footer
     initDarkModeAndScroll();
     initFeedbackSystem();
     initLastUpdated();
@@ -159,6 +160,32 @@ function initUnitNavigation() {
     contentWrapper.appendChild(navContainer);
 }
 
+// 11. Tabs Logic (New)
+function initTabs() {
+    const tabs = document.querySelectorAll('.tab-btn');
+    const sections = document.querySelectorAll('.content-section');
+
+    if (!tabs.length) return;
+
+    tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            // Deactivate all
+            tabs.forEach(t => t.classList.remove('active'));
+            sections.forEach(s => s.classList.remove('active'));
+
+            // Activate clicked
+            tab.classList.add('active');
+
+            // Show Content
+            const targetId = tab.dataset.target;
+            const targetSection = document.getElementById(targetId);
+            if (targetSection) {
+                targetSection.classList.add('active');
+            }
+        });
+    });
+}
+
 // 9. Table of Contents (Side Menu)
 function initTOC() {
     const main = document.querySelector('main');
@@ -181,9 +208,19 @@ function initTOC() {
     }
 
     // 1. Create Wrapper Layout
+    // 1. Create Wrapper Layout
     const sidebar = document.createElement('aside');
     sidebar.className = 'toc-sidebar';
-    sidebar.innerHTML = `<h3>محتويات الوحدة</h3><ul class="toc-list"></ul>`;
+    sidebar.innerHTML = `
+        <div class="toc-header">
+            <h3>محتويات الوحدة</h3>
+            <button class="toc-toggle" title="تصغير/توسيع القائمة">
+                <span class="icon-open">◀</span>
+                <span class="icon-closed">▶</span>
+            </button>
+        </div>
+        <ul class="toc-list"></ul>
+    `;
 
     const contentWrapper = document.createElement('div');
     contentWrapper.className = 'content-wrapper';
@@ -197,6 +234,30 @@ function initTOC() {
     main.appendChild(sidebar);
     main.appendChild(contentWrapper);
     main.classList.add('with-sidebar');
+
+    // Toggle Logic
+    const toggleBtn = sidebar.querySelector('.toc-toggle');
+    
+    // Function to apply collapsed state
+    const setSidebarState = (isCollapsed) => {
+        if (isCollapsed) {
+            main.classList.add('collapsed');
+            sidebar.classList.add('collapsed');
+        } else {
+            main.classList.remove('collapsed');
+            sidebar.classList.remove('collapsed');
+        }
+    };
+
+    // Restore saved state
+    const savedState = localStorage.getItem('toc-collapsed') === 'true';
+    setSidebarState(savedState);
+
+    toggleBtn.addEventListener('click', () => {
+        const isCollapsed = !sidebar.classList.contains('collapsed');
+        setSidebarState(isCollapsed);
+        localStorage.setItem('toc-collapsed', isCollapsed);
+    });
 
     // 2. Build Links
     const tocList = sidebar.querySelector('.toc-list');
@@ -560,4 +621,124 @@ function initQuiz() {
             }
         });
     });
+}
+// 12. Dynamic Navbar Loader
+// NOTE: We use inlined HTML strings to ensure this works offline (file:// protocol) where fetch() would fail due to CORS.
+const NAVBAR_HTML = `
+<nav class="navbar">
+    <div class="container nav-content">
+        <a href="index.html" class="nav-logo">
+            <img src="white__logo.svg" alt="Math 121 Logo">
+        </a>
+        <button class="hamburger" aria-label="Toggle navigation">☰</button>
+        <ul class="nav-links">
+            <li><a href="index.html">الرئيسية</a></li>
+            <li><a href="index.html#units">الوحدات</a></li>
+            <li><a href="index.html#exercises">التمارين</a></li>
+            <li><a href="index.html#book-section">الكتاب</a></li>
+            <li><a href="index.html#presentations-section">عروض تقديمية</a></li>
+            <li><a href="index.html#worksheets-section">أوراق عمل</a></li>
+            <li><a href="https://mttvtcedu-my.sharepoint.com/:f:/g/personal/nawafa1_tvtc_gov_sa/IgD0LzC_TO1ITaxdzHu-_9_TAWZI9ZKdXa5H__EnekEh34w?e=I2t1Yp">بنوك الأسئلة</a></li>
+            <li><a href="ex+.html" class="active">تمارين إثرائية</a></li>
+        </ul>
+    </div>
+</nav>
+`;
+
+const FOOTER_HTML = `
+<footer class="footer">
+    <div class="container" style="display: flex; flex-direction: column; gap: 10px; align-items: center;">
+        <p style="margin: 0;">الصفحة الالكترونية لمقرر الرياضيات (رياض 121)</p>
+        <p style="margin: 0;">تطوير/ أ. نواف العنزي</p>
+        <p style="margin: 0;">&copy; 2025 جميع الحقوق محفوظة</p>
+        <p style="margin: 0; font-size: 0.85rem; opacity: 0.8;">آخر تحديث: <span id="last-updated-date"></span></p>
+        <div class="visits-badge" title="عدد الزيارات" style="margin-top: 5px;">
+            عدد الزيارات: <span id="visits-count">...</span>
+        </div>
+    </div>
+</footer>
+`;
+
+async function loadNavbar() {
+    const navbarContainer = document.getElementById('navbar-container');
+    if (!navbarContainer) return;
+
+    try {
+        // Determine relative path based on main.js location
+        const scripts = document.querySelectorAll('script');
+        let basePath = '';
+        scripts.forEach(script => {
+            if (script.getAttribute('src') && script.getAttribute('src').includes('main.js')) {
+                const src = script.getAttribute('src');
+                basePath = src.replace('main.js', '');
+            }
+        });
+        if (basePath === null) basePath = '';
+
+        // Inject HTML directly
+        navbarContainer.innerHTML = NAVBAR_HTML;
+
+        // Correct paths for Links and Images
+        const elements = navbarContainer.querySelectorAll('a, img');
+        elements.forEach(el => {
+            const keys = ['href', 'src'];
+            keys.forEach(key => {
+                const val = el.getAttribute(key);
+                // Only adjust relative paths (not http, #, or data)
+                if (val && !val.startsWith('http') && !val.startsWith('#') && !val.startsWith('data:') && !val.startsWith('javascript:')) {
+                    el.setAttribute(key, basePath + val);
+                }
+            });
+        });
+
+        // Highlight Active Link based on current page
+        const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+        const links = navbarContainer.querySelectorAll('.nav-links a');
+
+        links.forEach(link => link.classList.remove('active'));
+
+        links.forEach(link => {
+            const href = link.getAttribute('href');
+            if (href && href.endsWith(currentPage)) {
+                link.classList.add('active');
+            }
+        });
+
+        // Special case for enrichment exercises being active on subpages
+        if (window.location.href.includes('تمارين اثرائية') || window.location.href.includes('ex+.html')) {
+            links.forEach(link => {
+                if (link.href && link.href.includes('ex+.html')) link.classList.add('active');
+            });
+        }
+
+        initNavigation();
+
+    } catch (error) {
+        console.error('Error loading navbar:', error);
+    }
+}
+
+// 13. Dynamic Footer Loader
+async function loadFooter() {
+    const footerContainer = document.getElementById('footer-container');
+    if (!footerContainer) return;
+
+    try {
+        // Determine relative path based on main.js location
+        const scripts = document.querySelectorAll('script');
+        let basePath = '';
+        scripts.forEach(script => {
+            if (script.getAttribute('src') && script.getAttribute('src').includes('main.js')) {
+                const src = script.getAttribute('src');
+                basePath = src.replace('main.js', '');
+            }
+        });
+        if (basePath === null) basePath = '';
+
+        // Inject HTML directly
+        footerContainer.innerHTML = FOOTER_HTML;
+
+    } catch (error) {
+        console.error('Error loading footer:', error);
+    }
 }

@@ -102,32 +102,22 @@
     <!-- End Google Tag Manager (noscript) -->
 
     <!-- Navigation -->
-    <nav class="navbar">
-        <div class="container nav-content">
-            <a href="index.html" class="nav-logo">
-                <img src="white__logo.svg" alt="Math 121 Logo">
-            </a>
-            <button class="hamburger" aria-label="Toggle navigation">☰</button>
-            <ul class="nav-links">
-                <li><a href="index.html" class="active">الرئيسية</a></li>
-                <li><a href="#units">الوحدات</a></li>
-                <li><a href="#exercises">التمارين</a></li>
-                <li><a href="#book-section">الكتاب</a></li>
-                <li><a href="#presentations-section">عروض تقديمية</a></li>
-                <li><a href="#worksheets-section">أوراق عمل</a></li>
-                <li><a href="#qbanks-section">بنوك الأسئلة</a></li>
-                <li><a href="ex+.html">تمارين إثرائية</a></li>
-            </ul>
-        </div>
-    </nav>
+    <div id="navbar-container"></div>
 
     <!-- Hero Section -->
     <header class="hero">
-        <div class="container">
-            <h1>الرياضيات رياض121</h1>
-            <p>المؤسسة العامة للتدريب التقني والمهني - قسم الدراسات العامة</p>
-            <a href="#introduction" class="btn btn-primary">عن المقرر</a>
-            <a href="#plan" class="btn btn-primary" style="margin-right: 1rem;">الخطة التدريبية</a>
+        <div class="container hero-content">
+            <h1 class="animate-title">الرياضيات 121</h1>
+            <p class="animate-fade">المؤسسة العامة للتدريب التقني والمهني - قسم الدراسات العامة</p>
+            <div class="hero-buttons animate-up">
+                <a href="#introduction" class="btn btn-primary">المقدمة</a>
+                <a href="#plan" class="btn btn-primary">الخطة التدريبية</a>
+            </div>
+        </div>
+        <div class="hero-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
         </div>
     </header>
     <section class="container" style="margin-top: -3rem; position: relative; z-index: 10;">
@@ -670,67 +660,12 @@
                 </div>
             </div>
 
-            <!-- Question Banks (Kept as separate) -->
-            <div id="qbanks-section">
-                <h3 style="margin-bottom: 2rem; color: var(--primary); text-align: center;">📂 بنوك الأسئلة (بلاك بورد)
-                </h3>
-                <div class="grid grid-3">
-                    <a href="ملفات/بنوك الاسئلة بلاكبورد/Pool_ExportFile_DGCT-MATH121-1257-R-S4461_الاشتقاق.zip"
-                        download class="card protected-link">
-                        <div class="card-icon" style="background: #f3e5f5; color: #7b1fa2;">📦</div>
-                        <h3>الاشتقاق</h3>
-                        <p class="text-muted">ملف ZIP (8.7 KB)</p>
-                    </a>
-                    <a href="ملفات/بنوك الاسئلة بلاكبورد/Pool_ExportFile_DGCT-MATH121-1257-R-S4461_التكامل.zip" download
-                        class="card protected-link">
-                        <div class="card-icon" style="background: #f3e5f5; color: #7b1fa2;">📦</div>
-                        <h3>التكامل</h3>
-                        <p class="text-muted">ملف ZIP (9.4 KB)</p>
-                    </a>
-                    <a href="ملفات/بنوك الاسئلة بلاكبورد/Pool_ExportFile_DGCT-MATH121-1257-R-S4461_المصفوفات.zip"
-                        download class="card protected-link">
-                        <div class="card-icon" style="background: #f3e5f5; color: #7b1fa2;">📦</div>
-                        <h3>المصفوفات</h3>
-                        <p class="text-muted">ملف ZIP (9.2 KB)</p>
-                    </a>
-                    <a href="ملفات/بنوك الاسئلة بلاكبورد/Pool_ExportFile_DGCT-MATH121-1257-R-S4461_المعادلات.zip"
-                        download class="card protected-link">
-                        <div class="card-icon" style="background: #f3e5f5; color: #7b1fa2;">📦</div>
-                        <h3>المعادلات</h3>
-                        <p class="text-muted">ملف ZIP (8.7 KB)</p>
-                    </a>
-                    <a href="ملفات/بنوك الاسئلة بلاكبورد/Pool_ExportFile_DGCT-MATH121-1257-R-S4461_النهايات.zip"
-                        download class="card protected-link">
-                        <div class="card-icon" style="background: #f3e5f5; color: #7b1fa2;">📦</div>
-                        <h3>النهايات</h3>
-                        <p class="text-muted">ملف ZIP (9.0 KB)</p>
-                    </a>
-                    <a href="ملفات/بنوك الاسئلة بلاكبورد/Pool_ExportFile_DGCT-MATH121-1257-R-S4461_كثيرات الحدود 1.zip"
-                        download class="card protected-link">
-                        <div class="card-icon" style="background: #f3e5f5; color: #7b1fa2;">📦</div>
-                        <h3>كثيرات الحدود</h3>
-                        <p class="text-muted">ملف ZIP (10.0 KB)</p>
-                    </a>
-                </div>
-            </div>
         </div>
     </section>
 
 
-    <!-- Footer -->
-
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2025 الصفحة الالكترونية لمقرر الرياضيات (رياض 121) - تطوير بواسطة نواف العنزي </p>
-            <p style="font-size: 0.8rem; margin-top: 0.5rem; opacity: 0.7;">آخر تحديث: <span
-                    id="last-updated-date"></span></p>
-            <div
-                style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.8; display: flex; justify-content: center; align-items: center; gap: 5px;">
-                <span>👁️ عدد الزيارات: </span>
-                <span id="visits-count" style="font-weight: bold; color: var(--accent);">جاري الحساب...</span>
-            </div>
-        </div>
-    </footer>
+    <!-- Footer Container (Dynamic Content Loaded Here) -->
+    <div id="footer-container"></div>
 
     <script src="main.js"></script>
 </body>

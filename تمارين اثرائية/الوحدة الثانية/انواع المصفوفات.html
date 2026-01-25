@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أنواع المصفوفات - تمارين إثرائية</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../styles.css">
+
+    <!-- MathJax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-body);
+            line-height: 1.6;
+        }
+
+        .example-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            margin-top: 2rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .example-card {
+            background: #fff;
+            border-right: 4px solid var(--accent);
+            border-left: none;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s ease;
+            position: relative;
+        }
+
+        body.dark-mode .example-card {
+            background: var(--bg-card);
+        }
+
+        .example-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .ex-badge {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+
+        .ex-problem {
+            font-weight: 700;
+            color: var(--text-heading);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.75rem;
+        }
+
+        .ex-answer {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #1565c0;
+            margin-bottom: 0.5rem;
+            text-align: center;
+        }
+
+        .ex-explanation {
+            font-size: 1rem;
+            color: var(--text-muted);
+            background: rgba(33, 150, 243, 0.1);
+            padding: 1rem;
+            border-radius: 6px;
+            margin-top: 0.5rem;
+        }
+
+        body.dark-mode .ex-explanation {
+            color: #ddd;
+            background: rgba(33, 150, 243, 0.2);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Aurora Background Blobs -->
+    <div class="aurora-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <!-- Navigation -->
+        <!-- Navigation -->
+    <div id="navbar-container"></div>
+
+    <main class="container" style="padding-top: 60px; padding-bottom: 60px;">
+
+        <header style="text-align: center; margin-bottom: 3rem;">
+            <h1 style="font-size: 2.5rem; margin-bottom: 1rem; color: var(--text-heading);">أنواع المصفوفات</h1>
+            <p style="font-size: 1.2rem; color: var(--text-muted); max-width: 600px; margin: 0 auto;">
+                أمثلة متنوعة لتمييز أنواع المصفوفات المختلفة: مصفوفة الصف، العمود، المربعة، وغيرها.
+            </p>
+        </header>
+
+        <div class="example-grid">
+
+            <!-- Example 1 -->
+            <div class="example-card">
+                <div class="ex-badge">المثال الأول</div>
+                <div class="ex-problem">
+                    ما نوع المصفوفة \( A = \begin{bmatrix} 5 & -2 & 4 \end{bmatrix} \)؟
+                </div>
+                <div class="ex-answer">
+                    مصفوفة صف
+                </div>
+                <div class="ex-explanation">
+                    <strong>الشرح:</strong> لأنها تتكون من صف واحد فقط وعدة أعمدة. رتبتها \(1 \times 3\).
+                </div>
+            </div>
+
+            <!-- Example 2 -->
+            <div class="example-card">
+                <div class="ex-badge">المثال الثاني</div>
+                <div class="ex-problem">
+                    ما نوع المصفوفة \( B = \begin{bmatrix} 7 \\ 0 \\ -1 \end{bmatrix} \)؟
+                </div>
+                <div class="ex-answer">
+                    مصفوفة عمود
+                </div>
+                <div class="ex-explanation">
+                    <strong>الشرح:</strong> لأنها تتكون من عمود واحد فقط وعدة صفوف. رتبتها \(3 \times 1\).
+                </div>
+            </div>
+
+            <!-- Example 3 -->
+            <div class="example-card">
+                <div class="ex-badge">المثال الثالث</div>
+                <div class="ex-problem">
+                    ما نوع المصفوفة \( C = \begin{bmatrix} 2 & 9 \\ 1 & 5 \end{bmatrix} \)؟
+                </div>
+                <div class="ex-answer">
+                    مصفوفة مربعة
+                </div>
+                <div class="ex-explanation">
+                    <strong>الشرح:</strong> المصفوفة المربعة هي التي يتساوى فيها عدد الصفوف مع عدد الأعمدة. هنا الرتبة
+                    \(2 \times 2\).
+                </div>
+            </div>
+
+            <!-- Example 4 -->
+            <div class="example-card">
+                <div class="ex-badge">المثال الرابع</div>
+                <div class="ex-problem">
+                    المصفوفة \( Z = \begin{bmatrix} 0 & 0 & 0 \\ 0 & 0 & 0 \end{bmatrix} \) تسمى:
+                </div>
+                <div class="ex-answer">
+                    مصفوفة صفرية
+                </div>
+                <div class="ex-explanation">
+                    <strong>الشرح:</strong> لأن جميع عناصرها أصفار. ويرمز لها بالرمز \( O \).
+                </div>
+            </div>
+
+            <!-- Example 5 -->
+            <div class="example-card">
+                <div class="ex-badge">المثال الخامس</div>
+                <div class="ex-problem">
+                    المصفوفة \( D = \begin{bmatrix} 3 & 0 & 0 \\ 0 & 5 & 0 \\ 0 & 0 & -2 \end{bmatrix} \) تسمى:
+                </div>
+                <div class="ex-answer">
+                    مصفوفة قطرية
+                </div>
+                <div class="ex-explanation">
+                    <strong>الشرح:</strong> هي مصفوفة مربعة جميع عناصرها أصفار ما عدا عناصر القطر الرئيسي (التي قد تكون
+                    أي أرقام).
+                </div>
+            </div>
+
+            <!-- Example 6 -->
+            <div class="example-card">
+                <div class="ex-badge">المثال السادس</div>
+                <div class="ex-problem">
+                    المصفوفة \( I = \begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix} \) تمثل:
+                </div>
+                <div class="ex-answer">
+                    مصفوفة الوحدة
+                </div>
+                <div class="ex-explanation">
+                    <strong>الشرح:</strong> هي مصفوفة مربعة جميع عناصرها أصفار ما عدا القطر الرئيسي يساوي 1. ويرمز لها
+                    بالرمز \(I\).
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+        <!-- Footer -->
+    <div id="footer-container"></div>
+
+    <script src="../main.js"></script>
+</body>
+
+</html>

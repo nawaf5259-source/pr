@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مفهوم النهايات | تمارين إثرائية</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <!-- MathJax -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="../../styles.css">
+    <style>
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-body);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Aurora Background */
+        .aurora-blobs {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .blob {
+            position: absolute;
+            filter: blur(80px);
+            opacity: 0.6;
+            border-radius: 50%;
+            animation: float 20s infinite alternate;
+        }
+
+        .blob-1 {
+            width: 500px;
+            height: 500px;
+            background: #4f46e5;
+            top: -100px;
+            left: -100px;
+        }
+
+        .blob-2 {
+            width: 400px;
+            height: 400px;
+            background: #db2777;
+            bottom: -50px;
+            right: -100px;
+            animation-delay: -5s;
+        }
+
+        .blob-3 {
+            width: 300px;
+            height: 300px;
+            background: #7c3aed;
+            top: 40%;
+            left: 30%;
+            animation-delay: -10s;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translate(0, 0) scale(1);
+            }
+
+            100% {
+                transform: translate(30px, 50px) scale(1.1);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Aurora Background Blobs -->
+    <div class="aurora-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <!-- Navigation -->
+    <div id="navbar-container"></div>
+
+    <main class="container" style="padding-top: 60px; padding-bottom: 60px;">
+        <header style="text-align: center; margin-bottom: 3rem;">
+            <h1
+                style="font-size: 2.5rem; margin-bottom: 1rem; color: var(--text-heading); background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                مفهوم النهايات</h1>
+            <p style="font-size: 1.2rem; color: var(--text-muted); max-width: 600px; margin: 0 auto;">
+                أمثلة محلولة لترسيخ مفهوم النهاية بيانياً وجبرياً.
+            </p>
+        </header>
+
+        <div class="example-grid">
+
+            <!-- Q1 -->
+            <div class="example-card">
+                <div class="ex-badge">السؤال الأول</div>
+                <div class="ex-problem">
+                    ما المقصود بعبارة \(\lim_{x \to a} f(x) = L\)؟
+                </div>
+                <div class="ex-answer" dir="rtl" style="text-align: right;">
+                    الإجابة: أنه كلما اقتربت \(x\) من \(a\) (من اليمين واليسار) فإن \(f(x)\) تقترب من \(L\).
+                </div>
+            </div>
+
+            <!-- Q2 -->
+            <div class="example-card">
+                <div class="ex-badge">السؤال الثاني</div>
+                <div class="ex-problem">
+                    إذا كانت \(\lim_{x \to 2^+} f(x) = 5\) و \(\lim_{x \to 2^-} f(x) = 3\)، فإن \(\lim_{x \to 2} f(x)\):
+                </div>
+                <div class="ex-answer" dir="rtl" style="text-align: right;">
+                    الإجابة: غير موجودة
+                </div>
+                <div class="ex-explanation">
+                    <strong>الشرح:</strong> لأن النهاية اليمنى (5) لا تساوي النهاية اليسرى (3).
+                </div>
+            </div>
+
+            <!-- Q3 -->
+            <div class="example-card">
+                <div class="ex-badge">السؤال الثالث</div>
+                <div class="ex-problem">
+                    بالنظر إلى التمثيل البياني لدالة ما، الدائرة المفرغة (ثقب) عند نقطة تعني:
+                </div>
+                <div class="ex-answer" dir="rtl" style="text-align: right;">
+                    الإجابة: الدالة غير معرفة عند هذه النقطة، لكن النهاية قد تكون موجودة.
+                </div>
+            </div>
+
+            <!-- Q4 -->
+            <div class="example-card">
+                <div class="ex-badge">السؤال الرابع</div>
+                <div class="ex-problem">
+                    إذا كانت \(\lim_{x \to 3} f(x) = 7\)، فهل من الضروري أن تكون \(f(3) = 7\)؟
+                </div>
+                <div class="ex-answer" dir="rtl" style="text-align: right;">
+                    الإجابة: لا، ليس بالضرورة.
+                </div>
+                <div class="ex-explanation">
+                    <strong>الشرح:</strong> وجود النهاية لا يعتمد على قيمة الدالة عند النقطة نفسها، فقد تكون الدالة غير
+                    معرفة أو لها قيمة مختلفة.
+                </div>
+            </div>
+
+            <!-- Q5 -->
+            <div class="example-card">
+                <div class="ex-badge">السؤال الخامس</div>
+                <div class="ex-problem">
+                    احسب \(\lim_{x \to 4} (2x + 1)\) مستخدماً التعويض المباشر:
+                </div>
+                <div class="ex-answer">
+                    \( 2(4) + 1 = 9 \)
+                </div>
+            </div>
+
+            <!-- Q6 -->
+            <div class="example-card">
+                <div class="ex-badge">السؤال السادس</div>
+                <div class="ex-problem">
+                    أي من الدوال التالية نهايتها عند \(x=0\) غير موجودة؟
+                </div>
+                <div class="ex-answer">
+                    \( f(x) = \frac{|x|}{x} \)
+                </div>
+                <div class="ex-explanation">
+                    <strong>الشرح:</strong> لأن النهاية من اليمين = 1، والنهاية من اليسار = -1.
+                </div>
+            </div>
+
+            <!-- Back Button -->
+            <div style="text-align: center; margin-top: 2rem;">
+                <a href="../../ex+.html" class="btn btn-primary"
+                    style="padding: 0.8rem 2rem; border-radius: 50px; text-decoration: none; display: inline-block;">عودة
+                    للقائمة</a>
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <div id="footer-container"></div>
+
+    <script src="../../main.js"></script>
+</body>
+
+</html>

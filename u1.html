@@ -36,24 +36,7 @@
   <!-- End Google Tag Manager (noscript) -->
 
   <!-- Navigation -->
-  <nav class="navbar">
-    <div class="container nav-content">
-      <a href="index.html" class="nav-logo">
-        <img src="white__logo.svg" alt="Math 121 Logo">
-      </a>
-      <button class="hamburger" aria-label="Toggle navigation">☰</button>
-      <ul class="nav-links">
-        <li><a href="index.html">الرئيسية</a></li>
-        <li><a href="index.html#units">الوحدات</a></li>
-        <li><a href="index.html#exercises">التمارين</a></li>
-        <li><a href="index.html#book-section">الكتاب</a></li>
-        <li><a href="index.html#presentations-section">عروض تقديمية</a></li>
-        <li><a href="index.html#worksheets-section">أوراق عمل</a></li>
-        <li><a href="index.html#qbanks-section">بنوك الأسئلة</a></li>
-        <li><a href="ex+.html">تمارين إثرائية</a></li>
-      </ul>
-    </div>
-  </nav>
+  <div id="navbar-container"></div>
 
   <main class="container" style="padding-top: 40px;">
 
@@ -136,7 +119,7 @@
           a_{n-1} x^{n-1} + \dots + a_1 x^1 + a_0 \] حيث \(a_n \neq 0\).</p>
       </div>
 
-    </div>
+      </div>
       <p>الجدول التالي يبين المعامل الرئيسي، الدرجة، والحدود والمعاملات لكثيرات الحدود:</p>
       <div class="center" style="overflow-x: auto;">
         <table class="premium-table" style="width: 100%; border-collapse: collapse; margin: 20px 0;">
@@ -157,7 +140,7 @@
               <td style="padding: 10px; border: 1px solid #ddd; text-align: center;">\(2\)</td>
               <td style="padding: 10px; border: 1px solid #ddd; text-align: center;">\(4\)</td>
               <td style="padding: 10px; border: 1px solid #ddd; text-align: center;">\(1\)</td>
-              <td style="padding: 10px; border: 1px solid #ddd; text-align: center;">\(4, -3, 2, 1\)</td>
+              <td style="padding: 10px; border: 1px solid #ddd; text-align: center;">\(4, -3, 1\)</td>
             </tr>
             <tr>
               <td style="padding: 10px; border: 1px solid #ddd; text-align: center;">\(x^3 - 2\)</td>
@@ -177,7 +160,7 @@
             </tr>
           </tbody>
         </table>
-        </div>
+      </div>
       </div>
     </section>
 
@@ -645,18 +628,7 @@
   </main>
 
   <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <p>&copy; 2025 الصفحة الالكترونية لمقرر الرياضيات (رياض 121) - تطوير بواسطة نواف العنزي </p>
-      <p style="font-size: 0.8rem; margin-top: 0.5rem; opacity: 0.7;">آخر تحديث: <span id="last-updated-date"></span>
-      </p>
-      <div
-        style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.8; display: flex; justify-content: center; align-items: center; gap: 5px;">
-        <span>👁️ عدد الزيارات: </span>
-        <span id="visits-count" style="font-weight: bold; color: var(--accent);">جاري الحساب...</span>
-      </div>
-    </div>
-  </footer>
+  <div id="footer-container"></div>
 
   <script src="main.js"></script>
 </body>

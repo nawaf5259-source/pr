@@ -389,18 +389,22 @@ section#files {
     .nav-links li {
         margin: 0;
         width: 100%;
-        text-align: center;
+        text-align: right;
+        /* Align to right for RTL */
     }
 
     .nav-links a {
         display: block;
-        padding: 1rem;
+        padding: 1rem 1.5rem;
+        /* More padding on sides */
         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
 
     .nav-links a:hover,
     .nav-links a.active {
         background: rgba(255, 255, 255, 0.1);
+        padding-right: 2rem;
+        /* Indent on hover/active */
     }
 }
 

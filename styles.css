@@ -356,15 +356,15 @@ section#files {
     }
 
     .hamburger {
-        display: block;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         background: none;
         border: none;
         color: white;
-        font-size: 1.8rem;
         cursor: pointer;
         z-index: 1001;
-        order: -1;
-        /* Move to right (start) in RTL */
+        padding: 5px;
     }
 
     .nav-links {

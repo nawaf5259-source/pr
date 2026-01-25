@@ -237,7 +237,7 @@ function initTOC() {
 
     // Toggle Logic
     const toggleBtn = sidebar.querySelector('.toc-toggle');
-    
+
     // Function to apply collapsed state
     const setSidebarState = (isCollapsed) => {
         if (isCollapsed) {
@@ -627,10 +627,16 @@ function initQuiz() {
 const NAVBAR_HTML = `
 <nav class="navbar">
     <div class="container nav-content">
+        <button class="hamburger" aria-label="Toggle navigation">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="3" y1="12" x2="21" y2="12"></line>
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+        </button>
         <a href="index.html" class="nav-logo">
             <img src="white__logo.svg" alt="Math 121 Logo">
         </a>
-        <button class="hamburger" aria-label="Toggle navigation">☰</button>
         <ul class="nav-links">
             <li><a href="index.html">الرئيسية</a></li>
             <li><a href="index.html#units">الوحدات</a></li>

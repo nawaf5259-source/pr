@@ -12,164 +12,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
 
     <!-- Styles -->
-    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="../../styles.min.css">
 
     <!-- MathJax -->
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
-    <style>
-        body {
-            font-family: 'Tajawal', sans-serif;
-            background-color: var(--bg-body);
-            color: var(--text-body);
-            line-height: 1.6;
-        }
-
-        .example-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 1.5rem;
-            margin-top: 2rem;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .example-card {
-            background: #fff;
-            border-right: 4px solid var(--accent);
-            border-left: none;
-            border-radius: 8px;
-            padding: 1.5rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-            transition: transform 0.2s ease;
-            position: relative;
-        }
-
-        body.dark-mode .example-card {
-            background: var(--bg-card);
-        }
-
-        .example-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
-        }
-
-        .ex-badge {
-            display: inline-block;
-            background: var(--accent);
-            color: white;
-            padding: 4px 12px;
-            border-radius: 12px;
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-            font-weight: bold;
-        }
-
-        .ex-problem {
-            font-weight: 700;
-            color: var(--text-heading);
-            margin-bottom: 1rem;
-            font-size: 1.2rem;
-            border-bottom: 1px solid var(--border);
-            padding-bottom: 0.75rem;
-        }
-
-        /* Long Division Styling */
-        .long-div-container {
-            font-family: 'Courier New', Courier, monospace;
-            font-size: 1.1rem;
-            direction: ltr;
-            /* Math is usually LTR even in Arabic contexts for algebra */
-            text-align: left;
-            margin: 20px auto;
-            display: inline-block;
-            background: #fafafa;
-            padding: 20px;
-            border-radius: 8px;
-            border: 1px solid #ddd;
-        }
-
-        body.dark-mode .long-div-container {
-            background: #2d2d2d;
-            border-color: #444;
-            color: #eee;
-        }
-
-        .ld-grid {
-            display: grid;
-            grid-template-columns: max-content max-content;
-            gap: 0;
-            align-items: center;
-        }
-
-        .ld-quotient {
-            grid-column: 2;
-            border-bottom: 2px solid #333;
-            text-align: center;
-            padding-bottom: 5px;
-            margin-bottom: 2px;
-        }
-
-        body.dark-mode .ld-quotient {
-            border-bottom-color: #eee;
-        }
-
-        .ld-divisor {
-            grid-row: 2;
-            grid-column: 1;
-            padding-right: 10px;
-            border-right: 2px solid #333;
-            text-align: right;
-        }
-
-        body.dark-mode .ld-divisor {
-            border-right-color: #eee;
-        }
-
-        .ld-dividend {
-            grid-row: 2;
-            grid-column: 2;
-            padding-left: 10px;
-            text-align: left;
-        }
-
-        .ld-steps {
-            grid-column: 2;
-            text-align: left;
-            padding-left: 10px;
-        }
-
-        .ld-row {
-            margin-top: 5px;
-            letter-spacing: 1px;
-        }
-
-        .ld-line {
-            border-bottom: 1px solid #888;
-            margin: 5px 0;
-            width: 100%;
-        }
-
-        .science-term {
-            color: #d32f2f;
-            font-weight: bold;
-        }
-
-        body.dark-mode .science-term {
-            color: #ff8a80;
-        }
-
-        .ex-answer {
-            font-size: 1.3rem;
-            font-weight: bold;
-            color: #1565c0;
-            margin-bottom: 0.5rem;
-            text-align: center;
-            margin-top: 1rem;
-        }
-    </style>
+    
 </head>
 
 <body>
@@ -317,7 +166,7 @@
         <!-- Footer -->
     <div id="footer-container"></div>
 
-    <script src="../../main.js"></script>
+    <script src="../../main.min.js" defer"></script>
 </body>
 
 </html>

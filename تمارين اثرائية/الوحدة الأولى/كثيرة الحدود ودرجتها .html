@@ -12,113 +12,23 @@
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
 
     <!-- Styles -->
-    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="../../styles.min.css">
 
     <!-- MathJax -->
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
-    <style>
-        body {
-            font-family: 'Tajawal', sans-serif;
-            background-color: var(--bg-body);
-            color: var(--text-body);
-            line-height: 1.6;
-        }
-
-        .example-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 1.5rem;
-            margin-top: 2rem;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .example-card {
-            background: #fff;
-            border-right: 4px solid var(--accent-secondary);
-            border-left: none;
-            border-radius: 8px;
-            padding: 1.5rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-            transition: transform 0.2s ease;
-            position: relative;
-        }
-
-        body.dark-mode .example-card {
-            background: var(--bg-card);
-        }
-
-        .example-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
-        }
-
-        .ex-badge {
-            display: inline-block;
-            background: var(--accent-secondary);
-            color: white;
-            padding: 4px 12px;
-            border-radius: 12px;
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-            font-weight: bold;
-        }
-
-        .ex-problem {
-            font-weight: 700;
-            color: var(--text-heading);
-            margin-bottom: 1rem;
-            font-size: 1.2rem;
-            border-bottom: 1px solid var(--border);
-            padding-bottom: 0.75rem;
-        }
-
-        .ex-answer {
-            font-size: 1.3rem;
-            font-weight: bold;
-            color: #7c3aed;
-            margin-bottom: 0.5rem;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 5px;
-        }
-
-        .answer-line {
-            display: block;
-        }
-
-        .ex-explanation {
-            font-size: 1rem;
-            color: var(--text-muted);
-            background: rgba(139, 92, 246, 0.1);
-            padding: 1rem;
-            border-radius: 6px;
-            margin-top: 0.5rem;
-        }
-
-        body.dark-mode .ex-explanation {
-            color: #ddd;
-            background: rgba(139, 92, 246, 0.2);
-        }
-    </style>
+    
 </head>
 
 <body>
+    <div id="navbar-container"></div>
     <!-- Aurora Background Blobs -->
     <div class="aurora-blobs">
         <div class="blob blob-1"></div>
         <div class="blob blob-2"></div>
         <div class="blob blob-3"></div>
     </div>
-
-    <!-- Navigation -->
-        <!-- Navigation -->
-    <div id="navbar-container"></div>
 
     <main class="container" style="padding-top: 60px; padding-bottom: 60px;">
 
@@ -154,7 +64,7 @@
                     ما هو معامل ودرجة الحد الجبري: \( -2a^2b^3 \)؟
                 </div>
                 <div class="ex-answer">
-                    <div class="answer-line">المعامل: \(2\)</div>
+                    <div class="answer-line">المعامل: \(-2\)</div>
                     <div class="answer-line">الدرجة: \(5\)</div>
                 </div>
                 <div class="ex-explanation">
@@ -212,7 +122,7 @@
             <div class="example-card">
                 <div class="ex-badge">المثال السادس</div>
                 <div class="ex-problem">
-                    أوجد المعامل الرئيس، الدرجة، والثابت للحدود في كثير الحدود: \(4x^3 - 2x + 7\).
+                    أوجد المعامل الرئيس، الدرجة، والثابت لكثيرة الحدود: \(4x^3 - 2x + 7\).
                 </div>
                 <div class="ex-answer">
                     <div class="answer-line">معامل الرئيس: \(4\)</div>
@@ -229,7 +139,7 @@
             <div class="example-card">
                 <div class="ex-badge">المثال السابع</div>
                 <div class="ex-problem">
-                    أوجد المعامل الرئيس، الدرجة، والثابت للحدود في كثير الحدود: \(-5x^4y + 3xy^2 - 2\).
+                    أوجد المعامل الرئيس، الدرجة، والثابت لكثيرة الحدود: \(-5x^4y + 3xy^2 - 2\).
                 </div>
                 <div class="ex-answer">
                     <div class="answer-line">معامل الرئيس: \(-5\)</div>
@@ -246,7 +156,7 @@
             <div class="example-card">
                 <div class="ex-badge">المثال الثامن</div>
                 <div class="ex-problem">
-                    أوجد المعامل الرئيس، الدرجة، والثابت للحدود في كثير الحدود: \(2a^2b^3 + 6ab - 9\).
+                    أوجد المعامل الرئيس، الدرجة، والثابت لكثيرة الحدود: \(2a^2b^3 + 6ab - 9\).
                 </div>
                 <div class="ex-answer">
                     <div class="answer-line">معامل الرئيس: \(2\)</div>
@@ -263,7 +173,7 @@
             <div class="example-card">
                 <div class="ex-badge">المثال التاسع</div>
                 <div class="ex-problem">
-                    أوجد المعامل الرئيس، الدرجة، والثابت للحدود في كثير الحدود: \(x^5 - 4x^3 + x - 1\).
+                    أوجد المعامل الرئيس، الدرجة، والثابت لكثيرة الحدود: \(x^5 - 4x^3 + x - 1\).
                 </div>
                 <div class="ex-answer">
                     <div class="answer-line">معامل الرئيس: \(1\)</div>
@@ -280,7 +190,7 @@
             <div class="example-card">
                 <div class="ex-badge">المثال العاشر</div>
                 <div class="ex-problem">
-                    أوجد المعامل الرئيس، الدرجة، والثابت للحدود في كثير الحدود: \(-3\).
+                    أوجد المعامل الرئيس، الدرجة، والثابت لكثيرة الحدود: \(-3\).
                 </div>
                 <div class="ex-answer">
                     <div class="answer-line">معامل الرئيس: \(-3\)</div>
@@ -297,10 +207,9 @@
 
     </main>
 
-        <!-- Footer -->
     <div id="footer-container"></div>
 
-    <script src="../../main.js"></script>
+    <script src="../../main.min.js" defer"></script>
 </body>
 
 </html>

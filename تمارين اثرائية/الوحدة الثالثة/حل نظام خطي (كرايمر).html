@@ -12,92 +12,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
 
     <!-- Styles -->
-    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../../styles.min.css">
 
     <!-- MathJax -->
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
-    <style>
-        body {
-            font-family: 'Tajawal', sans-serif;
-            background-color: var(--bg-body);
-            color: var(--text-body);
-            line-height: 1.6;
-        }
 
-        .example-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 1.5rem;
-            margin-top: 2rem;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .example-card {
-            background: #fff;
-            border-right: 4px solid var(--accent);
-            border-left: none;
-            border-radius: 8px;
-            padding: 1.5rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-            transition: transform 0.2s ease;
-            position: relative;
-        }
-
-        body.dark-mode .example-card {
-            background: var(--bg-card);
-        }
-
-        .example-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
-        }
-
-        .ex-badge {
-            display: inline-block;
-            background: var(--accent);
-            color: white;
-            padding: 4px 12px;
-            border-radius: 12px;
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-            font-weight: bold;
-        }
-
-        .ex-problem {
-            font-weight: 700;
-            color: var(--text-heading);
-            margin-bottom: 1rem;
-            font-size: 1.2rem;
-            border-bottom: 1px solid var(--border);
-            padding-bottom: 0.75rem;
-        }
-
-        .ex-answer {
-            font-size: 1.3rem;
-            font-weight: bold;
-            color: #1565c0;
-            margin-bottom: 0.5rem;
-            text-align: center;
-        }
-
-        .ex-explanation {
-            font-size: 1rem;
-            color: var(--text-muted);
-            background: rgba(33, 150, 243, 0.1);
-            padding: 1rem;
-            border-radius: 6px;
-            margin-top: 0.5rem;
-        }
-
-        body.dark-mode .ex-explanation {
-            color: #ddd;
-            background: rgba(33, 150, 243, 0.2);
-        }
-    </style>
 </head>
 
 <body>
@@ -109,7 +30,7 @@
     </div>
 
     <!-- Navigation -->
-        <!-- Navigation -->
+    <!-- Navigation -->
     <div id="navbar-container"></div>
 
     <main class="container" style="padding-top: 60px; padding-bottom: 60px;">
@@ -135,10 +56,23 @@
                     \( (2, 1) \)
                 </div>
                 <div class="ex-explanation">
-                    <strong>الشرح:</strong>
-                    \( D = \begin{vmatrix} 2 & 3 \\ 1 & -1 \end{vmatrix} = -5 \). <br>
-                    \( D_x = \begin{vmatrix} 7 & 3 \\ 1 & -1 \end{vmatrix} = -10 \). <br>
-                    \( x = \frac{-10}{-5} = 2 \), \( y = 1 \).
+                    <strong>طريقة الحل:</strong>
+                    <ol>
+                        <li>نحسب محدد مصفوفة المعاملات \( D \):
+                            \[ D = \begin{vmatrix} 2 & 3 \\ 1 & -1 \end{vmatrix} = (2)(-1) - (3)(1) = -2 - 3 = -5 \]
+                        </li>
+                        <li>نحسب محدد المتغير \( x \) (\( D_x \)) باستبدال عمود \( x \) بالثوابت:
+                            \[ D_x = \begin{vmatrix} 7 & 3 \\ 1 & -1 \end{vmatrix} = (7)(-1) - (3)(1) = -7 - 3 = -10 \]
+                        </li>
+                        <li>نحسب محدد المتغير \( y \) (\( D_y \)) باستبدال عمود \( y \) بالثوابت:
+                            \[ D_y = \begin{vmatrix} 2 & 7 \\ 1 & 1 \end{vmatrix} = (2)(1) - (7)(1) = 2 - 7 = -5 \]
+                        </li>
+                        <li>نوجد قيم المجهولين:
+                            \[ x = \frac{D_x}{D} = \frac{-10}{-5} = 2 \]
+                            \[ y = \frac{D_y}{D} = \frac{-5}{-5} = 1 \]
+                        </li>
+                    </ol>
+                    إذن الحل هو الزوج المرتب \( (2, 1) \).
                 </div>
             </div>
 
@@ -154,10 +88,21 @@
                     \( x = 2, \quad y = 1 \)
                 </div>
                 <div class="ex-explanation">
-                    <strong>الشرح:</strong>
-                    \( D = 5(1)-2(2) = 1 \). <br>
-                    \( D_x = 12(1)-2(5) = 2 \). <br>
-                    \( x = 2/1 = 2 \).
+                    <strong>طريقة الحل:</strong>
+                    <ol>
+                        <li>نحسب محدد المعاملات \( D \):
+                            \[ D = \begin{vmatrix} 5 & 2 \\ 2 & 1 \end{vmatrix} = (5)(1) - (2)(2) = 5 - 4 = 1 \]
+                        </li>
+                        <li>نحسب \( D_x \):
+                            \[ D_x = \begin{vmatrix} 12 & 2 \\ 5 & 1 \end{vmatrix} = (12)(1) - (2)(5) = 12 - 10 = 2 \]
+                        </li>
+                        <li>نحسب \( D_y \):
+                            \[ D_y = \begin{vmatrix} 5 & 12 \\ 2 & 5 \end{vmatrix} = (5)(5) - (12)(2) = 25 - 24 = 1 \]
+                        </li>
+                        <li>نوجد القيم:
+                            \[ x = \frac{D_x}{D} = \frac{2}{1} = 2, \quad y = \frac{D_y}{D} = \frac{1}{1} = 1 \]
+                        </li>
+                    </ol>
                 </div>
             </div>
 
@@ -173,9 +118,18 @@
                     \( D = 0 \) (لا نهائي من الحلول)
                 </div>
                 <div class="ex-explanation">
-                    <strong>الشرح:</strong>
-                    \( D = (3)(2) - (1)(6) = 6 - 6 = 0 \).
-                    بما أن \( D_x \) و \( D_y \) أيضاً أصفار، فالنظام له عدد لا نهائي من الحلول.
+                    <strong>طريقة الحل:</strong>
+                    <ol>
+                        <li>نحسب محدد المعاملات \( D \):
+                            \[ D = \begin{vmatrix} 3 & 1 \\ 6 & 2 \end{vmatrix} = (3)(2) - (1)(6) = 6 - 6 = 0 \]
+                        </li>
+                        <li>بما أن \( D = 0 \)، فإن النظام قد يكون مستحيلاً أو له عدد لا نهائي من الحلول.</li>
+                        <li>نحسب \( D_x \):
+                            \[ D_x = \begin{vmatrix} 5 & 1 \\ 10 & 2 \end{vmatrix} = (5)(2) - (1)(10) = 10 - 10 = 0 \]
+                        </li>
+                        <li>بما أن \( D = 0 \) و \( D_x = 0 \) (وكذلك \( D_y \))، فإن للنظام <strong>عدد لا نهائي من
+                                الحلول</strong>.</li>
+                    </ol>
                 </div>
             </div>
 
@@ -191,10 +145,21 @@
                     \( x = 2, \quad y = 1 \)
                 </div>
                 <div class="ex-explanation">
-                    <strong>الشرح:</strong>
-                    \( D = -1 - 6 = -7 \). <br>
-                    \( D_x = -4 - 10 = -14 \). <br>
-                    \( x = -14/-7 = 2 \).
+                    <strong>طريقة الحل:</strong>
+                    <ol>
+                        <li>نحسب محدد المعاملات \( D \):
+                            \[ D = \begin{vmatrix} 1 & 2 \\ 3 & -1 \end{vmatrix} = (1)(-1) - (2)(3) = -1 - 6 = -7 \]
+                        </li>
+                        <li>نحسب \( D_x \):
+                            \[ D_x = \begin{vmatrix} 4 & 2 \\ 5 & -1 \end{vmatrix} = (4)(-1) - (2)(5) = -4 - 10 = -14 \]
+                        </li>
+                        <li>نحسب \( D_y \):
+                            \[ D_y = \begin{vmatrix} 1 & 4 \\ 3 & 5 \end{vmatrix} = (1)(5) - (4)(3) = 5 - 12 = -7 \]
+                        </li>
+                        <li>نوجد القيم:
+                            \[ x = \frac{D_x}{D} = \frac{-14}{-7} = 2, \quad y = \frac{D_y}{D} = \frac{-7}{-7} = 1 \]
+                        </li>
+                    </ol>
                 </div>
             </div>
 
@@ -208,8 +173,11 @@
                     \( z = 3 \)
                 </div>
                 <div class="ex-explanation">
-                    <strong>الشرح:</strong>
-                    وفقاً لقاعدة كرايمر: \( z = \frac{D_z}{D} = \frac{6}{2} = 3 \).
+                    <strong>طريقة الحل:</strong>
+                    في قاعدة كرايمر، لإيجاد قيمة متغير في نظام مكون من 3 معادلات، نستخدم الصيغة:
+                    \[ z = \frac{D_z}{D} \]
+                    بالتعويض بالقيم المعطاة:
+                    \[ z = \frac{6}{2} = 3 \]
                 </div>
             </div>
 
@@ -217,10 +185,10 @@
 
     </main>
 
-        <!-- Footer -->
+    <!-- Footer -->
     <div id="footer-container"></div>
 
-    <script src="../main.js"></script>
+    <script src="../../main.min.js" defer"></script>
 </body>
 
 </html>

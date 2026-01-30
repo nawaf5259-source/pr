@@ -33,6 +33,14 @@
     --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
 }
 
+/* MathJax Mobile Fix */
+mjx-container {
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    max-width: 100% !important;
+    padding: 10px 0;
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -70,6 +78,12 @@ a {
     max-width: 1400px;
     margin: 0 auto;
     padding: 0 2rem;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0 1rem;
+    }
 }
 
 .grid {
@@ -171,6 +185,20 @@ a {
     margin: 0 auto 2rem;
 }
 
+@media (max-width: 768px) {
+    .hero {
+        padding: 3rem 1rem;
+    }
+
+    .hero h1 {
+        font-size: 2.25rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+}
+
 .btn {
     display: inline-block;
     padding: 0.75rem 2rem;
@@ -224,20 +252,79 @@ section#files {
     background-color: white;
 }
 
+@media (max-width: 768px) {
+    section {
+        padding: 2rem 1rem !important;
+        /* Override inline padding for mobile */
+    }
+}
+
 /* UNIT CONTENT STYLES (Integrated) */
+
+/* Slide / Section Container */
+/* UNIT CONTENT STYLES (Integrated - Dynamic Redesign) */
 
 /* Slide / Section Container */
 .slide {
     background: white;
-    padding: 40px;
-    margin-bottom: 30px;
-    border-radius: 12px;
+    padding: 2.5rem;
+    margin-bottom: 2rem;
+    border-radius: 1rem;
     box-shadow: var(--shadow-sm);
     border: 1px solid var(--border);
     max-width: 900px;
     width: 100%;
     margin-left: auto;
     margin-right: auto;
+    overflow-wrap: break-word;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Dynamic Hover Effect for Desktop */
+@media (min-width: 992px) {
+    .slide:hover {
+        box-shadow: var(--shadow-md);
+        transform: translateY(-2px);
+    }
+}
+
+/* Mobile Responsiveness for Slide */
+@media (max-width: 768px) {
+    .slide {
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+        border-radius: 0.75rem;
+    }
+
+    .slide h1 {
+        font-size: 1.75rem;
+        margin-bottom: 1rem;
+        padding-bottom: 0.5rem;
+    }
+
+    .slide h2 {
+        font-size: 1.4rem;
+        margin-top: 1.5rem;
+        padding-right: 12px;
+        border-right-width: 3px;
+    }
+}
+
+@media (max-width: 480px) {
+    .slide {
+        padding: 1.25rem 1rem;
+        /* Maximize space on very small screens */
+        margin-bottom: 1rem;
+        border-radius: 0.5rem;
+    }
+
+    .slide h1 {
+        font-size: 1.5rem;
+    }
+
+    .slide h2 {
+        font-size: 1.25rem;
+    }
 }
 
 /* Unit Headers */
@@ -261,59 +348,106 @@ section#files {
 .slide h3 {
     color: var(--primary);
     margin-top: 25px;
+    font-size: 1.4em;
+    font-weight: 600;
 }
 
-/* Content Boxes */
+/* Content Boxes Common Styles */
+.definition,
+.myrule,
+.example,
+.objectives,
+.axiombox {
+    margin: 1.5rem 0;
+    padding: 1.5rem;
+    border-radius: 0.75rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Mobile Adjustments for Content Boxes */
+@media (max-width: 768px) {
+
+    .definition,
+    .myrule,
+    .example,
+    .objectives,
+    .axiombox {
+        padding: 1.25rem;
+        margin: 1.25rem 0;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .definition,
+    .myrule,
+    .example,
+    .objectives,
+    .axiombox {
+        padding: 1rem;
+        margin: 1rem 0;
+        border-right-width: 4px;
+        /* Slightly thinner border for small screens */
+    }
+}
+
+/* Specific Box Styles */
 .definition {
     background-color: var(--color-info-bg);
-    /* Light Blue */
     border-right: 5px solid var(--color-info-border);
-    /* Blue */
-    padding: 20px;
-    margin: 20px 0;
-    border-radius: 4px;
 }
 
 .myrule {
     background-color: var(--color-success-bg);
-    /* Light Green */
     border-right: 5px solid var(--color-success-border);
-    /* Green */
-    padding: 20px;
-    margin: 20px 0;
-    border-radius: 4px;
 }
 
 .example {
     background-color: white;
     border: 1px solid var(--border);
     border-right: 5px solid var(--accent);
-    /* Gold */
-    padding: 20px;
-    margin: 20px 0;
-    border-radius: 4px;
     box-shadow: var(--shadow-sm);
 }
 
+/* Example title/label styling if needed */
+.example strong {
+    color: var(--text-heading);
+}
+
 .objectives {
-    background-color: var(--color-warning-bg);
-    /* Light Yellow */
-    border: 1px solid var(--color-warning-border);
-    padding: 20px;
-    border-radius: 8px;
-    margin: 20px 0;
+    background-color: #FFFBEB;
+    border: 1px solid #FEF3C7;
+    border-right: 5px solid #F59E0B;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
 }
 
 .axiombox {
     background-color: var(--primary);
-    /* Dark Navy */
     color: white;
-    padding: 20px;
-    border-radius: 8px;
     text-align: center;
     font-size: 1.2em;
-    margin: 30px 0;
     box-shadow: var(--shadow-md);
+    border: none;
+    /* Reset border for custom design */
+}
+
+/* Light effect for axiombox */
+.axiombox::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--gradient-gold);
+}
+
+@media (max-width: 768px) {
+    .axiombox {
+        font-size: 1.1em;
+    }
 }
 
 .center {
@@ -361,14 +495,15 @@ section#files {
         /* Force visible on mobile */
         align-items: center;
         justify-content: center;
-        background: none;
-        border: none;
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
         color: white;
         cursor: pointer;
         z-index: 1001;
-        padding: 5px;
+        padding: 8px;
+        border-radius: 8px;
         font-size: 1.5rem;
-        /* Ensure visibility */
+        margin-left: 10px;
     }
 
     .nav-links {
@@ -453,6 +588,14 @@ section#files {
     display: none;
 }
 
+/* Ensure images are responsive within slides */
+.slide img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 1rem auto;
+}
+
 /* Premium Table Styles */
 .premium-table-container {
     width: 100%;
@@ -467,8 +610,8 @@ section#files {
 .premium-table {
     width: 100%;
     border-collapse: collapse;
-    min-width: 600px;
-    /* Prevent squishing on small screens */
+    min-width: 450px;
+    /* Reduced min-width to better fit slightly larger mobiles while still scrolling on small ones */
 }
 
 .premium-table th,
@@ -498,6 +641,18 @@ section#files {
     border-bottom: none;
 }
 
+@media (max-width: 768px) {
+    .premium-table {
+        min-width: 400px;
+    }
+
+    .premium-table th,
+    .premium-table td {
+        padding: 0.75rem 0.5rem;
+        font-size: 0.85rem;
+    }
+}
+
 /* UI Enhancements for Quizzes */
 .quiz-container {
     max-width: 800px;
@@ -507,6 +662,13 @@ section#files {
     border-radius: 1.5rem;
     box-shadow: var(--shadow-lg);
     border: 1px solid var(--border);
+}
+
+@media (max-width: 768px) {
+    .quiz-container {
+        padding: 1.25rem;
+        border-radius: 1rem;
+    }
 }
 
 .quiz-container .header {
@@ -717,10 +879,30 @@ section#files {
     font-size: 1rem;
     box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
     cursor: pointer;
-    transition: transform 0.3s, box-shadow 0.3s;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     display: flex;
     align-items: center;
     gap: 8px;
+}
+
+@media (max-width: 768px) {
+    #feedback-btn {
+        width: 50px;
+        height: 50px;
+        padding: 0;
+        justify-content: center;
+        border-radius: 50%;
+    }
+
+    #feedback-btn span {
+        margin: 0;
+        font-size: 1.5rem;
+    }
+
+    #feedback-btn {
+        /* Hide text on mobile */
+        font-size: 0;
+    }
 }
 
 #feedback-btn:hover {
@@ -864,6 +1046,12 @@ body.dark-mode .polynomial {
     border-color: var(--border) !important;
     color: var(--text-main) !important;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
+}
+
+body.dark-mode .float-btn {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 }
 
 body.dark-mode .step-explanation {
@@ -1212,6 +1400,27 @@ body.dark-mode .toc-link {
     border-top: 1px solid var(--border);
     gap: 1rem;
     flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+    .unit-nav {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.75rem;
+        margin-top: 2rem;
+        padding-top: 1.5rem;
+    }
+
+    .unit-nav .nav-btn {
+        width: 100%;
+        justify-content: center;
+        padding: 0.85rem;
+    }
+
+    .unit-nav .nav-btn.pdf-btn {
+        margin: 0;
+        /* Clear centered margin on mobile */
+    }
 }
 
 .unit-nav .nav-btn {

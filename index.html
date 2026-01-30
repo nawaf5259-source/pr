@@ -2,16 +2,7 @@
 <html lang="ar" dir="rtl">
 
 <head>
-    <!-- Google Tag Manager -->
-    <script>(function (w, d, s, l, i) {
-            w[l] = w[l] || []; w[l].push({
-                'gtm.start':
-                    new Date().getTime(), event: 'gtm.js'
-            }); var f = d.getElementsByTagName(s)[0],
-                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
-                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
-        })(window, document, 'script', 'dataLayer', 'GTM-P8G6WGL4');</script>
-    <!-- End Google Tag Manager -->
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>الرياضيات 121 - الصفحة الرئيسية</title>
@@ -22,84 +13,51 @@
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
 
     <!-- Styles -->
-    <link rel="stylesheet" href="styles.min.css">
+    <link rel="stylesheet" href="styles.css">
 
     <!-- MathJax -->
+    
+    
     <script>
         window.MathJax = {
+            loader: {
+                load: ['[tex]/cancel', '[tex]/color', '[tex]/boldsymbol']
+            },
             tex: {
+                packages: {'[+]': ['cancel', 'color', 'boldsymbol']},
                 inlineMath: [['$', '$'], ['\\(', '\\)']],
                 displayMath: [['$$', '$$'], ['\\[', '\\]']],
                 processEscapes: true
             },
             options: {
                 skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+            },
+            startup: {
+                ready: () => {
+                    MathJax.startup.defaultReady();
+                }
             }
         };
 
-        // Global function to trigger MathJax rendering
+        // Queue system for dynamic updates
+        let mathQueue = Promise.resolve();
         window.renderMath = function (elements) {
             if (window.MathJax && window.MathJax.typesetPromise) {
-                window.MathJax.typesetPromise(elements).catch(err => console.log('MathJax error:', err));
+                mathQueue = mathQueue.then(() => {
+                    return window.MathJax.typesetPromise(elements);
+                }).catch(err => {
+                    if (err && err.message !== "MathJax retry" && !err.retry) {
+                        console.warn("MathJax error:", err);
+                    }
+                });
             }
         };
-
-        document.addEventListener('DOMContentLoaded', () => {
-            // Tab Switching Logic
-            const tabs = document.querySelectorAll('.tab-btn');
-            const contents = document.querySelectorAll('.content-section');
-
-            tabs.forEach(tab => {
-                tab.addEventListener('click', () => {
-                    // Remove active class from all
-                    tabs.forEach(t => t.classList.remove('active'));
-                    contents.forEach(c => c.classList.remove('active'));
-
-                    // Add active class to clicked
-                    tab.classList.add('active');
-
-                    // Show corresponding content
-                    const targetId = tab.dataset.target;
-                    const targetContent = document.getElementById(targetId);
-                    if (targetContent) {
-                        targetContent.classList.add('active');
-                    }
-                });
-            });
-
-            // Quiz Interaction (Simple Example)
-            document.querySelectorAll('.quiz-option').forEach(option => {
-                option.addEventListener('click', function () {
-                    const parent = this.closest('.quiz-question');
-                    const isCorrect = this.dataset.correct === "true";
-
-                    // Reset styles
-                    parent.querySelectorAll('.quiz-option').forEach(opt => {
-                        opt.style.background = 'white';
-                        opt.style.borderColor = '#E2E8F0';
-                    });
-
-                    // Apply feedback
-                    if (isCorrect) {
-                        this.style.background = '#F0FDF4';
-                        this.style.borderColor = '#22C55E';
-                        // Optional: Show explanation
-                    } else {
-                        this.style.background = '#FEF2F2';
-                        this.style.borderColor = '#EF4444';
-                    }
-                });
-            });
-        });
     </script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 
 <body>
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P8G6WGL4" height="0" width="0"
-            style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
+    
 
     <!-- Navigation -->
     <div id="navbar-container"></div>
@@ -667,7 +625,7 @@
     <!-- Footer Container (Dynamic Content Loaded Here) -->
     <div id="footer-container"></div>
 
-    <script src="main.min.js" defer></script>
+    <script src="main.js" defer></script>
 </body>
 
 </html>

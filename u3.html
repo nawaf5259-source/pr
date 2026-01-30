@@ -2,16 +2,7 @@
 <html dir="rtl" lang="ar">
 
 <head>
-  <!-- Google Tag Manager -->
-  <script>(function (w, d, s, l, i) {
-      w[l] = w[l] || []; w[l].push({
-        'gtm.start':
-          new Date().getTime(), event: 'gtm.js'
-      }); var f = d.getElementsByTagName(s)[0],
-        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
-          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
-    })(window, document, 'script', 'dataLayer', 'GTM-P8G6WGL4');</script>
-  <!-- End Google Tag Manager -->
+  
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>المعادلات</title>
@@ -22,18 +13,53 @@
   <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
 
   <!-- Styles -->
-  <link rel="stylesheet" href="styles.min.css">
+  <link rel="stylesheet" href="styles.css">
 
   <!-- MathJax -->
   
-  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  
+    
+    
+    <script>
+        window.MathJax = {
+            loader: {
+                load: ['[tex]/cancel', '[tex]/color', '[tex]/boldsymbol']
+            },
+            tex: {
+                packages: {'[+]': ['cancel', 'color', 'boldsymbol']},
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+            },
+            startup: {
+                ready: () => {
+                    MathJax.startup.defaultReady();
+                }
+            }
+        };
+
+        // Queue system for dynamic updates
+        let mathQueue = Promise.resolve();
+        window.renderMath = function (elements) {
+            if (window.MathJax && window.MathJax.typesetPromise) {
+                mathQueue = mathQueue.then(() => {
+                    return window.MathJax.typesetPromise(elements);
+                }).catch(err => {
+                    if (err && err.message !== "MathJax retry" && !err.retry) {
+                        console.warn("MathJax error:", err);
+                    }
+                });
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 
 <body>
-  <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P8G6WGL4" height="0" width="0"
-      style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
+  
 
   <!-- Navigation -->
   <div id="navbar-container"></div>
@@ -254,9 +280,9 @@
         <ol>
           <li><strong>المعادلة المصفوفية \(AX = B\):</strong> \[\begin{bmatrix} 2 & 3 \\ 3 & -4 \end{bmatrix}
             \begin{bmatrix} x \\ y \end{bmatrix} = \begin{bmatrix} 1 \\ 2 \end{bmatrix}\]</li>
-          <li><strong>إيجاد المحدد \(\Delta\):</strong> \[\Delta = (2 \times -4) - (3 \times 3) = -8 - 9 = -17\] بما أن
-            \(\Delta \neq 0\)، يوجد حل وحيد.</li>
-          <li><strong>إيجاد المعكوس الضربي \(A^{-1}\):</strong> \[A^{-1} =\frac{1}{\Delta} \begin{bmatrix} d & -b \\ -c
+          <li><strong>إيجاد المحدد \(|A|\):</strong> \[|A| = (2 \times -4) - (3 \times 3) = -8 - 9 = -17\] بما أن
+            \(|A| \neq 0\)، يوجد حل وحيد.</li>
+          <li><strong>إيجاد المعكوس الضربي \(A^{-1}\):</strong> \[A^{-1} =\frac{1}{|A|} \begin{bmatrix} d & -b \\ -c
             & a \end{bmatrix} = \frac{1}{-17} \begin{bmatrix} -4 & -3 \\ -3 & 2 \end{bmatrix}\]</li>
         </ol>
       </div>
@@ -286,7 +312,7 @@
         <ol>
           <li><strong>المعادلة المصفوفية:</strong> \[\begin{bmatrix} 1 & 1 \\ 1 & -1 \end{bmatrix} \begin{bmatrix} x \\
             y \end{bmatrix} = \begin{bmatrix} 5 \\ 1 \end{bmatrix}\]</li>
-          <li><strong>إيجاد المحدد:</strong> \[\Delta = (1)(-1) - (1)(1) = -1 - 1 = -2\]</li>
+          <li><strong>إيجاد المحدد:</strong> \[|A| = (1)(-1) - (1)(1) = -1 - 1 = -2\]</li>
           <li><strong>إيجاد المعكوس الضربي:</strong> \[A^{-1} = \frac{1}{-2} \begin{bmatrix} -1 & -1 \\ -1 & 1
             \end{bmatrix}\]</li>
         </ol>
@@ -315,8 +341,8 @@
         <ol>
           <li><strong>المعادلة المصفوفية:</strong> \[\begin{bmatrix} 3 & 1 \\ 6 & 2 \end{bmatrix} \begin{bmatrix} x \\ y
             \end{bmatrix} = \begin{bmatrix} 5 \\ 1 \end{bmatrix}\]</li>
-          <li><strong>إيجاد المحدد:</strong> \[\Delta = (3 \times 2) - (1 \times 6) = 6 - 6 = 0\]</li>
-          <li><strong>الاستنتاج:</strong> <strong>بما أن \(\Delta = 0\)، فإن المصفوفة ليس لها معكوس ضربي، وبالتالي لا
+          <li><strong>إيجاد المحدد:</strong> \[|A| = (3 \times 2) - (1 \times 6) = 6 - 6 = 0\]</li>
+          <li><strong>الاستنتاج:</strong> <strong>بما أن \(|A| = 0\)، فإن المصفوفة ليس لها معكوس ضربي، وبالتالي لا
               يوجد حل للمعادلة.</strong></li>
         </ol>
       </div>
@@ -545,7 +571,7 @@
   <!-- Footer -->
   <div id="footer-container"></div>
 
-  <script src="main.min.js" defer></script>
+  <script src="main.js" defer></script>
 </body>
 
 </html>

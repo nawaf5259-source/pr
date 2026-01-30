@@ -363,7 +363,7 @@ section#files {
     border-radius: 0.75rem;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
     position: relative;
-    overflow: hidden;
+    overflow-x: auto;
 }
 
 /* Mobile Adjustments for Content Boxes */

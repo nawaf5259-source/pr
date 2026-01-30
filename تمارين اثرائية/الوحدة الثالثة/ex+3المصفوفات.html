@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حل نظام خطي (كرايمر) - تمارين إثرائية</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../../styles.css">
+
+    <!-- MathJax -->
+
+    
+    
+    
+    <script>
+        window.MathJax = {
+            loader: {
+                load: ['[tex]/cancel', '[tex]/color', '[tex]/boldsymbol']
+            },
+            tex: {
+                packages: {'[+]': ['cancel', 'color', 'boldsymbol']},
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+            },
+            startup: {
+                ready: () => {
+                    MathJax.startup.defaultReady();
+                }
+            }
+        };
+
+        // Queue system for dynamic updates
+        let mathQueue = Promise.resolve();
+        window.renderMath = function (elements) {
+            if (window.MathJax && window.MathJax.typesetPromise) {
+                mathQueue = mathQueue.then(() => {
+                    return window.MathJax.typesetPromise(elements);
+                }).catch(err => {
+                    if (err && err.message !== "MathJax retry" && !err.retry) {
+                        console.warn("MathJax error:", err);
+                    }
+                });
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+
+</head>
+
+<body>
+    <!-- Aurora Background Blobs -->
+    <div class="aurora-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <!-- Navigation -->
+    <!-- Navigation -->
+    <div id="navbar-container"></div>
+
+    <main class="container" style="padding-top: 60px; padding-bottom: 60px;">
+
+        <header style="text-align: center; margin-bottom: 3rem;">
+            <h1 style="font-size: 2.5rem; margin-bottom: 1rem; color: var(--text-heading);">حل نظام خطي (كرايمر)</h1>
+            <p style="font-size: 1.2rem; color: var(--text-muted); max-width: 600px; margin: 0 auto;">
+                استخدام قاعدة كرايمر وحساب المحددات لحل أنظمة المعادلات الخطية.
+            </p>
+        </header>
+
+        
+        <div class="example-grid">
+            <!-- Example 1 -->
+            <div class="example-card">
+                <div class="ex-badge">المثال الأول</div>
+                <div class="ex-problem">
+                    اكتب المعادلة المصفوفبة للنظام: <br>
+                    \( 2x + 3y = 9 \) <br>
+                    \( x - y = 2 \)
+                </div>
+                <div class="ex-answer">
+                    \( \begin{bmatrix} 2 & 3 \\ 1 & -1 \end{bmatrix} \begin{bmatrix} x \\ y \end{bmatrix} =
+                    \begin{bmatrix} 9 \\ 2 \end{bmatrix} \)
+                </div>
+                <div class="ex-explanation">
+                    <strong>الشرح:</strong>
+                    مصفوفة المعاملات \( A \) في مصفوفة المجاهيل \( X \) تساوي مصفوفة الثوابت \( C \).
+                </div>
+            </div>
+
+            <!-- Example 2 -->
+            <div class="example-card">
+                <div class="ex-badge">المثال الثاني</div>
+                <div class="ex-problem">
+                    إذا كانت مصفوفة المعاملات \( A \) لها معكوس \( A^{-1} \)، فما هو قانون حل النظام \( AX=C \)؟
+                </div>
+                <div class="ex-answer">
+                    \( X = A^{-1}C \)
+                </div>
+                <div class="ex-explanation">
+                    <strong>الشرح:</strong>
+                    نضرب طرفي المعادلة من اليسار في المعكوس الضربي \( A^{-1} \).
+                </div>
+            </div>
+
+            <!-- Example 3 -->
+            <div class="example-card">
+                <div class="ex-badge">المثال الثالث</div>
+                <div class="ex-problem">
+                    حل النظام: \( \begin{cases} x+y=5 \\ x-y=1 \end{cases} \) باستخدام المصفوفات.
+                </div>
+                <div class="ex-answer">
+                    \( \begin{bmatrix} x \\ y \end{bmatrix} = \begin{bmatrix} 3 \\ 2 \end{bmatrix} \)
+                </div>
+                <div class="ex-explanation">
+                    <strong>الشرح:</strong>
+                    \( A^{-1} = \frac{1}{-2} \begin{bmatrix} -1 & -1 \\ -1 & 1 \end{bmatrix} \). <br>
+                    \( X = A^{-1} \begin{bmatrix} 5 \\ 1 \end{bmatrix} = \begin{bmatrix} 3 \\ 2 \end{bmatrix} \).
+                </div>
+            </div>
+
+            <!-- Example 4 -->
+            <div class="example-card">
+                <div class="ex-badge">المثال الرابع</div>
+                <div class="ex-problem">
+                    لماذا لا يمكن حل النظام الذي محدده \( \Delta = 0 \) باستخدام طريقة المعكوس؟
+                </div>
+                <div class="ex-answer">
+                    لأنه لا يوجد معكوس للمصفوفة
+                </div>
+                <div class="ex-explanation">
+                    <strong>الشرح:</strong>
+                    شرط وجود المعكوس الضربي هو أن المحدد لا يساوي صفراً.
+                </div>
+            </div>
+
+            <!-- Example 5 -->
+            <div class="example-card">
+                <div class="ex-badge">المثال الخامس</div>
+                <div class="ex-problem">
+                    إذا كان \( A^{-1} = \begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix} \) و \( C = \begin{bmatrix} 4 \\ 7
+                    \end{bmatrix} \)، فما قيمة \( X \)؟
+                </div>
+                <div class="ex-answer">
+                    \( X = \begin{bmatrix} 4 \\ 7 \end{bmatrix} \)
+                </div>
+                <div class="ex-explanation">
+                    <strong>الشرح:</strong>
+                    \( X = I \cdot C = C \).
+                </div>
+            </div>
+            </div>
+    </main>
+
+    <!-- Footer -->
+    <div id="footer-container"></div>
+
+    <script src="../../main.js" defer"></script>
+</body>
+
+</html>

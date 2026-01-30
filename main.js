@@ -4,8 +4,11 @@
  */
 
 document.addEventListener("DOMContentLoaded", () => {
-    loadNavbar(); // Dynamic Navbar
-    loadFooter(); // Dynamic Footer
+    // 1. Core Loaders
+    loadNavbar();
+    loadFooter();
+
+    // 2. Initialize UI Systems
     initDarkModeAndScroll();
     initFeedbackSystem();
     initLastUpdated();
@@ -14,8 +17,19 @@ document.addEventListener("DOMContentLoaded", () => {
     initQuiz();
     initTOC();
     initUnitNavigation();
-    initEnrichmentToggles();
+
+    // 3. Special: Delay enrichment toggles slightly to let MathJax finish initial run
+    setTimeout(() => {
+        initEnrichmentToggles();
+    }, 500);
 });
+
+// Helper to safely re-run MathJax using the centralized queue
+window.safeRenderMath = function (elements) {
+    if (typeof window.renderMath === 'function') {
+        window.renderMath(elements);
+    }
+};
 
 // 1. Mobile Navigation
 function initNavigation() {
@@ -23,7 +37,8 @@ function initNavigation() {
     const navLinks = document.querySelector('.nav-links');
 
     if (hamburger && navLinks) {
-        hamburger.addEventListener('click', () => {
+        hamburger.addEventListener('click', (e) => {
+            e.stopPropagation();
             navLinks.classList.toggle('active');
             hamburger.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
         });
@@ -319,7 +334,7 @@ function initTOC() {
 function initDarkModeAndScroll() {
     // Create Floating Container
     const floatContainer = document.createElement('div');
-    floatContainer.style.cssText = "position: fixed; bottom: 80px; left: 20px; display: flex; flex-direction: column; gap: 10px; z-index: 9998;";
+    floatContainer.style.cssText = "position: fixed; bottom: 80px; right: 20px; display: flex; flex-direction: column; gap: 10px; z-index: 9998;";
 
     // Dark Mode Toggle
     const darkModeBtn = document.createElement('button');
@@ -342,8 +357,10 @@ function initDarkModeAndScroll() {
 
     // Scroll Listener
     window.addEventListener('scroll', () => {
-        if (window.scrollY > 300) scrollTopBtn.style.display = 'block';
-        else scrollTopBtn.style.display = 'none';
+        const scrolled = window.pageYOffset || document.documentElement.scrollTop;
+        if (scrollTopBtn) {
+            scrollTopBtn.style.display = scrolled > 300 ? 'block' : 'none';
+        }
     });
 
     // Check Saved Theme

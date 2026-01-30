@@ -2,16 +2,7 @@
 <html dir="rtl" lang="ar">
 
 <head>
-  <!-- Google Tag Manager -->
-  <script>(function (w, d, s, l, i) {
-      w[l] = w[l] || []; w[l].push({
-        'gtm.start':
-          new Date().getTime(), event: 'gtm.js'
-      }); var f = d.getElementsByTagName(s)[0],
-        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
-          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
-    })(window, document, 'script', 'dataLayer', 'GTM-P8G6WGL4');</script>
-  <!-- End Google Tag Manager -->
+
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>كثيرات الحدود</title>
@@ -22,18 +13,53 @@
   <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
 
   <!-- Styles -->
-  <link rel="stylesheet" href="styles.min.css">
+  <link rel="stylesheet" href="styles.css">
 
   <!-- MathJax -->
-  
+
+
+
+
+  <script>
+    window.MathJax = {
+      loader: {
+        load: ['[tex]/cancel', '[tex]/color', '[tex]/boldsymbol']
+      },
+      tex: {
+        packages: { '[+]': ['cancel', 'color', 'boldsymbol'] },
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      },
+      startup: {
+        ready: () => {
+          MathJax.startup.defaultReady();
+        }
+      }
+    };
+
+    // Queue system for dynamic updates
+    let mathQueue = Promise.resolve();
+    window.renderMath = function (elements) {
+      if (window.MathJax && window.MathJax.typesetPromise) {
+        mathQueue = mathQueue.then(() => {
+          return window.MathJax.typesetPromise(elements);
+        }).catch(err => {
+          if (err && err.message !== "MathJax retry" && !err.retry) {
+            console.warn("MathJax error:", err);
+          }
+        });
+      }
+    };
+  </script>
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 
 <body>
-  <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P8G6WGL4" height="0" width="0"
-      style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
+
 
   <!-- Navigation -->
   <div id="navbar-container"></div>
@@ -58,20 +84,14 @@
           <li>حساب الكسور الجبرية واختصارها للوصول إلى أبسط صورة ممكنة.</li>
         </ol>
       </div>
-    </section>
 
-    <!-- Slide 2 -->
-    <section class="slide">
       <h2 class="unnumbered" id="أهمية-كثيرات-الحدود">أهمية كثيرات الحدود</h2>
       <p>بالإضافة إلى ذلك، تبرز أهمية كثيرات الحدود في المصادر كركيزة أساسية للانتقال إلى موضوعات أكثر تقدماً، حيث تهدف
         دراستها إلى إعداد المتدرب لموضوعي التفاضل والتكامل، والتعرف على كيفية إيجاد مشتقات الدوال التي تتخذ شكل كثيرات
         حدود.<br />
-        <strong>الوقت المتوقع للتدريب على هذه الوحدة: 8 ساعة تدريبية.</strong>
+        <strong>الوقت المتوقع للتدريب على هذه الوحدة: 8 ساعات تدريبية.</strong>
       </p>
-    </section>
 
-    <!-- Slide 3 -->
-    <section class="slide">
       <h2 class="unnumbered" id="الحد-الجبري">الحد الجبري</h2>
       <p>نبدأ بتعريف الوحدة الأساسية التي تتكون منها كثيرات الحدود.</p>
       <div class="definition">
@@ -89,10 +109,7 @@
             4.</li>
         </ul>
       </div>
-    </section>
 
-    <!-- Slide 4 -->
-    <section class="slide">
       <h2 class="unnumbered" id="الحدود-المتشابهة">الحدود المتشابهة</h2>
       <p>هي الحدود التي تحتوي على نفس المتغير (بما فيها الأس).</p>
       <div class="example">
@@ -106,10 +123,7 @@
       <div class="myrule">
         <p>درجة الحد الثابت دائماً تساوي الصفر. (لأن \(4 = 4x^0\)).</p>
       </div>
-    </section>
 
-    <!-- Slide 5 -->
-    <section class="slide">
       <h2 id="تعريف-كثيرات-الحدود">تعريف كثيرات الحدود</h2>
       <div class="definition">
         <p>كثيرات الحدود هي عبارة عن جمع عدد منتهٍ من الحدود الجبرية، ودرجتها هي أكبر درجة حد فيها.</p>
@@ -119,48 +133,46 @@
           a_{n-1} x^{n-1} + \dots + a_1 x^1 + a_0 \] حيث \(a_n \neq 0\).</p>
       </div>
 
-      </div>
       <p>الجدول التالي يبين المعامل الرئيسي، الدرجة، والحدود والمعاملات لكثيرات الحدود:</p>
       <div class="center" style="overflow-x: auto;">
-        <table class="premium-table" style="width: 100%; border-collapse: collapse; margin: 20px 0;">
+        <table class="premium-table">
           <thead>
-            <tr style="background-color: #2c3e50; color: white;">
-              <th style="padding: 10px; border: 1px solid #ddd;"><strong>كثيرة الحدود</strong></th>
-              <th style="padding: 10px; border: 1px solid #ddd;"><strong>الحدود</strong></th>
-              <th style="padding: 10px; border: 1px solid #ddd;"><strong>الدرجة</strong></th>
-              <th style="padding: 10px; border: 1px solid #ddd;"><strong>المعامل الرئيسي</strong></th>
-              <th style="padding: 10px; border: 1px solid #ddd;"><strong>الحد الثابت</strong></th>
-              <th style="padding: 10px; border: 1px solid #ddd;"><strong>المعاملات</strong></th>
+            <tr>
+              <th><strong>كثيرة الحدود</strong></th>
+              <th><strong>الحدود</strong></th>
+              <th><strong>الدرجة</strong></th>
+              <th><strong>المعامل الرئيسي</strong></th>
+              <th><strong>الحد الثابت</strong></th>
+              <th><strong>المعاملات</strong></th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td style="padding: 10px; border: 1px solid #ddd; text-align: center;">\(4x^2 - 3x + 1\)</td>
-              <td style="padding: 10px; border: 1px solid #ddd; text-align: center;">\(4x^2, -3x, 1\)</td>
-              <td style="padding: 10px; border: 1px solid #ddd; text-align: center;">\(2\)</td>
-              <td style="padding: 10px; border: 1px solid #ddd; text-align: center;">\(4\)</td>
-              <td style="padding: 10px; border: 1px solid #ddd; text-align: center;">\(1\)</td>
-              <td style="padding: 10px; border: 1px solid #ddd; text-align: center;">\(4, -3, 1\)</td>
+              <td>\(4x^2 - 3x + 1\)</td>
+              <td>\(4x^2, -3x, 1\)</td>
+              <td>\(2\)</td>
+              <td>\(4\)</td>
+              <td>\(1\)</td>
+              <td>\(4, -3, 1\)</td>
             </tr>
             <tr>
-              <td style="padding: 10px; border: 1px solid #ddd; text-align: center;">\(x^3 - 2\)</td>
-              <td style="padding: 10px; border: 1px solid #ddd; text-align: center;">\(x^3, -2\)</td>
-              <td style="padding: 10px; border: 1px solid #ddd; text-align: center;">\(3\)</td>
-              <td style="padding: 10px; border: 1px solid #ddd; text-align: center;">\(1\)</td>
-              <td style="padding: 10px; border: 1px solid #ddd; text-align: center;">\(-2\)</td>
-              <td style="padding: 10px; border: 1px solid #ddd; text-align: center;">\(1, -2\)</td>
+              <td>\(x^3 - 2\)</td>
+              <td>\(x^3, -2\)</td>
+              <td>\(3\)</td>
+              <td>\(1\)</td>
+              <td>\(-2\)</td>
+              <td>\(1, -2\)</td>
             </tr>
             <tr>
-              <td style="padding: 10px; border: 1px solid #ddd; text-align: center;">\(3x^4 - 2x^3\)</td>
-              <td style="padding: 10px; border: 1px solid #ddd; text-align: center;">\(3x^4, -2x^3\)</td>
-              <td style="padding: 10px; border: 1px solid #ddd; text-align: center;">\(4\)</td>
-              <td style="padding: 10px; border: 1px solid #ddd; text-align: center;">\(3\)</td>
-              <td style="padding: 10px; border: 1px solid #ddd; text-align: center;">\(0\)</td>
-              <td style="padding: 10px; border: 1px solid #ddd; text-align: center;">\(3, -2\)</td>
+              <td>\(3x^4 - 2x^3\)</td>
+              <td>\(3x^4, -2x^3\)</td>
+              <td>\(4\)</td>
+              <td>\(3\)</td>
+              <td>\(0\)</td>
+              <td>\(3, -2\)</td>
             </tr>
           </tbody>
         </table>
-      </div>
       </div>
     </section>
 
@@ -180,266 +192,284 @@
             2) = 2x + 7 \]</li>
         </ul>
       </div>
-    </section>
 
-    <!-- Slide 8 -->
-    <section class="slide">
-      <h3>أمثلة على الجمع والطرح (1)</h3>
+      <h3 id="أمثلة-شاملة-على-الجمع-والطرح">أمثلة شاملة على الجمع والطرح</h3>
       <div class="example">
-        <p>قم بتبسيط المقادير الجبرية التالية:</p>
-        <ol>
-          <li>\( (2x^2 + 3x + 5) + (x^2 - x + 2) \)</li>
-          <li>\( (3x^2 - 5x + 6) - (2x^2 + 3x - 3) \)</li>
-          <li>\( (x^2 + 4x - 1) + (5x^2 + x) \)</li>
-        </ol>
-        <p><strong>الحل التفصيلي:</strong></p>
-        <p><strong>أولاً (a):</strong> نجمع الحدود المتشابهة (التربيعية معاً والخطية معاً):
-          \[\begin{aligned}
-          &= \textcolor{red}{2x^2} + \textcolor{cyan}{3x} + 5 + \textcolor{red}{x^2} - \textcolor{cyan}{x} + 2 \\
-          &= (\textcolor{red}{2x^2 + x^2}) + (\textcolor{cyan}{3x - x}) + (5 + 2) \\
-          &= \mathbf{3x^2 + 2x + 7}
-          \end{aligned}\]</p>
+        <p><strong>السؤال:</strong> قم بتبسيط المقادير الجبرية التالية:</p>
+        <div class="grid grid-2" style="margin-top: 1.5rem;">
+
+          <!-- Problem 1 -->
+          <div>
+            <p style="border-bottom: 2px solid #eee; padding-bottom: 0.5rem; margin-bottom: 0.5rem;"><strong>1) مسألة
+                جمع:</strong></p>
+            <p>\[ (2x^2 + 3x + 5) + (x^2 - x + 2) \]</p>
+            <p><strong>الحل:</strong> نجمع الحدود المتشابهة (التربيعية معاً والخطية معاً):</p>
+            <p>\[\begin{aligned}
+              &= \textcolor{red}{2x^2} + \textcolor{cyan}{3x} + 5 + \textcolor{red}{x^2} - \textcolor{cyan}{x} + 2 \\
+              &= (\textcolor{red}{2x^2 + x^2}) + (\textcolor{cyan}{3x - x}) + (5 + 2) \\
+              &= \mathbf{3x^2 + 2x + 7}
+              \end{aligned}\]</p>
+          </div>
+
+          <!-- Problem 2 -->
+          <div>
+            <p style="border-bottom: 2px solid #eee; padding-bottom: 0.5rem; margin-bottom: 0.5rem;"><strong>2) مسألة
+                طرح:</strong></p>
+            <p>\[ (3x^2 - 5x + 6) - (2x^2 + 3x - 3) \]</p>
+            <p><strong>الحل:</strong> <span style="color: #d35400; font-weight: bold;">انتبه لتوزيع إشارة السالب</span>
+              على القوس الثاني:</p>
+            <p>\[\begin{aligned}
+              &= 3x^2 - 5x + 6 \textbf{ - } 2x^2 \textbf{ - } 3x \textbf{ + } 3 \\
+              &= (\textcolor{red}{3x^2 - 2x^2}) + (\textcolor{cyan}{-5x - 3x}) + (6 + 3) \\
+              &= \textcolor{red}{x^2} \textcolor{cyan}{- 8x} + 9
+              \end{aligned}\]</p>
+          </div>
+
+          <!-- Problem 3 -->
+          <div style="grid-column: 1 / -1; border-top: 1px dashed #ccc; padding-top: 1rem;">
+            <p style="border-bottom: 2px solid #eee; padding-bottom: 0.5rem; margin-bottom: 0.5rem;"><strong>3) مسألة
+                إضافية:</strong></p>
+            <p>\[ (x^2 + 4x - 1) + (5x^2 + x) \]</p>
+            <p><strong>الحل:</strong></p>
+            <p>\[\begin{aligned}
+              &= \textcolor{red}{x^2} + \textcolor{cyan}{4x} - 1 + \textcolor{red}{5x^2} + \textcolor{cyan}{x} \\
+              &= (\textcolor{red}{x^2 + 5x^2}) + (\textcolor{cyan}{4x + x}) - 1 \\
+              &= \mathbf{6x^2 + 5x - 1}
+              \end{aligned}\]</p>
+          </div>
+
+        </div>
       </div>
-    </section>
 
-    <!-- Slide 9 -->
-    <section class="slide">
-      <h3>أمثلة على الجمع والطرح (2)</h3>
-      <div class="example">
-        <p><strong>ثانياً (b):</strong> انتبه لتوزيع إشارة السالب على القوس الثاني:
-          \[\begin{aligned}
-          &= 3x^2 - 5x + 6 \textbf{ - } 2x^2 \textbf{ - } 3x \textbf{ + } 3 \\
-          &= (\textcolor{red}{3x^2 - 2x^2}) + (\textcolor{cyan}{-5x - 3x}) + (6 + 3) \\
-          &= \textcolor{red}{x^2} \textcolor{cyan}{- 8x} + 9
-          \end{aligned}\]</p>
-
-        <p><strong>ثالثاً (c):</strong>
-          \[\begin{aligned}
-          &= \textcolor{red}{x^2} + \textcolor{cyan}{4x} - 1 + \textcolor{red}{5x^2} + \textcolor{cyan}{x} \\
-          &= (\textcolor{red}{x^2 + 5x^2}) + (\textcolor{cyan}{4x + x}) - 1 \\
-          &= \mathbf{6x^2 + 5x - 1}
-          \end{aligned}\]</p>
-      </div>
-    </section>
-
-    <!-- Slide 10 -->
-    <section class="slide">
       <h3 id="ضرب-كثيرة-الحدود-بعدد-حقيقي">ضرب كثيرة الحدود بعدد حقيقي</h3>
       <div class="definition">
         <p>عند ضرب عدد حقيقي \(k\) في كثيرة حدود من الدرجة \(n\)، فإننا نضرب العدد الحقيقي في جميع معاملات كثيرة الحدود
           (خاصية التوزيع): \[ k(a_n x^n + \dots + a_1 x + a_0) = k a_n x^n + \dots + k a_1 x + k a_0 \]</p>
       </div>
       <div class="example">
-        <p>قم بتبسيط المقادير التالية:</p>
-        <p><strong>أولاً (a): \(3(2x^2 + 4x - 1)\)</strong></p>
-        <p>نوزع العدد \(\textcolor{red}{3}\) على جميع الحدود داخل القوس:
-          \[\begin{aligned}
-          3(2x^2 + 4x - 1) &= (\textcolor{red}{3} \cdot 2)x^2 + (\textcolor{red}{3} \cdot 4)x + (\textcolor{red}{3}
-          \cdot -1) \\
-          &= 6x^2 + 12x - 3
-          \end{aligned}\]</p>
-        <p><strong>ثانياً (b): \(-2(5x - 3)\)</strong></p>
-        <p>نوزع العدد \(\textcolor{red}{-2}\) (انتبه لإشارة السالب):
-          \[\begin{aligned}
-          -2(5x - 3) &= (\textcolor{red}{-2})(5)x + (\textcolor{red}{-2})(-3) \\
-          &= -10x + 6
-          \end{aligned}\]</p>
-      </div>
-    </section>
+        <p><strong>السؤال:</strong> قم بتبسيط المقادير التالية:</p>
+        <div class="grid grid-2" style="margin-top: 1.5rem;">
 
-    <!-- Slide 11 -->
-    <section class="slide">
+          <!-- Problem 1 -->
+          <div>
+            <p style="border-bottom: 2px solid #eee; padding-bottom: 0.5rem; margin-bottom: 0.5rem;"><strong>1) ضرب في
+                عدد موجب:</strong></p>
+            <p>\[ 3(2x^2 + 4x - 1) \]</p>
+            <p><strong>الحل:</strong> نوزع العدد \(\textcolor{red}{3}\) على جميع الحدود داخل القوس:</p>
+            <p>\[\begin{aligned}
+              3(2x^2 + 4x - 1) &= (\textcolor{red}{3} \cdot 2)x^2 + (\textcolor{red}{3} \cdot 4)x + (\textcolor{red}{3}
+              \cdot -1) \\
+              &= 6x^2 + 12x - 3
+              \end{aligned}\]</p>
+          </div>
+
+          <!-- Problem 2 -->
+          <div>
+            <p style="border-bottom: 2px solid #eee; padding-bottom: 0.5rem; margin-bottom: 0.5rem;"><strong>2) ضرب في
+                عدد سالب:</strong></p>
+            <p>\[ -2(5x - 3) \]</p>
+            <p><strong>الحل:</strong> نوزع العدد \(\textcolor{red}{-2}\) (<span
+                style="color: #d35400; font-weight: bold;">انتبه لإشارة السالب</span>):</p>
+            <p>\[\begin{aligned}
+              -2(5x - 3) &= (\textcolor{red}{-2})(5)x + (\textcolor{red}{-2})(-3) \\
+              &= -10x + 6
+              \end{aligned}\]</p>
+          </div>
+
+        </div>
+      </div>
+
       <h3 id="ضرب-كثيرات-الحدود">ضرب كثيرات الحدود</h3>
       <p>قبل البدء في عمليات الضرب، يجب مراجعة خصائص الأسس لأنها أساسية في ضرب المتغيرات.</p>
       <div class="myrule">
         <p>إذا كان \(x, y\) عددين حقيقيين و \(m, n\) عددين صحيحين، فإن:</p>
         <div class="center" style="overflow-x: auto;">
-          <table class="premium-table" style="width: 100%; border-collapse: collapse;">
+          <table class="premium-table">
             <thead>
-              <tr style="background-color: #2c3e50; color: white;">
-                <th style="padding: 10px; border: 1px solid #ddd; text-align: left;"><strong>الخاصية</strong></th>
-                <th style="padding: 10px; border: 1px solid #ddd; text-align: left;"><strong>مثال</strong></th>
+              <tr>
+                <th><strong>الخاصية</strong></th>
+                <th><strong>مثال</strong></th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td style="padding: 10px; border: 1px solid #ddd; text-align: left;">\(x^0 = 1, \quad x \neq 0\)</td>
-                <td style="padding: 10px; border: 1px solid #ddd; text-align: left;">\(8^0 = 1\)</td>
+                <td>\(x^0 = 1, \quad x \neq 0\)</td>
+                <td>\(8^0 = 1\)</td>
               </tr>
               <tr>
-                <td style="padding: 10px; border: 1px solid #ddd; text-align: left;">\(x^m \cdot x^n = x^{m+n}\)</td>
-                <td style="padding: 10px; border: 1px solid #ddd; text-align: left;">\(x^2 \cdot x^5 = x^{2+5} = x^7\)
+                <td>\(x^m \cdot x^n = x^{m+n}\)</td>
+                <td>\(x^2 \cdot x^5 = x^{2+5} = x^7\)
                 </td>
               </tr>
               <tr>
-                <td style="padding: 10px; border: 1px solid #ddd; text-align: left;">\(\frac{x^m}{x^n} = x^{m-n}, \quad
+                <td>\(\frac{x^m}{x^n} = x^{m-n}, \quad
                   x \neq 0\)</td>
-                <td style="padding: 10px; border: 1px solid #ddd; text-align: left;">\(\frac{x^6}{x^2} = x^{6-2} = x^4\)
+                <td>\(\frac{x^6}{x^2} = x^{6-2} = x^4\)
                 </td>
               </tr>
               <tr>
-                <td style="padding: 10px; border: 1px solid #ddd; text-align: left;">\(x^{-m} = \frac{1}{x^m}, \quad
+                <td>\(x^{-m} = \frac{1}{x^m}, \quad
                   \frac{1}{x^{-m}} = x^m\)</td>
-                <td style="padding: 10px; border: 1px solid #ddd; text-align: left;">\(x^{-2} = \frac{1}{x^2}, \quad
+                <td>\(x^{-2} = \frac{1}{x^2}, \quad
                   \frac{1}{x^{-2}} = x^2\)</td>
               </tr>
               <tr>
-                <td style="padding: 10px; border: 1px solid #ddd; text-align: left;">\((x^m)^n = x^{m \cdot n}\)</td>
-                <td style="padding: 10px; border: 1px solid #ddd; text-align: left;">\((x^3)^2 = x^{3 \cdot 2} = x^6\)
+                <td>\((x^m)^n = x^{m \cdot n}\)</td>
+                <td>\((x^3)^2 = x^{3 \cdot 2} = x^6\)
                   \((2^2)^4 = 2^{2 \cdot 4} = 2^8\)</td>
               </tr>
               <tr>
-                <td style="padding: 10px; border: 1px solid #ddd; text-align: left;">\((x \cdot y)^m = x^m \cdot y^m\)
+                <td>\((x \cdot y)^m = x^m \cdot y^m\)
                 </td>
-                <td style="padding: 10px; border: 1px solid #ddd; text-align: left;">\((3x)^2 = 3^2 x^2 = 9x^2\)</td>
+                <td>\((3x)^2 = 3^2 x^2 = 9x^2\)</td>
               </tr>
               <tr>
-                <td style="padding: 10px; border: 1px solid #ddd; text-align: left;">\(\left(\frac{x}{y}\right)^m =
+                <td>\(\left(\frac{x}{y}\right)^m =
                   \frac{x^m}{y^m}, \quad y \neq 0\)</td>
-                <td style="padding: 10px; border: 1px solid #ddd; text-align: left;">\(\left(\frac{x}{2}\right)^2 =
+                <td>\(\left(\frac{x}{2}\right)^2 =
                   \frac{x^2}{2^2} = \frac{x^2}{4}\)</td>
               </tr>
               <tr>
-                <td style="padding: 10px; border: 1px solid #ddd; text-align: left;">\(\left(\frac{x}{y}\right)^{-m} =
+                <td>\(\left(\frac{x}{y}\right)^{-m} =
                   \left(\frac{y}{x}\right)^m\)</td>
-                <td style="padding: 10px; border: 1px solid #ddd; text-align: left;">\(\left(\frac{y}{x}\right)^{-5} =
+                <td>\(\left(\frac{y}{x}\right)^{-5} =
                   \left(\frac{x}{y}\right)^5 = \frac{x^5}{y^5}\)</td>
               </tr>
             </tbody>
           </table>
         </div>
       </div>
-    </section>
 
-    <!-- Slide 12 -->
-    <section class="slide">
       <h3>قاعدة ضرب كثيرات الحدود</h3>
       <div class="definition">
         <p>عند ضرب كثيرتي حدود، فإننا نقوم بتوزيع جميع الحدود في القوس الأول على جميع الحدود في القوس الثاني، وبعد ذلك
           نجمع الحدود المتشابهة إذا أمكن.</p>
       </div>
       <div class="example">
-        <p>أوجد حاصل ضرب كثيرتي الحدود واكتب الناتج في أبسط صورة:</p>
-        <ul>
-          <li>\((2x^2 + 3)(4x + 5)\)</li>
-          <li>\((x - 2)(x + 1)\)</li>
-        </ul>
-        <p><strong>الحل:</strong></p>
-        <p><strong>أولاً (a):</strong> نوزع حدود القوس الأول على القوس الثاني:
-          \[\begin{aligned}
-          (2x^2 + 3)(4x + 5) &= \textcolor{red}{2x^2}(4x + 5) + \textcolor{blue}{3}(4x + 5) \\
-          &= (\textcolor{red}{2x^2} \cdot 4x) + (\textcolor{red}{2x^2} \cdot 5) + (\textcolor{blue}{3} \cdot 4x) +
-          (\textcolor{blue}{3} \cdot 5) \\
-          &= 8x^3 + 10x^2 + 12x + 15
-          \end{aligned}\]</p>
-        <p><strong>ثانياً (b):</strong>
-          \[\begin{aligned}
-          (x - 2)(x + 1) &= \textcolor{red}{x}(x + 1) \textcolor{blue}{- 2}(x + 1) \\
-          &= (\textcolor{red}{x} \cdot x) + (\textcolor{red}{x} \cdot 1) + (\textcolor{blue}{-2} \cdot x) +
-          (\textcolor{blue}{-2} \cdot 1) \\
-          &= x^2 + x - 2x - 2 \\
-          &= x^2 - x - 2
-          \end{aligned}\]</p>
-      </div>
-    </section>
+        <p><strong>السؤال:</strong> أوجد حاصل ضرب كثيرتي الحدود واكتب الناتج في أبسط صورة:</p>
+        <div class="grid grid-2" style="margin-top: 1.5rem;">
 
-    <!-- Slide 13 -->
-    <section class="slide">
+          <!-- Problem 1 -->
+          <div>
+            <p style="border-bottom: 2px solid #eee; padding-bottom: 0.5rem; margin-bottom: 0.5rem;"><strong>1) ضرب حدين
+                في حدين:</strong></p>
+            <p>\[ (2x^2 + 3)(4x + 5) \]</p>
+            <p><strong>الحل:</strong> نوزع حدود القوس الأول على القوس الثاني:</p>
+            <p>\[\begin{aligned}
+              &(2x^2 + 3)(4x + 5)\\ &= \textcolor{red}{2x^2}(4x + 5) + \textcolor{blue}{3}(4x + 5) \\
+              &= (\textcolor{red}{2x^2} \cdot 4x) + (\textcolor{red}{2x^2} \cdot 5) + (\textcolor{blue}{3} \cdot 4x) +
+              (\textcolor{blue}{3} \cdot 5) \\
+              &= 8x^3 + 10x^2 + 12x + 15
+              \end{aligned}\]</p>
+          </div>
+
+          <!-- Problem 2 -->
+          <div>
+            <p style="border-bottom: 2px solid #eee; padding-bottom: 0.5rem; margin-bottom: 0.5rem;"><strong>2) ضرب مع
+                تبسيط:</strong></p>
+            <p>\[ (x - 2)(x + 1) \]</p>
+            <p><strong>الحل:</strong></p>
+            <p>\[\begin{aligned}
+              &(x - 2)(x + 1)\\ &= \textcolor{red}{x}(x + 1) \textcolor{blue}{- 2}(x + 1) \\
+              &= (\textcolor{red}{x} \cdot x) + (\textcolor{red}{x} \cdot 1) + (\textcolor{blue}{-2} \cdot x) +
+              (\textcolor{blue}{-2} \cdot 1) \\
+              &= x^2 + x - 2x - 2 \\
+              &= x^2 - x - 2
+              \end{aligned}\]</p>
+          </div>
+
+        </div>
+      </div>
+
       <h3>بعض المتطابقات الجبرية</h3>
       <div class="myrule">
         <p>فيما يلي قائمة بأهم المتطابقات الجبرية التي يكثر استخدامها:</p>
         <div class="center" style="overflow-x: auto;">
-          <table class="premium-table" style="width: 100%; border-collapse: collapse;">
+          <table class="premium-table">
             <thead>
-              <tr style="background-color: #2c3e50; color: white;">
-                <th style="padding: 10px; border: 1px solid #ddd; text-align: left;"><strong>القانون</strong></th>
-                <th style="padding: 10px; border: 1px solid #ddd; text-align: left;"><strong>المثال</strong></th>
+              <tr>
+                <th><strong>القانون</strong></th>
+                <th><strong>المثال</strong></th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td style="text-align: left; padding: 10px; border: 1px solid #ddd;">\(\quad (x+y)(x-y) = x^2 - y^2\)
+                <td>\(\quad (x+y)(x-y) = x^2 - y^2\)
                 </td>
-                <td style="text-align: left; padding: 10px; border: 1px solid #ddd;">\((x+3)(x-3) = x^2 - 9\)</td>
+                <td>\((x+3)(x-3) = x^2 - 9\)</td>
               </tr>
               <tr>
-                <td style="text-align: left; padding: 10px; border: 1px solid #ddd;">\(\begin{aligned}[t] \quad (x+y)^2
+                <td>\(\begin{aligned}[t] \quad (x+y)^2
                   &= (x+y)(x+y) \\ &= x^2 + 2xy + y^2 \end{aligned}\)</td>
-                <td style="text-align: left; padding: 10px; border: 1px solid #ddd;">\(\begin{aligned}[t] (x+5)^2 &=
+                <td>\(\begin{aligned}[t] (x+5)^2 &=
                   (x+5)(x+5) \\ &= x^2 + 10x + 25 \end{aligned}\)</td>
               </tr>
               <tr>
-                <td style="text-align: left; padding: 10px; border: 1px solid #ddd;">\(\begin{aligned}[t] \quad (x-y)^2
+                <td>\(\begin{aligned}[t] \quad (x-y)^2
                   &= (x-y)(x-y) \\ &= x^2 - 2xy + y^2 \end{aligned}\)</td>
-                <td style="text-align: left; padding: 10px; border: 1px solid #ddd;">\(\begin{aligned}[t] (x-5)^2 &=
+                <td>\(\begin{aligned}[t] (x-5)^2 &=
                   (x-5)(x-5) \\ &= x^2 - 10x + 25 \end{aligned}\)</td>
               </tr>
               <tr>
-                <td style="text-align: left; padding: 10px; border: 1px solid #ddd;">\(\begin{aligned}[t] \quad (x+y)^3
+                <td>\(\begin{aligned}[t] \quad (x+y)^3
                   &= x^3 + 3x^2y + 3xy^2 + y^3 \end{aligned}\)</td>
-                <td style="text-align: left; padding: 10px; border: 1px solid #ddd;">\(\begin{aligned}[t] (x+5)^3 &=
+                <td>\(\begin{aligned}[t] (x+5)^3 &=
                   (x+5)(x+5)(x+5) \\ &= x^3 + 15x^2 + 75x + 125 \end{aligned}\)</td>
               </tr>
               <tr>
-                <td style="text-align: left; padding: 10px; border: 1px solid #ddd;">\(\begin{aligned}[t] \quad (x-y)^3
+                <td>\(\begin{aligned}[t] \quad (x-y)^3
                   &= x^3 - 3x^2y + 3xy^2 - y^3 \end{aligned}\)</td>
-                <td style="text-align: left; padding: 10px; border: 1px solid #ddd;">\(\begin{aligned}[t] (x-5)^3 &=
+                <td>\(\begin{aligned}[t] (x-5)^3 &=
                   (x-5)(x-5)(x-5) \\ &= x^3 - 15x^2 + 75x - 125 \end{aligned}\)</td>
               </tr>
             </tbody>
           </table>
         </div>
       </div>
-    </section>
 
-    <!-- Slide 14 -->
-    <section class="slide">
       <h3 id="حساب-كثيرة-حدود-عند-قيمة-معينة">حساب كثيرة حدود عند قيمة معينة</h3>
       <div class="myrule">
         <p>لحساب قيمة كثيرة الحدود عند قيمة معينة للمتغير، نعوض المتغير في كثيرة الحدود بهذه القيمة.</p>
       </div>
       <div class="example">
         <div class="center" style="overflow-x: auto;">
-          <table class="premium-table" style="width: 100%; border-collapse: collapse;">
+          <table class="premium-table">
             <thead>
-              <tr style="background-color: #2c3e50; color: white;">
-                <th style="text-align: left; padding: 10px; border: 1px solid #ddd;"><strong>كثيرة الحدود</strong></th>
-                <th style="text-align: left; padding: 10px; border: 1px solid #ddd;"><strong>قيم \(x\)</strong></th>
-                <th style="text-align: left; padding: 10px; border: 1px solid #ddd;"><strong>الحل</strong></th>
+              <tr>
+                <th><strong>كثيرة الحدود</strong></th>
+                <th><strong>قيم \(x\)</strong></th>
+                <th><strong>الحل</strong></th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td style="text-align: left; padding: 10px; border: 1px solid #ddd;">\(x^2 + 4x - 1\)</td>
-                <td style="text-align: left; padding: 10px; border: 1px solid #ddd;">\(x=0\)</td>
-                <td style="text-align: left; padding: 10px; border: 1px solid #ddd;">\((0)^2 + 4(0) - 1 = 0 + 0 - 1 =
+                <td>\(x^2 + 4x - 1\)</td>
+                <td>\(x=0\)</td>
+                <td>\((0)^2 + 4(0) - 1 = 0 + 0 - 1 =
                   -1\)</td>
               </tr>
               <tr>
-                <td style="text-align: left; padding: 10px; border: 1px solid #ddd;">\(4x^3 + 2\)</td>
-                <td style="text-align: left; padding: 10px; border: 1px solid #ddd;">\(x=1\)</td>
-                <td style="text-align: left; padding: 10px; border: 1px solid #ddd;">\(4(1)^3 + 2 = 4(1) + 2 = 4 + 2 =
+                <td>\(4x^3 + 2\)</td>
+                <td>\(x=1\)</td>
+                <td>\(4(1)^3 + 2 = 4(1) + 2 = 4 + 2 =
                   6\)</td>
               </tr>
               <tr>
-                <td style="text-align: left; padding: 10px; border: 1px solid #ddd;">\(2x - 3\)</td>
-                <td style="text-align: left; padding: 10px; border: 1px solid #ddd;">\(x=2\)</td>
-                <td style="text-align: left; padding: 10px; border: 1px solid #ddd;">\(2(2) - 3 = 4 - 3 = 1\)</td>
+                <td>\(2x - 3\)</td>
+                <td>\(x=2\)</td>
+                <td>\(2(2) - 3 = 4 - 3 = 1\)</td>
               </tr>
               <tr>
-                <td style="text-align: left; padding: 10px; border: 1px solid #ddd;">\(3x^2 - 1\)</td>
-                <td style="text-align: left; padding: 10px; border: 1px solid #ddd;">\(x=-3\)</td>
-                <td style="text-align: left; padding: 10px; border: 1px solid #ddd;">\(3(-3)^2 - 1 = 3(9) - 1 = 27 - 1 =
+                <td>\(3x^2 - 1\)</td>
+                <td>\(x=-3\)</td>
+                <td>\(3(-3)^2 - 1 = 3(9) - 1 = 27 - 1 =
                   26\)</td>
               </tr>
             </tbody>
           </table>
         </div>
       </div>
-    </section>
 
-    <!-- Slide 15 -->
-    <section class="slide">
       <h3 id="قسمة-كثيرات-الحدود">قسمة كثيرات الحدود</h3>
       <div class="myrule">
         <p>قسمة كثيرة حدود على كثيرة حدود أخرى تشبه عملية القسمة المطولة في الأعداد الصحيحة.</p>
@@ -447,7 +477,8 @@
       <div class="example">
         <div class="center" style="margin: 2rem 0; text-align: center;">
           <img src="u1-1.png" alt="شرح القسمة المطولة"
-            style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);" loading="lazy">
+            style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);"
+            loading="lazy">
         </div>
       </div>
     </section>
@@ -466,22 +497,32 @@
           والمتغيرات حداً يُعرف بـ <strong>العامل المشترك الأكبر</strong>.</p>
       </div>
       <div class="example">
-        <p>حلل كثيرات الحدود التالية باستخدام المعامل المشترك الأكبر: \[ a) \quad 6x^2 + 8x^4 \hspace{2cm} b) \quad 3x^7
-          - x^3y^4 \]</p>
-        <p><strong>الحل:</strong></p>
-        <p><strong>أولاً (a):</strong> العامل المشترك الأكبر بين الحدين الجبريين \(8x^4\) و \(6x^2\) هو
-          \(\textcolor{red}{2x^2}\) وبالتالي:
-          \[ 6x^2 + 8x^4 = \textcolor{red}{2x^2} \left( \frac{6x^2}{\textcolor{red}{2x^2}} +
-          \frac{8x^4}{\textcolor{red}{2x^2}} \right) = \textcolor{red}{2x^2} (3 + 4x^2) \]</p>
-        <p><strong>ثانياً (b):</strong> العامل المشترك الأكبر بين الحدين الجبريين \(-x^3y^4\) و \(3x^7\) هو
-          \(\textcolor{red}{x^3}\) وبالتالي:
-          \[ 3x^7 - x^3y^4 = \textcolor{red}{x^3} \left( \frac{3x^7}{\textcolor{red}{x^3}} -
-          \frac{x^3y^4}{\textcolor{red}{x^3}} \right) = \textcolor{red}{x^3} (3x^4 - y^4) \]</p>
-      </div>
-    </section>
+        <p><strong>السؤال:</strong> حلل كثيرات الحدود التالية باستخدام المعامل المشترك الأكبر:</p>
+        <div class="grid grid-2" style="margin-top: 1.5rem;">
 
-    <!-- Slide 17 -->
-    <section class="slide">
+          <!-- Problem 1 -->
+          <div>
+            <p style="border-bottom: 2px solid #eee; padding-bottom: 0.5rem; margin-bottom: 0.5rem;"><strong>1) حدود
+                عددية ومتغيرة:</strong></p>
+            <p>\[ 6x^2 + 8x^4 \]</p>
+            <p><strong>الحل:</strong> العامل المشترك الأكبر هو \(\textcolor{red}{2x^2}\):</p>
+            <p>\[ 6x^2 + 8x^4 = \textcolor{red}{2x^2} \left( \frac{6x^2}{\textcolor{red}{2x^2}} +
+              \frac{8x^4}{\textcolor{red}{2x^2}} \right) = \textcolor{red}{2x^2} (3 + 4x^2) \]</p>
+          </div>
+
+          <!-- Problem 2 -->
+          <div>
+            <p style="border-bottom: 2px solid #eee; padding-bottom: 0.5rem; margin-bottom: 0.5rem;"><strong>2) متغيرات
+                متعددة:</strong></p>
+            <p>\[ 3x^7 - x^3y^4 \]</p>
+            <p><strong>الحل:</strong> العامل المشترك الأكبر هو \(\textcolor{red}{x^3}\):</p>
+            <p>\[ 3x^7 - x^3y^4 = \textcolor{red}{x^3} \left( \frac{3x^7}{\textcolor{red}{x^3}} -
+              \frac{x^3y^4}{\textcolor{red}{x^3}} \right) = \textcolor{red}{x^3} (3x^4 - y^4) \]</p>
+          </div>
+
+        </div>
+      </div>
+
       <h3 id="تحليل-كثيرة-حدود-من-الدرجة-الثانية">تحليل كثيرة حدود من الدرجة الثانية</h3>
       <p><strong>تحليل فرق مربعين:</strong></p>
       <div class="myrule">
@@ -489,22 +530,39 @@
           \textcolor{blue}{y})(\textcolor{red}{x} + \textcolor{blue}{y}) \]</p>
       </div>
       <div class="example">
-        <ul>
-          <li>\(x^2 - 16\)</li>
-          <li>\(y^2 - 4\)</li>
-          <li>\(9 - x^2\)</li>
-        </ul>
-        <p><strong>الحل:</strong></p>
-        <p>\[\begin{aligned}
-          &a) \quad x^2 - 16 =x^2-(\sqrt{16})^2= (x - 4)(x + 4) \\
-          &b) \quad y^2 - 4 =y^2-(\sqrt{4})^2= (y - 2)(y + 2) \\
-          & c) \quad 9 - x^2 =(\sqrt{9})^2-x^2= (3 - x)(3 + x)
-          \end{aligned}\]</p>
-      </div>
-    </section>
+        <p><strong>السؤال:</strong> حلل المقادير التالية (فرق بين مربعين):</p>
+        <div class="grid grid-3" style="margin-top: 1.5rem; gap: 1rem;">
 
-    <!-- Slide 18 -->
-    <section class="slide">
+          <!-- Problem 1 -->
+          <div>
+            <p style="border-bottom: 2px solid #eee; padding-bottom: 0.5rem; margin-bottom: 0.5rem;"><strong>1) المثال
+                الأول:</strong></p>
+            <p>\[ x^2 - 16 \]</p>
+            <p><strong>الحل:</strong> \( 16 = 4^2 \)</p>
+            <p>\[ (x - 4)(x + 4) \]</p>
+          </div>
+
+          <!-- Problem 2 -->
+          <div>
+            <p style="border-bottom: 2px solid #eee; padding-bottom: 0.5rem; margin-bottom: 0.5rem;"><strong>2) المثال
+                الثاني:</strong></p>
+            <p>\[ y^2 - 4 \]</p>
+            <p><strong>الحل:</strong> \( 4 = 2^2 \)</p>
+            <p>\[ (y - 2)(y + 2) \]</p>
+          </div>
+
+          <!-- Problem 3 -->
+          <div>
+            <p style="border-bottom: 2px solid #eee; padding-bottom: 0.5rem; margin-bottom: 0.5rem;"><strong>3) المثال
+                الثالث:</strong></p>
+            <p>\[ 9 - x^2 \]</p>
+            <p><strong>الحل:</strong> \( 9 = 3^2 \)</p>
+            <p>\[ (3 - x)(3 + x) \]</p>
+          </div>
+
+        </div>
+      </div>
+
       <h3 id="تحليل-كثيرة-حدود-على-الصورة-ax2-bx-c">تحليل كثيرة حدود على الصورة \(ax^2 + bx + c\)</h3>
       <h4 class="unnumbered" id="الحالة-الأولى-a-1">الحالة الأولى: \(a = 1\)</h4>
       <div class="myrule">
@@ -513,26 +571,39 @@
           m)(x + n) \]</p>
       </div>
       <div class="example">
-        <div class="center">
-          <p>\(a) \quad x^2 + 5x + 6 \hspace{2cm} b) \quad x^2 - 6x + 8 \hspace{2cm} c) \quad x^2 + x - 12\)</p>
-        </div>
-        <p><strong>الحل:</strong></p>
-        <ul>
-          <li><strong>\(x^2 + 5x + 6\)</strong><br />
-            نبحث عن عددين حاصل ضربهما \(6\) ومجموعهما \(5\). (العددان هما \(2, 3\)). \[ x^2 + 5x + 6 = (x + 2)(x + 3) \]
-          </li>
-          <li><strong>\(x^2 - 6x + 8\)</strong><br />
-            نبحث عن عددين حاصل ضربهما \(8\) ومجموعهما \(-6\). (العددان هما \(-2, -4\)). \[ x^2 - 6x + 8 = (x - 2)(x - 4)
-            \]</li>
-          <li><strong>\(x^2 + x - 12\)</strong><br />
-            نبحث عن عددين حاصل ضربهما \(-12\) ومجموعهما \(+1\). (العددان هما \(4, -3\)). \[ x^2 + x - 12 = (x - 3)(x +
-            4) \]</li>
-        </ul>
-      </div>
-    </section>
+        <p><strong>السؤال:</strong> حلل المقادير التالية:</p>
+        <div class="grid grid-3" style="margin-top: 1.5rem; gap: 1rem;">
 
-    <!-- Slide 19 -->
-    <section class="slide">
+          <!-- Problem 1 -->
+          <div>
+            <p style="border-bottom: 2px solid #eee; padding-bottom: 0.5rem; margin-bottom: 0.5rem;"><strong>1) جميع
+                الإشارات موجبة:</strong></p>
+            <p>\[ x^2 + 5x + 6 \]</p>
+            <p><strong>الحل:</strong> عددان ضربهما 6 ومجموعهما 5 (هما 2, 3):</p>
+            <p>\[ (x + 2)(x + 3) \]</p>
+          </div>
+
+          <!-- Problem 2 -->
+          <div>
+            <p style="border-bottom: 2px solid #eee; padding-bottom: 0.5rem; margin-bottom: 0.5rem;"><strong>2) الحد
+                الأوسط سالب:</strong></p>
+            <p>\[ x^2 - 6x + 8 \]</p>
+            <p><strong>الحل:</strong> عددان ضربهما 8 ومجموعهما -6 (هما -2, -4):</p>
+            <p>\[ (x - 2)(x - 4) \]</p>
+          </div>
+
+          <!-- Problem 3 -->
+          <div>
+            <p style="border-bottom: 2px solid #eee; padding-bottom: 0.5rem; margin-bottom: 0.5rem;"><strong>3) إشارات
+                مختلفة:</strong></p>
+            <p>\[ x^2 + x - 12 \]</p>
+            <p><strong>الحل:</strong> عددان ضربهما -12 ومجموعهما +1 (هما 4, -3):</p>
+            <p>\[ (x - 3)(x + 4) \]</p>
+          </div>
+
+        </div>
+      </div>
+
       <h4 class="unnumbered" id="الحالة-الثانية-a-neq-1">الحالة الثانية: \(a \neq 1\)</h4>
       <div class="myrule">
         <p>في هذه الحالة نبحث عن أربعة أعداد صحيحة \(m, n, p, q\) تستوفي الشروط الثلاثة التالية: \[ 1) \ mn = a
@@ -547,14 +618,28 @@
         </ul>
       </div>
       <div class="example">
-        <div class="center">
-          <p>\(a) \quad 3x^2 + 5x + 2 \hspace{3cm} b) \quad 10x^2 - 27x + 5\)</p>
+        <p><strong>السؤال:</strong> حلل كثيرات الحدود التالية:</p>
+        <div class="grid grid-2" style="margin-top: 1.5rem;">
+
+          <!-- Problem 1 -->
+          <div>
+            <p style="border-bottom: 2px solid #eee; padding-bottom: 0.5rem; margin-bottom: 0.5rem;"><strong>1) الحالة
+                الأولى (معاملات صغيرة):</strong></p>
+            <p>\[ 3x^2 + 5x + 2 \]</p>
+            <p><strong>الحل:</strong> نبحث عن أعداد تحقق الشروط (\(mn=3\)، \(pq=2\)، \(mq+np=5\)):</p>
+            <p>\[ (3x + 2)(x + 1) \]</p>
+          </div>
+
+          <!-- Problem 2 -->
+          <div>
+            <p style="border-bottom: 2px solid #eee; padding-bottom: 0.5rem; margin-bottom: 0.5rem;"><strong>2) الحالة
+                الثانية (مع إشارات):</strong></p>
+            <p>\[ 10x^2 - 27x + 5 \]</p>
+            <p><strong>الحل:</strong> نبحث عن أعداد تحقق الشروط (\(mn=10\)، \(pq=5\)، \(mq+np=-27\)):</p>
+            <p>\[ (2x - 5)(5x - 1) \]</p>
+          </div>
+
         </div>
-        <p><strong>الحل:</strong></p>
-        <p><strong>أولاً (a):</strong> \(3x^2 + 5x + 2\)<br />
-          نبحث عن أعداد تحقق الشروط (\(mn=3\)، \(pq=2\)، \(mq+np=5\)). \[ 3x^2 + 5x + 2 = (3x + 2)(x + 1) \]</p>
-        <p><strong>ثانياً (b):</strong> \(10x^2 - 27x + 5\)<br />
-          نبحث عن أعداد تحقق الشروط (\(mn=10\)، \(pq=5\)، \(mq+np=-27\)). \[ 10x^2 - 27x + 5 = (2x - 5)(5x - 1) \]</p>
       </div>
     </section>
 
@@ -569,28 +654,41 @@
         <p>عملية اختصار الكسر الجبري هي حذف الحدود المشتركة في البسط والمقام؛ لذا فإن عملية الاختصار تتطلب منا الإدراك
           الجيد لعمليات التحليل التي سبق دراستها في هذه الوحدة.</p>
       </div>
-    </section>
 
-    <!-- Slide 21 -->
-    <section class="slide">
       <h3>أمثلة على اختصار الكسور الجبرية</h3>
       <div class="example">
-        <p>(a) \[ \frac{x^2 + 5x + 6}{x^2 - 9} \] (b) \[ \frac{x + 4}{x^2 + 2x - 8} \] (c) \[ \frac{x^2 - 5x + 6}{x^2 +
-          x - 2} \cdot \frac{x - 1}{x - 2} \]</p>
-        <p><strong>الحل:</strong> نقوم بتحليل البسط والمقام إذا أمكن، وبعدها نحذف الحدود المشتركة.</p>
-        <ul>
-          <li>\[ \frac{x^2 + 5x + 6}{x^2 - 9} = \frac{(x + 2)\textcolor{red}{(x + 3)}}{(x - 3)\textcolor{red}{(x + 3)}}
-            = \frac{x + 2}{x - 3} \]</li>
-          <li>\[ \frac{x + 4}{x^2 + 2x - 8} = \frac{\textcolor{red}{(x + 4)}}{(x - 2)\textcolor{red}{(x + 4)}} =
-            \frac{1}{x - 2} \]</li>
-          <li>\[\begin{aligned}
-            \frac{x^2 - 5x + 6}{x^2 + x - 2} \cdot \frac{x - 1}{x - 2} &= \frac{(x^2 - 5x + 6)(x - 1)}{(x^2 + x - 2)(x -
-            2)} \\
-            &= \frac{\textcolor{red}{(x - 2)}(x - 3)\textcolor{red}{(x - 1)}}{(x + 2)\textcolor{red}{(x -
-            1)}\textcolor{red}{(x - 2)}} \\
-            &= \frac{x - 3}{x + 2}
-            \end{aligned}\]</li>
-        </ul>
+        <p><strong>السؤال:</strong> بسط الكسور الجبرية التالية:</p>
+        <div class="grid grid-3" style="margin-top: 1.5rem; gap: 1rem;">
+
+          <!-- Problem 1 -->
+          <div>
+            <p style="border-bottom: 2px solid #eee; padding-bottom: 0.5rem; margin-bottom: 0.5rem;"><strong>1) فرق
+                مربعين:</strong></p>
+            <p>\[ \frac{x^2 + 5x + 6}{x^2 - 9} \]</p>
+            <p><strong>الحل:</strong></p>
+            <p>\[ \frac{(x + 2)\textcolor{red}{(x + 3)}}{(x - 3)\textcolor{red}{(x + 3)}} = \frac{x + 2}{x - 3} \]</p>
+          </div>
+
+          <!-- Problem 2 -->
+          <div>
+            <p style="border-bottom: 2px solid #eee; padding-bottom: 0.5rem; margin-bottom: 0.5rem;"><strong>2) حذف قوس
+                كامل:</strong></p>
+            <p>\[ \frac{x + 4}{x^2 + 2x - 8} \]</p>
+            <p><strong>الحل:</strong></p>
+            <p>\[ \frac{\textcolor{red}{(x + 4)}}{(x - 2)\textcolor{red}{(x + 4)}} = \frac{1}{x - 2} \]</p>
+          </div>
+
+          <!-- Problem 3 -->
+          <div style="grid-column: 1 / -1; border-top: 1px dashed #ccc; padding-top: 1rem;">
+            <p style="border-bottom: 2px solid #eee; padding-bottom: 0.5rem; margin-bottom: 0.5rem;"><strong>3) ضرب
+                الكسور:</strong></p>
+            <p>\[ \frac{x^2 - 5x + 6}{x^2 + x - 2} \cdot \frac{x - 1}{x - 2} \]</p>
+            <p><strong>الحل:</strong></p>
+            <p>\[ \frac{\textcolor{red}{(x - 2)}(x - 3)\textcolor{red}{(x - 1)}}{(x + 2)\textcolor{red}{(x -
+              1)}\textcolor{red}{(x - 2)}} = \frac{x - 3}{x + 2} \]</p>
+          </div>
+
+        </div>
       </div>
     </section>
 
@@ -630,7 +728,7 @@
   <!-- Footer -->
   <div id="footer-container"></div>
 
-  <script src="main.min.js" defer></script>
+  <script src="main.js" defer></script>
 </body>
 
 </html>

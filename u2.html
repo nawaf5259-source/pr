@@ -118,7 +118,7 @@
     <!-- Slide 4 -->
     <section class="slide">
       <div class="myrule">
-        <p>رتبة المصفوفة هي حاصل ضرب عدد الصفوف في عدد الأعمدة:</p>
+        <p>رتبة المصفوفة هي حاصل ضرب عدد الصفوف \(m\) في عدد الأعمدة \(n\):</p>
         <p>رتبة المصفوفة :\( A = \textcolor{red}{m} \times \textcolor{blue}{n}\)</p>
       </div>
       <div class="note">
@@ -132,7 +132,9 @@
     <!-- Slide 5 -->
     <section class="slide">
       <div class="example">
+        <p2><strong>أوجد رتبة كل مصفوفة من المصفوفات التالية:</strong></p2>
         <div class="center">
+          
           <p>\(A = \begin{bmatrix} 3 & 1 & 0 \\ -1 & -1 & 2 \end{bmatrix} \quad , \quad B = \begin{bmatrix} 2 & 8 \\ 1 &
             3 \end{bmatrix}\)</p>
           <p>\(C = \begin{bmatrix} 2 & 3 \\ -1 & 5 \\ 8 & -5 \end{bmatrix} \quad , \quad D = \begin{bmatrix} 2 & 5 & -3
@@ -152,14 +154,17 @@
     <section class="slide">
       <h3 id="أنواع-المصفوفات"> أنواع المصفوفات</h3>
       <div class="definition">
+        <p2><strong>المصفوفة الصفية</strong></p2>
         <p>هي المصفوفة التي تتكون من صف واحد فقط.</p>
         <p>\[\quad \begin{bmatrix} 1 & 0 & -6 \end{bmatrix}_{1 \times 3}\]</p>
       </div>
       <div class="definition">
+        <p2><strong>المصفوفة العمودية</strong></p2>
         <p>هي المصفوفة التي تتكون من عمود واحد فقط.</p>
         <p>\[\quad \begin{bmatrix} 2 \\ 9 \end{bmatrix}_{2 \times 1}\]</p>
       </div>
       <div class="definition">
+        <p2><strong>المصفوفة المربعة</strong></p2>
         <p>هي مصفوفة عدد صفوفها يساوي عدد أعمدتها.</p>
         <p>\[\quad \begin{bmatrix} 1 & -3 \\ 0 & 2 \end{bmatrix}_{2 \times 2} \quad ، \quad \begin{bmatrix} 7 & 5 & 1 \\
           5 & -3 & 2 \\ 6 & 4 & 3 \end{bmatrix}_{3 \times 3}\]</p>
@@ -169,15 +174,18 @@
     <!-- Slide 7 -->
     <section class="slide">
       <div class="definition">
-        <p>هي المصفوفة التي جميع عناصرها أصفار.</p>
+        <p2><strong>المصفوفة الصفرية</strong></p2>
+        <p>هي المصفوفة التي جميع عناصرها أصفار, ويرمز لها بالرمز \(O\).</p>
         <p>\[\quad \begin{bmatrix} 0 & 0 \\ 0 & 0 \end{bmatrix}_{2 \times 2} \quad ، \quad \begin{bmatrix} 0 & 0 & 0 \\
           0 & 0 & 0 \\ 0 & 0 & 0 \end{bmatrix}_{3 \times 3}\]</p>
       </div>
       <div class="definition">
+        <p2><strong>المصفوفة القطرية</strong></p2>
         <p>هي مصفوفة مربعة جميع عناصرها تساوي صفر ما عدا القطر الرئيسي. \[\begin{bmatrix} 2 & 0 & 0 \\ 0 & 5 & 0 \\ 0 &
           0 & 4 \end{bmatrix}_{3 \times 3}\]</p>
       </div>
       <div class="definition">
+        <p2><strong>مصفوفة الوحدة</strong></p2>
         <p>هي مصفوفة مربعة جميع عناصرها تساوي صفر ما عدا القطر الرئيسي يساوي واحد. ويرمز لها بالرمز \(I_n = I_{n \times
           n}\).</p>
         <p>\[\quad I_2 = \begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix}_{2 \times 2} \quad ، \quad I_3 = \begin{bmatrix} 1
@@ -188,6 +196,7 @@
     <!-- Slide 8 -->
     <section class="slide">
       <div class="example">
+        <p2><strong>ما نوع المصفوفات التالية:</strong></p2>
         <p>\[A = \begin{bmatrix} 2 \\ 7 \\ 1 \end{bmatrix} , \qquad B = \begin{bmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0
           & 1 \end{bmatrix} , \qquad C = \begin{bmatrix} 3 & 0 \\ 0 & 4 \end{bmatrix}\]</p>
         <p><strong>الحل:</strong></p>
@@ -215,18 +224,21 @@
     <!-- Slide 10 -->
     <section class="slide">
       <div class="example">
+<p2><strong>هل المصفوفة A تساوي المصفوفة B</strong></p2>
         <p>\[A = \begin{bmatrix} 3 & 9 \\ 1 & 5 \end{bmatrix} , \qquad B = \begin{bmatrix} 3 & 9 \\ 1 & 5
           \end{bmatrix}\]</p>
         <p><strong>الحل:</strong> نعم، المصفوفة \(A\) تساوي المصفوفة \(B\) لأن لهما نفس الرتبة \(2 \times 2\) وعناصرهما
           المتناظرة متساوية.</p>
       </div>
       <div class="example">
+        <p2><strong>هل المصفوفة A تساوي المصفوفة B</strong></p2>
         <p>\[A = \begin{bmatrix} 3 & 9 \\ 0 & 5 \end{bmatrix} , \qquad B = \begin{bmatrix} 3 & 9 \\ 1 & 5
           \end{bmatrix}\]</p>
         <p><strong>الحل:</strong> لا، لأن المصفوفتان \(A\) و \(B\) غير متساويين لأن أحد عناصرها المتناظرة غير متساوية
           (\(1 \neq 0\))، مع العلم أن لهما نفس الرتبة.</p>
       </div>
       <div class="example">
+        <p2><strong>أوجد قيمة  المتغير x التي تجعل المصفوفة A تساوي المصفوفة B</strong></p2>
         <p>\[A = \begin{bmatrix} 1 & 2 & 5 \\ 3 & 4 & 7 \end{bmatrix} , \qquad B = \begin{bmatrix} x & 2 & 5 \\ 3 & 4 &
           7 \end{bmatrix}\]</p>
         <p><strong>الحل:</strong> نلاحظ أن المصفوفتين \(A\) و \(B\) لهما نفس الرتبة \(2 \times 3\) وأن جميع عناصرهما

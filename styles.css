@@ -1,19 +1,21 @@
 :root {
-    /* Color Palette - Premium Academic */
-    --primary: #0F172A; /* Slate 900 */
-    --primary-light: #1E293B; /* Slate 800 */
-    --primary-glow: rgba(15, 23, 42, 0.4);
-    --accent: #D4AF37; /* Metallic Gold */
-    --accent-hover: #F3D063;
-    --accent-glow: rgba(212, 175, 55, 0.4);
-    --bg-body: #F8FAFC; /* Slate 50 */
+    /* Color Palette - Blueprint / Technical Drafting */
+    --primary: #14304F; /* Blueprint ink */
+    --primary-light: #1C466F; /* Blueprint ink, lighter panel */
+    --primary-glow: rgba(20, 48, 79, 0.4);
+    --accent: #B93C16; /* Redline pencil */
+    --accent-hover: #E2572A;
+    --accent-glow: rgba(185, 60, 22, 0.4);
+    --accent-ink: #FFF8F4; /* Text set on top of the accent */
+    --bg-body: #EAF1F5; /* Drafting paper */
     --bg-card: #FFFFFF;
     --bg-glass: rgba(255, 255, 255, 0.7);
-    --text-main: #334155; /* Softer for better readability */
-    --text-muted: #64748B;
-    --text-heading: #0F172A;
-    --border: #E2E8F0;
+    --text-main: #29455F; /* Softer for better readability */
+    --text-muted: #5A7791;
+    --text-heading: #14304F;
+    --border: #C7D8E2;
     --border-glass: rgba(255, 255, 255, 0.5);
+    --grid-line: rgba(20, 48, 79, 0.06);
 
     /* Semantic Colors */
     --color-info-bg: #EFF6FF;
@@ -24,20 +26,35 @@
     --color-warning-border: #F59E0B;
 
     /* Gradients */
-    --gradient-hero: linear-gradient(135deg, var(--primary) 0%, #020617 100%);
-    --gradient-gold: linear-gradient(135deg, #D4AF37 0%, #FDE047 100%);
+    --gradient-hero: linear-gradient(135deg, var(--primary) 0%, #061A2E 100%);
+    --gradient-gold: linear-gradient(135deg, #B93C16 0%, #E2572A 100%);
     --gradient-glass: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 100%);
 
     /* Shadows - Elevated & Premium */
-    --shadow-sm: 0 2px 4px rgba(15, 23, 42, 0.04);
-    --shadow-md: 0 4px 12px rgba(15, 23, 42, 0.08);
-    --shadow-lg: 0 12px 24px -4px rgba(15, 23, 42, 0.12);
-    --shadow-xl: 0 20px 40px -8px rgba(15, 23, 42, 0.15);
-    
+    --shadow-sm: 0 2px 4px rgba(20, 48, 79, 0.05);
+    --shadow-md: 0 4px 12px rgba(20, 48, 79, 0.1);
+    --shadow-lg: 0 12px 24px -4px rgba(20, 48, 79, 0.14);
+    --shadow-xl: 0 20px 40px -8px rgba(20, 48, 79, 0.18);
+
     /* Animation Timing */
     --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-smooth: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Drafting-paper grid, faint behind all content */
+body {
+    background-image:
+        linear-gradient(var(--grid-line) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+    background-size: 28px 28px;
+}
+
+body.dark-mode {
+    background-image:
+        linear-gradient(rgba(216, 232, 244, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(216, 232, 244, 0.05) 1px, transparent 1px);
+    background-size: 28px 28px;
 }
 
 /* MathJax Mobile Fix */
@@ -130,7 +147,7 @@ a {
 
 /* Navigation */
 .navbar {
-    background: rgba(15, 23, 42, 0.85); /* Slightly more transparent */
+    background: rgba(20, 48, 79, 0.85); /* Slightly more transparent */
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
@@ -213,8 +230,19 @@ a {
     left: -50%;
     width: 200%;
     height: 200%;
-    background: radial-gradient(circle, rgba(212, 175, 55, 0.08) 0%, transparent 60%);
+    background: radial-gradient(circle, rgba(185, 60, 22, 0.1) 0%, transparent 60%);
     animation: rotateSlowly 40s linear infinite;
+    z-index: 0;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(234, 241, 245, 0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(234, 241, 245, 0.06) 1px, transparent 1px);
+    background-size: 32px 32px;
     z-index: 0;
 }
 
@@ -260,7 +288,7 @@ a {
 .btn {
     display: inline-block;
     padding: 0.85rem 2.25rem;
-    border-radius: 50px;
+    border-radius: 6px;
     font-weight: 700;
     cursor: pointer;
     transition: all var(--transition-smooth);
@@ -271,20 +299,20 @@ a {
 
 .btn-primary {
     background: var(--gradient-gold);
-    color: var(--primary);
-    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+    color: var(--accent-ink);
+    box-shadow: 0 4px 15px rgba(185, 60, 22, 0.3);
     border: 2px solid transparent;
 }
 
 .btn-primary:hover {
     transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.5);
+    box-shadow: 0 8px 25px rgba(185, 60, 22, 0.5);
 }
 
 /* Cards */
 .card {
     background: var(--bg-card);
-    border-radius: 1.25rem;
+    border-radius: 8px;
     padding: 2rem;
     border: 1px solid var(--border);
     transition: all var(--transition-smooth);
@@ -299,10 +327,23 @@ a {
     top: 0;
     left: 0;
     right: 0;
-    height: 4px;
+    height: 3px;
     background: var(--gradient-gold);
     opacity: 0;
     transition: opacity var(--transition-smooth);
+}
+
+.card::after {
+    content: '';
+    position: absolute;
+    top: 7px;
+    right: 7px;
+    width: 9px;
+    height: 9px;
+    border-top: 1.5px solid var(--border);
+    border-right: 1.5px solid var(--border);
+    opacity: 0.8;
+    transition: border-color var(--transition-smooth);
 }
 
 .card:hover {
@@ -313,6 +354,10 @@ a {
 
 .card:hover::before {
     opacity: 1;
+}
+
+.card:hover::after {
+    border-color: var(--accent);
 }
 
 .card-icon {
@@ -357,7 +402,7 @@ section#files {
     background: white;
     padding: 2.5rem;
     margin-bottom: 2rem;
-    border-radius: 1rem;
+    border-radius: 6px;
     box-shadow: var(--shadow-sm);
     border: 1px solid var(--border);
     max-width: 900px;
@@ -381,7 +426,7 @@ section#files {
     .slide {
         padding: 1.5rem;
         margin-bottom: 1.5rem;
-        border-radius: 0.75rem;
+        border-radius: 4px;
     }
 
     .slide h1 {
@@ -448,7 +493,7 @@ section#files {
 .axiombox {
     margin: 1.5rem 0;
     padding: 1.5rem;
-    border-radius: 0.75rem;
+    border-radius: 4px;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
     position: relative;
     overflow-x: auto;
@@ -601,7 +646,7 @@ section#files {
         left: 0;
         right: 0;
         width: 100%;
-        background-color: #0F172A;
+        background-color: #14304F;
         flex-direction: row !important;
         flex-wrap: wrap;
         justify-content: center;
@@ -625,7 +670,7 @@ section#files {
     .nav-links a {
         display: inline-block;
         padding: 8px 16px;
-        border-radius: 50px;
+        border-radius: 6px;
         background: rgba(255, 255, 255, 0.05);
         border: 1px solid rgba(255, 255, 255, 0.1);
         color: white;
@@ -640,7 +685,7 @@ section#files {
         color: var(--primary) !important;
         border-color: var(--accent);
         transform: translateY(-2px);
-        box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+        box-shadow: 0 4px 12px rgba(185, 60, 22, 0.3);
     }
 }
 
@@ -691,7 +736,7 @@ section#files {
 .premium-table-container {
     width: 100%;
     overflow-x: auto;
-    border-radius: 1rem;
+    border-radius: 6px;
     box-shadow: var(--shadow-md);
     border: 1px solid var(--border);
     background: var(--bg-card);
@@ -704,11 +749,11 @@ section#files {
 }
 .premium-table-container::-webkit-scrollbar-track {
     background: var(--bg-body);
-    border-radius: 0 0 1rem 1rem;
+    border-radius: 0 0 6px 6px;
 }
 .premium-table-container::-webkit-scrollbar-thumb {
     background: var(--text-muted);
-    border-radius: 1rem;
+    border-radius: 6px;
 }
 
 .premium-table {
@@ -777,7 +822,7 @@ section#files {
     margin: 2rem auto;
     background: white;
     padding: 2.5rem;
-    border-radius: 1.5rem;
+    border-radius: 8px;
     box-shadow: var(--shadow-lg);
     border: 1px solid var(--border);
 }
@@ -785,7 +830,7 @@ section#files {
 @media (max-width: 768px) {
     .quiz-container {
         padding: 1.25rem;
-        border-radius: 1rem;
+        border-radius: 6px;
     }
 }
 
@@ -801,7 +846,7 @@ section#files {
     justify-content: space-around;
     background: var(--bg-body);
     padding: 1.5rem;
-    border-radius: 1rem;
+    border-radius: 6px;
     margin-bottom: 2rem;
     border: 1px solid var(--border);
 }
@@ -849,7 +894,7 @@ section#files {
     margin: 2rem 0;
     padding: 1.5rem;
     background: var(--bg-body);
-    border-radius: 0.75rem;
+    border-radius: 4px;
     text-align: center;
     border: 1px dashed var(--border);
 }
@@ -867,7 +912,7 @@ section#files {
     padding: 1.25rem;
     background: white;
     border: 2px solid var(--border);
-    border-radius: 1rem;
+    border-radius: 6px;
     cursor: pointer;
     transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
     font-weight: 500;
@@ -929,7 +974,7 @@ section#files {
 
 .feedback {
     padding: 1.5rem;
-    border-radius: 1rem;
+    border-radius: 6px;
     margin-top: 2rem;
     font-weight: 500;
     line-height: 1.6;
@@ -987,15 +1032,15 @@ section#files {
     bottom: 20px;
     left: 20px;
     z-index: 9999;
-    background: linear-gradient(135deg, #D4AF37 0%, #F3D063 100%);
-    color: #0F172A;
+    background: linear-gradient(135deg, #B93C16 0%, #E2572A 100%);
+    color: var(--accent-ink);
     border: none;
-    border-radius: 50px;
+    border-radius: 6px;
     padding: 12px 24px;
     font-family: 'Tajawal', sans-serif;
     font-weight: bold;
     font-size: 1rem;
-    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+    box-shadow: 0 4px 15px rgba(185, 60, 22, 0.4);
     cursor: pointer;
     transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     display: flex;
@@ -1025,7 +1070,7 @@ section#files {
 
 #feedback-btn:hover {
     transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.6);
+    box-shadow: 0 6px 20px rgba(185, 60, 22, 0.6);
 }
 
 #feedback-modal-overlay {
@@ -1034,7 +1079,7 @@ section#files {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(15, 23, 42, 0.6);
+    background: rgba(20, 48, 79, 0.6);
     backdrop-filter: blur(4px);
     z-index: 10000;
     display: none;
@@ -1045,7 +1090,7 @@ section#files {
 #feedback-modal {
     background: #FFFFFF;
     padding: 2rem;
-    border-radius: 16px;
+    border-radius: 6px;
     width: 90%;
     max-width: 450px;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
@@ -1056,7 +1101,7 @@ section#files {
 }
 
 #feedback-modal h3 {
-    color: #0F172A;
+    color: #14304F;
     margin-bottom: 1rem;
     font-size: 1.5rem;
 }
@@ -1077,7 +1122,7 @@ section#files {
 }
 
 #feedback-modal textarea:focus {
-    border-color: #D4AF37;
+    border-color: #B93C16;
 }
 
 #feedback-modal .btn-close {
@@ -1092,7 +1137,7 @@ section#files {
 }
 
 #feedback-modal .btn-send {
-    background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+    background: linear-gradient(135deg, #14304F 0%, #1C466F 100%);
     color: white;
     border: none;
     padding: 12px 0;
@@ -1138,8 +1183,8 @@ section#files {
 
 /* Dark Mode Variables */
 body.dark-mode {
-    --bg-body: #0F172A;
-    --bg-card: #1E293B;
+    --bg-body: #14304F;
+    --bg-card: #1C466F;
     --text-main: #F1F5F9;
     --text-muted: #94A3B8;
     --border: #334155;
@@ -1178,7 +1223,7 @@ body.dark-mode .step-explanation {
 
 body.dark-mode .navbar,
 body.dark-mode .footer {
-    background-color: #1E293B !important;
+    background-color: #1C466F !important;
 }
 
 /* Text Color Overrides */
@@ -1220,7 +1265,7 @@ body.dark-mode section#files {
 }
 
 body.dark-mode .premium-table th {
-    background-color: #1E293B !important;
+    background-color: #1C466F !important;
     color: #F8FAFC !important;
     border-color: var(--border) !important;
 }
@@ -1354,7 +1399,7 @@ body.dark-mode .row-highlight-warning td {
         top: 100px;
         background: var(--bg-card);
         padding: 1.5rem;
-        border-radius: 1rem;
+        border-radius: 6px;
         border: 1px solid var(--border);
         box-shadow: var(--shadow-sm);
         max-height: calc(100vh - 120px);
@@ -1569,7 +1614,7 @@ body.dark-mode .toc-link {
 }
 
 .unit-nav .nav-btn.primary:hover {
-    box-shadow: 0 4px 12px rgba(212, 175, 55, 0.4);
+    box-shadow: 0 4px 12px rgba(185, 60, 22, 0.4);
 }
 
 .unit-nav .nav-btn.pdf-btn {
@@ -1668,7 +1713,7 @@ body.dark-mode .unit-nav .nav-btn.primary {
             top: 100px;
             background: var(--bg-card);
             padding: 1.5rem;
-            border-radius: 1rem;
+            border-radius: 6px;
             border: 1px solid var(--border);
             box-shadow: var(--shadow-sm);
             max-height: calc(100vh - 120px);
@@ -1764,7 +1809,7 @@ body.dark-mode .unit-nav .nav-btn.primary {
     }
 
     .unit-nav .nav-btn.primary:hover {
-        box-shadow: 0 4px 12px rgba(212, 175, 55, 0.4);
+        box-shadow: 0 4px 12px rgba(185, 60, 22, 0.4);
     }
 
     .unit-nav .nav-btn.pdf-btn {
@@ -1884,7 +1929,7 @@ main,
 }
 
 #footer-container .footer {
-    background: rgba(15, 23, 42, 0.95);
+    background: rgba(20, 48, 79, 0.95);
     /* Match Navbar background */
     backdrop-filter: blur(10px);
     border-top: 1px solid rgba(255, 255, 255, 0.1);
@@ -1959,7 +2004,7 @@ main,
 }
 
 .unit-nav .nav-btn.primary:hover {
-    box-shadow: 0 4px 12px rgba(212, 175, 55, 0.4);
+    box-shadow: 0 4px 12px rgba(185, 60, 22, 0.4);
 }
 
 .unit-nav .nav-btn.pdf-btn {
@@ -2079,7 +2124,7 @@ main,
 }
 
 #footer-container .footer {
-    background: rgba(15, 23, 42, 0.95);
+    background: rgba(20, 48, 79, 0.95);
     /* Match Navbar background */
     backdrop-filter: blur(10px);
     border-top: 1px solid rgba(255, 255, 255, 0.1);
@@ -2145,7 +2190,7 @@ main,
 
 /* --- Enrichment Exercises Grid Layout --- */
 :root {
-    --accent-secondary: #7c3aed;
+    --accent-secondary: #1B7A98; /* Drafting ink blue - pairs with the redline accent */
 }
 
 .example-grid {
@@ -2320,7 +2365,7 @@ body.dark-mode .ex-explanation {
 .blob-1 {
     width: 500px;
     height: 500px;
-    background: #4f46e5;
+    background: #1B7A98;
     top: -100px;
     left: -100px;
 }
@@ -2328,7 +2373,7 @@ body.dark-mode .ex-explanation {
 .blob-2 {
     width: 400px;
     height: 400px;
-    background: #db2777;
+    background: #B93C16;
     bottom: -50px;
     right: -100px;
     animation-delay: -5s;
@@ -2337,7 +2382,7 @@ body.dark-mode .ex-explanation {
 .blob-3 {
     width: 300px;
     height: 300px;
-    background: #7c3aed;
+    background: #14304F;
     top: 40%;
     left: 30%;
     animation-delay: -10s;

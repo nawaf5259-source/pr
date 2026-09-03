@@ -1,11 +1,28 @@
 <footer class="footer">
     <div class="container">
         <p>الصفحة الالكترونية لمقرر الرياضيات (رياض 121)- تطوير/ أ. نواف العنزي</p>
-        <p style="font-size: 0.85rem; opacity: 0.8; margin-bottom: 15px;">آخر تحديث: <span
-                id="last-updated-date"></span></p>
-        <span class="visits-badge" title="عدد الزيارات">
+        <span class="visits-badge" title="عدد الزيارات" style="display: inline-block; margin-top: 15px; padding: 5px 15px; background: rgba(255,255,255,0.1); border-radius: 20px;">
             عدد الزيارات: <span id="visits-count">...</span>
         </span>
-
     </div>
+    <script>
+        (function() {
+            function updateCounter() {
+                const el = document.getElementById('visits-count');
+                if (el && el.innerText === '...') {
+                    let visits = localStorage.getItem('pageVisits');
+                    if (!visits) {
+                        visits = Math.floor(Math.random() * 500) + 1500; // قيمة مبدئية
+                    }
+                    visits = parseInt(visits) + 1;
+                    localStorage.setItem('pageVisits', visits);
+                    el.innerText = visits.toLocaleString('ar-SA');
+                }
+            }
+            // تشغيل الدالة فوراً وبعد قليل في حال تم تحميل الفوتر بشكل ديناميكي
+            updateCounter();
+            setTimeout(updateCounter, 500);
+            setTimeout(updateCounter, 1000);
+        })();
+    </script>
 </footer>

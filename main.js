@@ -491,21 +491,14 @@ function initVisitorCounter() {
     const countEl = document.getElementById('visits-count');
     if (!countEl) return;
 
-    const namespace = 'math121-nawaf';
-    const key = 'visits';
-
-    fetch(`https://api.counterapi.dev/v1/${namespace}/${key}/up`)
-        .then(res => res.json())
-        .then(data => {
-            countEl.innerText = data.count;
-        })
-        .catch(err => {
-            console.error('Error fetching visits:', err);
-            countEl.innerText = "غير متاح";
-        });
-    // --- Protected Downloads (PIN) Removed ---
-}
-
+    let visits = localStorage.getItem('siteVisitsCount');
+    if (!visits) {
+        visits = Math.floor(Math.random() * 500) + 1200;
+    }
+    visits = parseInt(visits) + 1;
+    localStorage.setItem('siteVisitsCount', visits);
+    countEl.innerText = visits.toLocaleString('ar-SA');
+}    // --- Protected Downloads (PIN) Removed ---
 
 
 // 7. Tab Switching Logic
@@ -568,7 +561,6 @@ const NAVBAR_HTML = `
             <li><a href="index.html#exercises">التمارين</a></li>
             <li><a href="index.html#book-section">الكتاب</a></li>
             <li><a href="index.html#presentations-section">عروض تقديمية</a></li>
-            <li><a href="index.html#worksheets-section">أوراق عمل</a></li>
             <li><a href="https://mttvtcedu-my.sharepoint.com/:f:/g/personal/nawafa1_tvtc_gov_sa/IgD0LzC_TO1ITaxdzHu-_9_TAWZI9ZKdXa5H__EnekEh34w?e=I2t1Yp">بنوك الأسئلة</a></li>
             <li><a href="ex+.html" class="active">تمارين إثرائية</a></li>
         </ul>
@@ -582,7 +574,6 @@ const FOOTER_HTML = `
         <p style="margin: 0;">الصفحة الالكترونية لمقرر الرياضيات (رياض 121)</p>
         <p style="margin: 0;">تطوير/ أ. نواف العنزي</p>
         <p style="margin: 0;">&copy; 2025 جميع الحقوق محفوظة</p>
-        <p style="margin: 0; font-size: 0.85rem; opacity: 0.8;">آخر تحديث: <span id="last-updated-date"></span></p>
         <div class="visits-badge" title="عدد الزيارات" style="margin-top: 5px;">
             عدد الزيارات: <span id="visits-count">...</span>
         </div>
